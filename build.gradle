@@ -1,0 +1,56 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'io.spring.gradle:dependency-management-plugin:1.0.5.RELEASE'
+    }
+}
+
+
+
+plugins {
+    id 'java'
+    id 'io.spring.dependency-management' version '1.0.5.RELEASE'
+}
+
+group 'ru.ioleksiv'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.9
+targetCompatibility = 1.9
+
+
+dependencyManagement {
+    dependencies {
+        dependencySet(group:'org.springframework', version: '5.0.6.RELEASE') {
+            entry('spring-context') {
+                exclude group: 'commons-logging', name: 'commons-logging'
+            }
+        }
+    }
+}
+
+
+dependencies {
+    compile 'org.springframework:spring-context'
+    compile 'org.springframework:spring-beans'
+    
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.5'
+
+    compile 'org.slf4j:jcl-over-slf4j:1.7.12'
+
+    compile 'org.jetbrains:annotations:16.0.2'
+
+
+
+
+
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+
+
+}
