@@ -15,21 +15,40 @@ plugins {
 }
 
 group 'ru.ioleksiv'
-version '1.0-SNAPSHOT'
+version '1.0'
 
 repositories {
     mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
 }
 
-sourceCompatibility = 1.9
-targetCompatibility = 1.9
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 
 dependencyManagement {
+    imports {
+        mavenBom 'io.spring.platform:platform-bom:1.1.1.RELEASE'
+    }
     dependencies {
         dependencySet(group:'org.springframework', version: '5.0.6.RELEASE') {
-            entry('spring-context') {
-                exclude group: 'commons-logging', name: 'commons-logging'
+
+        }
+    }
+}
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+
+            artifact sourceJar {
+                classifier "sources"
             }
         }
     }
@@ -37,14 +56,18 @@ dependencyManagement {
 
 
 dependencies {
+    // Spring dependencies
+    compile 'org.springframework:spring-core'
     compile 'org.springframework:spring-context'
     compile 'org.springframework:spring-beans'
-    
+    compile 'org.springframework:spring-web'
+    // Annotations
+    compile 'org.jetbrains:annotations:16.0.2'
+
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.5'
 
     compile 'org.slf4j:jcl-over-slf4j:1.7.12'
 
-    compile 'org.jetbrains:annotations:16.0.2'
 
 
 

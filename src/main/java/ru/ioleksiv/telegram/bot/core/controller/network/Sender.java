@@ -1,0 +1,28 @@
+package ru.ioleksiv.telegram.bot.core.controller.network;
+
+import ru.ioleksiv.telegram.bot.core.api.TelegramSender;
+import ru.ioleksiv.telegram.bot.core.model.actions.IAction;
+import ru.ioleksiv.telegram.bot.core.model.telegram.responses.CommonResponse;
+
+public class Sender implements TelegramSender {
+    private final Networker networker;
+
+    //todo add logic with pause between messages
+    public Sender(Networker networker) {
+        this.networker = networker;
+    }
+
+    @Override
+    public boolean send(IAction action) {
+        return networker.run(action, CommonResponse.class) != null;
+    }
+
+    @Override
+    public void send(Iterable<IAction> actions) {
+
+        for (IAction action : actions) {
+            send(action);
+        }
+    }
+
+}
