@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.ioleksiv.telegram.bot.core.api.TelegramProcessor;
 import ru.ioleksiv.telegram.bot.core.model.actions.IAction;
-import ru.ioleksiv.telegram.bot.core.model.exceptions.InvalidInputException;
+import ru.ioleksiv.telegram.bot.core.api.exceptions.InvalidInputException;
 import ru.ioleksiv.telegram.bot.core.controller.handler.IHandler;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.Update;
 

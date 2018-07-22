@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestOperations;
 import ru.ioleksiv.telegram.bot.core.controller.handler.invoke.AbstractInvokeHandler;
-import ru.ioleksiv.telegram.bot.core.model.exceptions.NetworkerException;
+import ru.ioleksiv.telegram.bot.core.api.exceptions.NetworkerException;
 import ru.ioleksiv.telegram.bot.core.model.actions.IServerApi;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.CommonResponse;
 

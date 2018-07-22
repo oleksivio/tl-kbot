@@ -3,7 +3,7 @@ package ru.ioleksiv.telegram.bot.core.controller.handler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.ioleksiv.telegram.bot.core.model.actions.IAction;
-import ru.ioleksiv.telegram.bot.core.model.exceptions.InvalidInputException;
+import ru.ioleksiv.telegram.bot.core.api.exceptions.InvalidInputException;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.Update;
 
 import java.util.ArrayList;
