@@ -36,8 +36,6 @@ public class AnnotationProcessor {
         this.mainProcessor = mainProcessor;
     }
 
-
-
     public void add(Object obj) {
 
         Class<?> objClz = obj.getClass();
@@ -114,6 +112,9 @@ public class AnnotationProcessor {
 
         for (Method method : clazz.getDeclaredMethods()) {
             AbstractInvokeHandler handler = HandlerFactory.create(obj, method);
+            if (handler == null) {
+                continue;
+            }
 
             if (method.isAnnotationPresent(Before.class)) {
                 beforeHandler = handler;
