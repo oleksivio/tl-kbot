@@ -4,9 +4,10 @@ import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.ioleksiv.telegram.bot.core.api.TelegramProcessor;
-import ru.ioleksiv.telegram.bot.core.model.actions.IAction;
+import ru.ioleksiv.telegram.bot.core.api.exceptions.CancelSessionException;
 import ru.ioleksiv.telegram.bot.core.api.exceptions.InvalidInputException;
 import ru.ioleksiv.telegram.bot.core.controller.handler.IHandler;
+import ru.ioleksiv.telegram.bot.core.model.actions.IAction;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.Update;
 
 import java.util.Collection;
@@ -52,9 +53,7 @@ public class SessionProcessor implements TelegramProcessor {
         }
 
         if (mOrderManager.isActive() && mCancelHandler.isAcceptable(update)) {
-            mOrderManager.reset();
-
-            return mCancelHandler.invoke(update);
+            return cancelSession(update);
         }
 
         if (mOrderManager.isActive()) {
@@ -67,8 +66,10 @@ public class SessionProcessor implements TelegramProcessor {
                     mOrderManager.next(mOrderMap.keySet());
                     return actions;
                 }
+                catch (CancelSessionException cancelException) {
+                    return cancelSession(update);
+                }
                 catch (InvalidInputException ignored) {
-
                 }
 
             }
@@ -80,6 +81,12 @@ public class SessionProcessor implements TelegramProcessor {
         }
 
         return Collections.emptyList();
+    }
+
+    private List<IAction> cancelSession(Update update) {
+        mOrderManager.reset();
+
+        return mCancelHandler.invoke(update);
     }
 
     private static class OrderManager {
