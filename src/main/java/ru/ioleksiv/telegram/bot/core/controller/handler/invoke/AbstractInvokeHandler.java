@@ -4,16 +4,13 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.ioleksiv.telegram.bot.core.model.actions.IAction;
+import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
 import ru.ioleksiv.telegram.bot.core.controller.handler.IHandler;
-import ru.ioleksiv.telegram.bot.core.api.exceptions.InvalidInputException;
 import ru.ioleksiv.telegram.bot.core.model.telegram.interfaces.ITelegram;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.Update;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Collections;
-import java.util.List;
 import java.util.Objects;
 
 public abstract class AbstractInvokeHandler implements IHandler {
@@ -32,11 +29,11 @@ public abstract class AbstractInvokeHandler implements IHandler {
 
     @Override
     @NotNull
-    public List<IAction> invoke(@Nullable Update update) throws InvalidInputException {
+    public HandlerResult invoke(@Nullable Update update) {
 
         if (mClassInstance == null || mMethod == null || update == null) {
             // Not valid arguments
-            return Collections.emptyList();
+            return HandlerResult.noAction();
         }
 
         try {
@@ -49,7 +46,7 @@ public abstract class AbstractInvokeHandler implements IHandler {
                     && methodArgsTypes.length == 1
                     && Objects.equals(methodArgsTypes[0], methodParameter.getClass())) {
 
-                return (List<IAction>) mMethod.invoke(mClassInstance, methodParameter);
+                return (HandlerResult) mMethod.invoke(mClassInstance, methodParameter);
             }
 
         }
@@ -68,7 +65,7 @@ public abstract class AbstractInvokeHandler implements IHandler {
             throw invalidBehaviorException;
         }
 
-        return Collections.emptyList();
+        return HandlerResult.noAction();
 
     }
 

@@ -9,10 +9,10 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.model.query.InlineQuery;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.query.PreCheckoutQuery;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.query.ShippingQuery;
 
-public enum TargetChat implements ITargetChat {
+public enum Target {
     USER {
-        @NotNull
         @Override
+        @NotNull
         public Long getId(@NotNull Message message) {
             return message.getSender().getId();
         }
@@ -49,8 +49,9 @@ public enum TargetChat implements ITargetChat {
         }
     },
     CHAT {
-        @NotNull
         @Override
+        @NotNull
+
         public Long getId(@NotNull Message message) {
             return message.getChat().getId();
         }
@@ -91,6 +92,19 @@ public enum TargetChat implements ITargetChat {
             // TODO change default method body
             throw new UnsupportedOperationException("You should change default method body");
         }
-    }
+    };
+
+    @NotNull
+    public abstract Long getId(@NotNull Message message);
+
+    public abstract Long getId(@NotNull CallbackQuery callbackQuery);
+
+    public abstract Long getId(@NotNull ShippingQuery shippingQuery);
+
+    public abstract Long getId(@NotNull PreCheckoutQuery preCheckoutQuery);
+
+    public abstract Long getId(@NotNull InlineQuery inlineQuery);
+
+    public abstract Long getId(@NotNull ChosenInlineResult chosenInlineResult);
 
 }

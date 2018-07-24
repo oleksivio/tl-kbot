@@ -4,23 +4,19 @@ import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.ioleksiv.telegram.bot.core.api.TelegramProcessor;
-import ru.ioleksiv.telegram.bot.core.api.exceptions.CancelSessionException;
-import ru.ioleksiv.telegram.bot.core.api.exceptions.InvalidInputException;
+import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
 import ru.ioleksiv.telegram.bot.core.controller.handler.IHandler;
-import ru.ioleksiv.telegram.bot.core.model.actions.IAction;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.Update;
 
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class SessionProcessor implements TelegramProcessor {
     private static final Logger LOGGER = LoggerFactory.getLogger(StatelessProcessor.class);
 
     private final Map<Integer, IHandler> mOrderMap = new HashMap<>();
-    private final Map<Integer, IHandler> mErrorMap = new HashMap<>();
 
     private final IHandler mInitialHandler;
 
@@ -38,22 +34,25 @@ public class SessionProcessor implements TelegramProcessor {
         mOrderMap.put(order, handler);
     }
 
-    public void addErrorHandler(int order, IHandler handler) {
-        mErrorMap.put(order, handler);
-    }
-
     @NotNull
     @Override
-    public List<IAction> process(Update update) {
+    public HandlerResult process(Update update) {
 
         if (!mOrderManager.isActive() && mInitialHandler.isAcceptable(update)) {
-            mOrderManager.next(mOrderMap.keySet());
+            HandlerResult handlerResult = mInitialHandler.invoke(update);
+            if (handlerResult.hasSuccess()) {
+                mOrderManager.next(mOrderMap.keySet());
+            } else {
+                return handlerResult;
+            }
 
             return mInitialHandler.invoke(update);
         }
 
         if (mOrderManager.isActive() && mCancelHandler.isAcceptable(update)) {
-            return cancelSession(update);
+            mOrderManager.reset();
+
+            return mCancelHandler.invoke(update);
         }
 
         if (mOrderManager.isActive()) {
@@ -61,32 +60,22 @@ public class SessionProcessor implements TelegramProcessor {
 
             if (handler != null && handler.isAcceptable(update)) {
 
-                try {
-                    List<IAction> actions = handler.invoke(update);
+                HandlerResult handlerResult = handler.invoke(update);
+
+                if (handlerResult.hasSuccess()) {
                     mOrderManager.next(mOrderMap.keySet());
-                    return actions;
+                    return handlerResult;
                 }
-                catch (CancelSessionException cancelException) {
-                    return cancelSession(update);
-                }
-                catch (InvalidInputException ignored) {
+                else if (handlerResult.hasCancelSession()) {
+                    mOrderManager.reset();
+                    return handlerResult;
                 }
 
             }
 
-            IHandler errorHandler = mErrorMap.get(mOrderManager.getCurrent());
-            if (errorHandler != null) {
-                return errorHandler.invoke(update);
-            }
         }
 
-        return Collections.emptyList();
-    }
-
-    private List<IAction> cancelSession(Update update) {
-        mOrderManager.reset();
-
-        return mCancelHandler.invoke(update);
+        return HandlerResult.noAction();
     }
 
     private static class OrderManager {

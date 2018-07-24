@@ -1,4 +1,4 @@
-package ru.ioleksiv.telegram.bot.core.api.exceptions;
+package ru.ioleksiv.telegram.bot.core.model.exceptions;
 
 public class HolderException extends RuntimeException {
     public HolderException(String msg){

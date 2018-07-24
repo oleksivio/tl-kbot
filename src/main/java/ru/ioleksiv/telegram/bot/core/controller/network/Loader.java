@@ -3,7 +3,7 @@ package ru.ioleksiv.telegram.bot.core.controller.network;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.ioleksiv.telegram.bot.core.api.exceptions.NetworkerException;
+import ru.ioleksiv.telegram.bot.core.model.exceptions.NetworkerException;
 import ru.ioleksiv.telegram.bot.core.model.actions.request.GetUpdatesApi;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.Update;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.UpdatesArrayResponse;

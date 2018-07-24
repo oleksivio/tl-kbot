@@ -3,13 +3,12 @@ package ru.ioleksiv.telegram.bot.core.controller.processor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.ioleksiv.telegram.bot.core.api.TelegramProcessor;
+import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
 import ru.ioleksiv.telegram.bot.core.model.actions.IAction;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.Update;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
 public class MainProcessor implements TelegramProcessor {
     @NotNull
@@ -21,36 +20,37 @@ public class MainProcessor implements TelegramProcessor {
 
     @Override
     @NotNull
-    public List<IAction> process(@Nullable Update update) {
-        List<IAction> foundSessionHandlers = new ArrayList<>();
+    public HandlerResult process(@Nullable Update update) {
 
         for (TelegramProcessor handler : mSessionHandlers) {
-            foundSessionHandlers.addAll(handler.process(update));
+            HandlerResult handlerResult = handler.process(update);
+            if (handlerResult.hasSuccess()) {
+                return handlerResult;
+            }
         }
 
-        if (!foundSessionHandlers.isEmpty()) {
-            return foundSessionHandlers;
-        }
-
-        List<IAction> foundStatelessHandlers = new ArrayList<>();
+        HandlerResult statelessResults = HandlerResult.success();
 
         for (TelegramProcessor handler : mStatelessHandlers) {
-            foundStatelessHandlers.addAll(handler.process(update));
+            HandlerResult processedResult  = handler.process(update);
+            for(IAction action : processedResult.getAction()) {
+                statelessResults.add(action);
+            }
         }
 
-        if (!foundStatelessHandlers.isEmpty()) {
-            return foundStatelessHandlers;
+        if (!statelessResults.isEmpty()) {
+            return statelessResults;
         }
 
         if (mDefaultHandler != null) {
-            List<IAction> resultList = mDefaultHandler.process(update);
+            HandlerResult resultList = mDefaultHandler.process(update);
 
             if (!resultList.isEmpty()) {
                 return resultList;
             }
         }
 
-        return Collections.emptyList();
+        return HandlerResult.noAction();
 
     }
 

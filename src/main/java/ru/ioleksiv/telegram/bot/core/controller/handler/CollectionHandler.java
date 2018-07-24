@@ -2,14 +2,11 @@ package ru.ioleksiv.telegram.bot.core.controller.handler;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import ru.ioleksiv.telegram.bot.core.model.actions.IAction;
-import ru.ioleksiv.telegram.bot.core.api.exceptions.InvalidInputException;
+import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.Update;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 
 public class CollectionHandler implements IHandler {
 
@@ -37,15 +34,16 @@ public class CollectionHandler implements IHandler {
     // todo CHECK CODE
     @Override
     @NotNull
-    public List<IAction> invoke(@Nullable Update update) throws InvalidInputException {
-
-        List<IAction> actions = new ArrayList<>();
+    public HandlerResult invoke(@Nullable Update update) {
         for (IHandler handler : mAcceptableHandlers) {
-            actions.addAll(handler.invoke(update));
+            HandlerResult handlerResult = handler.invoke(update);
+            if (!handlerResult.hasNoAction()) {
+                mAcceptableHandlers.clear();
+                return handlerResult;
+            }
         }
 
-        mAcceptableHandlers.clear();
-        return actions;
+        return HandlerResult.noAction();
     }
 
     public boolean isEmpty() {

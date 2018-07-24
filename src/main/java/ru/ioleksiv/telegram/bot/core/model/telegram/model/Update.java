@@ -1,6 +1,5 @@
 package ru.ioleksiv.telegram.bot.core.model.telegram.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -9,7 +8,6 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.model.query.CallbackQuery;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.query.InlineQuery;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.query.PreCheckoutQuery;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.query.ShippingQuery;
-import ru.ioleksiv.telegram.bot.core.utils.ITargetChat;
 
 public class Update implements ITelegram {
     /**
@@ -112,49 +110,6 @@ public class Update implements ITelegram {
      */
     @Nullable
     private PreCheckoutQuery mPreCheckoutQuery = null;
-
-    @JsonIgnore
-    @Nullable
-    public Long getTargetChatId(ITargetChat type) {
-
-        if (mMessage != null) {
-            return type.getId(mMessage);
-        }
-
-        if (mEditedMessage != null) {
-            return type.getId(mEditedMessage);
-        }
-
-        if (mChannelPost != null) {
-            return type.getId(mChannelPost);
-        }
-
-        if (mEditedChannelPost != null) {
-            return type.getId(mEditedChannelPost);
-        }
-
-        if (mInlineQuery != null) {
-            return type.getId(mInlineQuery);
-        }
-
-        if (mChoosenInlineResult != null) {
-            return type.getId(mChoosenInlineResult);
-        }
-
-        if (mCallbackQuery != null) {
-            return type.getId(mCallbackQuery);
-        }
-
-        if (mShippingQuery != null) {
-            return type.getId(mShippingQuery);
-        }
-        if (mPreCheckoutQuery != null) {
-            return type.getId(mPreCheckoutQuery);
-        }
-
-        return null;
-
-    }
 
     @JsonProperty("edited_message")
     public Message getEditedMessage() {

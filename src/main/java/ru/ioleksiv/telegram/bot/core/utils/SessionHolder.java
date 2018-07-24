@@ -1,6 +1,6 @@
 package ru.ioleksiv.telegram.bot.core.utils;
 
-import ru.ioleksiv.telegram.bot.core.api.exceptions.HolderException;
+import ru.ioleksiv.telegram.bot.core.model.exceptions.HolderException;
 
 import java.util.HashMap;
 import java.util.Map;

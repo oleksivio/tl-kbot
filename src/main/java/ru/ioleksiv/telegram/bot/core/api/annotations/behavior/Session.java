@@ -1,7 +1,5 @@
 package ru.ioleksiv.telegram.bot.core.api.annotations.behavior;
 
-import ru.ioleksiv.telegram.bot.core.utils.TargetChat;
-
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -27,10 +25,6 @@ public @interface Session {
     @Target(ElementType.METHOD)
     @interface Order {
         int value();
-
-        String errorText() default "";
-
-        TargetChat targetChat() default TargetChat.CHAT;
     }
 
 }

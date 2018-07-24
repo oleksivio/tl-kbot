@@ -1,22 +1,19 @@
-package ru.ioleksiv.telegram.bot.core.api.actions;
+package ru.ioleksiv.telegram.bot.core.api.result.actions;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.ioleksiv.telegram.bot.core.model.actions.IAction;
 
-import java.util.Collections;
-import java.util.List;
-
-public class InlineBuilder implements ActionBuilder{
+public class InlineBuilder{
     private static final Logger LOGGER = LoggerFactory.getLogger(InlineBuilder.class);
     private IAction mInlineAction = null;
 
 
-    @Override
-    public List<IAction> build() {
+
+    public IAction build() {
 
         if (mInlineAction != null) {
-            return Collections.singletonList(mInlineAction);
+            return mInlineAction;
         }
         throw new IllegalStateException("Can't build object. Inline Action must be set before building.");
 

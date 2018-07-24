@@ -10,8 +10,8 @@ import ru.ioleksiv.telegram.bot.core.api.annotations.behavior.Stateless;
 import ru.ioleksiv.telegram.bot.core.api.annotations.handler.After;
 import ru.ioleksiv.telegram.bot.core.api.annotations.handler.Before;
 import ru.ioleksiv.telegram.bot.core.api.annotations.handler.update.DefaultHandler;
+import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
 import ru.ioleksiv.telegram.bot.core.controller.handler.CollectionHandler;
-import ru.ioleksiv.telegram.bot.core.controller.handler.ErrorHandler;
 import ru.ioleksiv.telegram.bot.core.controller.handler.HandlerFactory;
 import ru.ioleksiv.telegram.bot.core.controller.handler.IHandler;
 import ru.ioleksiv.telegram.bot.core.controller.handler.invoke.AbstractInvokeHandler;
@@ -19,12 +19,10 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.invoke.UpdateHandler;
 import ru.ioleksiv.telegram.bot.core.controller.processor.MainProcessor;
 import ru.ioleksiv.telegram.bot.core.controller.processor.SessionProcessor;
 import ru.ioleksiv.telegram.bot.core.controller.processor.StatelessProcessor;
-import ru.ioleksiv.telegram.bot.core.utils.TargetChat;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 public class AnnotationProcessor {
@@ -77,15 +75,8 @@ public class AnnotationProcessor {
                 if (order <= 0) {
                     throw new IllegalStateException("Order value can't be less than one");
                 }
-                String errorText = orderAnnotation.errorText();
-                TargetChat targetChat = orderAnnotation.targetChat();
                 if (handler != null) {
-
                     sessionProcessor.addOrderHandler(order, handler);
-
-                    IHandler errorHandler = new ErrorHandler(errorText, targetChat);
-
-                    sessionProcessor.addErrorHandler(order, errorHandler);
                 }
             }
 
@@ -145,6 +136,6 @@ public class AnnotationProcessor {
             }
         }
 
-        return update -> Collections.emptyList();
+        return update -> HandlerResult.noAction();
     }
 }

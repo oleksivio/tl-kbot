@@ -12,16 +12,12 @@ public class Sender implements TelegramSender {
         this.networker = networker;
     }
 
-    @Override
-    public boolean send(IAction action) {
-        return networker.run(action, CommonResponse.class) != null;
-    }
 
     @Override
     public void send(Iterable<IAction> actions) {
 
         for (IAction action : actions) {
-            send(action);
+            networker.run(action, CommonResponse.class);
         }
     }
 

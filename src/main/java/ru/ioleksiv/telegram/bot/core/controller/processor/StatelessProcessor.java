@@ -5,12 +5,9 @@ import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.ioleksiv.telegram.bot.core.api.TelegramProcessor;
-import ru.ioleksiv.telegram.bot.core.model.actions.IAction;
+import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
 import ru.ioleksiv.telegram.bot.core.controller.handler.IHandler;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.Update;
-
-import java.util.Collections;
-import java.util.List;
 
 public class StatelessProcessor implements TelegramProcessor {
     private static final Logger LOGGER = LoggerFactory.getLogger(StatelessProcessor.class);
@@ -30,35 +27,35 @@ public class StatelessProcessor implements TelegramProcessor {
         mMainHandler = mainHandler;
     }
 
-    @NotNull
     @Override
-    public List<IAction> process(@Nullable Update update) {
+    @NotNull
+    public HandlerResult process(@Nullable Update update) {
 
         if (mBeforeMethod != null) {
-            List<IAction> beforeActions = mBeforeMethod.invoke(update);
+            HandlerResult beforeActions = mBeforeMethod.invoke(update);
 
-            if (!beforeActions.isEmpty()) {
+            if (!beforeActions.hasNoAction()) {
                 return beforeActions;
             }
         }
 
         if (mMainHandler.isAcceptable(update)) {
-            List<IAction> resultActionList = mMainHandler.invoke(update);
+            HandlerResult resultActionList = mMainHandler.invoke(update);
 
-            if (!resultActionList.isEmpty()) {
+            if (!resultActionList.hasNoAction()) {
                 return resultActionList;
             }
         }
 
         if (mAfterMethod != null) {
-            List<IAction> afterActions = mAfterMethod.invoke(update);
+            HandlerResult afterActions = mAfterMethod.invoke(update);
 
-            if (!afterActions.isEmpty()) {
+            if (!afterActions.hasNoAction()) {
                 return afterActions;
             }
         }
 
-        return Collections.emptyList();
+        return HandlerResult.noAction();
     }
 
 }
