@@ -1,10 +1,10 @@
 package ru.ioleksiv.telegram.bot.core.api.result.builder;
 
 import org.jetbrains.annotations.NotNull;
-import ru.ioleksiv.telegram.bot.core.model.actions.IAction;
-import ru.ioleksiv.telegram.bot.core.model.actions.response.KeyboardSendMessageAction;
-import ru.ioleksiv.telegram.bot.core.model.actions.response.SendMessageApi;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.keyboard.IKeyboard;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.method.IAction;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.method.response.KeyboardSendMessageAction;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.method.response.SendMessageApi;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.keyboard.IKeyboard;
 
 public class MessageBuilder implements IActionBuilder {
     private Long mChatId = null;

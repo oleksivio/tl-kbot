@@ -5,7 +5,7 @@ import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.Message;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.Message;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.Update;
 
 import java.lang.reflect.Method;

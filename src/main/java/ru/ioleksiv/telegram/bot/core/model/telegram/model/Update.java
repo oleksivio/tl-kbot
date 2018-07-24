@@ -2,12 +2,13 @@ package ru.ioleksiv.telegram.bot.core.model.telegram.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import ru.ioleksiv.telegram.bot.core.model.telegram.interfaces.ITelegram;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.query.CallbackQuery;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.query.InlineQuery;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.query.PreCheckoutQuery;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.query.ShippingQuery;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.inline.ChosenInlineResult;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.inline.InlineQuery;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.CallbackQuery;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.Message;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.PreCheckoutQuery;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.ShippingQuery;
 
 public class Update implements ITelegram {
     /**
@@ -24,7 +25,8 @@ public class Update implements ITelegram {
      * at least a week, then identifier of the next update will be chosen
      * randomly instead of sequentially.
      */
-    private int mUpdateId = -1;
+    @JsonProperty("update_id")
+    private Long mUpdateId;
     /**
      * message
      * <p>
@@ -32,8 +34,8 @@ public class Update implements ITelegram {
      * <p>
      * Optional. New incoming message of any kind — text, photo, sticker, etc.
      */
-    @Nullable
-    private Message mMessage = null;
+    @JsonProperty("message")
+    private Message message = null;
     /**
      * edited_message
      * <p>
@@ -42,8 +44,8 @@ public class Update implements ITelegram {
      * Optional.
      * New version of a message that is known to the bot and was edited
      */
-    @Nullable
-    private Message mEditedMessage = null;
+    @JsonProperty("edited_message")
+    private Message editedMessage = null;
     /**
      * channel_post
      * <p>
@@ -52,8 +54,8 @@ public class Update implements ITelegram {
      * Optional.
      * New incoming channel post of any kind — text, photo, sticker, etc.
      */
-    @Nullable
-    private Message mChannelPost = null;
+    @JsonProperty("channel_post")
+    private Message channelPost = null;
     /**
      * edited_channel_post
      * <p>
@@ -62,8 +64,8 @@ public class Update implements ITelegram {
      * Optional.
      * New version of a channel post that is known to the bot and was edited
      */
-    @Nullable
-    private Message mEditedChannelPost = null;
+    @JsonProperty("edited_channel_post")
+    private Message editedChannelPost = null;
     /**
      * inline_query
      * <p>
@@ -71,7 +73,7 @@ public class Update implements ITelegram {
      * <p>
      * Optional. New incoming inline query
      */
-    @Nullable
+    @JsonProperty("inline_query")
     private InlineQuery mInlineQuery = null;
     /**
      * chosen_inline_result
@@ -81,7 +83,7 @@ public class Update implements ITelegram {
      * Optional. The result of an inline query that was chosen by a user and sent to
      * their chat partner.
      */
-    @Nullable
+    @JsonProperty("chosen_inline_result")
     private ChosenInlineResult mChoosenInlineResult = null;
     /**
      * callback_query
@@ -90,7 +92,7 @@ public class Update implements ITelegram {
      * <p>
      * Optional. New incoming callback query
      */
-    @Nullable
+    @JsonProperty("callback_query")
     private CallbackQuery mCallbackQuery = null;
     /**
      * shipping_query
@@ -99,7 +101,7 @@ public class Update implements ITelegram {
      * <p>
      * Optional. New incoming shipping query. Only for invoices with flexible price
      */
-    @Nullable
+    @JsonProperty("shipping_query")
     private ShippingQuery mShippingQuery = null;
     /**
      * pre_checkout_query
@@ -108,114 +110,86 @@ public class Update implements ITelegram {
      * <p>
      * Optional. New incoming pre-checkout query. Contains full information about checkout
      */
-    @Nullable
     private PreCheckoutQuery mPreCheckoutQuery = null;
 
-    @JsonProperty("edited_message")
-    @Nullable
     public Message getEditedMessage() {
-        return mEditedMessage;
+        return editedMessage;
     }
 
-    @JsonProperty("edited_message")
     public void setEditedMessage(Message editedMessage) {
-        mEditedMessage = editedMessage;
+        this.editedMessage = editedMessage;
     }
 
-    @JsonProperty("channel_post")
-    @Nullable
     public Message getChannelPost() {
-        return mChannelPost;
+        return channelPost;
     }
 
-    @JsonProperty("channel_post")
     public void setChannelPost(Message channelPost) {
-        mChannelPost = channelPost;
+        this.channelPost = channelPost;
     }
 
-    @JsonProperty("edited_channel_post")
-    @Nullable
     public Message getEditedChannelPost() {
-        return mEditedChannelPost;
+        return editedChannelPost;
     }
 
-    @JsonProperty("edited_channel_post")
-    @Nullable
     public void setEditedChannelPost(Message editedChannelPost) {
-        mEditedChannelPost = editedChannelPost;
+        this.editedChannelPost = editedChannelPost;
     }
 
-    @JsonProperty("inline_query")
     public InlineQuery getInlineQuery() {
         return mInlineQuery;
     }
 
-    @JsonProperty("inline_query")
     public void setInlineQuery(InlineQuery inlineQuery) {
         mInlineQuery = inlineQuery;
     }
 
-    @JsonProperty("chosen_inline_result")
-    @Nullable
     public ChosenInlineResult getChoosenInlineResult() {
         return mChoosenInlineResult;
     }
 
-    @JsonProperty("chosen_inline_result")
     public void setChoosenInlineResult(ChosenInlineResult choosenInlineResult) {
         mChoosenInlineResult = choosenInlineResult;
     }
 
-    @JsonProperty("callback_query")
-    @Nullable
     public CallbackQuery getCallbackQuery() {
         return mCallbackQuery;
     }
 
-    @JsonProperty("callback_query")
     public void setCallbackQuery(CallbackQuery callbackQuery) {
         mCallbackQuery = callbackQuery;
     }
 
-    @JsonProperty("shipping_query")
     public ShippingQuery getShippingQuery() {
         return mShippingQuery;
     }
 
-    @JsonProperty("shipping_query")
     public void setShippingQuery(ShippingQuery shippingQuery) {
         mShippingQuery = shippingQuery;
     }
 
-    @JsonProperty("pre_checkout_query")
     public PreCheckoutQuery getPreCheckoutQuery() {
         return mPreCheckoutQuery;
     }
 
-    @JsonProperty("pre_checkout_query")
     public void setPreCheckoutQuery(PreCheckoutQuery preCheckoutQuery) {
         mPreCheckoutQuery = preCheckoutQuery;
     }
 
-    @JsonProperty("update_id")
-    public int getUpdateId() {
+    public Long getUpdateId() {
         return mUpdateId;
     }
 
-    @JsonProperty("update_id")
-    public void setUpdateId(int updateId) {
+    public void setUpdateId(Long updateId) {
         mUpdateId = updateId;
     }
 
-    @JsonProperty("message")
-    @Nullable
     public Message getMessage() {
-        return mMessage;
+        return message;
     }
 
-    @JsonProperty("message")
     public void setMessage(@NotNull Message message) {
-        mMessage = message;
+        this.message = message;
     }
 
 }

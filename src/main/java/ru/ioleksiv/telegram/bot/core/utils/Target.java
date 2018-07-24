@@ -2,19 +2,19 @@ package ru.ioleksiv.telegram.bot.core.utils;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.ChosenInlineResult;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.Message;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.query.CallbackQuery;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.query.InlineQuery;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.query.PreCheckoutQuery;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.query.ShippingQuery;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.inline.ChosenInlineResult;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.Message;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.CallbackQuery;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.inline.InlineQuery;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.PreCheckoutQuery;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.ShippingQuery;
 
 public enum Target {
     USER {
         @Override
         @NotNull
         public Long getId(@NotNull Message message) {
-            return message.getSender().getId();
+            return message.getFrom().getId();
         }
 
         @Override

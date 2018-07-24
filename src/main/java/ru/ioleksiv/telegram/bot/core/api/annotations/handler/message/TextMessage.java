@@ -19,4 +19,12 @@ public @interface TextMessage {
 
     String[] endWith() default {};
 
+    Type type() default Type.MESSAGE;
+
+    enum Type {
+        MESSAGE,
+        EDITED_MESSAGE,
+        CHANNEL_POST,
+        EDITED_CHANNEL_POST,
+    }
 }

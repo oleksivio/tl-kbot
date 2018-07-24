@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.Update;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.query.CallbackQuery;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.CallbackQuery;
 import ru.ioleksiv.telegram.bot.core.utils.IterableUtils;
 
 import java.lang.reflect.Method;

@@ -7,7 +7,7 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestOperations;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 import ru.ioleksiv.telegram.bot.core.model.exceptions.NetworkerException;
-import ru.ioleksiv.telegram.bot.core.model.actions.IServerApi;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.method.IServerApi;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.CommonResponse;
 
 public class Networker {

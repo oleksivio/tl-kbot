@@ -11,7 +11,11 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 import ru.ioleksiv.telegram.bot.core.controller.handler.inline.InlineQueryHandler;
 import ru.ioleksiv.telegram.bot.core.controller.handler.message.ContactHandler;
 import ru.ioleksiv.telegram.bot.core.controller.handler.message.LocationHandler;
-import ru.ioleksiv.telegram.bot.core.controller.handler.message.TextHandler;
+import ru.ioleksiv.telegram.bot.core.controller.handler.message.text.ChannelPostHandler;
+import ru.ioleksiv.telegram.bot.core.controller.handler.message.text.EditedChannelPostHandler;
+import ru.ioleksiv.telegram.bot.core.controller.handler.message.text.EditedMessageHandler;
+import ru.ioleksiv.telegram.bot.core.controller.handler.message.text.MessageHandler;
+import ru.ioleksiv.telegram.bot.core.controller.handler.message.text.TextHandler;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -38,12 +42,13 @@ final class HandlerFactory {
 
             String regExp = text.regExp();
 
-            Handler textHandler = new TextHandler(classInstance,
-                                                  method,
-                                                  startWithCollection,
-                                                  equalsWithCollection,
-                                                  endWithCollection,
-                                                  regExp);
+            Handler textHandler = createTextHandler(classInstance,
+                                                    method,
+                                                    startWithCollection,
+                                                    equalsWithCollection,
+                                                    endWithCollection,
+                                                    regExp,
+                                                    text.type());
             return Optional.of(textHandler);
         }
 
@@ -63,12 +68,57 @@ final class HandlerFactory {
             return Optional.of(locationHandler);
         }
 
-        if(method.isAnnotationPresent(ContactMessage.class)){
+        if (method.isAnnotationPresent(ContactMessage.class)) {
             Handler contactHandler = new ContactHandler(classInstance, method);
 
             return Optional.of(contactHandler);
         }
 
         return Optional.empty();
+    }
+
+    private static TextHandler createTextHandler(@NotNull Object classInstance,
+                                                 @NotNull Method method,
+                                                 Collection<String> startWithCollection,
+                                                 Collection<String> equalsWithCollection,
+                                                 Collection<String> endWithCollection,
+                                                 String regExp,
+                                                 TextMessage.Type type) {
+        switch (type) {
+            case MESSAGE: {
+                return new MessageHandler(classInstance,
+                                          method,
+                                          startWithCollection,
+                                          equalsWithCollection,
+                                          endWithCollection,
+                                          regExp);
+            }
+            case EDITED_MESSAGE: {
+                return new EditedMessageHandler(classInstance,
+                                                method,
+                                                startWithCollection,
+                                                equalsWithCollection,
+                                                endWithCollection,
+                                                regExp);
+            }
+            case CHANNEL_POST: {
+                return new ChannelPostHandler(classInstance,
+                                              method,
+                                              startWithCollection,
+                                              equalsWithCollection,
+                                              endWithCollection,
+                                              regExp);
+            }
+            case EDITED_CHANNEL_POST: {
+                return new EditedChannelPostHandler(classInstance,
+                                                    method,
+                                                    startWithCollection,
+                                                    equalsWithCollection,
+                                                    endWithCollection,
+                                                    regExp);
+            }
+        }
+
+        throw new UnsupportedOperationException("Unsupported text handler type");
     }
 }

@@ -1,7 +1,7 @@
 package ru.ioleksiv.telegram.bot.core.controller.network;
 
 import ru.ioleksiv.telegram.bot.core.api.TelegramSender;
-import ru.ioleksiv.telegram.bot.core.model.actions.IAction;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.method.IAction;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.CommonResponse;
 
 public class Sender implements TelegramSender {

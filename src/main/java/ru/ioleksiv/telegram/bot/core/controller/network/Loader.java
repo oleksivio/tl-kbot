@@ -4,7 +4,7 @@ import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.ioleksiv.telegram.bot.core.model.exceptions.NetworkerException;
-import ru.ioleksiv.telegram.bot.core.model.actions.request.GetUpdatesApi;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.method.update.GetUpdatesApi;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.Update;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.UpdatesArrayResponse;
 
@@ -27,8 +27,8 @@ public class Loader {
 
         if(!updatesArray.isEmpty()) {
             // change received updates state
-            Update lastUpdate = Collections.max(updatesArray, Comparator.comparingInt(Update::getUpdateId));
-            getUpdateWithOffset(lastUpdate.getUpdateId()+1);
+            Update lastUpdate = Collections.max(updatesArray, Comparator.comparingLong(Update::getUpdateId));
+            getUpdateWithOffset(lastUpdate.getUpdateId().intValue()+1);
         }
 
         return updatesArray;

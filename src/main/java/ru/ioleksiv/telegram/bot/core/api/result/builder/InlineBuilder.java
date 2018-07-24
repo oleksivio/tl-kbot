@@ -3,7 +3,7 @@ package ru.ioleksiv.telegram.bot.core.api.result.builder;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.ioleksiv.telegram.bot.core.model.actions.IAction;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.method.IAction;
 
 public class InlineBuilder implements IActionBuilder {
     private static final Logger LOGGER = LoggerFactory.getLogger(InlineBuilder.class);
