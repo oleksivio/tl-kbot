@@ -4,10 +4,12 @@ import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.ioleksiv.telegram.bot.core.api.annotations.handler.inline.TextInlineQuery;
+import ru.ioleksiv.telegram.bot.core.api.annotations.handler.message.ContactMessage;
 import ru.ioleksiv.telegram.bot.core.api.annotations.handler.message.LocationMessage;
 import ru.ioleksiv.telegram.bot.core.api.annotations.handler.message.TextMessage;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 import ru.ioleksiv.telegram.bot.core.controller.handler.inline.InlineQueryHandler;
+import ru.ioleksiv.telegram.bot.core.controller.handler.message.ContactHandler;
 import ru.ioleksiv.telegram.bot.core.controller.handler.message.LocationHandler;
 import ru.ioleksiv.telegram.bot.core.controller.handler.message.TextHandler;
 
@@ -59,6 +61,12 @@ final class HandlerFactory {
             Handler locationHandler = new LocationHandler(classInstance, method);
 
             return Optional.of(locationHandler);
+        }
+
+        if(method.isAnnotationPresent(ContactMessage.class)){
+            Handler contactHandler = new ContactHandler(classInstance, method);
+
+            return Optional.of(contactHandler);
         }
 
         return Optional.empty();
