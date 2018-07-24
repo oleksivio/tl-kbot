@@ -6,22 +6,22 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.ioleksiv.telegram.bot.core.api.TelegramProcessor;
 import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
-import ru.ioleksiv.telegram.bot.core.controller.handler.IHandler;
+import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.Update;
 
 public class StatelessProcessor implements TelegramProcessor {
     private static final Logger LOGGER = LoggerFactory.getLogger(StatelessProcessor.class);
 
     @Nullable
-    private final IHandler mBeforeMethod;
+    private final Handler mBeforeMethod;
     @Nullable
-    private final IHandler mAfterMethod;
+    private final Handler mAfterMethod;
 
     @NotNull
-    private final IHandler mMainHandler;
+    private final Handler mMainHandler;
 
-    public StatelessProcessor(@Nullable IHandler beforeMethod, @Nullable IHandler afterMethod,
-                              @NotNull IHandler mainHandler) {
+    public StatelessProcessor(@Nullable Handler beforeMethod, @Nullable Handler afterMethod,
+                              @NotNull Handler mainHandler) {
         mBeforeMethod = beforeMethod;
         mAfterMethod = afterMethod;
         mMainHandler = mainHandler;

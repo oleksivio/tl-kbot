@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 @Documented
-public @interface TextMessageHandler {
+public @interface TextMessage {
 
     String regExp() default "";
 

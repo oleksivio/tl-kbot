@@ -1,6 +1,7 @@
 package ru.ioleksiv.telegram.bot.core.model.telegram.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.ioleksiv.telegram.bot.core.model.telegram.interfaces.ITelegram;
 
@@ -60,6 +61,7 @@ public class Message implements ITelegram {
         mDate = date;
     }
 
+    @NotNull
     public Chat getChat() {
         return mChat;
     }
@@ -76,6 +78,7 @@ public class Message implements ITelegram {
         mId = id;
     }
 
+    @NotNull
     public User getSender() {
         return mSender;
     }

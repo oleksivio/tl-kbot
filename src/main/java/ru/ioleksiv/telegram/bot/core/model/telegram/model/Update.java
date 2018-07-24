@@ -67,7 +67,7 @@ public class Update implements ITelegram {
     /**
      * inline_query
      * <p>
-     * InlineQuery
+     * InlineQueryText
      * <p>
      * Optional. New incoming inline query
      */
@@ -112,6 +112,7 @@ public class Update implements ITelegram {
     private PreCheckoutQuery mPreCheckoutQuery = null;
 
     @JsonProperty("edited_message")
+    @Nullable
     public Message getEditedMessage() {
         return mEditedMessage;
     }
@@ -122,6 +123,7 @@ public class Update implements ITelegram {
     }
 
     @JsonProperty("channel_post")
+    @Nullable
     public Message getChannelPost() {
         return mChannelPost;
     }
@@ -132,11 +134,13 @@ public class Update implements ITelegram {
     }
 
     @JsonProperty("edited_channel_post")
+    @Nullable
     public Message getEditedChannelPost() {
         return mEditedChannelPost;
     }
 
     @JsonProperty("edited_channel_post")
+    @Nullable
     public void setEditedChannelPost(Message editedChannelPost) {
         mEditedChannelPost = editedChannelPost;
     }
@@ -152,6 +156,7 @@ public class Update implements ITelegram {
     }
 
     @JsonProperty("chosen_inline_result")
+    @Nullable
     public ChosenInlineResult getChoosenInlineResult() {
         return mChoosenInlineResult;
     }
@@ -162,6 +167,7 @@ public class Update implements ITelegram {
     }
 
     @JsonProperty("callback_query")
+    @Nullable
     public CallbackQuery getCallbackQuery() {
         return mCallbackQuery;
     }
@@ -202,6 +208,7 @@ public class Update implements ITelegram {
     }
 
     @JsonProperty("message")
+    @Nullable
     public Message getMessage() {
         return mMessage;
     }

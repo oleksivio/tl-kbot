@@ -24,7 +24,7 @@ public class MainProcessor implements TelegramProcessor {
 
         for (TelegramProcessor handler : mSessionHandlers) {
             HandlerResult handlerResult = handler.process(update);
-            if (handlerResult.hasSuccess()) {
+            if (!handlerResult.hasNoAction()) {
                 return handlerResult;
             }
         }

@@ -1,4 +1,4 @@
-package ru.ioleksiv.telegram.bot.core.api.result.actions;
+package ru.ioleksiv.telegram.bot.core.api.result.builder;
 
 import org.jetbrains.annotations.NotNull;
 import ru.ioleksiv.telegram.bot.core.model.actions.IAction;
@@ -6,7 +6,7 @@ import ru.ioleksiv.telegram.bot.core.model.actions.response.KeyboardSendMessageA
 import ru.ioleksiv.telegram.bot.core.model.actions.response.SendMessageApi;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.keyboard.IKeyboard;
 
-public class MessageBuilder {
+public class MessageBuilder implements IActionBuilder {
     private Long mChatId = null;
     private String mText = null;
     private IKeyboard mKeyboard = null;
@@ -14,10 +14,12 @@ public class MessageBuilder {
     private MessageBuilder() {
     }
 
+    @NotNull
     public static MessageBuilder create() {
         return new MessageBuilder();
     }
 
+    @Override
     @NotNull
     public IAction build() {
         SendMessageApi sendMessageAction = null;

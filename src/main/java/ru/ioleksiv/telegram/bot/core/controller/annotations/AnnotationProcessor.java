@@ -7,12 +7,10 @@ import ru.ioleksiv.telegram.bot.core.api.annotations.behavior.Session;
 import ru.ioleksiv.telegram.bot.core.api.annotations.behavior.Stateless;
 import ru.ioleksiv.telegram.bot.core.api.annotations.handler.After;
 import ru.ioleksiv.telegram.bot.core.api.annotations.handler.Before;
-import ru.ioleksiv.telegram.bot.core.api.annotations.handler.update.DefaultHandler;
+import ru.ioleksiv.telegram.bot.core.api.annotations.handler.update.Default;
 import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
-import ru.ioleksiv.telegram.bot.core.controller.handler.HandlerFactory;
-import ru.ioleksiv.telegram.bot.core.controller.handler.IHandler;
-import ru.ioleksiv.telegram.bot.core.controller.handler.invoke.AbstractInvokeHandler;
-import ru.ioleksiv.telegram.bot.core.controller.handler.invoke.UpdateHandler;
+import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
+import ru.ioleksiv.telegram.bot.core.controller.handler.UpdateHandler;
 import ru.ioleksiv.telegram.bot.core.controller.processor.MainProcessor;
 import ru.ioleksiv.telegram.bot.core.controller.processor.SessionProcessor;
 import ru.ioleksiv.telegram.bot.core.controller.processor.StatelessProcessor;
@@ -21,16 +19,18 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 public class AnnotationProcessor {
 
+    @NotNull
     private final MainProcessor mainProcessor;
 
-    public AnnotationProcessor(MainProcessor mainProcessor) {
+    public AnnotationProcessor(@NotNull MainProcessor mainProcessor) {
         this.mainProcessor = mainProcessor;
     }
 
-    public void add(Object obj) {
+    public void add(@NotNull Object obj) {
 
         Class<?> objClz = obj.getClass();
 
@@ -49,16 +49,21 @@ public class AnnotationProcessor {
     }
 
     @NotNull
-    private static TelegramProcessor createSessionHandler(Class clazz, Object obj) {
+    private static TelegramProcessor createSessionHandler(@NotNull Class clazz,
+                                                          @NotNull Object obj) {
 
-        IHandler initialHandler = null;
-        IHandler cancelHandler = null;
+        Handler initialHandler = null;
+        Handler cancelHandler = null;
 
         SessionProcessor sessionProcessor = new SessionProcessor();
 
         for (Method method : clazz.getDeclaredMethods()) {
 
-            IHandler handler = HandlerFactory.create(obj, method);
+            Optional<Handler> optionalHandler = HandlerFactory.create(obj, method);
+            if (!optionalHandler.isPresent()) {
+                continue;
+            }
+            Handler handler = optionalHandler.get();
 
             if (method.isAnnotationPresent(Session.Initial.class)) {
                 initialHandler = handler;
@@ -72,9 +77,8 @@ public class AnnotationProcessor {
                 if (order <= 0) {
                     throw new IllegalStateException("Order value can't be less than one");
                 }
-                if (handler != null) {
-                    sessionProcessor.addOrderHandler(order, handler);
-                }
+                sessionProcessor.addOrderHandler(order, handler);
+
             }
 
         }
@@ -82,22 +86,25 @@ public class AnnotationProcessor {
         sessionProcessor.setInitialHandler(initialHandler);
         sessionProcessor.setCancelHandler(cancelHandler);
 
+        // throws exception if not valid
         sessionProcessor.check();
 
         return sessionProcessor;
     }
 
     @NotNull
-    private static List<TelegramProcessor> createStatelessHandler(Class clazz, Object obj) {
-        IHandler beforeHandler = null;
-        IHandler afterHander = null;
-        Collection<IHandler> simpleHandlerList = new ArrayList<>();
+    private static List<TelegramProcessor> createStatelessHandler(@NotNull Class clazz,
+                                                                  @NotNull Object obj) {
+        Handler beforeHandler = null;
+        Handler afterHander = null;
+        Collection<Handler> simpleHandlerList = new ArrayList<>();
 
         for (Method method : clazz.getDeclaredMethods()) {
-            AbstractInvokeHandler handler = HandlerFactory.create(obj, method);
-            if (handler == null) {
+            Optional<Handler> optionalHandler = HandlerFactory.create(obj, method);
+            if (!optionalHandler.isPresent()) {
                 continue;
             }
+            Handler handler = optionalHandler.get();
 
             if (method.isAnnotationPresent(Before.class)) {
                 beforeHandler = handler;
@@ -112,7 +119,7 @@ public class AnnotationProcessor {
         }
 
         List<TelegramProcessor> processors = new ArrayList<>();
-        for (IHandler handler : simpleHandlerList) {
+        for (Handler handler : simpleHandlerList) {
             processors.add(new StatelessProcessor(beforeHandler, afterHander, handler));
         }
         return processors;
@@ -120,9 +127,10 @@ public class AnnotationProcessor {
     }
 
     @NotNull
-    public static TelegramProcessor getDefaultProcessor(Class<?> clazz, Object obj) {
+    private static TelegramProcessor getDefaultProcessor(@NotNull Class<?> clazz,
+                                                         @NotNull Object obj) {
         for (Method method : clazz.getDeclaredMethods()) {
-            if (method.isAnnotationPresent(DefaultHandler.class)) {
+            if (method.isAnnotationPresent(Default.class)) {
                 UpdateHandler updateHandler = new UpdateHandler(obj, method);
                 return updateHandler::invoke;
             }

@@ -1,11 +1,9 @@
 package ru.ioleksiv.telegram.bot.core.controller.processor;
 
 import org.jetbrains.annotations.NotNull;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import ru.ioleksiv.telegram.bot.core.api.TelegramProcessor;
 import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
-import ru.ioleksiv.telegram.bot.core.controller.handler.IHandler;
+import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.Update;
 
 import java.util.Collection;
@@ -14,14 +12,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SessionProcessor implements TelegramProcessor {
-    private static final Logger LOGGER = LoggerFactory.getLogger(StatelessProcessor.class);
-
-    private final Map<Integer, IHandler> mOrderMap = new HashMap<>();
+    private final Map<Integer, Handler> mOrderMap = new HashMap<>();
+    // FixMe order manager: incapsulate logic
     private final OrderManager mOrderManager = new OrderManager();
-    private IHandler initialHandler = null;
-    private IHandler cancelHandler = null;
+    private Handler initialHandler = null;
+    private Handler cancelHandler = null;
 
-    public void addOrderHandler(int order, IHandler handler) {
+    public void addOrderHandler(int order, Handler handler) {
         mOrderMap.put(order, handler);
     }
 
@@ -34,11 +31,7 @@ public class SessionProcessor implements TelegramProcessor {
             if (handlerResult.hasSuccess()) {
                 mOrderManager.next(mOrderMap.keySet());
             }
-            else {
-                return handlerResult;
-            }
-
-            return initialHandler.invoke(update);
+            return handlerResult;
         }
 
         if (mOrderManager.isActive() && cancelHandler.isAcceptable(update)) {
@@ -48,7 +41,7 @@ public class SessionProcessor implements TelegramProcessor {
         }
 
         if (mOrderManager.isActive()) {
-            IHandler handler = mOrderMap.get(mOrderManager.getCurrent());
+            Handler handler = mOrderMap.get(mOrderManager.getCurrent());
 
             if (handler != null && handler.isAcceptable(update)) {
 
@@ -72,21 +65,23 @@ public class SessionProcessor implements TelegramProcessor {
 
     public void check() throws IllegalArgumentException {
         if (initialHandler == null) {
-            throw new IllegalArgumentException("Invalid session handler state. Can't be less than one" +
-                                                       " @Session.Initial annotated method's");
+            throw new IllegalArgumentException("Invalid session handler state. " +
+                                                       "Can't be less than one" +
+                                                       " Session Initial method's");
         }
 
         if (cancelHandler == null) {
-            throw new IllegalArgumentException("Invalid session handler state. Can't be less than one" +
-                                                       " @Session.Cancel annotated method's");
+            throw new IllegalArgumentException("Invalid session handler state. " +
+                                                       "Can't be less than one" +
+                                                       " Session Cancel method's");
         }
     }
 
-    public void setInitialHandler(IHandler initialHandler) {
+    public void setInitialHandler(Handler initialHandler) {
         this.initialHandler = initialHandler;
     }
 
-    public void setCancelHandler(IHandler cancelHandler) {
+    public void setCancelHandler(Handler cancelHandler) {
         this.cancelHandler = cancelHandler;
     }
 
