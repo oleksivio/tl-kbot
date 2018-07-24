@@ -17,18 +17,9 @@ public class SessionProcessor implements TelegramProcessor {
     private static final Logger LOGGER = LoggerFactory.getLogger(StatelessProcessor.class);
 
     private final Map<Integer, IHandler> mOrderMap = new HashMap<>();
-
-    private final IHandler mInitialHandler;
-
-    private final IHandler mCancelHandler;
-
     private final OrderManager mOrderManager = new OrderManager();
-
-    public SessionProcessor(@NotNull IHandler initialHandler,
-                            @NotNull IHandler cancelHandler) {
-        mInitialHandler = initialHandler;
-        mCancelHandler = cancelHandler;
-    }
+    private IHandler initialHandler = null;
+    private IHandler cancelHandler = null;
 
     public void addOrderHandler(int order, IHandler handler) {
         mOrderMap.put(order, handler);
@@ -38,21 +29,22 @@ public class SessionProcessor implements TelegramProcessor {
     @Override
     public HandlerResult process(Update update) {
 
-        if (!mOrderManager.isActive() && mInitialHandler.isAcceptable(update)) {
-            HandlerResult handlerResult = mInitialHandler.invoke(update);
+        if (!mOrderManager.isActive() && initialHandler.isAcceptable(update)) {
+            HandlerResult handlerResult = initialHandler.invoke(update);
             if (handlerResult.hasSuccess()) {
                 mOrderManager.next(mOrderMap.keySet());
-            } else {
+            }
+            else {
                 return handlerResult;
             }
 
-            return mInitialHandler.invoke(update);
+            return initialHandler.invoke(update);
         }
 
-        if (mOrderManager.isActive() && mCancelHandler.isAcceptable(update)) {
+        if (mOrderManager.isActive() && cancelHandler.isAcceptable(update)) {
             mOrderManager.reset();
 
-            return mCancelHandler.invoke(update);
+            return cancelHandler.invoke(update);
         }
 
         if (mOrderManager.isActive()) {
@@ -76,6 +68,26 @@ public class SessionProcessor implements TelegramProcessor {
         }
 
         return HandlerResult.noAction();
+    }
+
+    public void check() throws IllegalArgumentException {
+        if (initialHandler == null) {
+            throw new IllegalArgumentException("Invalid session handler state. Can't be less than one" +
+                                                       " @Session.Initial annotated method's");
+        }
+
+        if (cancelHandler == null) {
+            throw new IllegalArgumentException("Invalid session handler state. Can't be less than one" +
+                                                       " @Session.Cancel annotated method's");
+        }
+    }
+
+    public void setInitialHandler(IHandler initialHandler) {
+        this.initialHandler = initialHandler;
+    }
+
+    public void setCancelHandler(IHandler cancelHandler) {
+        this.cancelHandler = cancelHandler;
     }
 
     private static class OrderManager {

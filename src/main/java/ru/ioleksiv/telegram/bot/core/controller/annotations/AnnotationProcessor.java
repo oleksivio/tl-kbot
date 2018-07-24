@@ -1,8 +1,6 @@
 package ru.ioleksiv.telegram.bot.core.controller.annotations;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-import org.springframework.beans.factory.annotation.Autowired;
 import ru.ioleksiv.telegram.bot.core.api.TelegramProcessor;
 import ru.ioleksiv.telegram.bot.core.api.annotations.behavior.DefaultStateless;
 import ru.ioleksiv.telegram.bot.core.api.annotations.behavior.Session;
@@ -11,7 +9,6 @@ import ru.ioleksiv.telegram.bot.core.api.annotations.handler.After;
 import ru.ioleksiv.telegram.bot.core.api.annotations.handler.Before;
 import ru.ioleksiv.telegram.bot.core.api.annotations.handler.update.DefaultHandler;
 import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
-import ru.ioleksiv.telegram.bot.core.controller.handler.CollectionHandler;
 import ru.ioleksiv.telegram.bot.core.controller.handler.HandlerFactory;
 import ru.ioleksiv.telegram.bot.core.controller.handler.IHandler;
 import ru.ioleksiv.telegram.bot.core.controller.handler.invoke.AbstractInvokeHandler;
@@ -29,7 +26,6 @@ public class AnnotationProcessor {
 
     private final MainProcessor mainProcessor;
 
-    @Autowired
     public AnnotationProcessor(MainProcessor mainProcessor) {
         this.mainProcessor = mainProcessor;
     }
@@ -52,22 +48,23 @@ public class AnnotationProcessor {
         }
     }
 
-    @Nullable
+    @NotNull
     private static TelegramProcessor createSessionHandler(Class clazz, Object obj) {
 
-        CollectionHandler initialHandler = new CollectionHandler();
-        CollectionHandler cancelHandler = new CollectionHandler();
-        SessionProcessor sessionProcessor = new SessionProcessor(initialHandler, cancelHandler);
+        IHandler initialHandler = null;
+        IHandler cancelHandler = null;
+
+        SessionProcessor sessionProcessor = new SessionProcessor();
 
         for (Method method : clazz.getDeclaredMethods()) {
 
-            AbstractInvokeHandler handler = HandlerFactory.create(obj, method);
+            IHandler handler = HandlerFactory.create(obj, method);
 
             if (method.isAnnotationPresent(Session.Initial.class)) {
-                initialHandler.add(handler);
+                initialHandler = handler;
             }
             else if (method.isAnnotationPresent(Session.Cancel.class)) {
-                cancelHandler.add(handler);
+                cancelHandler = handler;
             }
             else if (method.isAnnotationPresent(Session.Order.class)) {
                 Session.Order orderAnnotation = method.getDeclaredAnnotation(Session.Order.class);
@@ -82,15 +79,10 @@ public class AnnotationProcessor {
 
         }
 
-        if (initialHandler.isEmpty()) {
-            throw new IllegalArgumentException("Invalid session handler state. Can't be less than one" +
-                                                       " @Session.Initial annotated method's");
-        }
+        sessionProcessor.setInitialHandler(initialHandler);
+        sessionProcessor.setCancelHandler(cancelHandler);
 
-        if (cancelHandler.isEmpty()) {
-            throw new IllegalArgumentException("Invalid session handler state. Can't be less than one" +
-                                                       " @Session.Cancel annotated method's");
-        }
+        sessionProcessor.check();
 
         return sessionProcessor;
     }
