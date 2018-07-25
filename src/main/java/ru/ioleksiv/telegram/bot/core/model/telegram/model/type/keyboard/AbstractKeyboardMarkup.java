@@ -12,37 +12,25 @@ import java.util.List;
  * Project: telegrambotcore
  */
 public class AbstractKeyboardMarkup<T extends IButton> implements IKeyboard {
-    private final List<ButtonRow<T>> mKeyboard = new ArrayList<>(new ArrayList<>());
+
+    private final List<ButtonRow<T>> keyboard = new ArrayList<>(new ArrayList<>());
 
     public void addRow(ButtonRow<T> row) {
-        mKeyboard.add(row);
+        keyboard.add(row);
     }
 
     public void removeRow(ButtonRow<T> row) {
-        mKeyboard.remove(row);
+        keyboard.remove(row);
     }
 
     protected List<ButtonRow<T>> getRows() {
-        return new ArrayList<>(mKeyboard);
+        return new ArrayList<>(keyboard);
     }
 
     protected void setRows(Collection<ButtonRow<T>> rows) {
-        mKeyboard.clear();
-        mKeyboard.addAll(rows);
+        keyboard.clear();
+        keyboard.addAll(rows);
     }
 
-    @Override
-    public boolean isValid() {
-        if (mKeyboard.isEmpty()) {
-            return false;
-        }
 
-        for (ButtonRow<T> rows : mKeyboard) {
-            if (!rows.isValid()) {
-                return false;
-            }
-        }
-
-        return true;
-    }
 }

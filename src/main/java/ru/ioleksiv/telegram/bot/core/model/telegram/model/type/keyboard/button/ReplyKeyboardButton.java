@@ -2,44 +2,53 @@ package ru.ioleksiv.telegram.bot.core.model.telegram.model.type.keyboard.button;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * https://core.telegram.org/bots/api#keyboardbutton
+ */
 public class ReplyKeyboardButton implements IButton {
+    /**
+     * text	String	Text of the button. If none of the optional fields are used, it will be sent as
+     * a message when the button is pressed
+     */
     @JsonProperty("text")
-    private String mText = null;
+    private String text = null;
+    /**
+     * request_contact	Boolean	Optional. If True, the user's phone number will be sent as a contact
+     * when the button is pressed. Available in private chats only
+     */
     @JsonProperty("request_contact")
-    private boolean mRequestContact = false;
+    private boolean requestContact = false;
+    /**
+     * request_location	Boolean	Optional. If True, the user's current location will be sent when the
+     * button is pressed. Available in private chats only
+     */
     @JsonProperty("request_location")
-    private boolean mRequestLocation = false;
+    private boolean requestLocation = false;
 
     public boolean isRequestContact() {
-        return mRequestContact;
+        return requestContact;
     }
 
     public void setRequestContact(boolean requestContact) {
-        mRequestContact = requestContact;
+        this.requestContact = requestContact;
     }
 
     public boolean isRequestLocation() {
-        return mRequestLocation;
+        return requestLocation;
     }
 
     public void setRequestLocation(boolean requestLocation) {
-        mRequestLocation = requestLocation;
+        this.requestLocation = requestLocation;
     }
 
     @Override
-    @JsonProperty("text")
     public String getText() {
-        return mText;
+        return text;
     }
 
     @Override
-    @JsonProperty("text")
     public void setText(String text) {
-        mText = text;
+        this.text = text;
     }
 
-    @Override
-    public boolean isValid() {
-        return mText != null;
-    }
 }

@@ -9,8 +9,16 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.keyboard.button.I
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * @link https://core.telegram.org/bots/api#inlinekeyboardmarkup
+ */
 public class InlineKeyboardMarkup extends AbstractKeyboardMarkup<InlineKeyboardButton> {
     private static final Logger LOGGER = LoggerFactory.getLogger(InlineKeyboardMarkup.class);
+
+    /**
+     * inline_keyboard	Array of Array of InlineKeyboardButton	Array of button rows, each
+     * represented by an Array of InlineKeyboardButton objects
+     */
 
     @Override
     @JsonProperty("inline_keyboard")

@@ -2,28 +2,28 @@ package ru.ioleksiv.telegram.bot.core.model.telegram.model.type;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.jetbrains.annotations.NotNull;
-import ru.ioleksiv.telegram.bot.core.model.telegram.interfaces.ITelegram;
 
-public class Contact implements ITelegram {
+public class Contact  {
+    /**
+     * phone_number	String	Contact's phone number
+     */
     @JsonProperty("phone_number")
     private String mPhoneNumber = "";
+    /**
+     * first_name	String	Contact's first name
+     */
     @JsonProperty("first_name")
     private String mFirstName = "";
+    /**
+     * last_name	String	Optional. Contact's last name
+     */
     @JsonProperty("last_name")
     private String mLastName = "";
-
+    /**
+     * user_id	Integer	Optional. Contact's user identifier in Telegram
+     */
     @JsonProperty("user_id")
     private Integer mUserId = null;
-
-    @Override
-    public String toString() {
-        return "Contact{" +
-                "phone_number='" + mPhoneNumber + '\'' +
-                ", first_name='" + mFirstName + '\'' +
-                ", last_name='" + mLastName + '\'' +
-                ", user_id=" + mUserId +
-                '}';
-    }
 
     public String getPhoneNumber() {
         return mPhoneNumber;

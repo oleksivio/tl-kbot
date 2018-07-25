@@ -1,19 +1,20 @@
 package ru.ioleksiv.telegram.bot.core.model.telegram.model.type;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ru.ioleksiv.telegram.bot.core.model.telegram.interfaces.ITelegram;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.file.Audio;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.file.Document;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.file.MessageEntity;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.file.PhotoSize;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.file.Sticker;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.file.Video;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.file.VideoNote;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.file.Voice;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.files.Audio;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.files.Document;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.files.MessageEntity;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.files.PhotoSize;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.files.Sticker;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.files.Video;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.files.VideoNote;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.files.Voice;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.game.Game;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Message implements ITelegram {
+public class Message  {
     /**
      * message_id	Integer	Unique message identifier inside this chat
      */
@@ -43,25 +44,25 @@ public class Message implements ITelegram {
      * about the original channel
      */
     @JsonProperty("forward_from_chat")
-    private Chat forwardFromChat;
+    private Chat forwardFromChat = null;
     /**
      * forward_from_message_id	Integer	Optional. For messages forwarded from channels, identifier
      * of the original message in the channel
      */
     @JsonProperty("forward_from_message_id")
-    private Long forwardFromMessageId;
+    private Long forwardFromMessageId = null;
     /**
      * forward_signature	String	Optional. For messages forwarded from channels, signature of
      * the post author if present
      */
     @JsonProperty("forward_signature")
-    private String forwardSignature;
+    private String forwardSignature = null;
     /**
      * forward_date	Integer	Optional. For forwarded messages, date the original message was sent
      * in Unix time
      */
     @JsonProperty("forward_date")
-    private Long forwardDate;
+    private Long forwardDate = null;
     /**
      * reply_to_message	Message	Optional. For replies, the original message. Note that the Message
      * object in this field will not contain further reply_to_message fields even if it itself is a
@@ -69,23 +70,23 @@ public class Message implements ITelegram {
      */
 
     @JsonProperty("reply_to_message")
-    private Message replyToMessage;
+    private Message replyToMessage = null;
     /**
      * edit_date	Integer	Optional. Date the message was last edited in Unix time
      */
     @JsonProperty("edit_date")
-    private Long editDate;
+    private Long editDate = null;
     /**
      * media_group_id	String	Optional. The unique identifier of a media message group this
      * message belongs to
      */
     @JsonProperty("media_group_id")
-    private String mediaGroupId;
+    private String mediaGroupId = null;
     /**
      * author_signature	String	Optional. Signature of the post author for messages in channels
      */
     @JsonProperty("author_signature")
-    private String authorSigature;
+    private String authorSignature = null;
     /**
      * text	String	Optional. For text messages, the actual UTF-8 text of the message, 0-4096
      * characters.
@@ -93,15 +94,15 @@ public class Message implements ITelegram {
     @JsonProperty("text")
     private String text = null;
     /**
-     * audio	Audio	Optional. Message is an audio file, information about the file
+     * audio	Audio	Optional. Message is an audio files, information about the files
      */
     @JsonProperty("audio")
-    private Audio audio;
+    private Audio audio = null;
     /**
      * photo	Array of PhotoSize	Optional. Message is a photo, available sizes of the photo
      */
     @JsonProperty("photo")
-    private List<PhotoSize> photo;
+    private List<PhotoSize> photo = new ArrayList<>();
     /**
      * caption	String	Optional. Caption for the audio, document, photo, video or voice, 0-200
      * characters
@@ -123,69 +124,69 @@ public class Message implements ITelegram {
      * supergroup and information about them (the bot itself may be one of these members)
      */
     @JsonProperty("new_chat_members")
-    private List<User> newChatMembers;
+    private List<User> newChatMembers = null;
     /**
      * left_chat_member	User	Optional. A member was removed from the group, information about
      * them (this member may be the bot itself)
      */
     @JsonProperty("left_chat_member")
-    private User leftChatMember;
+    private User leftChatMember = null;
     /**
-     * document	Document	Optional. Message is a general file, information about the file
+     * document	Document	Optional. Message is a general files, information about the files
      */
     @JsonProperty("document")
-    private Document document;
+    private Document document = null;
     /**
      * new_chat_title	String	Optional. A chat title was changed to this value
      */
     @JsonProperty("new_chat_title")
-    private String newChatTitle;
+    private String newChatTitle = null;
     /**
      * sticker	Sticker	Optional. Message is a sticker, information about the sticker
      */
     @JsonProperty("sticker")
-    private Sticker sticker;
+    private Sticker sticker = null;
     /**
      * video	Video	Optional. Message is a video, information about the video
      */
     @JsonProperty("video")
-    private Video video;
+    private Video video = null;
     /**
-     * voice	Voice	Optional. Message is a voice message, information about the file
+     * voice	Voice	Optional. Message is a voice message, information about the files
      */
     @JsonProperty("voice")
-    private Voice voice;
+    private Voice voice = null;
     /**
      * entities	Array of MessageEntity	Optional. For text messages, special entities like usernames,
      * URLs, bot commands, etc. that appear in the text
      */
     @JsonProperty("entities")
-    private List<MessageEntity> entities;
+    private List<MessageEntity> entities = new ArrayList<>();
     /**
      * video_note	VideoNote	Optional. Message is a video note, information about the video message
      */
     @JsonProperty("video_note")
-    private VideoNote videoNote;
+    private VideoNote videoNote = null;
     /**
      * new_chat_photo	Array of PhotoSize	Optional. A chat photo was change to this value
      */
     @JsonProperty("new_chat_photo")
-    private PhotoSize newChatPhoto;
+    private PhotoSize newChatPhoto = null;
     /**
      * delete_chat_photo	True	Optional. Service message: the chat photo was deleted
      */
     @JsonProperty("delete_chat_photo")
-    private Boolean deleteChatPhoto;
+    private Boolean deleteChatPhoto = null;
     /**
      * group_chat_created	True	Optional. Service message: the group has been created
      */
     @JsonProperty("group_chat_created")
-    private Boolean groupChatCreated;
+    private Boolean groupChatCreated = null;
     /**
      * venue	Venue	Optional. Message is a venue, information about the venue
      */
     @JsonProperty("venue")
-    private Venue venue;
+    private Venue venue = null;
     /**
      * supergroup_chat_created	True	Optional. Service message: the supergroup has been created.
      * This field can‘t be received in a message coming through updates, because bot can’t be a
@@ -193,7 +194,7 @@ public class Message implements ITelegram {
      * someone replies to a very first message in a directly created supergroup.
      */
     @JsonProperty("supergroup_chat_created")
-    private Boolean supergroupChatCreated;
+    private Boolean supergroupChatCreated = null;
     /**
      * channel_chat_created	True	Optional. Service message: the channel has been created.
      * This field can‘t be received in a message coming through updates, because bot can’t be a
@@ -201,7 +202,7 @@ public class Message implements ITelegram {
      * replies to a very first message in a channel.
      */
     @JsonProperty("channel_chat_created")
-    private Boolean channelChatCreated;
+    private Boolean channelChatCreated = null;
     /**
      * migrate_to_chat_id	Integer	Optional. The group has been migrated to a supergroup with the
      * specified identifier. This number may be greater than 32 bits and some programming languages
@@ -209,7 +210,7 @@ public class Message implements ITelegram {
      * signed 64 bit integer or double-precision float type are safe for storing this identifier.
      */
     @JsonProperty("migrate_to_chat_id")
-    private Long migrateToChatId;
+    private Long migrateToChatId = null;
     /**
      * migrate_from_chat_id	Integer	Optional. The supergroup has been migrated from a group with
      * the specified identifier. This number may be greater than 32 bits and some programming
@@ -218,31 +219,51 @@ public class Message implements ITelegram {
      * identifier.
      */
     @JsonProperty("migrate_from_chat_id")
-    private Long migrateFromChatId;
+    private Long migrateFromChatId = null;
     /**
      * pinned_message	Message	Optional. Specified message was pinned. Note that the Message
      * object in this field will not contain further reply_to_message fields even if it is itself
      * a reply.
      */
     @JsonProperty("pinned_message")
-    private Message pinnedMessage;
+    private Message pinnedMessage = null;
     /**
-     * game	Game	Optional. Message is a game, information about the game. More about games »
-     * //todo
+     * game	Game	Optional. Message is a game, information about the game.
      */
+    @JsonProperty("game")
+    private Game game;
     /**
      * connected_website	String	Optional. The domain name of the website on which the user has
      * logged in.
      * More about Telegram Login »
      */
     @JsonProperty("connected_website")
-    private String connectedWebsite;
+    private String connectedWebsite = null;
     /**
      * caption_entities	Array of MessageEntity	Optional. For messages with a caption, special
      * entities like usernames, URLs, bot commands, etc. that appear in the caption
      */
     @JsonProperty("caption_entities")
-    private List<MessageEntity> captionEntities;
+    private List<MessageEntity> captionEntities = new ArrayList<>();
+
+    public Game getGame() {
+        return game;
+    }
+
+    /**
+     * invoice	Invoice	Optional. Message is an invoice for a payment, information about the invoice.
+     * todo
+     */
+
+    /**
+     * successful_payment	SuccessfulPayment	Optional. Message is a service message about a
+     * successful payment, information about the payment.
+     * todo
+     */
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
 
     public List<MessageEntity> getEntities() {
         return entities;
@@ -256,20 +277,9 @@ public class Message implements ITelegram {
         return captionEntities;
     }
 
-    /**
-     * invoice	Invoice	Optional. Message is an invoice for a payment, information about the invoice.
-     * todo
-     */
-
     public void setCaptionEntities(List<MessageEntity> captionEntities) {
         this.captionEntities = captionEntities;
     }
-
-    /**
-     * successful_payment	SuccessfulPayment	Optional. Message is a service message about a
-     * successful payment, information about the payment.
-     * todo
-     */
 
     public Venue getVenue() {
         return venue;
@@ -416,12 +426,12 @@ public class Message implements ITelegram {
         this.mediaGroupId = mediaGroupId;
     }
 
-    public String getAuthorSigature() {
-        return authorSigature;
+    public String getAuthorSignature() {
+        return authorSignature;
     }
 
-    public void setAuthorSigature(String authorSigature) {
-        this.authorSigature = authorSigature;
+    public void setAuthorSignature(String authorSignature) {
+        this.authorSignature = authorSignature;
     }
 
     public String getText() {

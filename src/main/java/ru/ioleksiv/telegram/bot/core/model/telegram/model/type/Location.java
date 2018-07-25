@@ -1,9 +1,8 @@
 package ru.ioleksiv.telegram.bot.core.model.telegram.model.type;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ru.ioleksiv.telegram.bot.core.model.telegram.interfaces.ITelegram;
 
-public class Location implements ITelegram {
+public class Location  {
     @JsonProperty("latitude")
     private float mLatitude = 0;
     @JsonProperty("longitude")

@@ -4,9 +4,8 @@ import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.ioleksiv.telegram.bot.core.model.exceptions.NetworkerException;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.method.update.GetUpdatesApi;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.Update;
-import ru.ioleksiv.telegram.bot.core.model.telegram.responses.UpdatesArrayResponse;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.method.update.GetUpdatesApi;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -25,10 +24,10 @@ public class Loader {
 
         LOG.trace("Process " + updatesArray.size() + " updates");
 
-        if(!updatesArray.isEmpty()) {
+        if (!updatesArray.isEmpty()) {
             // change received updates state
             Update lastUpdate = Collections.max(updatesArray, Comparator.comparingLong(Update::getUpdateId));
-            getUpdateWithOffset(lastUpdate.getUpdateId().intValue()+1);
+            getUpdateWithOffset(lastUpdate.getUpdateId().intValue() + 1);
         }
 
         return updatesArray;
@@ -36,12 +35,12 @@ public class Loader {
 
     @NotNull
     private List<Update> getUpdateWithOffset(int offset) {
-        GetUpdatesApi request = new GetUpdatesApi();
+        GetUpdatesApi request = new GetUpdatesApi(networker);
         request.setOffset(offset);
         try {
-            UpdatesArrayResponse updatesResponse = networker.run(request, UpdatesArrayResponse.class);
-            if (updatesResponse != null && updatesResponse.isStatus()) {
-                return updatesResponse.get();
+            List<Update> updates = request.run();
+            if (updates != null) {
+                return updates;
             }
         }
         catch (NetworkerException e) {

@@ -2,7 +2,6 @@ package ru.ioleksiv.telegram.bot.core.model.telegram.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.jetbrains.annotations.NotNull;
-import ru.ioleksiv.telegram.bot.core.model.telegram.interfaces.ITelegram;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.inline.ChosenInlineResult;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.inline.InlineQuery;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.CallbackQuery;
@@ -10,7 +9,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.Message;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.PreCheckoutQuery;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.ShippingQuery;
 
-public class Update implements ITelegram {
+public class Update {
     /**
      * update_id
      * <p>

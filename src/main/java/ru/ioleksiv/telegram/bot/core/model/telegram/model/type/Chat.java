@@ -1,12 +1,12 @@
 package ru.ioleksiv.telegram.bot.core.model.telegram.model.type;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ru.ioleksiv.telegram.bot.core.model.telegram.interfaces.ITelegram;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.files.ChatPhoto;
 
 /**
  * @link https://core.telegram.org/bots/api#chat
  */
-public class Chat implements ITelegram {
+public class Chat  {
     /**
      * id	Integer	Unique identifier for this chat. This number may be greater than 32 bits and some
      * programming languages may have difficulty/silent defects in interpreting it. But it is
@@ -46,6 +46,85 @@ public class Chat implements ITelegram {
      */
     @JsonProperty("all_members_are_administrators")
     private Boolean allMembersAreAdmin;
+
+    /**
+     * photo	ChatPhoto	Optional. Chat photo. Returned only in getChat.
+     */
+    @JsonProperty("photo")
+    private ChatPhoto chatPhoto;
+    /**
+     * description	String	Optional. Description, for supergroups and channel chats. Returned only in getChat.
+     */
+    @JsonProperty("description")
+    private String description;
+    /**
+     * invite_link	String	Optional. Chat invite link, for supergroups and channel chats. Returned only in getChat.
+     */
+    @JsonProperty("invite_link")
+    private String inviteLink;
+    /**
+     * pinned_message	Message	Optional. Pinned message, for supergroups and channel chats. Returned only in getChat.
+     */
+    @JsonProperty("pinned_message")
+    private Message pinnedMessage;
+    /**
+     * sticker_set_name	String	Optional. For supergroups, name of group sticker set. Returned only in getChat.
+     */
+    @JsonProperty("sticker_set_name")
+    private String sticerSetName;
+    /**
+     * can_set_sticker_set	Boolean	Optional. True, if the bot can change the group sticker set. Returned only in getChat.
+     */
+    @JsonProperty("can_set_sticker_set")
+    private Boolean canSetStrickerSet;
+
+    public ChatPhoto getChatPhoto() {
+        return chatPhoto;
+    }
+
+    public void setChatPhoto(ChatPhoto chatPhoto) {
+        this.chatPhoto = chatPhoto;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getInviteLink() {
+        return inviteLink;
+    }
+
+    public void setInviteLink(String inviteLink) {
+        this.inviteLink = inviteLink;
+    }
+
+    public Message getPinnedMessage() {
+        return pinnedMessage;
+    }
+
+    public void setPinnedMessage(Message pinnedMessage) {
+        this.pinnedMessage = pinnedMessage;
+    }
+
+    public String getSticerSetName() {
+        return sticerSetName;
+    }
+
+    public void setSticerSetName(String sticerSetName) {
+        this.sticerSetName = sticerSetName;
+    }
+
+    public Boolean getCanSetStrickerSet() {
+        return canSetStrickerSet;
+    }
+
+    public void setCanSetStrickerSet(Boolean canSetStrickerSet) {
+        this.canSetStrickerSet = canSetStrickerSet;
+    }
 
     public String getType() {
         return type;

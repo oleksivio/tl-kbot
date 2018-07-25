@@ -4,7 +4,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.ioleksiv.telegram.bot.core.api.TelegramProcessor;
 import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.method.IAction;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.method.interfaces.IAction;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.Update;
 
 import java.util.ArrayList;

@@ -1,138 +1,92 @@
 package ru.ioleksiv.telegram.bot.core.model.telegram.model.type;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.jetbrains.annotations.Nullable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import ru.ioleksiv.telegram.bot.core.model.telegram.interfaces.ITelegram;
 
-public class CallbackQuery implements ITelegram {
-    private static final Logger LOGGER = LoggerFactory.getLogger(CallbackQuery.class);
+/**
+ * @link https://core.telegram.org/bots/api#callbackquery
+ */
+public class CallbackQuery  {
     /**
-     * id
-     * <p>
-     * String
-     * <p>
-     * Unique identifier for this query
+     * id	String	Unique identifier for this query
      */
-    private String mId = null;
-
+    @JsonProperty("id")
+    private String id;
     /**
-     * from
-     * <p>
-     * User
-     * <p>
-     * Sender
+     * from	User	Sender
      */
-    private User mSender = null;
+    @JsonProperty("from")
+    private User from;
     /**
-     * message
-     * <p>
-     * Message
-     * <p>
-     * Optional. Message with the callback button that originated the query.
-     * Note that message content and message date will not be available if the message is too old
+     * message	Message	Optional. Message with the callback button that originated the query. Note that message content and message date will not be available if the message is too old
      */
-    @Nullable
-    private Message mMessage = null;
+    @JsonProperty("message")
+    private Message message;
     /**
      * inline_message_id	String	Optional. Identifier of the message sent via the bot in inline mode, that originated the query.
      */
-    @Nullable
-    private String mInlineMessageId = null;
+    @JsonProperty("inline_message_id")
+    private String inlineMessageId;
     /**
-     * chat_instance
-     * <p>
-     * String
-     * <p>
-     * Global identifier, uniquely corresponding to the chat to which the message with the callback button was sent.
-     * Useful for high scores in games.
+     * chat_instance	String	Global identifier, uniquely corresponding to the chat to which the message with the callback button was sent. Useful for high scores in games.
      */
-
-    private String mChatInstance = null;
+    @JsonProperty("chat_instance")
+    private String chatInstance;
     /**
-     * data
-     * <p>
-     * String
-     * <p>
-     * Optional. Data associated with the callback button.
-     * Be aware that a bad client can send arbitrary query in this field.
+     * data	String	Optional. Data associated with the callback button. Be aware that a bad client can send arbitrary data in this field.
      */
-    @Nullable
-    private String mData = null;
+    @JsonProperty("data")
+    private String data;
     /**
      * game_short_name	String	Optional. Short name of a Game to be returned, serves as the unique identifier for the game
      */
-    @Nullable
-    private String mGameShortName = null;
-
-    @JsonProperty("id")
-    public String getId() {
-        return mId;
-    }
-
-    @JsonProperty("id")
-    public void setId(String id) {
-        mId = id;
-    }
-
     @JsonProperty("game_short_name")
-    public String getGameShortName() {
-        return mGameShortName;
+    private String gameShortName;
+
+    public User getFrom() {
+        return from;
     }
 
-    @JsonProperty("game_short_name")
-    public void setGameShortName(String gameShortName) {
-        mGameShortName = gameShortName;
+    public void setFrom(User from) {
+        this.from = from;
     }
 
-    @JsonProperty("data")
-    public String getData() {
-        return mData;
-    }
-
-    @JsonProperty("data")
-    public void setData(String data) {
-        mData = data;
-    }
-
-    @JsonProperty("inline_message_id")
-    public String getInlineMessageId() {
-        return mInlineMessageId;
-    }
-
-    @JsonProperty("inline_message_id")
-    public void setInlineMessageId(String inlineMessageId) {
-        mInlineMessageId = inlineMessageId;
-    }
-
-    @JsonProperty("from")
-    public User getSender() {
-        return mSender;
-    }
-
-    @JsonProperty("from")
-    public void setSender(User sender) {
-        mSender = sender;
-    }
-
-    @JsonProperty("message")
     public Message getMessage() {
-        return mMessage;
+        return message;
     }
 
-    @JsonProperty("message")
     public void setMessage(Message message) {
-        mMessage = message;
+        this.message = message;
     }
 
-    @JsonProperty("chat_instance")
+    public String getInlineMessageId() {
+        return inlineMessageId;
+    }
+
+    public void setInlineMessageId(String inlineMessageId) {
+        this.inlineMessageId = inlineMessageId;
+    }
+
     public String getChatInstance() {
-        return mChatInstance;
+        return chatInstance;
     }
 
-    @JsonProperty("chat_instance")
     public void setChatInstance(String chatInstance) {
-        mChatInstance = chatInstance;
+        this.chatInstance = chatInstance;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getGameShortName() {
+        return gameShortName;
+    }
+
+    public void setGameShortName(String gameShortName) {
+        this.gameShortName = gameShortName;
     }
 }

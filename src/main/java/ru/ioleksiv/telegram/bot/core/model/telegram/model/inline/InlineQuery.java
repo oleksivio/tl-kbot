@@ -5,11 +5,10 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.ioleksiv.telegram.bot.core.model.telegram.interfaces.ITelegram;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.Location;
 import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.User;
 
-public class InlineQuery implements ITelegram {
+public class InlineQuery {
     private static final Logger LOGGER = LoggerFactory.getLogger(InlineQuery.class);
     /**
      * id

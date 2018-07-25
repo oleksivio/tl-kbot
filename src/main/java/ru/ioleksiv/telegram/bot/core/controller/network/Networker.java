@@ -7,7 +7,7 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestOperations;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 import ru.ioleksiv.telegram.bot.core.model.exceptions.NetworkerException;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.method.IServerApi;
+import ru.ioleksiv.telegram.bot.core.model.telegram.model.method.interfaces.IAction;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.CommonResponse;
 
 public class Networker {
@@ -25,7 +25,7 @@ public class Networker {
     }
 
     @Nullable
-    public <T extends CommonResponse> T run(IServerApi action, Class<T> clazz) throws NetworkerException {
+    public <T extends CommonResponse> T run(IAction action, Class<T> clazz) throws NetworkerException {
         try {
             return template.postForEntity(url, action, clazz).getBody();
         }

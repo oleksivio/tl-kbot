@@ -1,9 +1,8 @@
 package ru.ioleksiv.telegram.bot.core.model.telegram.model.type;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ru.ioleksiv.telegram.bot.core.model.telegram.interfaces.ITelegram;
 
-public class User implements ITelegram {
+public class User  {
     /**
      * id	Integer	Unique identifier for this user or bot
      */

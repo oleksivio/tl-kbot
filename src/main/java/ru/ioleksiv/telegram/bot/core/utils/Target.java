@@ -19,7 +19,7 @@ public enum Target {
 
         @Override
         public Long getId(@NotNull CallbackQuery callbackQuery) {
-            return callbackQuery.getSender().getId();
+            return callbackQuery.getFrom().getId();
         }
 
         @Override
