@@ -3,9 +3,8 @@ package ru.ioleksiv.telegram.bot.core.controller.network;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.ioleksiv.telegram.bot.core.model.exceptions.NetworkerException;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.Update;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.method.update.GetUpdatesApi;
+import ru.ioleksiv.telegram.bot.core.model.telegram.objects.Update;
+import ru.ioleksiv.telegram.bot.core.model.telegram.method.update.GetUpdatesApi;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -37,17 +36,10 @@ public class Loader {
     private List<Update> getUpdateWithOffset(int offset) {
         GetUpdatesApi request = new GetUpdatesApi(networker);
         request.setOffset(offset);
-        try {
-            List<Update> updates = request.run();
-            if (updates != null) {
-                return updates;
-            }
-        }
-        catch (NetworkerException e) {
-            LOG.debug("Error when load new updates with offset " + offset + ':', e);
-        }
 
-        return Collections.emptyList();
+        List<Update> updates = request.run();
+
+        return updates != null ? updates : Collections.emptyList();
     }
 
 }

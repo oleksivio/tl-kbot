@@ -2,12 +2,12 @@ package ru.ioleksiv.telegram.bot.core.utils;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.inline.ChosenInlineResult;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.Message;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.CallbackQuery;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.inline.InlineQuery;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.PreCheckoutQuery;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.ShippingQuery;
+import ru.ioleksiv.telegram.bot.core.model.telegram.objects.inline.ChosenInlineResult;
+import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.Message;
+import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.CallbackQuery;
+import ru.ioleksiv.telegram.bot.core.model.telegram.objects.inline.InlineQuery;
+import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.PreCheckoutQuery;
+import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.ShippingQuery;
 
 public enum Target {
     USER {

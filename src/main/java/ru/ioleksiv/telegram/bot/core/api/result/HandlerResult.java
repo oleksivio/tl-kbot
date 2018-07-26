@@ -3,7 +3,7 @@ package ru.ioleksiv.telegram.bot.core.api.result;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.method.interfaces.IAction;
+import ru.ioleksiv.telegram.bot.core.model.telegram.method.interfaces.IAction;
 
 import java.util.ArrayList;
 import java.util.Collection;

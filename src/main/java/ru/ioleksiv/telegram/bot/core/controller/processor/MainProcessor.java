@@ -4,8 +4,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.ioleksiv.telegram.bot.core.api.TelegramProcessor;
 import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.method.interfaces.IAction;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.Update;
+import ru.ioleksiv.telegram.bot.core.model.telegram.objects.Update;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -29,17 +28,11 @@ public class MainProcessor implements TelegramProcessor {
             }
         }
 
-        HandlerResult statelessResults = HandlerResult.success();
-
         for (TelegramProcessor handler : mStatelessHandlers) {
-            HandlerResult processedResult  = handler.process(update);
-            for(IAction action : processedResult.getAction()) {
-                statelessResults.add(action);
+            HandlerResult handlerResult = handler.process(update);
+            if (!handlerResult.hasNoAction()) {
+                return handlerResult;
             }
-        }
-
-        if (!statelessResults.isEmpty()) {
-            return statelessResults;
         }
 
         if (mDefaultHandler != null) {

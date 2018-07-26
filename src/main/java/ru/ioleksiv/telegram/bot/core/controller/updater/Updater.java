@@ -8,7 +8,7 @@ import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 import ru.ioleksiv.telegram.bot.core.controller.network.Loader;
 import ru.ioleksiv.telegram.bot.core.controller.network.Sender;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.Update;
+import ru.ioleksiv.telegram.bot.core.model.telegram.objects.Update;
 
 public class Updater implements TelegramUpdater {
     private static final Logger LOG = LoggerFactory.getLogger(Handler.class);
@@ -24,7 +24,7 @@ public class Updater implements TelegramUpdater {
     }
 
     @Override
-    public void request() {
+    public void process() {
 
         Iterable<Update> updates = loader.loadUpdates();
 

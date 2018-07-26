@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import ru.ioleksiv.telegram.bot.core.api.TelegramProcessor;
 import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.Update;
+import ru.ioleksiv.telegram.bot.core.model.telegram.objects.Update;
 
 public class StatelessProcessor implements TelegramProcessor {
     private static final Logger LOGGER = LoggerFactory.getLogger(StatelessProcessor.class);
@@ -30,6 +30,9 @@ public class StatelessProcessor implements TelegramProcessor {
     @Override
     @NotNull
     public HandlerResult process(@Nullable Update update) {
+        if (!mMainHandler.isAcceptable(update)) {
+            return HandlerResult.noAction();
+        }
 
         if (mBeforeMethod != null) {
             HandlerResult beforeActions = mBeforeMethod.invoke(update);
@@ -39,12 +42,10 @@ public class StatelessProcessor implements TelegramProcessor {
             }
         }
 
-        if (mMainHandler.isAcceptable(update)) {
-            HandlerResult resultActionList = mMainHandler.invoke(update);
+        HandlerResult resultActionList = mMainHandler.invoke(update);
 
-            if (!resultActionList.hasNoAction()) {
-                return resultActionList;
-            }
+        if (!resultActionList.hasNoAction()) {
+            return resultActionList;
         }
 
         if (mAfterMethod != null) {

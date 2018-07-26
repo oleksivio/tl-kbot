@@ -3,7 +3,7 @@ package ru.ioleksiv.telegram.bot.core.api;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.Update;
+import ru.ioleksiv.telegram.bot.core.model.telegram.objects.Update;
 
 public interface TelegramProcessor {
 

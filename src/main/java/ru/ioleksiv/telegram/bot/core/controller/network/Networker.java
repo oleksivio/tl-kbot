@@ -3,11 +3,11 @@ package ru.ioleksiv.telegram.bot.core.controller.network;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestOperations;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
-import ru.ioleksiv.telegram.bot.core.model.exceptions.NetworkerException;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.method.interfaces.IAction;
+import ru.ioleksiv.telegram.bot.core.model.telegram.method.interfaces.IAction;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.CommonResponse;
 
 public class Networker {
@@ -25,14 +25,17 @@ public class Networker {
     }
 
     @Nullable
-    public <T extends CommonResponse> T run(IAction action, Class<T> clazz) throws NetworkerException {
+    public <T extends CommonResponse> T run(IAction action, Class<T> clazz) {
         try {
             return template.postForEntity(url, action, clazz).getBody();
         }
+        catch (HttpClientErrorException httpException){
+            LOG.error(httpException.getResponseBodyAsString(), httpException);
+        }
         catch (RestClientException e) {
             LOG.error("", e);
-            throw new NetworkerException();
         }
+        return null;
     }
 
 }

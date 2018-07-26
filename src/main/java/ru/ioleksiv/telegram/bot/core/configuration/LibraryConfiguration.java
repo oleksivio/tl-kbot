@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 import ru.ioleksiv.telegram.bot.core.api.TelegramProcessor;
+import ru.ioleksiv.telegram.bot.core.api.builder.MethodBuilder;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.AnnotationProcessor;
 import ru.ioleksiv.telegram.bot.core.controller.network.Loader;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
@@ -51,6 +52,11 @@ public class LibraryConfiguration {
     @Bean
     public AnnotationProcessor annotationProcessor(MainProcessor mainProcessor) {
         return new AnnotationProcessor(mainProcessor);
+    }
+
+    @Bean
+    public MethodBuilder locationMethodBuilder(Networker networker) {
+        return new MethodBuilder(networker);
     }
 
 }

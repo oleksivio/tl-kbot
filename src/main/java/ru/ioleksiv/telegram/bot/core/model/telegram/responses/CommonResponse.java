@@ -2,7 +2,6 @@ package ru.ioleksiv.telegram.bot.core.model.telegram.responses;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ru.ioleksiv.telegram.bot.core.model.telegram.model.type.Message;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CommonResponse<T> {
