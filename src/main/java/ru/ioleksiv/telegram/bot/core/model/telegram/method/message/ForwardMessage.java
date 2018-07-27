@@ -13,7 +13,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection
 public class ForwardMessage extends ChatAction<Message> {
     private static final String FORWARD_MESSAGE = "forwardMessage";
     /**
-     * from_chat_id	Integer or String	Yes	Unique identifier for the chat where the original message
+     * from_chat_id	Integer or String Unique identifier for the chat where the original message
      * was sent (or channel username in the format @channelusername)
      */
     @JsonProperty("from_chat_id")
@@ -25,7 +25,7 @@ public class ForwardMessage extends ChatAction<Message> {
     @JsonProperty("disable_notification")
     private Boolean disableNotification = null;
     /**
-     * message_id	Integer	Yes	Message identifier in the chat specified in from_chat_id
+     * message_id	Integer Message identifier in the chat specified in from_chat_id
      */
     @JsonProperty("message_id")
     private Long messageId = null;

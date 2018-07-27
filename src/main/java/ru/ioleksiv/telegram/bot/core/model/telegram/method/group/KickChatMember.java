@@ -13,7 +13,7 @@ public class KickChatMember extends ChatAction<Boolean> {
     private static final String METHOD = "kickChatMember";
 
     /**
-     * user_id	Integer	Yes	Unique identifier of the target user
+     * user_id	Integer Unique identifier of the target user
      */
     @JsonProperty("user_id")
     private Long userId = null;

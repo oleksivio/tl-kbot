@@ -11,7 +11,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.keyboard.Inline
 abstract class EditMessageText<RES> extends EditAction<RES> {
     private static final String METHOD = "editMessageText";
     /**
-     * text	String	Yes	New text of the message
+     * text	String New text of the message
      */
     @JsonProperty("text")
     private String text = null;

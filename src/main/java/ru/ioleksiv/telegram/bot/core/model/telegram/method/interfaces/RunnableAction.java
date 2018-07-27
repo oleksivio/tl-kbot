@@ -1,13 +1,14 @@
 package ru.ioleksiv.telegram.bot.core.model.telegram.method.interfaces;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jdk.internal.jline.internal.Nullable;
+import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
+import ru.ioleksiv.telegram.bot.core.model.telegram.method.IMethod;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.CommonResponse;
 
-public abstract class RunnableAction<RES> implements IAction<RES> {
+public abstract class RunnableAction<RES> implements IMethod<RES> {
     private static final Logger LOG = LoggerFactory.getLogger(RunnableAction.class);
 
     private final String method;
@@ -20,7 +21,7 @@ public abstract class RunnableAction<RES> implements IAction<RES> {
 
     @Override
     @Nullable
-    public RES run() {
+    public RES send() {
         CommonResponse<RES> commonResponse = networker.run(this, getResultWrapperClass());
 
         return commonResponse != null ? commonResponse.get() : null;

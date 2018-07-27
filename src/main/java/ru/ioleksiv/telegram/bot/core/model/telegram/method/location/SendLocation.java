@@ -12,12 +12,12 @@ public class SendLocation extends MessageAction {
     private static final String METHOD = "sendLocation";
 
     /**
-     * latitude	Float number	Yes	Latitude of the location
+     * latitude	Float number Latitude of the location
      */
     @JsonProperty("latitude")
     private Double latitude = null;
     /**
-     * longitude	Float number	Yes	Longitude of the location
+     * longitude	Float number Longitude of the location
      */
     @JsonProperty("longitude")
     private Double longitude = null;

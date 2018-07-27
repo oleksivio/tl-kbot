@@ -1,22 +1,22 @@
-package ru.ioleksiv.telegram.bot.core.model.telegram.method.files;
+package ru.ioleksiv.telegram.bot.core.model.telegram.method.file;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
-import ru.ioleksiv.telegram.bot.core.model.telegram.method.interfaces.FileAction;
+import ru.ioleksiv.telegram.bot.core.model.telegram.method.interfaces.CaptionAction;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.keyboard.IKeyboard;
 
 /**
  * @link https://core.telegram.org/bots/api#sendvoice
  */
-public class SendVoice<T> extends FileAction {
+public class SendVoice extends CaptionAction {
     private static final String METHOD = "sendVoice";
     /**
-     * voice	InputFile or String	Yes	Audio file to send. Pass a file_id as String to send a file
+     * voice  String Audio file to send. Pass a file_id as String to send a file
      * that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram
-     * to get a file from the Internet, or upload a new one using multipart/form-data.
+     * to get a file from the Internet
      */
     @JsonProperty("voice")
-    private T voice = null;
+    private String voice = null;
     /**
      * duration	Integer	Optional	Duration of the voice message in seconds
      */
@@ -27,11 +27,11 @@ public class SendVoice<T> extends FileAction {
         super(METHOD, networker);
     }
 
-    public T getVoice() {
+    public String getVoice() {
         return voice;
     }
 
-    public SendVoice<T> setVoice(T voice) {
+    public SendVoice setVoice(String voice) {
         this.voice = voice;
         return this;
     }
@@ -40,43 +40,43 @@ public class SendVoice<T> extends FileAction {
         return duration;
     }
 
-    public SendVoice<T> setDuration(Integer duration) {
+    public SendVoice setDuration(Integer duration) {
         this.duration = duration;
         return this;
     }
 
     @Override
-    public SendVoice<T> setReplyMarkup(IKeyboard replyMarkup) {
+    public SendVoice setReplyMarkup(IKeyboard replyMarkup) {
         pSetReplyMarkup(replyMarkup);
         return this;
     }
 
     @Override
-    protected SendVoice<T> setDisableNotification(Boolean disableNotification) {
+    protected SendVoice setDisableNotification(Boolean disableNotification) {
         pSetDisableNotification(disableNotification);
         return this;
     }
 
     @Override
-    protected SendVoice<T> setReplyToMessageId(Long replyToMessageId) {
+    protected SendVoice setReplyToMessageId(Long replyToMessageId) {
         pSetReplyToMessageId(replyToMessageId);
         return this;
     }
 
     @Override
-    public SendVoice<T> setChatId(Long chatId) {
+    public SendVoice setChatId(Long chatId) {
         pSetChatId(chatId);
         return this;
     }
 
     @Override
-    public SendVoice<T> setParseMode(String parseMode) {
+    public SendVoice setParseMode(String parseMode) {
         pSetParseMode(parseMode);
         return this;
     }
 
     @Override
-    public SendVoice<T> setCaption(String caption) {
+    public SendVoice setCaption(String caption) {
 
         pSetCaption(caption);
         return this;

@@ -12,7 +12,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection
 public class PinChatMessage extends ChatAction<Boolean> {
     private static final String METHOD = "pinChatMessage";
     /**
-     * message_id	Integer	Yes	Identifier of a message to pin
+     * message_id	Integer Identifier of a message to pin
      */
     @JsonProperty("message_id")
     private Long messageId = null;

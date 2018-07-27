@@ -37,7 +37,7 @@ public class Loader {
         GetUpdatesApi request = new GetUpdatesApi(networker);
         request.setOffset(offset);
 
-        List<Update> updates = request.run();
+        List<Update> updates = request.send();
 
         return updates != null ? updates : Collections.emptyList();
     }

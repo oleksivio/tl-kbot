@@ -1,23 +1,22 @@
-package ru.ioleksiv.telegram.bot.core.model.telegram.method.files;
+package ru.ioleksiv.telegram.bot.core.model.telegram.method.file;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
-import ru.ioleksiv.telegram.bot.core.model.telegram.method.interfaces.FileAction;
+import ru.ioleksiv.telegram.bot.core.model.telegram.method.interfaces.CaptionAction;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.keyboard.IKeyboard;
 
 /**
- * @param <T> File or String
  * @link https://core.telegram.org/bots/api#sendvideo
  */
-public class SendVideo<T> extends FileAction {
+public class SendVideo extends CaptionAction {
     private static final String METHOD = "sendVideo";
     /**
-     * video	InputFile or String	Yes	Video to send. Pass a file_id as String to send a video that
+     * video  String	Video to send. Pass a file_id as String to send a video that
      * exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to
-     * get a video from the Internet, or upload a new video using multipart/form-data.
+     * get a video from the Internet
      */
     @JsonProperty("video")
-    private T video = null;
+    private String video = null;
 
     /**
      * duration	Integer	Optional	Duration of sent video in seconds
@@ -44,11 +43,11 @@ public class SendVideo<T> extends FileAction {
         super(METHOD, networker);
     }
 
-    public T getVideo() {
+    public String getVideo() {
         return video;
     }
 
-    public SendVideo<T> setVideo(T video) {
+    public SendVideo setVideo(String video) {
         this.video = video;
         return this;
     }
@@ -57,7 +56,7 @@ public class SendVideo<T> extends FileAction {
         return duration;
     }
 
-    public SendVideo<T> setDuration(Integer duration) {
+    public SendVideo setDuration(Integer duration) {
         this.duration = duration;
         return this;
     }
@@ -66,7 +65,7 @@ public class SendVideo<T> extends FileAction {
         return width;
     }
 
-    public SendVideo<T> setWidth(Integer width) {
+    public SendVideo setWidth(Integer width) {
         this.width = width;
         return this;
     }
@@ -75,7 +74,7 @@ public class SendVideo<T> extends FileAction {
         return height;
     }
 
-    public SendVideo<T> setHeight(Integer height) {
+    public SendVideo setHeight(Integer height) {
         this.height = height;
         return this;
     }
@@ -84,43 +83,43 @@ public class SendVideo<T> extends FileAction {
         return supportsStreaming;
     }
 
-    public SendVideo<T> setSupportsStreaming(Boolean supportsStreaming) {
+    public SendVideo setSupportsStreaming(Boolean supportsStreaming) {
         this.supportsStreaming = supportsStreaming;
         return this;
     }
 
     @Override
-    public SendVideo<T> setReplyMarkup(IKeyboard replyMarkup) {
+    public SendVideo setReplyMarkup(IKeyboard replyMarkup) {
         pSetReplyMarkup(replyMarkup);
         return this;
     }
 
     @Override
-    protected SendVideo<T> setDisableNotification(Boolean disableNotification) {
+    protected SendVideo setDisableNotification(Boolean disableNotification) {
         pSetDisableNotification(disableNotification);
         return this;
     }
 
     @Override
-    protected SendVideo<T> setReplyToMessageId(Long replyToMessageId) {
+    protected SendVideo setReplyToMessageId(Long replyToMessageId) {
         pSetReplyToMessageId(replyToMessageId);
         return this;
     }
 
     @Override
-    public SendVideo<T> setChatId(Long chatId) {
+    public SendVideo setChatId(Long chatId) {
         pSetChatId(chatId);
         return this;
     }
 
     @Override
-    public SendVideo<T> setParseMode(String parseMode) {
+    public SendVideo setParseMode(String parseMode) {
         pSetParseMode(parseMode);
         return this;
     }
 
     @Override
-    public SendVideo<T> setCaption(String caption) {
+    public SendVideo setCaption(String caption) {
 
         pSetCaption(caption);
         return this;

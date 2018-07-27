@@ -8,7 +8,7 @@ import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 public abstract class ChatAction<RES> extends RunnableAction<RES> {
     private static final Logger LOG = LoggerFactory.getLogger(ChatAction.class);
     /**
-     * chat_id	Integer or String	Yes	Unique identifier for the target chat or username of the
+     * chat_id	Integer or String Unique identifier for the target chat or username of the
      * target channel (in the format @channelusername)
      */
     @JsonProperty("chat_id")

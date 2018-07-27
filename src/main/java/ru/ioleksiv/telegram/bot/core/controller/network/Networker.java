@@ -3,6 +3,10 @@ package ru.ioleksiv.telegram.bot.core.controller.network;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestOperations;
@@ -25,7 +29,8 @@ public class Networker {
     }
 
     @Nullable
-    public <T extends CommonResponse> T run(IAction action, Class<T> clazz) {
+    public <T extends CommonResponse> T run(IAction action,
+                                            Class<T> clazz) {
         try {
             return template.postForEntity(url, action, clazz).getBody();
         }
@@ -38,4 +43,28 @@ public class Networker {
         return null;
     }
 
+    @Nullable
+    public <T extends CommonResponse> T upload(MultiValueMap<String, Object> requestMap,
+                                               Class<T> clazz) {
+        try {
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+
+            HttpEntity<MultiValueMap<String, Object>> requestEntity =
+                    new HttpEntity<>(requestMap, headers);
+
+            return template.postForObject(url, requestEntity, clazz);
+        }
+        catch (HttpClientErrorException httpException) {
+            LOG.error(httpException.getResponseBodyAsString(), httpException);
+        }
+        catch (RestClientException e) {
+            LOG.error("", e);
+        }
+        return null;
+
+    }
+
 }
+

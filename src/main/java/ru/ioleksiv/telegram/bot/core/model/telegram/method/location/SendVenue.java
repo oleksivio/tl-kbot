@@ -12,22 +12,22 @@ public class SendVenue extends MessageAction {
     private static final String METHOD = "sendVenue";
 
     /**
-     * latitude	Float number	Yes	Latitude of the venue
+     * latitude	Float number Latitude of the venue
      */
     @JsonProperty("latitude")
     private Double latitude = null;
     /**
-     * longitude	Float number	Yes	Longitude of the venue
+     * longitude	Float number Longitude of the venue
      */
     @JsonProperty("longitude")
     private Double longitude = null;
     /**
-     * title	String	Yes	Name of the venue
+     * title	String Name of the venue
      */
     @JsonProperty("title")
     private String title = null;
     /**
-     * address	String	Yes	Address of the venue
+     * address	String Address of the venue
      */
     @JsonProperty("address")
     private String address = null;

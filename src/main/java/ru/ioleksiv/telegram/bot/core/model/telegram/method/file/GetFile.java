@@ -1,4 +1,4 @@
-package ru.ioleksiv.telegram.bot.core.model.telegram.method.files;
+package ru.ioleksiv.telegram.bot.core.model.telegram.method.file;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
@@ -13,7 +13,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection
 public class GetFile extends RunnableAction<File> {
     private static final String METHOD = "getFile";
     /**
-     * file_id	String	Yes	File identifier to get info about
+     * file_id	String		File identifier to get info about
      */
     @JsonProperty("file_id")
     private String fileId;

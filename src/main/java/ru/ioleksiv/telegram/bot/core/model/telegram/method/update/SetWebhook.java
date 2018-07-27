@@ -15,7 +15,7 @@ import java.util.List;
 public class SetWebhook extends RunnableAction<Boolean> {
     private static final String METHOD = "setWebhook";
     /**
-     * url	String	Yes	HTTPS url to send updates to. Use an empty string to remove webhook
+     * url	String HTTPS url to send updates to. Use an empty string to remove webhook
      * integration
      */
     @JsonProperty("url")

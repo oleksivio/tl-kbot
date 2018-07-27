@@ -1,4 +1,4 @@
-package ru.ioleksiv.telegram.bot.core.model.telegram.method.files;
+package ru.ioleksiv.telegram.bot.core.model.telegram.method.file;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
@@ -17,7 +17,7 @@ import java.util.List;
 public class SendMediaGroup extends ChatAction<Message> {
     private static final String METHOD = "sendMediaGroup";
     /**
-     * media	Array of InputMedia	Yes	A JSON-serialized array describing photos and videos to be
+     * media	Array of InputMedia A JSON-serialized array describing photos and videos to be
      * sent, must include 2–10 items
      */
     @JsonProperty("media")

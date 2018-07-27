@@ -12,7 +12,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection
 public class RestrictChatMember extends ChatAction<Boolean> {
     private static final String METHOD = "restrictChatMember";
     /**
-     * user_id	Integer	Yes	Unique identifier of the target user
+     * user_id	Integer Unique identifier of the target user
      */
     @JsonProperty("user_id")
     private Long userId = null;

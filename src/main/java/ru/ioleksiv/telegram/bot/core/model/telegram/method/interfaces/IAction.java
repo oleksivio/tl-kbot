@@ -3,8 +3,7 @@ package ru.ioleksiv.telegram.bot.core.model.telegram.method.interfaces;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jdk.internal.jline.internal.Nullable;
+import org.jetbrains.annotations.Nullable;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.CommonResponse;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -13,10 +12,7 @@ public interface IAction<RES> {
 
     @JsonIgnore
     @Nullable
-    RES run();
-
-    @JsonProperty("method")
-    String getMethod();
+    RES send();
 
     @JsonIgnore
     Class<? extends CommonResponse<RES>> getResultWrapperClass();

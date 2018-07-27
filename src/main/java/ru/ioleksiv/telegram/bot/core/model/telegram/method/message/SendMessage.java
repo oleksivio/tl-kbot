@@ -11,7 +11,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.keyboard.IKeybo
 public class SendMessage extends FormattedMessageAction {
     private static final String METHOD = "sendMessage";
     /**
-     * text	String	Yes	Text of the message to be sent
+     * text	String Text of the message to be sent
      */
     @JsonProperty("text")
     private String text = null;

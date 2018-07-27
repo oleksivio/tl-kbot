@@ -16,7 +16,7 @@ public class AnswerCallbackQuery extends RunnableAction<Boolean> {
     private static final String METHOD = "answerCallbackQuery";
 
     /**
-     * callback_query_id	String	Yes	Unique identifier for the query to be answered
+     * callback_query_id	String Unique identifier for the query to be answered
      */
     @JsonProperty("callback_query_id")
     private String mCallbackQueryId = null;

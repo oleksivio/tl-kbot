@@ -14,7 +14,7 @@ import java.io.File;
 public class SetChatPhoto extends ChatAction<Boolean> {
     private static final String METHOD = "setChatPhoto";
     /**
-     * photo	InputFile	Yes	New chat photo, uploaded using multipart/form-data
+     * photo	InputFile New chat photo, uploaded using multipart/form-data
      */
     @JsonProperty("photo")
     private File photo;

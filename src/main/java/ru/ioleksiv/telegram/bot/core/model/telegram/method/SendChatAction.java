@@ -13,7 +13,7 @@ public class SendChatAction extends ChatAction<Boolean> {
     private static final String METHOD = "sendChatAction";
 
     /**
-     * action	String	Yes	Type of action to broadcast.
+     * action	String Type of action to broadcast.
      * Choose one, depending on what the user is about to receive:
      * typing for text messages,
      * upload_photo for photos,
