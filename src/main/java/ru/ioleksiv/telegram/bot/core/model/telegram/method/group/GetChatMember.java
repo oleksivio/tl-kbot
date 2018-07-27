@@ -10,11 +10,11 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection
 /**
  * @see <a href="https://core.telegram.org/bots/api#getchatmember>getChatMember</a>
  */
-public class GetChatMember  extends ChatAction<ChatMember > {
+public class GetChatMember extends ChatAction<ChatMember> {
     private static final String METHOD = "getChatMember";
 
     /**
-     *user_id	Integer	Yes	Unique identifier of the target user
+     * user_id	Integer	Yes	Unique identifier of the target user
      */
     @JsonProperty("user_id")
     private Long userId = null;
@@ -27,13 +27,19 @@ public class GetChatMember  extends ChatAction<ChatMember > {
         return userId;
     }
 
+    public GetChatMember setUserId(Long userId) {
+        this.userId = userId;
+        return this;
+    }
+
     @Override
     public Class<? extends CommonResponse<ChatMember>> getResultWrapperClass() {
         return ResponseCollection.ChatMemberResponse.class;
     }
 
-    public GetChatMember  setUserId(Long userId) {
-        this.userId = userId;
+    @Override
+    public GetChatMember setChatId(Long chatId) {
+        pSetChatId(chatId);
         return this;
     }
 }

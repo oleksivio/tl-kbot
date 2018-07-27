@@ -4,7 +4,7 @@ import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection;
 
-public class EditOtherMessageCaption  extends EditMessageCaption<Boolean > {
+public class EditOtherMessageCaption extends EditMessageCaption<Boolean> {
 
     EditOtherMessageCaption(Networker networker) {
         super(networker);
@@ -12,6 +12,6 @@ public class EditOtherMessageCaption  extends EditMessageCaption<Boolean > {
 
     @Override
     public Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
-return ResponseCollection.BooleanResponse.class;
+        return ResponseCollection.BooleanResponse.class;
     }
 }

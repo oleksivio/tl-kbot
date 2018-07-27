@@ -11,12 +11,12 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.CommonResponse;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public interface IAction<RES> {
 
-    @JsonProperty("method")
-    String getMethod();
-
     @JsonIgnore
     @Nullable
     RES run();
+
+    @JsonProperty("method")
+    String getMethod();
 
     @JsonIgnore
     Class<? extends CommonResponse<RES>> getResultWrapperClass();

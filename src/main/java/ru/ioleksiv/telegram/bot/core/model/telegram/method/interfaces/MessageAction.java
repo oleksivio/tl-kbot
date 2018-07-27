@@ -9,7 +9,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.keyboard.IKeybo
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection;
 
-public class MessageAction  extends ChatAction<Message > {
+public abstract class MessageAction extends ChatAction<Message> {
     private static final Logger LOG = LoggerFactory.getLogger(MessageAction.class);
     /**
      * reply_markup	InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply	Optional	Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
@@ -31,32 +31,35 @@ public class MessageAction  extends ChatAction<Message > {
         super(method, networker);
     }
 
+    protected void pSetReplyToMessageId(Long replyToMessageId) {
+        this.replyToMessageId = replyToMessageId;
+    }
+
+    protected void pSetReplyMarkup(IKeyboard replyMarkup) {
+        this.replyMarkup = replyMarkup;
+    }
+
+    protected void pSetDisableNotification(Boolean disableNotification) {
+        this.disableNotification = disableNotification;
+    }
+
     public IKeyboard getReplyMarkup() {
         return replyMarkup;
     }
 
-    public MessageAction setReplyMarkup(IKeyboard replyMarkup) {
-        this.replyMarkup = replyMarkup;
-        return this;
-    }
+    public abstract MessageAction setReplyMarkup(IKeyboard replyMarkup);
 
     public Boolean getDisableNotification() {
         return disableNotification;
     }
 
-    public MessageAction setDisableNotification(Boolean disableNotification) {
-        this.disableNotification = disableNotification;
-        return this;
-    }
+    protected abstract MessageAction setDisableNotification(Boolean disableNotification);
 
     public Long getReplyToMessageId() {
         return replyToMessageId;
     }
 
-    public MessageAction setReplyToMessageId(Long replyToMessageId) {
-        this.replyToMessageId = replyToMessageId;
-        return this;
-    }
+    protected abstract MessageAction setReplyToMessageId(Long replyToMessageId);
 
     @Override
     public Class<? extends CommonResponse<Message>> getResultWrapperClass() {

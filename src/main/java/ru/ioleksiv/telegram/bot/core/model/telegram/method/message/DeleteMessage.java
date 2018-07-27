@@ -9,7 +9,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection
 /**
  * @see <a href="https://core.telegram.org/bots/api#deletemessage>deleteMessage</a>
  */
-public class DeleteMessage  extends ChatAction<Boolean > {
+public class DeleteMessage extends ChatAction<Boolean> {
     private static final String METHOD = "deleteMessage";
 
     /**
@@ -31,8 +31,14 @@ public class DeleteMessage  extends ChatAction<Boolean > {
         return messageId;
     }
 
-    public DeleteMessage  setMessageId(Long messageId) {
+    public DeleteMessage setMessageId(Long messageId) {
         this.messageId = messageId;
+        return this;
+    }
+
+    @Override
+    public DeleteMessage setChatId(Long chatId) {
+        pSetChatId(chatId);
         return this;
     }
 }

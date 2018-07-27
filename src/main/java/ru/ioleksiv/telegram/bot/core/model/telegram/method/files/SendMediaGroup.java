@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * @link https://core.telegram.org/bots/api#sendmediagroup
  */
-public class SendMediaGroup  extends ChatAction<Message> {
+public class SendMediaGroup extends ChatAction<Message> {
     private static final String METHOD = "sendMediaGroup";
     /**
      * media	Array of InputMedia	Yes	A JSON-serialized array describing photos and videos to be
@@ -33,6 +33,7 @@ public class SendMediaGroup  extends ChatAction<Message> {
      */
     @JsonProperty("reply_to_message_id")
     private Long replyToMessageId;
+
     public SendMediaGroup(Networker networker) {
         super(METHOD, networker);
     }
@@ -67,5 +68,11 @@ public class SendMediaGroup  extends ChatAction<Message> {
     @Override
     public Class<? extends CommonResponse<Message>> getResultWrapperClass() {
         return ResponseCollection.MessageResponse.class;
+    }
+
+    @Override
+    public SendMediaGroup setChatId(Long chatId) {
+        pSetChatId(chatId);
+        return this;
     }
 }

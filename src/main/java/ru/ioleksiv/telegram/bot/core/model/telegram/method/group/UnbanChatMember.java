@@ -9,7 +9,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection
 /**
  * @see <a href="https://core.telegram.org/bots/api#unbanchatmember>unbanChatMember</a>
  */
-public class UnbanChatMember  extends ChatAction<Boolean > {
+public class UnbanChatMember extends ChatAction<Boolean> {
     private static final String METHOD = "unbanChatMember";
     /**
      * user_id	Integer	Yes	Unique identifier of the target user
@@ -25,16 +25,21 @@ public class UnbanChatMember  extends ChatAction<Boolean > {
         return userId;
     }
 
+    public UnbanChatMember setUserId(Long userId) {
+        this.userId = userId;
+        return this;
+    }
+
     @Override
     public Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
 
         return ResponseCollection.BooleanResponse.class;
     }
 
-    public UnbanChatMember  setUserId(Long userId) {
-        this.userId = userId;
+    @Override
+    public UnbanChatMember setChatId(Long chatId) {
+        pSetChatId(chatId);
         return this;
     }
-
 
 }

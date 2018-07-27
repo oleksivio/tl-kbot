@@ -2,8 +2,8 @@ package ru.ioleksiv.telegram.bot.core.model.telegram.method.update;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
-import ru.ioleksiv.telegram.bot.core.model.telegram.objects.Update;
 import ru.ioleksiv.telegram.bot.core.model.telegram.method.interfaces.RunnableAction;
+import ru.ioleksiv.telegram.bot.core.model.telegram.objects.Update;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection;
 

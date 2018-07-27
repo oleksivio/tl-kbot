@@ -9,7 +9,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection
 /**
  * @see <a href="https://core.telegram.org/bots/api#setchattitle>setChatTitle</a>
  */
-public class SetChatTitle  extends ChatAction<Boolean > {
+public class SetChatTitle extends ChatAction<Boolean> {
     private static final String METHOD = "setChatTitle";
 
     /**
@@ -31,8 +31,14 @@ public class SetChatTitle  extends ChatAction<Boolean > {
         return title;
     }
 
-    public SetChatTitle  setTitle(String title) {
+    public SetChatTitle setTitle(String title) {
         this.title = title;
+        return this;
+    }
+
+    @Override
+    public SetChatTitle setChatId(Long chatId) {
+        pSetChatId(chatId);
         return this;
     }
 }

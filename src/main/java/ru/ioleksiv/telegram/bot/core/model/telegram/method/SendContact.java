@@ -3,9 +3,10 @@ package ru.ioleksiv.telegram.bot.core.model.telegram.method;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 import ru.ioleksiv.telegram.bot.core.model.telegram.method.interfaces.MessageAction;
+import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.keyboard.IKeyboard;
 
 /**
- * @see <a href ="https://core.telegram.org/bots/api#sendcontact">sendContact</a>
+ * @see <a href="https://core.telegram.org/bots/api#sendcontact">sendContact</a>
  */
 public class SendContact extends MessageAction {
     private static final String METHOD = "sendContact";
@@ -53,6 +54,30 @@ public class SendContact extends MessageAction {
 
     public SendContact setLastName(String lastName) {
         this.lastName = lastName;
+        return this;
+    }
+
+    @Override
+    public SendContact setReplyMarkup(IKeyboard replyMarkup) {
+        pSetReplyMarkup(replyMarkup);
+        return this;
+    }
+
+    @Override
+    protected SendContact setDisableNotification(Boolean disableNotification) {
+        pSetDisableNotification(disableNotification);
+        return this;
+    }
+
+    @Override
+    protected SendContact setReplyToMessageId(Long replyToMessageId) {
+        pSetReplyToMessageId(replyToMessageId);
+        return this;
+    }
+
+    @Override
+    public SendContact setChatId(Long chatId) {
+        pSetChatId(chatId);
         return this;
     }
 }

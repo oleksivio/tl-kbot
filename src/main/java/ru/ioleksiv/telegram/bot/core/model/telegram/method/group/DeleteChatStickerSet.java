@@ -8,7 +8,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection
 /**
  * @see <a href="https://core.telegram.org/bots/api#deletechatstickerset>deleteChatStickerSet</a>
  */
-public class DeleteChatStickerSet  extends ChatAction<Boolean > {
+public class DeleteChatStickerSet extends ChatAction<Boolean> {
     private static final String METHOD = "deleteChatStickerSet";
 
     protected DeleteChatStickerSet(Networker networker) {
@@ -20,4 +20,9 @@ public class DeleteChatStickerSet  extends ChatAction<Boolean > {
         return ResponseCollection.BooleanResponse.class;
     }
 
+    @Override
+    public DeleteChatStickerSet setChatId(Long chatId) {
+        pSetChatId(chatId);
+        return this;
+    }
 }

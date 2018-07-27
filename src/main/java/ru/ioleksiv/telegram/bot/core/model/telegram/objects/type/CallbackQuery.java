@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * @link https://core.telegram.org/bots/api#callbackquery
  */
-public class CallbackQuery  {
+public class CallbackQuery {
     /**
      * id	String	Unique identifier for this query
      */

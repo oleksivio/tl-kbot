@@ -10,7 +10,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection
 /**
  * https://core.telegram.org/bots/api#forwardmessage
  */
-public class ForwardMessage  extends ChatAction<Message > {
+public class ForwardMessage extends ChatAction<Message> {
     private static final String FORWARD_MESSAGE = "forwardMessage";
     /**
      * from_chat_id	Integer or String	Yes	Unique identifier for the chat where the original message
@@ -64,6 +64,12 @@ public class ForwardMessage  extends ChatAction<Message > {
     @Override
     public Class<? extends CommonResponse<Message>> getResultWrapperClass() {
         return ResponseCollection.MessageResponse.class;
+    }
+
+    @Override
+    public ForwardMessage setChatId(Long chatId) {
+        pSetChatId(chatId);
+        return this;
     }
 
 }

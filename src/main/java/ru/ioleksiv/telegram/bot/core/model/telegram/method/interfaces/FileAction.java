@@ -16,11 +16,13 @@ public abstract class FileAction extends FormattedMessageAction {
         super(method, networker);
     }
 
+    protected void pSetCaption(String caption) {
+        this.caption = caption;
+    }
+
     public String getCaption() {
         return caption;
     }
 
-    public void setCaption(String caption) {
-        this.caption = caption;
-    }
+    public abstract FileAction setCaption(String caption);
 }

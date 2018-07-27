@@ -11,7 +11,7 @@ import java.io.File;
 /**
  * @see <a href="https://core.telegram.org/bots/api#setchatphoto>setChatPhoto</a>
  */
-public class SetChatPhoto  extends ChatAction<Boolean > {
+public class SetChatPhoto extends ChatAction<Boolean> {
     private static final String METHOD = "setChatPhoto";
     /**
      * photo	InputFile	Yes	New chat photo, uploaded using multipart/form-data
@@ -32,8 +32,14 @@ public class SetChatPhoto  extends ChatAction<Boolean > {
         return photo;
     }
 
-    public SetChatPhoto  setPhoto(File photo) {
+    public SetChatPhoto setPhoto(File photo) {
         this.photo = photo;
+        return this;
+    }
+
+    @Override
+    public SetChatPhoto setChatId(Long chatId) {
+        pSetChatId(chatId);
         return this;
     }
 }

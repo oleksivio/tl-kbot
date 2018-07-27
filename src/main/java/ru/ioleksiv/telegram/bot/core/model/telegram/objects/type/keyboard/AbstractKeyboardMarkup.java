@@ -32,5 +32,4 @@ public class AbstractKeyboardMarkup<T extends IButton> implements IKeyboard {
         keyboard.addAll(rows);
     }
 
-
 }

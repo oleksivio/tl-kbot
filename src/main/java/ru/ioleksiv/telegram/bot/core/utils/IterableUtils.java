@@ -12,7 +12,6 @@ public final class IterableUtils {
         return false;
     }
 
-
     public interface ICondition {
         boolean check(String item);
     }

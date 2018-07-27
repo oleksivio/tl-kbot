@@ -34,4 +34,10 @@ public class SetChatStickerSet extends ChatAction<Boolean> {
     public Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
         return ResponseCollection.BooleanResponse.class;
     }
+
+    @Override
+    public SetChatStickerSet setChatId(Long chatId) {
+        pSetChatId(chatId);
+        return this;
+    }
 }

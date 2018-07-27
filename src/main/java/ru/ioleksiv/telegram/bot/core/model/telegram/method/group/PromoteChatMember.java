@@ -9,7 +9,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection
 /**
  * @see <a href="https://core.telegram.org/bots/api#promotechatmember>promoteChatMember</a>
  */
-public class PromoteChatMember  extends ChatAction<Boolean > {
+public class PromoteChatMember extends ChatAction<Boolean> {
     private static final String METHOD = "promoteChatMember";
     /**
      * user_id	Integer	Yes	Unique identifier of the target user
@@ -79,7 +79,7 @@ public class PromoteChatMember  extends ChatAction<Boolean > {
         return userId;
     }
 
-    public PromoteChatMember  setUserId(Long userId) {
+    public PromoteChatMember setUserId(Long userId) {
         this.userId = userId;
         return this;
     }
@@ -88,7 +88,7 @@ public class PromoteChatMember  extends ChatAction<Boolean > {
         return canChangeInfo;
     }
 
-    public PromoteChatMember  setCanChangeInfo(Boolean canChangeInfo) {
+    public PromoteChatMember setCanChangeInfo(Boolean canChangeInfo) {
         this.canChangeInfo = canChangeInfo;
         return this;
     }
@@ -97,7 +97,7 @@ public class PromoteChatMember  extends ChatAction<Boolean > {
         return canPostMessages;
     }
 
-    public PromoteChatMember  setCanPostMessages(Boolean canPostMessages) {
+    public PromoteChatMember setCanPostMessages(Boolean canPostMessages) {
         this.canPostMessages = canPostMessages;
         return this;
     }
@@ -106,7 +106,7 @@ public class PromoteChatMember  extends ChatAction<Boolean > {
         return canEditMessages;
     }
 
-    public PromoteChatMember  setCanEditMessages(Boolean canEditMessages) {
+    public PromoteChatMember setCanEditMessages(Boolean canEditMessages) {
         this.canEditMessages = canEditMessages;
         return this;
     }
@@ -115,7 +115,7 @@ public class PromoteChatMember  extends ChatAction<Boolean > {
         return canDeleteMessages;
     }
 
-    public PromoteChatMember  setCanDeleteMessages(Boolean canDeleteMessages) {
+    public PromoteChatMember setCanDeleteMessages(Boolean canDeleteMessages) {
         this.canDeleteMessages = canDeleteMessages;
         return this;
     }
@@ -124,7 +124,7 @@ public class PromoteChatMember  extends ChatAction<Boolean > {
         return canInviteUsers;
     }
 
-    public PromoteChatMember  setCanInviteUsers(Boolean canInviteUsers) {
+    public PromoteChatMember setCanInviteUsers(Boolean canInviteUsers) {
         this.canInviteUsers = canInviteUsers;
         return this;
     }
@@ -133,7 +133,7 @@ public class PromoteChatMember  extends ChatAction<Boolean > {
         return canRestrictMembers;
     }
 
-    public PromoteChatMember  setCanRestrictMembers(Boolean canRestrictMembers) {
+    public PromoteChatMember setCanRestrictMembers(Boolean canRestrictMembers) {
         this.canRestrictMembers = canRestrictMembers;
         return this;
     }
@@ -142,7 +142,7 @@ public class PromoteChatMember  extends ChatAction<Boolean > {
         return canPinMessages;
     }
 
-    public PromoteChatMember  setCanPinMessages(Boolean canPinMessages) {
+    public PromoteChatMember setCanPinMessages(Boolean canPinMessages) {
         this.canPinMessages = canPinMessages;
         return this;
     }
@@ -151,8 +151,14 @@ public class PromoteChatMember  extends ChatAction<Boolean > {
         return canPromoteMembers;
     }
 
-    public PromoteChatMember  setCanPromoteMembers(Boolean canPromoteMembers) {
+    public PromoteChatMember setCanPromoteMembers(Boolean canPromoteMembers) {
         this.canPromoteMembers = canPromoteMembers;
+        return this;
+    }
+
+    @Override
+    public PromoteChatMember setChatId(Long chatId) {
+        pSetChatId(chatId);
         return this;
     }
 }

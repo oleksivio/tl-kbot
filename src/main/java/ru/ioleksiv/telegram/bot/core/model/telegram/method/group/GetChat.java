@@ -9,7 +9,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection
 /**
  * @see <a href="https://core.telegram.org/bots/api#getchat>getChat</a>
  */
-public class GetChat  extends ChatAction<Chat > {
+public class GetChat extends ChatAction<Chat> {
     private static final String METHOD = "getChat";
 
     protected GetChat(Networker networker) {
@@ -19,5 +19,11 @@ public class GetChat  extends ChatAction<Chat > {
     @Override
     public Class<? extends CommonResponse<Chat>> getResultWrapperClass() {
         return ResponseCollection.ChatResponse.class;
+    }
+
+    @Override
+    public GetChat setChatId(Long chatId) {
+        pSetChatId(chatId);
+        return this;
     }
 }

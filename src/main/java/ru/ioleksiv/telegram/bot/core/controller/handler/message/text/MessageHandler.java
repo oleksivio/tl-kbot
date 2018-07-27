@@ -3,8 +3,8 @@ package ru.ioleksiv.telegram.bot.core.controller.handler.message.text;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.Message;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.Update;
+import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.Message;
 
 import java.lang.reflect.Method;
 import java.util.Collection;
@@ -24,7 +24,5 @@ public class MessageHandler extends TextHandler {
     public Message unpacker(@NotNull Update update) {
         return update.getMessage();
     }
-
-
 
 }

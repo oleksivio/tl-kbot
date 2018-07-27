@@ -2,7 +2,7 @@ package ru.ioleksiv.telegram.bot.core.model.telegram.objects.type;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class User  {
+public class User {
     /**
      * id	Integer	Unique identifier for this user or bot
      */
@@ -50,30 +50,27 @@ public class User  {
         this.firstName = firstName;
     }
 
-    
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName( String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    
     public String getUsername() {
         return username;
     }
 
-    public void setUsername( String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
-    
     public String getLanguageCode() {
         return languageCode;
     }
 
-    public void setLanguageCode( String languageCode) {
+    public void setLanguageCode(String languageCode) {
         this.languageCode = languageCode;
     }
 

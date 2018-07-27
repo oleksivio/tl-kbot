@@ -29,7 +29,7 @@ public class Networker {
         try {
             return template.postForEntity(url, action, clazz).getBody();
         }
-        catch (HttpClientErrorException httpException){
+        catch (HttpClientErrorException httpException) {
             LOG.error(httpException.getResponseBodyAsString(), httpException);
         }
         catch (RestClientException e) {

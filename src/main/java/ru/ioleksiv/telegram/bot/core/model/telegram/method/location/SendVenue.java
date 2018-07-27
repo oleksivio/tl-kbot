@@ -3,6 +3,7 @@ package ru.ioleksiv.telegram.bot.core.model.telegram.method.location;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 import ru.ioleksiv.telegram.bot.core.model.telegram.method.interfaces.MessageAction;
+import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.keyboard.IKeyboard;
 
 /**
  * https://core.telegram.org/bots/api#sendvenue
@@ -85,4 +86,27 @@ public class SendVenue extends MessageAction {
         return this;
     }
 
+    @Override
+    public SendVenue setReplyMarkup(IKeyboard replyMarkup) {
+        pSetReplyMarkup(replyMarkup);
+        return this;
+    }
+
+    @Override
+    protected SendVenue setDisableNotification(Boolean disableNotification) {
+        pSetDisableNotification(disableNotification);
+        return this;
+    }
+
+    @Override
+    protected SendVenue setReplyToMessageId(Long replyToMessageId) {
+        pSetReplyToMessageId(replyToMessageId);
+        return this;
+    }
+
+    @Override
+    public SendVenue setChatId(Long chatId) {
+        pSetChatId(chatId);
+        return this;
+    }
 }

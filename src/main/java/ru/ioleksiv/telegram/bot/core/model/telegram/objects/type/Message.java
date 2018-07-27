@@ -5,16 +5,16 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.files.Audio;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.files.Document;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.files.MessageEntity;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.files.PhotoSize;
-import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.sticker.Sticker;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.files.Video;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.files.VideoNote;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.files.Voice;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.game.Game;
+import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.sticker.Sticker;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Message  {
+public class Message {
     /**
      * message_id	Integer	Unique message identifier inside this chat
      */

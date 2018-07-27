@@ -16,7 +16,6 @@ public class MethodBuilder {
         this.networker = networker;
     }
 
-
     public SendMessage sendMessage() {
         return new SendMessage(networker);
     }
@@ -25,19 +24,19 @@ public class MethodBuilder {
         return new ForwardMessage(networker);
     }
 
-    public DeleteMessage deleteMessage(){
+    public DeleteMessage deleteMessage() {
         return new DeleteMessage(networker);
     }
 
-    public SendLocation sendLocation(){
+    public SendLocation sendLocation() {
         return new SendLocation(networker);
     }
 
-    public EditOwnMessageLiveLocation editBotMessageLiveLocation(){
+    public EditOwnMessageLiveLocation editBotMessageLiveLocation() {
         return new EditOwnMessageLiveLocation(networker);
     }
 
-    public SendVenue sendVenue(){
+    public SendVenue sendVenue() {
         return new SendVenue(networker);
     }
 

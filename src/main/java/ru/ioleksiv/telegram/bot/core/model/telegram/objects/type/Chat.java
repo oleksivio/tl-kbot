@@ -6,7 +6,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.files.ChatPhoto
 /**
  * @link https://core.telegram.org/bots/api#chat
  */
-public class Chat  {
+public class Chat {
     /**
      * id	Integer	Unique identifier for this chat. This number may be greater than 32 bits and some
      * programming languages may have difficulty/silent defects in interpreting it. But it is

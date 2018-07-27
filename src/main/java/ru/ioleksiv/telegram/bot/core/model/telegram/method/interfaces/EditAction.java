@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.keyboard.InlineKeyboardMarkup;
 
-public abstract class EditAction<RES > extends ChatAction<RES > {
+public abstract class EditAction<RES> extends ChatAction<RES> {
 
     /**
      * reply_markup	InlineKeyboardMarkup	Optional	A JSON-serialized object for a new inline
@@ -29,30 +29,33 @@ public abstract class EditAction<RES > extends ChatAction<RES > {
         super(method, networker);
     }
 
+    public void pSetMessageId(Long messageId) {
+        this.messageId = messageId;
+    }
+
+    protected void pSetInlineMessageId(Long inlineMessageId) {
+        this.inlineMessageId = inlineMessageId;
+    }
+
+    protected void pSetInlineKeyboardMarkup(InlineKeyboardMarkup inlineKeyboardMarkup) {
+        this.inlineKeyboardMarkup = inlineKeyboardMarkup;
+    }
+
     public Long getMessageId() {
         return messageId;
     }
 
-    public EditAction<RES > setMessageId(Long messageId) {
-        this.messageId = messageId;
-        return this;
-    }
+    public abstract EditAction<RES> setMessageId(Long messageId);
 
     public Long getInlineMessageId() {
         return inlineMessageId;
     }
 
-    public EditAction<RES > setInlineMessageId(Long inlineMessageId) {
-        this.inlineMessageId = inlineMessageId;
-        return this;
-    }
+    public abstract EditAction<RES> setInlineMessageId(Long inlineMessageId);
 
     public InlineKeyboardMarkup getInlineKeyboardMarkup() {
         return inlineKeyboardMarkup;
     }
 
-    public EditAction<RES > setInlineKeyboardMarkup(InlineKeyboardMarkup inlineKeyboardMarkup) {
-        this.inlineKeyboardMarkup = inlineKeyboardMarkup;
-        return this;
-    }
+    public abstract EditAction<RES> setInlineKeyboardMarkup(InlineKeyboardMarkup inlineKeyboardMarkup);
 }

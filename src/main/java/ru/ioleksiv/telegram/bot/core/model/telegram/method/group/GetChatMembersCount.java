@@ -8,7 +8,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection
 /**
  * @see <a href="https://core.telegram.org/bots/api#getchatmemberscount>getChatMembersCount</a>
  */
-public class GetChatMembersCount  extends ChatAction<Integer > {
+public class GetChatMembersCount extends ChatAction<Integer> {
     private static final String METHOD = "getChatMembersCount";
 
     protected GetChatMembersCount(Networker networker) {
@@ -18,5 +18,11 @@ public class GetChatMembersCount  extends ChatAction<Integer > {
     @Override
     public Class<? extends CommonResponse<Integer>> getResultWrapperClass() {
         return ResponseCollection.IntegerResponse.class;
+    }
+
+    @Override
+    public GetChatMembersCount setChatId(Long chatId) {
+        pSetChatId(chatId);
+        return this;
     }
 }

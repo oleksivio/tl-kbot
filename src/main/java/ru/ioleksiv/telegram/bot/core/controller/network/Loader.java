@@ -3,8 +3,8 @@ package ru.ioleksiv.telegram.bot.core.controller.network;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.ioleksiv.telegram.bot.core.model.telegram.objects.Update;
 import ru.ioleksiv.telegram.bot.core.model.telegram.method.update.GetUpdatesApi;
+import ru.ioleksiv.telegram.bot.core.model.telegram.objects.Update;
 
 import java.util.Collections;
 import java.util.Comparator;

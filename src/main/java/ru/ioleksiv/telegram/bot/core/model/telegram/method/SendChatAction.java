@@ -9,7 +9,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendchataction">sendChatAction</a>
  */
-public class SendChatAction  extends ChatAction<Boolean > {
+public class SendChatAction extends ChatAction<Boolean> {
     private static final String METHOD = "sendChatAction";
 
     /**
@@ -43,5 +43,11 @@ public class SendChatAction  extends ChatAction<Boolean > {
     @Override
     public Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
         return ResponseCollection.BooleanResponse.class;
+    }
+
+    @Override
+    public SendChatAction setChatId(Long chatId) {
+        pSetChatId(chatId);
+        return this;
     }
 }

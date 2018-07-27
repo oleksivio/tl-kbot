@@ -19,17 +19,17 @@ public abstract class RunnableAction<RES> implements IAction<RES> {
     }
 
     @Override
-    @JsonProperty("method")
-    public String getMethod() {
-        return method;
-    }
-
-    @Override
     @Nullable
     public RES run() {
         CommonResponse<RES> commonResponse = networker.run(this, getResultWrapperClass());
 
         return commonResponse != null ? commonResponse.get() : null;
+    }
+
+    @Override
+    @JsonProperty("method")
+    public String getMethod() {
+        return method;
     }
 
 }

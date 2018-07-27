@@ -5,7 +5,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.Message;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection;
 
-public class EditOwnMessageText  extends EditMessageText<Message > {
+public class EditOwnMessageText extends EditMessageText<Message> {
     EditOwnMessageText(Networker networker) {
         super(networker);
     }

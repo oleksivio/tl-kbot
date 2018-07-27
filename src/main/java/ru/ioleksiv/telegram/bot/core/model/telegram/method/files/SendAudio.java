@@ -3,6 +3,7 @@ package ru.ioleksiv.telegram.bot.core.model.telegram.method.files;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 import ru.ioleksiv.telegram.bot.core.model.telegram.method.interfaces.FileAction;
+import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.keyboard.IKeyboard;
 
 /**
  * @param <T> File or String
@@ -75,4 +76,40 @@ public class SendAudio<T> extends FileAction {
         return this;
     }
 
+    @Override
+    public SendAudio<T> setReplyMarkup(IKeyboard replyMarkup) {
+        pSetReplyMarkup(replyMarkup);
+        return this;
+    }
+
+    @Override
+    protected SendAudio<T> setDisableNotification(Boolean disableNotification) {
+        pSetDisableNotification(disableNotification);
+        return this;
+    }
+
+    @Override
+    protected SendAudio<T> setReplyToMessageId(Long replyToMessageId) {
+        pSetReplyToMessageId(replyToMessageId);
+        return this;
+    }
+
+    @Override
+    public SendAudio<T> setChatId(Long chatId) {
+        pSetChatId(chatId);
+        return this;
+    }
+
+    @Override
+    public SendAudio<T> setParseMode(String parseMode) {
+        pSetParseMode(parseMode);
+        return this;
+    }
+
+    @Override
+    public SendAudio<T> setCaption(String caption) {
+
+        pSetCaption(caption);
+        return this;
+    }
 }

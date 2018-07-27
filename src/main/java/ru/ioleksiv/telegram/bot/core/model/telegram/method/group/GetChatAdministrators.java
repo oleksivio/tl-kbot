@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @see <a href="https://core.telegram.org/bots/api#getchatadministrators>getChatAdministrators</a>
  */
-public class GetChatAdministrators  extends ChatAction<List<ChatMember> > {
+public class GetChatAdministrators extends ChatAction<List<ChatMember>> {
     private static final String METHOD = "getChatAdministrators";
 
     protected GetChatAdministrators(Networker networker) {
@@ -21,5 +21,11 @@ public class GetChatAdministrators  extends ChatAction<List<ChatMember> > {
     @Override
     public Class<? extends CommonResponse<List<ChatMember>>> getResultWrapperClass() {
         return ResponseCollection.ChatMembersResponse.class;
+    }
+
+    @Override
+    public GetChatAdministrators setChatId(Long chatId) {
+        pSetChatId(chatId);
+        return this;
     }
 }

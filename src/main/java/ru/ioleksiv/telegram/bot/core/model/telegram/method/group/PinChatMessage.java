@@ -9,7 +9,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection
 /**
  * @see <a href="https://core.telegram.org/bots/api#pinchatmessage>pinChatMessage</a>
  */
-public class PinChatMessage  extends ChatAction<Boolean > {
+public class PinChatMessage extends ChatAction<Boolean> {
     private static final String METHOD = "pinChatMessage";
     /**
      * message_id	Integer	Yes	Identifier of a message to pin
@@ -32,7 +32,7 @@ public class PinChatMessage  extends ChatAction<Boolean > {
         return messageId;
     }
 
-    public PinChatMessage  setMessageId(Long messageId) {
+    public PinChatMessage setMessageId(Long messageId) {
         this.messageId = messageId;
         return this;
     }
@@ -46,8 +46,14 @@ public class PinChatMessage  extends ChatAction<Boolean > {
         return disableNotification;
     }
 
-    public PinChatMessage  setDisableNotification(Boolean disableNotification) {
+    public PinChatMessage setDisableNotification(Boolean disableNotification) {
         this.disableNotification = disableNotification;
+        return this;
+    }
+
+    @Override
+    public PinChatMessage setChatId(Long chatId) {
+        pSetChatId(chatId);
         return this;
     }
 }

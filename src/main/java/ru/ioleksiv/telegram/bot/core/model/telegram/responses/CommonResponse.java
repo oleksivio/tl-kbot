@@ -28,6 +28,4 @@ public class CommonResponse<T> {
         mStatus = ok;
     }
 
-
-
 }

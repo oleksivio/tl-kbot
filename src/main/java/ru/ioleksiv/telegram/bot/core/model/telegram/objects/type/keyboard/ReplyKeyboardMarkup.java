@@ -43,8 +43,6 @@ public class ReplyKeyboardMarkup extends AbstractKeyboardMarkup<ReplyKeyboardBut
         super.setRows(rows);
     }
 
-
-
     public boolean isResizeKeyboard() {
         return resizeKeyboard;
     }

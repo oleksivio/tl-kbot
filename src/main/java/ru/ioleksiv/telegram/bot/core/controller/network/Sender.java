@@ -12,7 +12,6 @@ public class Sender implements TelegramSender {
         this.networker = networker;
     }
 
-
     @Override
     public void send(Iterable<IAction> actions) {
 

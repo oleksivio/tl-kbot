@@ -4,7 +4,7 @@ import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection;
 
-public class StopOtherMessageLiveLocation  extends StopMessageLiveLocation<Boolean > {
+public class StopOtherMessageLiveLocation extends StopMessageLiveLocation<Boolean> {
     public StopOtherMessageLiveLocation(Networker networker) {
         super(networker);
     }

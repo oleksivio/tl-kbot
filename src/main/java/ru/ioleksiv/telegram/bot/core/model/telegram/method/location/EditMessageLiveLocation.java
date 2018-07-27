@@ -3,11 +3,12 @@ package ru.ioleksiv.telegram.bot.core.model.telegram.method.location;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 import ru.ioleksiv.telegram.bot.core.model.telegram.method.interfaces.EditAction;
+import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.keyboard.InlineKeyboardMarkup;
 
 /**
  * @link https://core.telegram.org/bots/api#editmessagelivelocation
  */
-public abstract class EditMessageLiveLocation<RES > extends EditAction<RES > {
+public abstract class EditMessageLiveLocation<RES> extends EditAction<RES> {
     private static final String METHOD = "editMessageLiveLocation";
 
     /**
@@ -20,7 +21,6 @@ public abstract class EditMessageLiveLocation<RES > extends EditAction<RES > {
      */
     @JsonProperty("longitude")
     private Double longitude = null;
-
 
     EditMessageLiveLocation(Networker networker) {
         super(METHOD, networker);
@@ -44,6 +44,27 @@ public abstract class EditMessageLiveLocation<RES > extends EditAction<RES > {
         return this;
     }
 
+    @Override
+    public EditMessageLiveLocation<RES> setMessageId(Long messageId) {
+        pSetMessageId(messageId);
+        return this;
+    }
 
+    @Override
+    public EditMessageLiveLocation<RES> setInlineMessageId(Long inlineMessageId) {
+        pSetInlineMessageId(inlineMessageId);
+        return this;
+    }
 
+    @Override
+    public EditMessageLiveLocation<RES> setInlineKeyboardMarkup(InlineKeyboardMarkup inlineKeyboardMarkup) {
+        pSetInlineKeyboardMarkup(inlineKeyboardMarkup);
+        return this;
+    }
+
+    @Override
+    public EditMessageLiveLocation<RES> setChatId(Long chatId) {
+        pSetChatId(chatId);
+        return this;
+    }
 }

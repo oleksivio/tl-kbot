@@ -3,6 +3,7 @@ package ru.ioleksiv.telegram.bot.core.model.telegram.method.location;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 import ru.ioleksiv.telegram.bot.core.model.telegram.method.interfaces.MessageAction;
+import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.keyboard.IKeyboard;
 
 /**
  * @link https://core.telegram.org/bots/api#sendlocation
@@ -56,6 +57,30 @@ public class SendLocation extends MessageAction {
 
     public SendLocation setLivePeriod(Integer livePeriod) {
         this.livePeriod = livePeriod;
+        return this;
+    }
+
+    @Override
+    public SendLocation setReplyMarkup(IKeyboard replyMarkup) {
+        pSetReplyMarkup(replyMarkup);
+        return this;
+    }
+
+    @Override
+    protected SendLocation setDisableNotification(Boolean disableNotification) {
+        pSetDisableNotification(disableNotification);
+        return this;
+    }
+
+    @Override
+    protected SendLocation setReplyToMessageId(Long replyToMessageId) {
+        pSetReplyToMessageId(replyToMessageId);
+        return this;
+    }
+
+    @Override
+    public SendLocation setChatId(Long chatId) {
+        pSetChatId(chatId);
         return this;
     }
 }

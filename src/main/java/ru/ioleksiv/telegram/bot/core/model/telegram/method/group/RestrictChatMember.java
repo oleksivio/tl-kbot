@@ -9,7 +9,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection
 /**
  * @see <a href="https://core.telegram.org/bots/api#restrictchatmember>restrictChatMember</a>
  */
-public class RestrictChatMember  extends ChatAction<Boolean > {
+public class RestrictChatMember extends ChatAction<Boolean> {
     private static final String METHOD = "restrictChatMember";
     /**
      * user_id	Integer	Yes	Unique identifier of the target user
@@ -52,7 +52,7 @@ public class RestrictChatMember  extends ChatAction<Boolean > {
         return userId;
     }
 
-    public RestrictChatMember  setUserId(Long userId) {
+    public RestrictChatMember setUserId(Long userId) {
         this.userId = userId;
         return this;
     }
@@ -61,7 +61,7 @@ public class RestrictChatMember  extends ChatAction<Boolean > {
         return untilDate;
     }
 
-    public RestrictChatMember  setUntilDate(Long untilDate) {
+    public RestrictChatMember setUntilDate(Long untilDate) {
         this.untilDate = untilDate;
         return this;
     }
@@ -70,7 +70,7 @@ public class RestrictChatMember  extends ChatAction<Boolean > {
         return canSendMessages;
     }
 
-    public RestrictChatMember  setCanSendMessages(Boolean canSendMessages) {
+    public RestrictChatMember setCanSendMessages(Boolean canSendMessages) {
         this.canSendMessages = canSendMessages;
         return this;
     }
@@ -79,7 +79,7 @@ public class RestrictChatMember  extends ChatAction<Boolean > {
         return canSendMediaMessages;
     }
 
-    public RestrictChatMember  setCanSendMediaMessages(Boolean canSendMediaMessages) {
+    public RestrictChatMember setCanSendMediaMessages(Boolean canSendMediaMessages) {
         this.canSendMediaMessages = canSendMediaMessages;
         return this;
     }
@@ -88,7 +88,7 @@ public class RestrictChatMember  extends ChatAction<Boolean > {
         return canSendOtherMessages;
     }
 
-    public RestrictChatMember  setCanSendOtherMessages(Boolean canSendOtherMessages) {
+    public RestrictChatMember setCanSendOtherMessages(Boolean canSendOtherMessages) {
         this.canSendOtherMessages = canSendOtherMessages;
         return this;
     }
@@ -97,7 +97,7 @@ public class RestrictChatMember  extends ChatAction<Boolean > {
         return canAddWebPagePreviews;
     }
 
-    public RestrictChatMember  setCanAddWebPagePreviews(Boolean canAddWebPagePreviews) {
+    public RestrictChatMember setCanAddWebPagePreviews(Boolean canAddWebPagePreviews) {
         this.canAddWebPagePreviews = canAddWebPagePreviews;
         return this;
     }
@@ -105,5 +105,11 @@ public class RestrictChatMember  extends ChatAction<Boolean > {
     @Override
     public Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
         return ResponseCollection.BooleanResponse.class;
+    }
+
+    @Override
+    public RestrictChatMember setChatId(Long chatId) {
+        pSetChatId(chatId);
+        return this;
     }
 }

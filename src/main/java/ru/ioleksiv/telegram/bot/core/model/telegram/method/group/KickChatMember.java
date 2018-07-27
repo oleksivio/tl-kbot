@@ -9,7 +9,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection
 /**
  * @see <a href="https://core.telegram.org/bots/api#kickchatmember">kickChatMember</a>
  */
-public class KickChatMember  extends ChatAction<Boolean > {
+public class KickChatMember extends ChatAction<Boolean> {
     private static final String METHOD = "kickChatMember";
 
     /**
@@ -33,7 +33,7 @@ public class KickChatMember  extends ChatAction<Boolean > {
         return userId;
     }
 
-    public KickChatMember  setUserId(Long userId) {
+    public KickChatMember setUserId(Long userId) {
         this.userId = userId;
         return this;
     }
@@ -42,7 +42,7 @@ public class KickChatMember  extends ChatAction<Boolean > {
         return untilDate;
     }
 
-    public KickChatMember  setUntilDate(Long untilDate) {
+    public KickChatMember setUntilDate(Long untilDate) {
         this.untilDate = untilDate;
         return this;
     }
@@ -50,5 +50,11 @@ public class KickChatMember  extends ChatAction<Boolean > {
     @Override
     public Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
         return ResponseCollection.BooleanResponse.class;
+    }
+
+    @Override
+    public KickChatMember setChatId(Long chatId) {
+        pSetChatId(chatId);
+        return this;
     }
 }
