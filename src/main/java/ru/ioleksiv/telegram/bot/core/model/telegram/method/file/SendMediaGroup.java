@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @link https://core.telegram.org/bots/api#sendmediagroup
+ * @see <a href="https://core.telegram.org/bots/api#sendmediagroup">sendMediaGroup</a>
  */
 public class SendMediaGroup extends ChatAction<Message> {
     private static final String METHOD = "sendMediaGroup";

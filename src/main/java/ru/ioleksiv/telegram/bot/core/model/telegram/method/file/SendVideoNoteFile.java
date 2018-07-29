@@ -1,11 +1,11 @@
-package ru.ioleksiv.telegram.bot.core.model.telegram.method.inputfile;
+package ru.ioleksiv.telegram.bot.core.model.telegram.method.file;
 
 import org.springframework.core.io.FileSystemResource;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.keyboard.IKeyboard;
 
 /**
- * @link https://core.telegram.org/bots/api#sendvideonote
+ * @see <a href="https://core.telegram.org/bots/api#sendvideonote">sendVideoNote</a>
  */
 public class SendVideoNoteFile extends UploadFile {
     private static final String METHOD = "sendVideoNote";
@@ -24,7 +24,19 @@ public class SendVideoNoteFile extends UploadFile {
      * length	Integer	Optional	Video width and height
      */
     private static final String LENGTH_KEY = "length";
+    /**
+     * thumb	InputFile or String	Optional	Thumbnail of the file sent. The thumbnail should be
+     * in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed
+     * 90. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can’t be reused
+     * and can be only uploaded as a new file, so you can pass “attach://<file_attach_name>” if the
+     * thumbnail was uploaded using multipart/form-data under <file_attach_name>.
+     */
+    private static final String THUMB_KEY = "thumb";
 
+    public SendVideoNoteFile setThumb(FileSystemResource thumb) {
+        putFile(THUMB_KEY, thumb);
+        return this;
+    }
     public SendVideoNoteFile(Networker networker) {
         super(METHOD, networker);
     }

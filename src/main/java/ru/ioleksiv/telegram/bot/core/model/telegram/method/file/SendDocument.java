@@ -2,13 +2,12 @@ package ru.ioleksiv.telegram.bot.core.model.telegram.method.file;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
-import ru.ioleksiv.telegram.bot.core.model.telegram.method.interfaces.CaptionAction;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.keyboard.IKeyboard;
 
 /**
- * @link https://core.telegram.org/bots/api#senddocument
+ * @see <a href="https://core.telegram.org/bots/api#senddocument">sendDocument</a>
  */
-public class SendDocument extends CaptionAction {
+public class SendDocument extends ThumbAction {
     private static final String METHOD = "sendDocument";
 
     /**
@@ -47,6 +46,12 @@ public class SendDocument extends CaptionAction {
     @Override
     protected SendDocument setReplyToMessageId(Long replyToMessageId) {
         pSetReplyToMessageId(replyToMessageId);
+        return this;
+    }
+
+    @Override
+    public SendDocument setThumb(String thumb) {
+        pSetThumb(thumb);
         return this;
     }
 

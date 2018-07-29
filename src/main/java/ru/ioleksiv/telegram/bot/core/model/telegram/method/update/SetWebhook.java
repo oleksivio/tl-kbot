@@ -10,7 +10,7 @@ import java.io.File;
 import java.util.List;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#setwebhook>setWebhook</a>
+ * @see <a href="https://core.telegram.org/bots/api#setwebhook">setWebhook</a>
  */
 public class SetWebhook extends RunnableAction<Boolean> {
     private static final String METHOD = "setWebhook";

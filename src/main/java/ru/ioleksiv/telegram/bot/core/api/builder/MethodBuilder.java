@@ -2,7 +2,7 @@ package ru.ioleksiv.telegram.bot.core.api.builder;
 
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 import ru.ioleksiv.telegram.bot.core.model.telegram.method.file.GetFile;
-import ru.ioleksiv.telegram.bot.core.model.telegram.method.inputfile.SendPhotoFile;
+import ru.ioleksiv.telegram.bot.core.model.telegram.method.file.SendPhotoFile;
 import ru.ioleksiv.telegram.bot.core.model.telegram.method.location.EditOwnMessageLiveLocation;
 import ru.ioleksiv.telegram.bot.core.model.telegram.method.location.SendLocation;
 import ru.ioleksiv.telegram.bot.core.model.telegram.method.location.SendVenue;

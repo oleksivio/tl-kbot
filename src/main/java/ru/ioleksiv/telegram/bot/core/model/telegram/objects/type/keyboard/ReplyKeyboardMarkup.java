@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * @link https://core.telegram.org/bots/api#replykeyboardmarkup
+ * @see <a href="https://core.telegram.org/bots/api#replykeyboardmarkup">ReplyKeyboardMarkup</a>
  */
 public class ReplyKeyboardMarkup extends AbstractKeyboardMarkup<ReplyKeyboardButton> {
     /**

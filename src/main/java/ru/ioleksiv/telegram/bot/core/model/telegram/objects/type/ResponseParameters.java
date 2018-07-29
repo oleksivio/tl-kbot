@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * https://core.telegram.org/bots/api#responseparameters
+ * @see <a href="https://core.telegram.org/bots/api#responseparameters">ResponseParameters</a>
  */
 public class ResponseParameters {
     private static final Logger LOG = LoggerFactory.getLogger(ResponseParameters.class);

@@ -9,7 +9,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection
 import java.io.File;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#setchatphoto>setChatPhoto</a>
+ * @see <a href="https://core.telegram.org/bots/api#setchatphoto">setChatPhoto</a>
  */
 public class SetChatPhoto extends ChatAction<Boolean> {
     private static final String METHOD = "setChatPhoto";

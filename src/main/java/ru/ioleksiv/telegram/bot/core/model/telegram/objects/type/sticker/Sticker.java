@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.files.PhotoSize;
 
 /**
- * @link https://core.telegram.org/bots/api#sticker
+ * @see <a href="https://core.telegram.org/bots/api#sticker">Sticker</a>
  */
 public class Sticker {
     private static final Logger LOG = LoggerFactory.getLogger(Sticker.class);

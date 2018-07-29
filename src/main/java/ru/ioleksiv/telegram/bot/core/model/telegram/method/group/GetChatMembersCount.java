@@ -6,7 +6,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#getchatmemberscount>getChatMembersCount</a>
+ * @see <a href="https://core.telegram.org/bots/api#getchatmemberscount">getChatMembersCount</a>
  */
 public class GetChatMembersCount extends ChatAction<Integer> {
     private static final String METHOD = "getChatMembersCount";

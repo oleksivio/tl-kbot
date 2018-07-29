@@ -6,7 +6,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#leavechat>leaveChat</a>
+ * @see <a href="https://core.telegram.org/bots/api#leavechat">leaveChat</a>
  */
 public class LeaveChat extends ChatAction<Boolean> {
     private static final String METHOD = "leaveChat";

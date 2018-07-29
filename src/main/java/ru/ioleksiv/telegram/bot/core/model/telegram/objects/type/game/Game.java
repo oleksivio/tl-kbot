@@ -7,7 +7,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.files.PhotoSize
 import java.util.List;
 
 /**
- * @link https://core.telegram.org/bots/api#game
+ * @see <a href="https://core.telegram.org/bots/api#game">Game</a>
  */
 public class Game {
     /**

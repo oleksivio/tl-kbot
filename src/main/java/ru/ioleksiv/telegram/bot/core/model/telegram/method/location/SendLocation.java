@@ -6,7 +6,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.method.interfaces.MessageAct
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.keyboard.IKeyboard;
 
 /**
- * @link https://core.telegram.org/bots/api#sendlocation
+ * @see <a href="https://core.telegram.org/bots/api#sendlocation">sendLocation</a>
  */
 public class SendLocation extends MessageAction {
     private static final String METHOD = "sendLocation";

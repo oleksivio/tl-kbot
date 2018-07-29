@@ -6,7 +6,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.method.interfaces.EditAction
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.keyboard.InlineKeyboardMarkup;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#editmessagetext>editMessageText</a>
+ * @see <a href="https://core.telegram.org/bots/api#editmessagetext">editMessageText</a>
  */
 abstract class EditMessageText<RES> extends EditAction<RES> {
     private static final String METHOD = "editMessageText";

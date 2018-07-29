@@ -7,7 +7,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection;
 
 /**
- * @link https://core.telegram.org/bots/api#getme
+ * @see <a href="https://core.telegram.org/bots/api#getme">getMe</a>
  */
 public class GetMe extends RunnableAction<User> {
     private static final String METHOD = "getMe";

@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.game.CallbackGame;
 
 /**
- * https://core.telegram.org/bots/api#inlinekeyboardbutton
+ * @see <a href="https://core.telegram.org/bots/api#inlinekeyboardbutton">InlineKeyboardButtonb</a>
  */
 public class InlineKeyboardButton implements IButton {
     private static final Logger LOGGER = LoggerFactory.getLogger(InlineKeyboardButton.class);

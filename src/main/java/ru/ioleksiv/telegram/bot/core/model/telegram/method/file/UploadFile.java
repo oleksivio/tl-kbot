@@ -1,4 +1,4 @@
-package ru.ioleksiv.telegram.bot.core.model.telegram.method.inputfile;
+package ru.ioleksiv.telegram.bot.core.model.telegram.method.file;
 
 import org.jetbrains.annotations.Nullable;
 import org.springframework.core.io.FileSystemResource;
@@ -72,25 +72,25 @@ public abstract class UploadFile implements IAction<Message> {
     }
 
     protected void putFile(String key, FileSystemResource file) {
-        put(key, file);
+        putObject(key, file);
     }
 
-    private void put(String key, Object object) {
+    private void putObject(String key, Object object) {
         if (object != null) {
             requestMap.add(key, object);
         }
     }
 
     protected void putInt(String key, Integer integerValue) {
-        put(key, integerValue);
+        putObject(key, integerValue);
     }
 
     protected void putLong(String key, Long longValue) {
-        put(key, longValue);
+        putObject(key, longValue);
     }
 
     protected void putReplyMarkup(IKeyboard keyboard) {
-        put(REPLY_MARKUP_KEY, keyboard);
+        putObject(REPLY_MARKUP_KEY, keyboard);
     }
 
     protected void putString(String key, String stringValue) {
@@ -98,7 +98,7 @@ public abstract class UploadFile implements IAction<Message> {
     }
 
     protected void putBool(String key, Boolean booleanValue) {
-        put(key, booleanValue);
+        putObject(key, booleanValue);
     }
 
 }

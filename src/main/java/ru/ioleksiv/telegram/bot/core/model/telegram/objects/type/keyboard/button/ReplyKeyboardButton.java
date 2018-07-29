@@ -3,7 +3,7 @@ package ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.keyboard.butto
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * https://core.telegram.org/bots/api#keyboardbutton
+ * @see <a href="https://core.telegram.org/bots/api#keyboardbutton">KeyboardButton</a>
  */
 public class ReplyKeyboardButton implements IButton {
     /**

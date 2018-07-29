@@ -9,7 +9,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection
 import java.util.List;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#getchatadministrators>getChatAdministrators</a>
+ * @see <a href="https://core.telegram.org/bots/api#getchatadministrators">getChatAdministrators</a>
  */
 public class GetChatAdministrators extends ChatAction<List<ChatMember>> {
     private static final String METHOD = "getChatAdministrators";

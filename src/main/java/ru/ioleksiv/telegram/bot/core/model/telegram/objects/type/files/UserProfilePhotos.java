@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 /**
- * @link https://core.telegram.org/bots/api#userprofilephotos
+ * @see <a href="https://core.telegram.org/bots/api#userprofilephotos">UserProfilePhotos</a>
  */
 public class UserProfilePhotos {
     /**

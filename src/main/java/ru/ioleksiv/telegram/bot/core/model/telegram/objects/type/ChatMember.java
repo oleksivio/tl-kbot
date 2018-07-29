@@ -3,7 +3,7 @@ package ru.ioleksiv.telegram.bot.core.model.telegram.objects.type;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * @link https://core.telegram.org/bots/api#chatmember
+ * @see <a href="https://core.telegram.org/bots/api#chatmember">ChatMember</a>
  */
 public class ChatMember {
     /**

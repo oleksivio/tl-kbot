@@ -6,7 +6,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.method.interfaces.CaptionAct
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.keyboard.IKeyboard;
 
 /**
- * @link https://core.telegram.org/bots/api#sendphoto
+ * @see <a href="https://core.telegram.org/bots/api#sendphoto">sendPhoto</a>
  */
 public class SendPhoto extends CaptionAction {
     private static final String METHOD = "sendPhoto";

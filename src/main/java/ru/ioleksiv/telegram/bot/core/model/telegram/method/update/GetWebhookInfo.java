@@ -7,7 +7,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#getwebhookinfo>getWebhookInfo</a>
+ * @see <a href="https://core.telegram.org/bots/api#getwebhookinfo">getWebhookInfo</a>
  */
 public class GetWebhookInfo extends RunnableAction<WebhookInfo> {
     private static final String METHOD = "getWebhookInfo";

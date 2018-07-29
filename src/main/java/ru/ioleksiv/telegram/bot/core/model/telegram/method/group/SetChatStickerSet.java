@@ -7,7 +7,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#setchatstickerset>setChatStickerSet</a>
+ * @see <a href="https://core.telegram.org/bots/api#setchatstickerset">setChatStickerSet</a>
  */
 public class SetChatStickerSet extends ChatAction<Boolean> {
     private static final String METHOD = "setChatStickerSet";

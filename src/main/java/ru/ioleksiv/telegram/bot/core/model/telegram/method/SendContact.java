@@ -25,6 +25,11 @@ public class SendContact extends MessageAction {
      */
     @JsonProperty("last_name")
     private String lastName;
+    /**
+     * vcard	String	Optional	Additional data about the contact in the form of a vCard, 0-2048 bytes
+     */
+    @JsonProperty("vcard")
+    private String vcard = null;
 
     public SendContact(Networker networker) {
         super(METHOD, networker);
@@ -37,6 +42,14 @@ public class SendContact extends MessageAction {
     public SendContact setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
         return this;
+    }
+
+    public String getVcard() {
+        return vcard;
+    }
+
+    public void setVcard(String vcard) {
+        this.vcard = vcard;
     }
 
     public String getFirstName() {

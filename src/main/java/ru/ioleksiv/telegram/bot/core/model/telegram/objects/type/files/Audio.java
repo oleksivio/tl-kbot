@@ -3,7 +3,7 @@ package ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.files;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * @link https://core.telegram.org/bots/api#audio
+ * @see <a href="https://core.telegram.org/bots/api#audio">Audio</a>
  */
 public class Audio {
 
@@ -37,6 +37,11 @@ public class Audio {
      */
     @JsonProperty("file_size")
     private Integer fileSize;
+    /**
+     * thumb	PhotoSize	Optional. Thumbnail of the album cover to which the music file belongs
+     */
+    @JsonProperty("thumb")
+    private PhotoSize thumb;
 
     public String getFileId() {
         return fileId;
@@ -44,6 +49,14 @@ public class Audio {
 
     public void setFileId(String fileId) {
         this.fileId = fileId;
+    }
+
+    public PhotoSize getThumb() {
+        return thumb;
+    }
+
+    public void setThumb(PhotoSize thumb) {
+        this.thumb = thumb;
     }
 
     public Integer getDuration() {
@@ -85,5 +98,4 @@ public class Audio {
     public void setFileSize(Integer fileSize) {
         this.fileSize = fileSize;
     }
-
 }

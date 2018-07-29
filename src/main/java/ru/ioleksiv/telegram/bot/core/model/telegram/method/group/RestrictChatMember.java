@@ -7,7 +7,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#restrictchatmember>restrictChatMember</a>
+ * @see <a href="https://core.telegram.org/bots/api#restrictchatmember">restrictChatMember</a>
  */
 public class RestrictChatMember extends ChatAction<Boolean> {
     private static final String METHOD = "restrictChatMember";

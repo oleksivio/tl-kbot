@@ -2,14 +2,13 @@ package ru.ioleksiv.telegram.bot.core.model.telegram.method.file;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
-import ru.ioleksiv.telegram.bot.core.model.telegram.method.interfaces.CaptionAction;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.keyboard.IKeyboard;
 
 /**
- * @link https://core.telegram.org/bots/api#sendaudio
+ * @see <a href="https://core.telegram.org/bots/api#sendaudio">sendAudio</a>
  */
-public class SendAudio extends CaptionAction {
-    private static final String METHOD = "sendAudio";
+public class SendAudio extends ThumbAction {
+     static final String METHOD = "sendAudio";
     /**
      * audio	 String	 	Audio file to send. Pass a file_id as String to send an
      * audio file that exists on the Telegram servers (recommended), pass an HTTP URL as a String
@@ -54,6 +53,12 @@ public class SendAudio extends CaptionAction {
 
     public SendAudio setPerformer(String performer) {
         this.performer = performer;
+        return this;
+    }
+
+    @Override
+    public SendAudio setThumb(String thumb) {
+        pSetThumb(thumb);
         return this;
     }
 

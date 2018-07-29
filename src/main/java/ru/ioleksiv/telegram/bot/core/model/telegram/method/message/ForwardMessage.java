@@ -8,7 +8,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection;
 
 /**
- * https://core.telegram.org/bots/api#forwardmessage
+ * @see <a href="https://core.telegram.org/bots/api#forwardmessage">forwardMessage</a>
  */
 public class ForwardMessage extends ChatAction<Message> {
     private static final String FORWARD_MESSAGE = "forwardMessage";

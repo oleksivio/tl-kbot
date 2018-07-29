@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#webhookinfo>WebhookInfo</a>
+ * @see <a href="https://core.telegram.org/bots/api#webhookinfo">WebhookInfo</a>
  */
 public class WebhookInfo {
     /**

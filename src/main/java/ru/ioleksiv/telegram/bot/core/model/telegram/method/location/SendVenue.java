@@ -6,7 +6,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.method.interfaces.MessageAct
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.keyboard.IKeyboard;
 
 /**
- * https://core.telegram.org/bots/api#sendvenue
+ * @see <a href="https://core.telegram.org/bots/api#sendvenue">sendVenue</a>
  */
 public class SendVenue extends MessageAction {
     private static final String METHOD = "sendVenue";
@@ -36,9 +36,24 @@ public class SendVenue extends MessageAction {
      */
     @JsonProperty("foursquare_id")
     private String foursquareId = null;
+    /**
+     * foursquare_type	String	Optional. Foursquare type of the venue. (For example,
+     * “arts_entertainment/default”, “arts_entertainment/aquarium” or “food/icecream”.)
+     */
+    @JsonProperty("foursquare_type")
+    private String foursquareType = null;
 
     public SendVenue(Networker networker) {
         super(METHOD, networker);
+    }
+
+    public String getFoursquareType() {
+        return foursquareType;
+    }
+
+    public SendVenue setFoursquareType(String foursquareType) {
+        this.foursquareType = foursquareType;
+        return this;
     }
 
     public Double getLatitude() {

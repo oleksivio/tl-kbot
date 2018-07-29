@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.files.PhotoSize;
 
 /**
- * @link https://core.telegram.org/bots/api#animation
+ * @see <a href="https://core.telegram.org/bots/api#animation">Animation</a>
  */
 public class Animation {
     /**

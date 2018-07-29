@@ -8,12 +8,16 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.files.PhotoSize
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.files.Video;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.files.VideoNote;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.files.Voice;
+import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.game.Animation;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.game.Game;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.sticker.Sticker;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @see <a href="https://core.telegram.org/bots/api#message">Message</a>
+ */
 public class Message {
     /**
      * message_id	Integer	Unique message identifier inside this chat
@@ -137,6 +141,17 @@ public class Message {
     @JsonProperty("document")
     private Document document = null;
     /**
+     * animation	Animation	Optional. Message is an animation, information about the animation.
+     * For backward compatibility, when this field is set, the document field will also be set
+     */
+    @JsonProperty("animation")
+    private Animation animation = null;
+    /**
+     * game	Game	Optional. Message is a game, information about the game.
+     */
+    @JsonProperty("game")
+    private Game game = null;
+    /**
      * new_chat_title	String	Optional. A chat title was changed to this value
      */
     @JsonProperty("new_chat_title")
@@ -162,6 +177,12 @@ public class Message {
      */
     @JsonProperty("entities")
     private List<MessageEntity> entities = new ArrayList<>();
+    /**
+     * caption_entities	Array of MessageEntity	Optional. For messages with a caption, special
+     * entities like usernames, URLs, bot commands, etc. that appear in the caption
+     */
+    @JsonProperty("caption_entities")
+    private List<MessageEntity> captionEntities = new ArrayList<>();
     /**
      * video_note	VideoNote	Optional. Message is a video note, information about the video message
      */
@@ -227,11 +248,16 @@ public class Message {
      */
     @JsonProperty("pinned_message")
     private Message pinnedMessage = null;
-    /**
-     * game	Game	Optional. Message is a game, information about the game.
-     */
-    @JsonProperty("game")
-    private Game game;
+//    /**
+//     * invoice	Invoice	Optional. Message is an invoice for a payment, information about the invoice.
+//     * todo
+//     */
+//
+//    /**
+//     * successful_payment	SuccessfulPayment	Optional. Message is a service message about a
+//     * successful payment, information about the payment.
+//     * todo
+//     */
     /**
      * connected_website	String	Optional. The domain name of the website on which the user has
      * logged in.
@@ -239,27 +265,19 @@ public class Message {
      */
     @JsonProperty("connected_website")
     private String connectedWebsite = null;
-    /**
-     * caption_entities	Array of MessageEntity	Optional. For messages with a caption, special
-     * entities like usernames, URLs, bot commands, etc. that appear in the caption
-     */
-    @JsonProperty("caption_entities")
-    private List<MessageEntity> captionEntities = new ArrayList<>();
+    //    /**
+//     * passport_data	PassportData	Optional. Telegram Passport data
+//     */
+//    @JsonProperty("passport_data")
+//    private PassportData passportData;
 
     public Game getGame() {
         return game;
     }
 
-    /**
-     * invoice	Invoice	Optional. Message is an invoice for a payment, information about the invoice.
-     * todo
-     */
-
-    /**
-     * successful_payment	SuccessfulPayment	Optional. Message is a service message about a
-     * successful payment, information about the payment.
-     * todo
-     */
+    public Animation getAnimation() {
+        return animation;
+    }
 
     public void setGame(Game game) {
         this.game = game;
@@ -576,5 +594,9 @@ public class Message {
 
     public void setNewChatPhoto(PhotoSize newChatPhoto) {
         this.newChatPhoto = newChatPhoto;
+    }
+
+    public void setAnimation(Animation animation) {
+        this.animation = animation;
     }
 }

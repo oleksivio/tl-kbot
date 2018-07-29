@@ -24,9 +24,19 @@ public class Contact {
      */
     @JsonProperty("user_id")
     private Integer mUserId = null;
+    /**
+     * vcard	String	Optional	Additional data about the contact in the form of a vCard, 0-2048 bytes
+     */
+    @JsonProperty("vcard")
+    private String vcard = null;
+
 
     public String getPhoneNumber() {
         return mPhoneNumber;
+    }
+
+    public String getVcard() {
+        return vcard;
     }
 
     public void setPhoneNumber(String phoneNumber) {
@@ -57,5 +67,8 @@ public class Contact {
         mUserId = userId;
     }
 
+    public void setVcard(String vcard) {
+        this.vcard = vcard;
+    }
 }
 

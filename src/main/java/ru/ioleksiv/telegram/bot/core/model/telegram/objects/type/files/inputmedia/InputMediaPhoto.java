@@ -3,7 +3,7 @@ package ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.files.inputmed
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * @link https://core.telegram.org/bots/api#inputmediaphoto
+ * @see <a href="https://core.telegram.org/bots/api#inputmediaphoto">InputMediaPhoto</a>
  */
 public class InputMediaPhoto implements InputMedia {
     /**

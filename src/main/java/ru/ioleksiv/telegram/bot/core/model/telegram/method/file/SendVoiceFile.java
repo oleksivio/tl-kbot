@@ -1,11 +1,11 @@
-package ru.ioleksiv.telegram.bot.core.model.telegram.method.inputfile;
+package ru.ioleksiv.telegram.bot.core.model.telegram.method.file;
 
 import org.springframework.core.io.FileSystemResource;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.keyboard.IKeyboard;
 
 /**
- * @link https://core.telegram.org/bots/api#sendvoice
+ * @see <a href="https://core.telegram.org/bots/api#sendvoice">sendVoice</a>
  */
 public class SendVoiceFile extends UploadFile {
     private static final String METHOD = "sendVoice";

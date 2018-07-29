@@ -3,7 +3,7 @@ package ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.files;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * https://core.telegram.org/bots/api#voice
+ * @see <a href="https://core.telegram.org/bots/api#voice">Voice</a>
  */
 public class Voice {
     /**

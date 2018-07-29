@@ -8,7 +8,7 @@ import ru.ioleksiv.telegram.bot.core.model.telegram.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.telegram.responses.ResponseCollection;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#getchatmember>getChatMember</a>
+ * @see <a href="https://core.telegram.org/bots/api#getchatmember">getChatMember</a>
  */
 public class GetChatMember extends ChatAction<ChatMember> {
     private static final String METHOD = "getChatMember";

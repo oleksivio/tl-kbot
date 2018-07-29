@@ -1,11 +1,11 @@
-package ru.ioleksiv.telegram.bot.core.model.telegram.method.inputfile;
+package ru.ioleksiv.telegram.bot.core.model.telegram.method.file;
 
 import org.springframework.core.io.FileSystemResource;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.keyboard.IKeyboard;
 
 /**
- * @link https://core.telegram.org/bots/api#sendaudio
+ * @see <a href="https://core.telegram.org/bots/api#sendaudio">sendAudio</a>
  */
 public class SendAudioFile extends UploadFile {
     private static final String METHOD = "sendAudio";
@@ -15,7 +15,6 @@ public class SendAudioFile extends UploadFile {
      * file using multipart/form-data.
      */
     private static final String AUDIO_KEY = "audio";
-
     /**
      * duration	Integer	Optional	Duration of the audio in seconds
      */
@@ -28,9 +27,22 @@ public class SendAudioFile extends UploadFile {
      * title	String	Optional	Track name
      */
     private static final String TITLE_KEY = "title";
+    /**
+     * thumb	InputFile or String	Optional	Thumbnail of the file sent. The thumbnail should be
+     * in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed
+     * 90. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can’t be reused
+     * and can be only uploaded as a new file, so you can pass “attach://<file_attach_name>” if the
+     * thumbnail was uploaded using multipart/form-data under <file_attach_name>.
+     */
+    private static final String THUMB_KEY = "thumb";
 
     public SendAudioFile(Networker networker) {
         super(METHOD, networker);
+    }
+
+    public SendAudioFile setThumb(FileSystemResource thumb) {
+        putFile(THUMB_KEY, thumb);
+        return this;
     }
 
     public SendAudioFile setDuration(Integer duration) {

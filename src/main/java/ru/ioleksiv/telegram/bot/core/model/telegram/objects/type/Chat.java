@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.files.ChatPhoto;
 
 /**
- * @link https://core.telegram.org/bots/api#chat
+ * @see <a href="https://core.telegram.org/bots/api#chat">Chat</a>
  */
 public class Chat {
     /**

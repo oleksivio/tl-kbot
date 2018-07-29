@@ -3,7 +3,7 @@ package ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.keyboard;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * @link https://core.telegram.org/bots/api#replykeyboardremove
+ * @see <a href="https://core.telegram.org/bots/api#replykeyboardremove">ReplyKeyboardRemove</a>
  */
 public class ReplyKeyboardRemove implements IKeyboard {
     /**

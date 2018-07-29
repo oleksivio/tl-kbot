@@ -3,7 +3,7 @@ package ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.files;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * @link https://core.telegram.org/bots/api#files
+ * @see <a href="https://core.telegram.org/bots/api#files">File</a>
  */
 public class File {
     /**

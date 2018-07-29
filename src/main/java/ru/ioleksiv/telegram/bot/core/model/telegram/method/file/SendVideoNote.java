@@ -2,13 +2,12 @@ package ru.ioleksiv.telegram.bot.core.model.telegram.method.file;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
-import ru.ioleksiv.telegram.bot.core.model.telegram.method.interfaces.CaptionAction;
 import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.keyboard.IKeyboard;
 
 /**
- * @link https://core.telegram.org/bots/api#sendvideonote
+ * @see <a href="https://core.telegram.org/bots/api#sendvideonote">sendVideoNote</a>
  */
-public class SendVideoNote extends CaptionAction {
+public class SendVideoNote extends ThumbAction {
     private static final String METHOD = "sendVideoNote";
     /**
      * video_note	String	Video note to send. Pass a file_id as String to send a
@@ -56,6 +55,12 @@ public class SendVideoNote extends CaptionAction {
 
     public SendVideoNote setDuration(Integer duration) {
         this.duration = duration;
+        return this;
+    }
+
+    @Override
+    public SendVideoNote setThumb(String thumb) {
+        pSetThumb(thumb);
         return this;
     }
 
