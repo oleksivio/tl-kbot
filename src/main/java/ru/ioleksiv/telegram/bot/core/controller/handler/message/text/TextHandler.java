@@ -4,7 +4,7 @@ import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
-import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.Message;
+import ru.ioleksiv.telegram.bot.core.model.objects.std.Message;
 import ru.ioleksiv.telegram.bot.core.utils.IterableUtils;
 
 import java.lang.reflect.Method;

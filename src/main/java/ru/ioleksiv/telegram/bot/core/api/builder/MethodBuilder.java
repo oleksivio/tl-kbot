@@ -1,14 +1,14 @@
 package ru.ioleksiv.telegram.bot.core.api.builder;
 
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
-import ru.ioleksiv.telegram.bot.core.model.telegram.method.file.GetFile;
-import ru.ioleksiv.telegram.bot.core.model.telegram.method.file.SendPhotoFile;
-import ru.ioleksiv.telegram.bot.core.model.telegram.method.location.EditOwnMessageLiveLocation;
-import ru.ioleksiv.telegram.bot.core.model.telegram.method.location.SendLocation;
-import ru.ioleksiv.telegram.bot.core.model.telegram.method.location.SendVenue;
-import ru.ioleksiv.telegram.bot.core.model.telegram.method.message.DeleteMessage;
-import ru.ioleksiv.telegram.bot.core.model.telegram.method.message.ForwardMessage;
-import ru.ioleksiv.telegram.bot.core.model.telegram.method.message.SendMessage;
+import ru.ioleksiv.telegram.bot.core.model.method.file.GetFile;
+import ru.ioleksiv.telegram.bot.core.model.method.file.SendPhotoFile;
+import ru.ioleksiv.telegram.bot.core.model.method.location.EditOwnMessageLiveLocation;
+import ru.ioleksiv.telegram.bot.core.model.method.location.SendLocation;
+import ru.ioleksiv.telegram.bot.core.model.method.location.SendVenue;
+import ru.ioleksiv.telegram.bot.core.model.method.message.DeleteMessage;
+import ru.ioleksiv.telegram.bot.core.model.method.message.ForwardMessage;
+import ru.ioleksiv.telegram.bot.core.model.method.message.SendMessage;
 
 public class MethodBuilder {
     private final Networker networker;
@@ -41,12 +41,12 @@ public class MethodBuilder {
         return new SendVenue(networker);
     }
 
-    public GetFile getFile() {
-        return new GetFile(networker);
+    public SendPhotoFile sendPhotoFile() {
+        return new SendPhotoFile(networker);
     }
 
-    public SendPhotoFile sendPhotoFile(){
-        return new SendPhotoFile(networker);
+    public GetFile getFile() {
+        return new GetFile(networker);
     }
 
 }

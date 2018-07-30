@@ -15,7 +15,8 @@ public class BotApplicationContext implements ApplicationContextAware {
     private AnnotationProcessor annotationProcessor;
 
     @Override
-    public void setApplicationContext(@NotNull ApplicationContext applicationContext) throws BeansException {
+    public void setApplicationContext(@NotNull ApplicationContext applicationContext)
+            throws BeansException {
 
         for (String beanName : applicationContext.getBeanDefinitionNames()) {
             Object obj = applicationContext.getBean(beanName);

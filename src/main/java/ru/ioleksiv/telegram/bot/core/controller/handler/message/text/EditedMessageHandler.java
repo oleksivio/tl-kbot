@@ -1,8 +1,8 @@
 package ru.ioleksiv.telegram.bot.core.controller.handler.message.text;
 
 import org.jetbrains.annotations.NotNull;
-import ru.ioleksiv.telegram.bot.core.model.telegram.objects.Update;
-import ru.ioleksiv.telegram.bot.core.model.telegram.objects.type.Message;
+import ru.ioleksiv.telegram.bot.core.model.objects.Update;
+import ru.ioleksiv.telegram.bot.core.model.objects.std.Message;
 
 import java.lang.reflect.Method;
 import java.util.Collection;

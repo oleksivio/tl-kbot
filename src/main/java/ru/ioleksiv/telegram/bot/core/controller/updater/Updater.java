@@ -8,7 +8,7 @@ import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 import ru.ioleksiv.telegram.bot.core.controller.network.Loader;
 import ru.ioleksiv.telegram.bot.core.controller.network.Sender;
-import ru.ioleksiv.telegram.bot.core.model.telegram.objects.Update;
+import ru.ioleksiv.telegram.bot.core.model.objects.Update;
 
 public class Updater implements TelegramUpdater {
     private static final Logger LOG = LoggerFactory.getLogger(Handler.class);
@@ -34,7 +34,7 @@ public class Updater implements TelegramUpdater {
                 sender.send(handlerResult.getAction());
             }
             catch (Exception ignored) {
-                // todo add abiltity to hook update
+                // todo add abilitity to hook  error update
                 LOG.error("Error when trying to process update #" + update.getUpdateId());
             }
         }

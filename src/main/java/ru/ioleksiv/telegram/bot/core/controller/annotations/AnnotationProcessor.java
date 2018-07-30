@@ -96,7 +96,7 @@ public class AnnotationProcessor {
     private static List<TelegramProcessor> createStatelessHandler(@NotNull Class clazz,
                                                                   @NotNull Object obj) {
         Handler beforeHandler = null;
-        Handler afterHander = null;
+        Handler afterHandler = null;
         Collection<Handler> simpleHandlerList = new ArrayList<>();
 
         for (Method method : clazz.getDeclaredMethods()) {
@@ -110,7 +110,7 @@ public class AnnotationProcessor {
                 beforeHandler = handler;
             }
             else if (method.isAnnotationPresent(After.class)) {
-                afterHander = handler;
+                afterHandler = handler;
             }
             else {
                 simpleHandlerList.add(handler);
@@ -120,7 +120,7 @@ public class AnnotationProcessor {
 
         List<TelegramProcessor> processors = new ArrayList<>();
         for (Handler handler : simpleHandlerList) {
-            processors.add(new StatelessProcessor(beforeHandler, afterHander, handler));
+            processors.add(new StatelessProcessor(beforeHandler, afterHandler, handler));
         }
         return processors;
 

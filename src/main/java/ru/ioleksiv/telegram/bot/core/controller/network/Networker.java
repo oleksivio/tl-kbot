@@ -11,8 +11,8 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestOperations;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
-import ru.ioleksiv.telegram.bot.core.model.telegram.method.interfaces.IAction;
-import ru.ioleksiv.telegram.bot.core.model.telegram.responses.CommonResponse;
+import ru.ioleksiv.telegram.bot.core.model.method.interfaces.IAction;
+import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 
 public class Networker {
     private static final Logger LOG = LoggerFactory.getLogger(Handler.class);
