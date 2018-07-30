@@ -32,6 +32,7 @@ public class InlineQueryResultMpeg4Gif extends TitledInlineResult {
      */
     @JsonProperty("thumb_url")
     private String thumbUrl = null;
+
     InlineQueryResultMpeg4Gif() {
         super(TYPE);
     }

@@ -5,8 +5,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * @see <a href="https://core.telegram.org/bots/api#inlinequeryresultcachedphoto>InlineQueryResultCachedPhoto</a>
  */
-public class InlineQueryResultCachedPhoto extends TitledInlineResult{
-    private static final String TYPE ="photo";
+public class InlineQueryResultCachedPhoto extends TitledInlineResult {
+    private static final String TYPE = "photo";
+    /**
+     * photo_file_id	String	A valid file identifier of the photo
+     */
+    @JsonProperty("photo_file_id")
+    private String photoFileId = null;
+    /**
+     * description	String	Optional. Short description of the result
+     */
+    @JsonProperty("description")
+    private String description = null;
 
     InlineQueryResultCachedPhoto() {
         super(TYPE);
@@ -19,17 +29,6 @@ public class InlineQueryResultCachedPhoto extends TitledInlineResult{
     public void setDescription(String description) {
         this.description = description;
     }
-
-    /**
-     * photo_file_id	String	A valid file identifier of the photo
-     */
-    @JsonProperty("photo_file_id")
-    private String photoFileId = null;
-    /**
-     * description	String	Optional. Short description of the result
-     */
-    @JsonProperty("description")
-    private String description = null;
 
     public String getPhotoFileId() {
         return photoFileId;

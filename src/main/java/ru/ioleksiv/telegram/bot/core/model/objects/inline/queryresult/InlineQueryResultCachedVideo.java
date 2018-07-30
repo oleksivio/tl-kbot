@@ -6,13 +6,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @see <a href="https://core.telegram.org/bots/api#inlinequeryresultcachedvideo>InlineQueryResultCachedVideo</a>
  */
 public class InlineQueryResultCachedVideo extends TitledInlineResult {
-    private static final String TYPE ="video";
+    private static final String TYPE = "video";
 
     /**
      * video_file_id	String	A valid file identifier for the video file
      */
     @JsonProperty("video_file_id")
     private String videoFileId = null;
+    /**
+     * description	String	Optional. Short description of the result
+     */
+    @JsonProperty("description")
+    private String description = null;
 
     InlineQueryResultCachedVideo() {
         super(TYPE);
@@ -33,11 +38,5 @@ public class InlineQueryResultCachedVideo extends TitledInlineResult {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    /**
-     * description	String	Optional. Short description of the result
-     */
-    @JsonProperty("description")
-    private String description = null;
 
 }

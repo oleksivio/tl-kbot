@@ -5,7 +5,7 @@ import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 import ru.ioleksiv.telegram.bot.core.model.method.interfaces.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.objects.std.Message;
 import ru.ioleksiv.telegram.bot.core.model.objects.std.keyboard.InlineKeyboardMarkup;
-import ru.ioleksiv.telegram.bot.core.model.objects.std.payments.LabeledPrice;
+import ru.ioleksiv.telegram.bot.core.model.objects.payments.LabeledPrice;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 
@@ -135,14 +135,14 @@ public class SendInvoice extends ChatAction<Message> {
         return title;
     }
 
-    @Override
-    public Class<? extends CommonResponse<Message>> getResultWrapperClass() {
-        return ResponseCollection.MessageResponse.class;
-    }
-
     public SendInvoice setTitle(String title) {
         this.title = title;
         return this;
+    }
+
+    @Override
+    public Class<? extends CommonResponse<Message>> getResultWrapperClass() {
+        return ResponseCollection.MessageResponse.class;
     }
 
     public String getDescription() {

@@ -2,8 +2,8 @@ package ru.ioleksiv.telegram.bot.core.model.method.location;
 
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 import ru.ioleksiv.telegram.bot.core.model.method.interfaces.ChatAction;
-import ru.ioleksiv.telegram.bot.core.model.objects.std.keyboard.InlineKeyboardMarkup;
 import ru.ioleksiv.telegram.bot.core.model.method.interfaces.EditAction;
+import ru.ioleksiv.telegram.bot.core.model.objects.std.keyboard.InlineKeyboardMarkup;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#stopmessagelivelocation">stopMessageLiveLocation</a>

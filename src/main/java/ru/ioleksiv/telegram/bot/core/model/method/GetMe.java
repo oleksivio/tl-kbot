@@ -1,8 +1,8 @@
 package ru.ioleksiv.telegram.bot.core.model.method;
 
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
-import ru.ioleksiv.telegram.bot.core.model.objects.std.User;
 import ru.ioleksiv.telegram.bot.core.model.method.interfaces.RunnableAction;
+import ru.ioleksiv.telegram.bot.core.model.objects.std.User;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 

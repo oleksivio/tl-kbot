@@ -15,7 +15,7 @@ public class SessionHolder<T> {
 
         if (obj == null) {
             throw new UnsupportedOperationException("Get null holder value. Store object with " +
-                                              "telegram id " + telegramId + " before first get.");
+                                                            "telegram id " + telegramId + " before first get.");
         }
 
         return obj;

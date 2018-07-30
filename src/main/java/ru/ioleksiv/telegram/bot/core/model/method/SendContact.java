@@ -2,8 +2,8 @@ package ru.ioleksiv.telegram.bot.core.model.method;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
-import ru.ioleksiv.telegram.bot.core.model.objects.std.keyboard.IKeyboard;
 import ru.ioleksiv.telegram.bot.core.model.method.interfaces.MessageAction;
+import ru.ioleksiv.telegram.bot.core.model.objects.std.keyboard.IKeyboard;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendcontact">sendContact</a>

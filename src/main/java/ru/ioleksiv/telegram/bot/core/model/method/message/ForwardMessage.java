@@ -3,8 +3,8 @@ package ru.ioleksiv.telegram.bot.core.model.method.message;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 import ru.ioleksiv.telegram.bot.core.model.method.interfaces.ChatAction;
-import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.objects.std.Message;
+import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 
 /**

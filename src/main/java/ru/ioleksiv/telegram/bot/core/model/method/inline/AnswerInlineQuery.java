@@ -66,13 +66,13 @@ public class AnswerInlineQuery extends RunnableAction<Boolean> {
         return this;
     }
 
-    public String getInlineQueryId() {
-        return inlineQueryId;
+    public AnswerInlineQuery replaceInlineQueryResults(List<InlineQueryResult> inlineQueryResults) {
+        this.inlineQueryResults = inlineQueryResults;
+        return this;
     }
 
-    @Override
-    public Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
-        return ResponseCollection.BooleanResponse.class;
+    public String getInlineQueryId() {
+        return inlineQueryId;
     }
 
     public AnswerInlineQuery setInlineQueryId(String inlineQueryId) {
@@ -80,13 +80,13 @@ public class AnswerInlineQuery extends RunnableAction<Boolean> {
         return this;
     }
 
-    public List<InlineQueryResult> getInlineQueryResults() {
-        return inlineQueryResults;
+    @Override
+    public Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
+        return ResponseCollection.BooleanResponse.class;
     }
 
-    public AnswerInlineQuery replaceInlineQueryResults(List<InlineQueryResult> inlineQueryResults) {
-        this.inlineQueryResults = inlineQueryResults;
-        return this;
+    public List<InlineQueryResult> getInlineQueryResults() {
+        return inlineQueryResults;
     }
 
     public Integer getCacheTime() {

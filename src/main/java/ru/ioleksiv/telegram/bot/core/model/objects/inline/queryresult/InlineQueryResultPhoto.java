@@ -32,6 +32,7 @@ public class InlineQueryResultPhoto extends TitledInlineResult {
      */
     @JsonProperty("description")
     private String description = null;
+
     InlineQueryResultPhoto() {
         super(TYPE);
     }

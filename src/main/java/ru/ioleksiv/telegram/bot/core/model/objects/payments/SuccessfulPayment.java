@@ -1,29 +1,20 @@
-package ru.ioleksiv.telegram.bot.core.model.objects.std.payments;
+package ru.ioleksiv.telegram.bot.core.model.objects.payments;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ru.ioleksiv.telegram.bot.core.model.objects.std.User;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#precheckoutquery>PreCheckoutQuery</a>
+ * @see <a href="https://core.telegram.org/bots/api#successfulpayment>SuccessfulPayment</a>
  */
-public class PreCheckoutQuery {
-    /**
-     * id	String	Unique query identifier
-     */
-    @JsonProperty("id")
-    private String id;
-    /**
-     * from	User	User who sent the query
-     */
-    @JsonProperty("from")
-    private User from;
+public class SuccessfulPayment {
     /**
      * currency	String	Three-letter ISO 4217 currency code
      */
     @JsonProperty("currency")
     private String currency;
     /**
-     * total_amount	Integer	Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).
+     * total_amount	Integer	Total price in the smallest units of the currency (integer, not float/double).
+     * For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the
+     * number of digits past the decimal point for each currency (2 for the majority of currencies).
      */
     @JsonProperty("total_amount")
     private Integer totalAmount;
@@ -42,22 +33,16 @@ public class PreCheckoutQuery {
      */
     @JsonProperty("order_info")
     private OrderInfo orderInfo;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public User getFrom() {
-        return from;
-    }
-
-    public void setFrom(User from) {
-        this.from = from;
-    }
+    /**
+     * telegram_payment_charge_id	String	Telegram payment identifier
+     */
+    @JsonProperty("telegram_payment_charge_id")
+    private String telegramPaymentChargeId;
+    /**
+     * provider_payment_charge_id	String	Provider payment identifier
+     */
+    @JsonProperty("provider_payment_charge_id")
+    private String providerPaymentChargeId;
 
     public String getCurrency() {
         return currency;
@@ -97,5 +82,21 @@ public class PreCheckoutQuery {
 
     public void setOrderInfo(OrderInfo orderInfo) {
         this.orderInfo = orderInfo;
+    }
+
+    public String getTelegramPaymentChargeId() {
+        return telegramPaymentChargeId;
+    }
+
+    public void setTelegramPaymentChargeId(String telegramPaymentChargeId) {
+        this.telegramPaymentChargeId = telegramPaymentChargeId;
+    }
+
+    public String getProviderPaymentChargeId() {
+        return providerPaymentChargeId;
+    }
+
+    public void setProviderPaymentChargeId(String providerPaymentChargeId) {
+        this.providerPaymentChargeId = providerPaymentChargeId;
     }
 }

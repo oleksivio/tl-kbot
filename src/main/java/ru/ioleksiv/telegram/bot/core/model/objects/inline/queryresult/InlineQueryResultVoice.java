@@ -13,7 +13,6 @@ public class InlineQueryResultVoice extends TitledInlineResult {
     @JsonProperty("voice_url")
     private String voiceUrl = null;
 
-
     /**
      * voice_duration	Integer	Optional. Recording duration in seconds
      */

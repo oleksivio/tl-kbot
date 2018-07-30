@@ -13,6 +13,13 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 public abstract class UploadFile implements IAction<Message> {
     private static final String METHOD_KEY = "method";
     /**
+     * reply_markup	InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply
+     * Optional	Additional interface options. A JSON-serialized object for an inline keyboard,
+     * custom reply keyboard, instructions to remove reply keyboard or to force a reply
+     * from the user.
+     */
+    private static final String REPLY_MARKUP_KEY = "reply_markup";
+    /**
      * caption	String	Optional	File caption (may also be used when resending file by file_id),
      * 0-200 characters
      */
@@ -22,13 +29,6 @@ public abstract class UploadFile implements IAction<Message> {
      * italic, fixed-width text or inline URLs in your bot's message.
      */
     protected static final String PARSE_MODE_KEY = "parse_mode";
-    /**
-     * reply_markup	InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply
-     * Optional	Additional interface options. A JSON-serialized object for an inline keyboard,
-     * custom reply keyboard, instructions to remove reply keyboard or to force a reply
-     * from the user.
-     */
-    private static final String REPLY_MARKUP_KEY = "reply_markup";
     /**
      * disable_notification	Boolean	Optional	Sends the message silently. Users will receive a
      * notification with no sound.

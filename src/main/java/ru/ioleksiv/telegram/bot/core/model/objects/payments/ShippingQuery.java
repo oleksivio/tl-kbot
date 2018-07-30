@@ -1,4 +1,4 @@
-package ru.ioleksiv.telegram.bot.core.model.objects.std.payments;
+package ru.ioleksiv.telegram.bot.core.model.objects.payments;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.core.model.objects.std.User;

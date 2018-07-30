@@ -3,7 +3,7 @@ package ru.ioleksiv.telegram.bot.core.model.method.payments;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 import ru.ioleksiv.telegram.bot.core.model.method.interfaces.RunnableAction;
-import ru.ioleksiv.telegram.bot.core.model.objects.std.payments.ShippingOption;
+import ru.ioleksiv.telegram.bot.core.model.objects.payments.ShippingOption;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 
@@ -35,7 +35,7 @@ public class AnswerShippingQuery extends RunnableAction<Boolean> {
     @JsonProperty("error_message")
     private String errorMessage;
 
-    protected AnswerShippingQuery( Networker networker) {
+    protected AnswerShippingQuery(Networker networker) {
         super(METHOD, networker);
     }
 

@@ -14,7 +14,7 @@ public abstract class ContentInlineResult extends InlineQueryResult {
         super(type);
     }
 
-    public  final InputMessageContent getInputMessageContent() {
+    public final InputMessageContent getInputMessageContent() {
         return inputMessageContent;
     }
 

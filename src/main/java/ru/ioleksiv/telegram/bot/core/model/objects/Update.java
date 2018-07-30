@@ -6,8 +6,8 @@ import ru.ioleksiv.telegram.bot.core.model.objects.inline.ChosenInlineResult;
 import ru.ioleksiv.telegram.bot.core.model.objects.inline.InlineQuery;
 import ru.ioleksiv.telegram.bot.core.model.objects.std.CallbackQuery;
 import ru.ioleksiv.telegram.bot.core.model.objects.std.Message;
-import ru.ioleksiv.telegram.bot.core.model.objects.std.payments.PreCheckoutQuery;
-import ru.ioleksiv.telegram.bot.core.model.objects.std.payments.ShippingQuery;
+import ru.ioleksiv.telegram.bot.core.model.objects.payments.PreCheckoutQuery;
+import ru.ioleksiv.telegram.bot.core.model.objects.payments.ShippingQuery;
 
 public class Update {
     /**

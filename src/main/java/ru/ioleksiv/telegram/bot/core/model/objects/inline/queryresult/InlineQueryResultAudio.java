@@ -28,8 +28,6 @@ public class InlineQueryResultAudio extends TitledInlineResult {
         super(TYPE);
     }
 
-
-
     public String getAudioUrl() {
         return audioUrl;
     }
@@ -37,8 +35,6 @@ public class InlineQueryResultAudio extends TitledInlineResult {
     public void setAudioUrl(String audioUrl) {
         this.audioUrl = audioUrl;
     }
-
-
 
     public String getPerformer() {
         return performer;
