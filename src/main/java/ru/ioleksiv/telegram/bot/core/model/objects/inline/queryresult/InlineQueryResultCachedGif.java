@@ -11,7 +11,7 @@ public class InlineQueryResultCachedGif extends TitledInlineResult {
      * gif_file_id	String	A valid file identifier for the GIF file
      */
     @JsonProperty("gif_file_id")
-    private String gifFileId;
+    private String gifFileId = null;
 
     InlineQueryResultCachedGif() {
         super(TYPE);

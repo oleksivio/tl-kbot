@@ -11,7 +11,7 @@ public class InlineQueryResultCachedMpeg4Gif extends TitledInlineResult {
      * mpeg4_file_id	String	A valid file identifier for the MP4 file
      */
     @JsonProperty("mpeg4_file_id")
-    private String mpeg4FileId;
+    private String mpeg4FileId = null;
 
     InlineQueryResultCachedMpeg4Gif() {
         super(TYPE);

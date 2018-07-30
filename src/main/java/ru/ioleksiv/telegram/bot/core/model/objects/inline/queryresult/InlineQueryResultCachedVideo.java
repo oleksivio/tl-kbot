@@ -12,7 +12,7 @@ public class InlineQueryResultCachedVideo extends TitledInlineResult {
      * video_file_id	String	A valid file identifier for the video file
      */
     @JsonProperty("video_file_id")
-    private String videoFileId;
+    private String videoFileId = null;
 
     InlineQueryResultCachedVideo() {
         super(TYPE);
@@ -38,6 +38,6 @@ public class InlineQueryResultCachedVideo extends TitledInlineResult {
      * description	String	Optional. Short description of the result
      */
     @JsonProperty("description")
-    private String description;
+    private String description = null;
 
 }

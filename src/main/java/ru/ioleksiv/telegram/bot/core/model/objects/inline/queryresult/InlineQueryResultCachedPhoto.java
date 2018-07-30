@@ -24,12 +24,12 @@ public class InlineQueryResultCachedPhoto extends TitledInlineResult{
      * photo_file_id	String	A valid file identifier of the photo
      */
     @JsonProperty("photo_file_id")
-    private String photoFileId;
+    private String photoFileId = null;
     /**
      * description	String	Optional. Short description of the result
      */
     @JsonProperty("description")
-    private String description;
+    private String description = null;
 
     public String getPhotoFileId() {
         return photoFileId;

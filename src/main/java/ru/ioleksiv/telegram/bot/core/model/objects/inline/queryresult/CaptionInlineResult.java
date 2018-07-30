@@ -7,7 +7,7 @@ public abstract class CaptionInlineResult extends ContentInlineResult {
      * caption	String	Optional. Caption, 0-200 characters
      */
     @JsonProperty("caption")
-    private String caption;
+    private String caption = null;
 
     CaptionInlineResult(String type) {
         super(type);

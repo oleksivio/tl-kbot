@@ -11,27 +11,27 @@ public class InlineQueryResultGif extends TitledInlineResult {
      * gif_url	String	A valid URL for the GIF file. File size must not exceed 1MB
      */
     @JsonProperty("gif_url")
-    private String gifUrl;
+    private String gifUrl = null;
     /**
      * gif_width	Integer	Optional. Width of the GIF
      */
     @JsonProperty("gif_width")
-    private Integer gifWidth;
+    private Integer gifWidth = null;
     /**
      * gif_height	Integer	Optional. Height of the GIF
      */
     @JsonProperty("gif_height")
-    private Integer gifHeight;
+    private Integer gifHeight = null;
     /**
      * gif_duration	Integer	Optional. Duration of the GIF
      */
     @JsonProperty("gif_duration")
-    private Integer gifDuration;
+    private Integer gifDuration = null;
     /**
      * thumb_url	String	URL of the static thumbnail for the result (jpeg or gif)
      */
     @JsonProperty("thumb_url")
-    private String thumbUrl;
+    private String thumbUrl = null;
 
     InlineQueryResultGif() {
         super(TYPE);

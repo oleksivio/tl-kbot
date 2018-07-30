@@ -6,8 +6,8 @@ import ru.ioleksiv.telegram.bot.core.model.objects.inline.ChosenInlineResult;
 import ru.ioleksiv.telegram.bot.core.model.objects.inline.InlineQuery;
 import ru.ioleksiv.telegram.bot.core.model.objects.std.CallbackQuery;
 import ru.ioleksiv.telegram.bot.core.model.objects.std.Message;
-import ru.ioleksiv.telegram.bot.core.model.objects.std.PreCheckoutQuery;
-import ru.ioleksiv.telegram.bot.core.model.objects.std.ShippingQuery;
+import ru.ioleksiv.telegram.bot.core.model.objects.std.payments.PreCheckoutQuery;
+import ru.ioleksiv.telegram.bot.core.model.objects.std.payments.ShippingQuery;
 
 public class Update {
     /**
@@ -25,7 +25,7 @@ public class Update {
      * randomly instead of sequentially.
      */
     @JsonProperty("update_id")
-    private Long mUpdateId = null;
+    private Long updateId = null;
     /**
      * message
      * <p>
@@ -73,7 +73,7 @@ public class Update {
      * Optional. New incoming inline query
      */
     @JsonProperty("inline_query")
-    private InlineQuery mInlineQuery = null;
+    private InlineQuery inlineQuery = null;
     /**
      * chosen_inline_result
      * <p>
@@ -83,7 +83,7 @@ public class Update {
      * their chat partner.
      */
     @JsonProperty("chosen_inline_result")
-    private ChosenInlineResult mChoosenInlineResult = null;
+    private ChosenInlineResult choosenInlineResult = null;
     /**
      * callback_query
      * <p>
@@ -92,7 +92,7 @@ public class Update {
      * Optional. New incoming callback query
      */
     @JsonProperty("callback_query")
-    private CallbackQuery mCallbackQuery = null;
+    private CallbackQuery callbackQuery = null;
     /**
      * shipping_query
      * <p>
@@ -101,7 +101,7 @@ public class Update {
      * Optional. New incoming shipping query. Only for invoices with flexible price
      */
     @JsonProperty("shipping_query")
-    private ShippingQuery mShippingQuery = null;
+    private ShippingQuery shippingQuery = null;
     /**
      * pre_checkout_query
      * <p>
@@ -109,7 +109,7 @@ public class Update {
      * <p>
      * Optional. New incoming pre-checkout query. Contains full information about checkout
      */
-    private PreCheckoutQuery mPreCheckoutQuery = null;
+    private PreCheckoutQuery preCheckoutQuery = null;
 
     public Message getEditedMessage() {
         return editedMessage;
@@ -136,51 +136,51 @@ public class Update {
     }
 
     public InlineQuery getInlineQuery() {
-        return mInlineQuery;
+        return inlineQuery;
     }
 
     public void setInlineQuery(InlineQuery inlineQuery) {
-        mInlineQuery = inlineQuery;
+        this.inlineQuery = inlineQuery;
     }
 
     public ChosenInlineResult getChoosenInlineResult() {
-        return mChoosenInlineResult;
+        return choosenInlineResult;
     }
 
     public void setChoosenInlineResult(ChosenInlineResult choosenInlineResult) {
-        mChoosenInlineResult = choosenInlineResult;
+        this.choosenInlineResult = choosenInlineResult;
     }
 
     public CallbackQuery getCallbackQuery() {
-        return mCallbackQuery;
+        return callbackQuery;
     }
 
     public void setCallbackQuery(CallbackQuery callbackQuery) {
-        mCallbackQuery = callbackQuery;
+        this.callbackQuery = callbackQuery;
     }
 
     public ShippingQuery getShippingQuery() {
-        return mShippingQuery;
+        return shippingQuery;
     }
 
     public void setShippingQuery(ShippingQuery shippingQuery) {
-        mShippingQuery = shippingQuery;
+        this.shippingQuery = shippingQuery;
     }
 
     public PreCheckoutQuery getPreCheckoutQuery() {
-        return mPreCheckoutQuery;
+        return preCheckoutQuery;
     }
 
     public void setPreCheckoutQuery(PreCheckoutQuery preCheckoutQuery) {
-        mPreCheckoutQuery = preCheckoutQuery;
+        this.preCheckoutQuery = preCheckoutQuery;
     }
 
     public Long getUpdateId() {
-        return mUpdateId;
+        return updateId;
     }
 
     public void setUpdateId(Long updateId) {
-        mUpdateId = updateId;
+        this.updateId = updateId;
     }
 
     public Message getMessage() {

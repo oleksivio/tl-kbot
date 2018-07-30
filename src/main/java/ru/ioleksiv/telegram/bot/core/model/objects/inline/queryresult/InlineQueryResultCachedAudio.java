@@ -11,7 +11,7 @@ public class InlineQueryResultCachedAudio extends FormattedInlineResult {
      * audio_file_id	String	A valid file identifier for the audio file
      */
     @JsonProperty("audio_file_id")
-    private String audioFileId;
+    private String audioFileId = null;
 
     InlineQueryResultCachedAudio() {
         super(TYPE);

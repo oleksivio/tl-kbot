@@ -11,7 +11,7 @@ public class InlineQueryResultCachedSticker extends ContentInlineResult {
      * sticker_file_id	String	A valid file identifier of the sticker
      */
     @JsonProperty("sticker_file_id")
-    private String stickerFileId;
+    private String stickerFileId = null;
 
     InlineQueryResultCachedSticker() {
         super(TYPE);

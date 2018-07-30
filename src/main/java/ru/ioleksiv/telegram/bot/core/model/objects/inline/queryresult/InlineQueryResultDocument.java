@@ -11,32 +11,32 @@ public class InlineQueryResultDocument extends TitledInlineResult {
      * document_url	String	A valid URL for the file
      */
     @JsonProperty("document_url")
-    private String documentUrl;
+    private String documentUrl = null;
     /**
      * mime_type	String	Mime type of the content of the file, either “application/pdf” or “application/zip”
      */
     @JsonProperty("mime_type")
-    private String mimeType;
+    private String mimeType = null;
     /**
      * description	String	Optional. Short description of the result
      */
     @JsonProperty("description")
-    private String description;
+    private String description = null;
     /**
      * thumb_url	String	Optional. URL of the thumbnail (jpeg only) for the file
      */
     @JsonProperty("thumb_url")
-    private String thumbUrl;
+    private String thumbUrl = null;
     /**
      * thumb_width	Integer	Optional. Thumbnail width
      */
     @JsonProperty("thumb_width")
-    private Integer thumbWidth;
+    private Integer thumbWidth = null;
     /**
      * thumb_height	Integer	Optional. Thumbnail height
      */
     @JsonProperty("thumb_height")
-    private Integer thumbHeight;
+    private Integer thumbHeight = null;
 
     InlineQueryResultDocument() {
         super(TYPE);

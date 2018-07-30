@@ -11,14 +11,14 @@ public class InlineQueryResultVoice extends TitledInlineResult {
      * voice_url	String	A valid URL for the voice recording
      */
     @JsonProperty("voice_url")
-    private String voiceUrl;
+    private String voiceUrl = null;
 
 
     /**
      * voice_duration	Integer	Optional. Recording duration in seconds
      */
     @JsonProperty("voice_duration")
-    private Integer voiceDuration;
+    private Integer voiceDuration = null;
 
     InlineQueryResultVoice() {
         super(TYPE);

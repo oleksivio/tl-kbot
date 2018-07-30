@@ -28,17 +28,17 @@ public class InlineQueryResultLocation extends TitledInlineResult {
      * thumb_url	String	Optional. URL of the thumbnail (jpeg only) for the file
      */
     @JsonProperty("thumb_url")
-    private String thumbUrl;
+    private String thumbUrl = null;
     /**
      * thumb_width	Integer	Optional. Thumbnail width
      */
     @JsonProperty("thumb_width")
-    private Integer thumbWidth;
+    private Integer thumbWidth = null;
     /**
      * thumb_height	Integer	Optional. Thumbnail height
      */
     @JsonProperty("thumb_height")
-    private Integer thumbHeight;
+    private Integer thumbHeight = null;
 
     InlineQueryResultLocation() {
         super(TYPE);

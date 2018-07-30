@@ -11,37 +11,37 @@ public class InlineQueryResultVideo extends TitledInlineResult {
      * video_url	String	A valid URL for the embedded video player or video file
      */
     @JsonProperty("video_url")
-    private String videoUrl;
+    private String videoUrl = null;
     /**
      * mime_type	String	Mime type of the content of video url, “text/html” or “video/mp4”
      */
     @JsonProperty("mime_type")
-    private String mimeType;
+    private String mimeType = null;
     /**
      * thumb_url	String	URL of the thumbnail (jpeg only) for the video
      */
     @JsonProperty("thumb_url")
-    private String thumbUrl;
+    private String thumbUrl = null;
     /**
      * video_width	Integer	Optional. Video width
      */
     @JsonProperty("video_width")
-    private Integer videoWidth;
+    private Integer videoWidth = null;
     /**
      * video_height	Integer	Optional. Video height
      */
     @JsonProperty("video_height")
-    private Integer videoHeight;
+    private Integer videoHeight = null;
     /**
      * video_duration	Integer	Optional. Video duration in seconds
      */
     @JsonProperty("video_duration")
-    private Integer videoDuration;
+    private Integer videoDuration = null;
     /**
      * description	String	Optional. Short description of the result
      */
     @JsonProperty("description")
-    private String description;
+    private String description = null;
 
     InlineQueryResultVideo() {
         super(TYPE);
