@@ -8,12 +8,12 @@ import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public interface IAction<RES> {
+public abstract class IAction<RES> {
 
     @JsonIgnore
     @Nullable
-    RES send();
+    public abstract RES send();
 
     @JsonIgnore
-    Class<? extends CommonResponse<RES>> getResultWrapperClass();
+    protected abstract Class<? extends CommonResponse<RES>> getResultWrapperClass();
 }

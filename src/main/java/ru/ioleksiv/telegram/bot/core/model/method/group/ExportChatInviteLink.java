@@ -11,12 +11,12 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 public class ExportChatInviteLink extends ChatAction<String> {
     private static final String METHOD = "exportChatInviteLink";
 
-    protected ExportChatInviteLink(Networker networker) {
+    public ExportChatInviteLink(Networker networker) {
         super(METHOD, networker);
     }
 
     @Override
-    public Class<? extends CommonResponse<String>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<String>> getResultWrapperClass() {
         return ResponseCollection.StringResponse.class;
     }
 

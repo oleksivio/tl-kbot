@@ -17,7 +17,7 @@ public class PassportElementErrorFile extends PassportElementError {
      * file_hash	String	Base64-encoded hash of the file with the front side of the document
      */
     @JsonProperty("file_hash")
-    private String fileHash;
+    private String fileHash = null;
 
     public PassportElementErrorFile() {
         super(SOURCE);

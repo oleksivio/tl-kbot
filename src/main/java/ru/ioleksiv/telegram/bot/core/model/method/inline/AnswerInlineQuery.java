@@ -57,7 +57,7 @@ public class AnswerInlineQuery extends RunnableAction<Boolean> {
     @JsonProperty("switch_pm_parameter")
     private String switchPmParameter = null;
 
-    protected AnswerInlineQuery(Networker networker) {
+    public AnswerInlineQuery(Networker networker) {
         super(METHOD, networker);
     }
 
@@ -81,7 +81,7 @@ public class AnswerInlineQuery extends RunnableAction<Boolean> {
     }
 
     @Override
-    public Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
         return ResponseCollection.BooleanResponse.class;
     }
 

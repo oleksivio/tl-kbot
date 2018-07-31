@@ -1,7 +1,9 @@
 package ru.ioleksiv.telegram.bot.core.model.method.passport;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 import ru.ioleksiv.telegram.bot.core.model.method.interfaces.RunnableAction;
+import ru.ioleksiv.telegram.bot.core.model.objects.passport.errors.PassportElementError;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 
@@ -16,24 +18,28 @@ public class SetPassportDataErrors extends RunnableAction<Boolean> {
      * user_id	Integer	Yes	User identifier
      */
     @JsonProperty("user_id")
-    private Integer userId;
+    private Integer userId = null;
     /**
      * errors	Array of PassportElementError	Yes	A JSON-serialized array describing the errors
      */
     @JsonProperty("errors")
-    private List<PassportElementError> errors;
+    private List<PassportElementError> errors = null;
+
+    public SetPassportDataErrors(Networker networker) {
+        super(METHOD, networker);
+    }
 
     public Integer getUserId() {
         return userId;
     }
 
-    @Override
-    public Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
-        return ResponseCollection.BooleanResponse.class;
-    }
-
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    @Override
+   protected Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
+        return ResponseCollection.BooleanResponse.class;
     }
 
     public List<PassportElementError> getErrors() {

@@ -18,7 +18,7 @@ public abstract class ChatAction<RES> extends RunnableAction<RES> {
         super(method, networker);
     }
 
-    public void pSetChatId(Long chatId) {
+    protected void pSetChatId(Long chatId) {
         this.chatId = chatId;
     }
 

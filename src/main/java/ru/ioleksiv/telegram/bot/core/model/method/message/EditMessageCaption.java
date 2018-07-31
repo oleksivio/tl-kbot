@@ -8,7 +8,7 @@ import ru.ioleksiv.telegram.bot.core.model.objects.std.keyboard.InlineKeyboardMa
 /**
  * @see <a href="https://core.telegram.org/bots/api#editmessagecaption">editMessageCaption</a>
  */
-abstract class EditMessageCaption<RES> extends EditAction<RES> {
+public abstract class EditMessageCaption<RES> extends EditAction<RES> {
     private static final String METHOD = "editMessageCaption";
     /**
      * caption	String	Optional	New caption of the message
@@ -51,7 +51,7 @@ abstract class EditMessageCaption<RES> extends EditAction<RES> {
     }
 
     @Override
-    public EditMessageCaption<RES> setInlineMessageId(Long inlineMessageId) {
+    public EditMessageCaption<RES> setInlineMessageId(String inlineMessageId) {
         pSetInlineMessageId(inlineMessageId);
         return this;
     }

@@ -62,7 +62,7 @@ public class GetUserProfilePhotos extends RunnableAction<UserProfilePhotos> {
     }
 
     @Override
-    public Class<? extends CommonResponse<UserProfilePhotos>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<UserProfilePhotos>> getResultWrapperClass() {
         return ResponseCollection.UserProfilePhotosResponse.class;
     }
 }

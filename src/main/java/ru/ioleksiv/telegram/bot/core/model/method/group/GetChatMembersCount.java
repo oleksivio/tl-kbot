@@ -11,12 +11,12 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 public class GetChatMembersCount extends ChatAction<Integer> {
     private static final String METHOD = "getChatMembersCount";
 
-    protected GetChatMembersCount(Networker networker) {
+    public GetChatMembersCount(Networker networker) {
         super(METHOD, networker);
     }
 
     @Override
-    public Class<? extends CommonResponse<Integer>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<Integer>> getResultWrapperClass() {
         return ResponseCollection.IntegerResponse.class;
     }
 

@@ -7,7 +7,7 @@ import ru.ioleksiv.telegram.bot.core.model.objects.std.keyboard.IKeyboard;
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendvoice">sendVoice</a>
  */
-public class SendVoiceFile extends UploadFile {
+public class SendVoiceFile extends UploadMediaFile {
     private static final String METHOD = "sendVoice";
     /**
      * voice	InputFile or String Audio file to send. Pass a file_id as String to send a file

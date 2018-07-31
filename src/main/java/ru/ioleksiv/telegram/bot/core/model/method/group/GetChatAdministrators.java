@@ -14,12 +14,12 @@ import java.util.List;
 public class GetChatAdministrators extends ChatAction<List<ChatMember>> {
     private static final String METHOD = "getChatAdministrators";
 
-    protected GetChatAdministrators(Networker networker) {
+    public GetChatAdministrators(Networker networker) {
         super(METHOD, networker);
     }
 
     @Override
-    public Class<? extends CommonResponse<List<ChatMember>>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<List<ChatMember>>> getResultWrapperClass() {
         return ResponseCollection.ChatMembersResponse.class;
     }
 

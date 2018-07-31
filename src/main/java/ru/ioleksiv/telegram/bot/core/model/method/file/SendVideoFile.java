@@ -7,7 +7,7 @@ import ru.ioleksiv.telegram.bot.core.model.objects.std.keyboard.IKeyboard;
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendvideo">sendVideo</a>
  */
-public class SendVideoFile extends UploadFile {
+public class SendVideoFile extends UploadMediaFile {
     private static final String METHOD = "sendVideo";
     /**
      * T

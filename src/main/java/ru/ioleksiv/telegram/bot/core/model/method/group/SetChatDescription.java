@@ -17,7 +17,7 @@ public class SetChatDescription extends ChatAction<Boolean> {
     @JsonProperty("description")
     private String description = null;
 
-    protected SetChatDescription(Networker networker) {
+    public SetChatDescription(Networker networker) {
         super(METHOD, networker);
     }
 
@@ -31,7 +31,7 @@ public class SetChatDescription extends ChatAction<Boolean> {
     }
 
     @Override
-    public Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
         return ResponseCollection.BooleanResponse.class;
     }
 

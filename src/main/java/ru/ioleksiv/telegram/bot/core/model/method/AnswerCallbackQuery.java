@@ -44,7 +44,7 @@ public class AnswerCallbackQuery extends RunnableAction<Boolean> {
     @JsonProperty("cache_time")
     private Integer cacheTime = null;
 
-    protected AnswerCallbackQuery(Networker networker) {
+    public AnswerCallbackQuery(Networker networker) {
         super(METHOD, networker);
     }
 
@@ -57,7 +57,7 @@ public class AnswerCallbackQuery extends RunnableAction<Boolean> {
     }
 
     @Override
-    public Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
         return ResponseCollection.BooleanResponse.class;
     }
 

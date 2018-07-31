@@ -11,12 +11,12 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 public class DeleteWebhook extends RunnableAction<Boolean> {
     private static final String METHOD = "deleteWebhook";
 
-    protected DeleteWebhook(Networker networker) {
+    public DeleteWebhook(Networker networker) {
         super(METHOD, networker);
     }
 
     @Override
-    public Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
         return ResponseCollection.BooleanResponse.class;
     }
 }

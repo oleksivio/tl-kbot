@@ -1,6 +1,7 @@
 package ru.ioleksiv.telegram.bot.core.controller.handler.message.text;
 
 import org.jetbrains.annotations.NotNull;
+import ru.ioleksiv.telegram.bot.core.api.builder.ActionBuilder;
 import ru.ioleksiv.telegram.bot.core.model.objects.Update;
 import ru.ioleksiv.telegram.bot.core.model.objects.std.Message;
 
@@ -9,12 +10,13 @@ import java.util.Collection;
 
 public class EditedMessageHandler extends TextHandler {
 
-    public EditedMessageHandler(@NotNull Object classInstance,
+    public EditedMessageHandler(@NotNull ActionBuilder actionBuilder,
+                                @NotNull Object classInstance,
                                 @NotNull Method method,
                                 @NotNull Collection<String> startWith,
                                 @NotNull Collection<String> equalWith,
                                 @NotNull Collection<String> endWith, String regExp) {
-        super(classInstance, method, startWith, equalWith, endWith, regExp);
+        super(actionBuilder, classInstance, method, startWith, equalWith, endWith, regExp);
     }
 
     @Override

@@ -28,7 +28,7 @@ public abstract class StopMessageLiveLocation<RES> extends EditAction<RES> {
     }
 
     @Override
-    public StopMessageLiveLocation<RES> setInlineMessageId(Long inlineMessageId) {
+    public StopMessageLiveLocation<RES> setInlineMessageId(String inlineMessageId) {
         pSetInlineMessageId(inlineMessageId);
         return this;
     }

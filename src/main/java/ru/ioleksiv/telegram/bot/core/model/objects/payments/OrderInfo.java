@@ -10,22 +10,22 @@ public class OrderInfo {
      * name	String	Optional. User name
      */
     @JsonProperty("name")
-    private String name;
+    private String name = null;
     /**
      * phone_number	String	Optional. User's phone number
      */
     @JsonProperty("phone_number")
-    private String phoneNumber;
+    private String phoneNumber = null;
     /**
      * email	String	Optional. User email
      */
     @JsonProperty("email")
-    private String email;
+    private String email = null;
     /**
      * shipping_address	ShippingAddress	Optional. User shipping address
      */
     @JsonProperty("shipping_address")
-    private ShippingAddress shippingAddress;
+    private ShippingAddress shippingAddress = null;
 
     public String getName() {
         return name;

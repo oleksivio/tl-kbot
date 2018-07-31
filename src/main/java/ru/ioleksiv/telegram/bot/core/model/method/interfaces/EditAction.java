@@ -5,7 +5,6 @@ import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 import ru.ioleksiv.telegram.bot.core.model.objects.std.keyboard.InlineKeyboardMarkup;
 
 public abstract class EditAction<RES> extends ChatAction<RES> {
-
     /**
      * reply_markup	InlineKeyboardMarkup	Optional	A JSON-serialized object for a new inline
      * keyboard.
@@ -23,17 +22,17 @@ public abstract class EditAction<RES> extends ChatAction<RES> {
      * Identifier of the inline message
      */
     @JsonProperty("inline_message_id")
-    private Long inlineMessageId = null;
+    private String inlineMessageId = null;
 
     protected EditAction(String method, Networker networker) {
         super(method, networker);
     }
 
-    public void pSetMessageId(Long messageId) {
+    protected void pSetMessageId(Long messageId) {
         this.messageId = messageId;
     }
 
-    protected void pSetInlineMessageId(Long inlineMessageId) {
+    protected void pSetInlineMessageId(String inlineMessageId) {
         this.inlineMessageId = inlineMessageId;
     }
 
@@ -47,11 +46,11 @@ public abstract class EditAction<RES> extends ChatAction<RES> {
 
     public abstract EditAction<RES> setMessageId(Long messageId);
 
-    public Long getInlineMessageId() {
+    public String getInlineMessageId() {
         return inlineMessageId;
     }
 
-    public abstract EditAction<RES> setInlineMessageId(Long inlineMessageId);
+    public abstract EditAction<RES> setInlineMessageId(String inlineMessageId);
 
     public InlineKeyboardMarkup getInlineKeyboardMarkup() {
         return inlineKeyboardMarkup;

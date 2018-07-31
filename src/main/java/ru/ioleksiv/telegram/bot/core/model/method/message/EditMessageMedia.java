@@ -37,7 +37,7 @@ public abstract class EditMessageMedia<RES> extends EditAction<RES> {
     }
 
     @Override
-    public EditMessageMedia<RES> setInlineMessageId(Long inlineMessageId) {
+    public EditMessageMedia<RES> setInlineMessageId(String inlineMessageId) {
         pSetInlineMessageId(inlineMessageId);
         return this;
     }

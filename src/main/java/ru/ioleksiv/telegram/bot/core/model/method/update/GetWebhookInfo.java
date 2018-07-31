@@ -12,12 +12,12 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 public class GetWebhookInfo extends RunnableAction<WebhookInfo> {
     private static final String METHOD = "getWebhookInfo";
 
-    protected GetWebhookInfo(Networker networker) {
+    public GetWebhookInfo(Networker networker) {
         super(METHOD, networker);
     }
 
     @Override
-    public Class<? extends CommonResponse<WebhookInfo>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<WebhookInfo>> getResultWrapperClass() {
         return ResponseCollection.WebhookInfoResponse.class;
     }
 }

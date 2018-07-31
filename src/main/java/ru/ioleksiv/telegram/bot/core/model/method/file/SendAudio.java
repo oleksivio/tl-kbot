@@ -87,13 +87,13 @@ public class SendAudio extends ThumbAction {
     }
 
     @Override
-    protected SendAudio setDisableNotification(Boolean disableNotification) {
+    public SendAudio setDisableNotification(Boolean disableNotification) {
         pSetDisableNotification(disableNotification);
         return this;
     }
 
     @Override
-    protected SendAudio setReplyToMessageId(Long replyToMessageId) {
+    public SendAudio setReplyToMessageId(Long replyToMessageId) {
         pSetReplyToMessageId(replyToMessageId);
         return this;
     }

@@ -12,17 +12,17 @@ public class ShippingOption {
      * id	String	Shipping option identifier
      */
     @JsonProperty("id")
-    private String id;
+    private String id = null;
     /**
      * title	String	Option title
      */
     @JsonProperty("title")
-    private String title;
+    private String title = null;
     /**
      * prices	Array of LabeledPrice	List of price portions
      */
     @JsonProperty("prices")
-    private List<LabeledPrice> prices;
+    private List<LabeledPrice> prices = null;
 
     public String getId() {
         return id;

@@ -11,37 +11,37 @@ public class PreCheckoutQuery {
      * id	String	Unique query identifier
      */
     @JsonProperty("id")
-    private String id;
+    private String id = null;
     /**
      * from	User	User who sent the query
      */
     @JsonProperty("from")
-    private User from;
+    private User from = null;
     /**
      * currency	String	Three-letter ISO 4217 currency code
      */
     @JsonProperty("currency")
-    private String currency;
+    private String currency = null;
     /**
      * total_amount	Integer	Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).
      */
     @JsonProperty("total_amount")
-    private Integer totalAmount;
+    private Integer totalAmount = null;
     /**
      * invoice_payload	String	Bot specified invoice payload
      */
     @JsonProperty("invoice_payload")
-    private String invoicePayload;
+    private String invoicePayload = null;
     /**
      * shipping_option_id	String	Optional. Identifier of the shipping option chosen by the user
      */
     @JsonProperty("shipping_option_id")
-    private String shippingOptionId;
+    private String shippingOptionId = null;
     /**
      * order_info	OrderInfo	Optional. Order info provided by the user
      */
     @JsonProperty("order_info")
-    private OrderInfo orderInfo;
+    private OrderInfo orderInfo = null;
 
     public String getId() {
         return id;

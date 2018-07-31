@@ -38,13 +38,13 @@ public class SendDocument extends ThumbAction {
     }
 
     @Override
-    protected SendDocument setDisableNotification(Boolean disableNotification) {
+    public SendDocument setDisableNotification(Boolean disableNotification) {
         pSetDisableNotification(disableNotification);
         return this;
     }
 
     @Override
-    protected SendDocument setReplyToMessageId(Long replyToMessageId) {
+    public SendDocument setReplyToMessageId(Long replyToMessageId) {
         pSetReplyToMessageId(replyToMessageId);
         return this;
     }

@@ -5,12 +5,12 @@ import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 
 public class EditOtherMessageText extends EditMessageText<Boolean> {
-    EditOtherMessageText(Networker networker) {
+    public EditOtherMessageText(Networker networker) {
         super(networker);
     }
 
     @Override
-    public Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
         return ResponseCollection.BooleanResponse.class;
     }
 }

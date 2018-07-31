@@ -7,7 +7,7 @@ import ru.ioleksiv.telegram.bot.core.model.objects.std.keyboard.IKeyboard;
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendvideonote">sendVideoNote</a>
  */
-public class SendVideoNoteFile extends UploadFile {
+public class SendVideoNoteFile extends UploadMediaFile {
     private static final String METHOD = "sendVideoNote";
     /**
      * video_note	InputFile or String Video note to send. Pass a file_id as String to send a

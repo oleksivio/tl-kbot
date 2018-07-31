@@ -4,6 +4,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.ioleksiv.telegram.bot.core.api.builder.ActionBuilder;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 import ru.ioleksiv.telegram.bot.core.model.objects.Update;
 import ru.ioleksiv.telegram.bot.core.model.objects.std.Message;
@@ -13,9 +14,10 @@ import java.lang.reflect.Method;
 public class ContactHandler extends Handler<Message> {
     private static final Logger LOG = LoggerFactory.getLogger(ContactHandler.class);
 
-    public ContactHandler(@Nullable Object classInstance,
+    public ContactHandler(@NotNull ActionBuilder actionBuilder,
+                          @Nullable Object classInstance,
                           @Nullable Method method) {
-        super(classInstance, method);
+        super(actionBuilder, classInstance, method);
     }
 
     @Override

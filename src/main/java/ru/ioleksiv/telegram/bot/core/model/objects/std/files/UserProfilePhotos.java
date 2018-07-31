@@ -2,6 +2,7 @@ package ru.ioleksiv.telegram.bot.core.model.objects.std.files;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,7 +18,7 @@ public class UserProfilePhotos {
      * photos	Array of Array of PhotoSize	Requested profile pictures (in up to 4 sizes each)
      */
     @JsonProperty("photos")
-    private List<PhotoSize> photos = null;
+    private List<List<PhotoSize>> photos = new ArrayList<>();
 
     public Integer getTotalCount() {
         return totalCount;
@@ -27,11 +28,12 @@ public class UserProfilePhotos {
         this.totalCount = totalCount;
     }
 
-    public List<PhotoSize> getPhotos() {
+    public List<List<PhotoSize>> getPhotos() {
         return photos;
     }
 
-    public void setPhotos(List<PhotoSize> photos) {
-        this.photos = photos;
+    public void setPhotos(List<List<PhotoSize>> photos) {
+        this.photos.addAll(photos);
     }
+
 }

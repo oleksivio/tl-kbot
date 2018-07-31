@@ -10,17 +10,17 @@ public class PassportFile {
      * file_id	String	Unique identifier for this file
      */
     @JsonProperty("file_id")
-    private String fileId;
+    private String fileId = null;
     /**
      * file_size	Integer	File size
      */
     @JsonProperty("file_size")
-    private Integer fileSize;
+    private Integer fileSize = null;
     /**
      * file_date	Integer	Unix time when the file was uploaded
      */
     @JsonProperty("file_date")
-    private Integer fileDate;
+    private Integer fileDate = null;
 
     public String getFileId() {
         return fileId;

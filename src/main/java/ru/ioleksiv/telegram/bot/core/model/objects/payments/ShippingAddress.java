@@ -10,32 +10,32 @@ public class ShippingAddress {
      * country_code	String	ISO 3166-1 alpha-2 country code
      */
     @JsonProperty("country_code")
-    private String countryCode;
+    private String countryCode = null;
     /**
      * state	String	State, if applicable
      */
     @JsonProperty("state")
-    private String state;
+    private String state = null;
     /**
      * city	String	City
      */
     @JsonProperty("city")
-    private String city;
+    private String city = null;
     /**
      * street_line1	String	First line for the address
      */
     @JsonProperty("street_line1")
-    private String streetLine1;
+    private String streetLine1 = null;
     /**
      * street_line2	String	Second line for the address
      */
     @JsonProperty("street_line2")
-    private String streetLine2;
+    private String streetLine2 = null;
     /**
      * post_code	String	Address post code
      */
     @JsonProperty("post_code")
-    private String postCode;
+    private String postCode = null;
 
     public String getCountryCode() {
         return countryCode;

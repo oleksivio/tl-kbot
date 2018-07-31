@@ -15,7 +15,7 @@ public class PassportElementErrorReverseSide extends PassportElementError {
      * file_hash	String	Base64-encoded hash of the file with the reverse side of the document
      */
     @JsonProperty("file_hash")
-    private String fileHash;
+    private String fileHash = null;
 
     public PassportElementErrorReverseSide() {
         super(SOURCE);

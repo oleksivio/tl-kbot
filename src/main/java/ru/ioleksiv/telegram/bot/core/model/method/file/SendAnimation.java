@@ -85,13 +85,13 @@ public class SendAnimation extends ThumbAction {
     }
 
     @Override
-    protected SendAnimation setDisableNotification(Boolean disableNotification) {
+    public SendAnimation setDisableNotification(Boolean disableNotification) {
         pSetDisableNotification(disableNotification);
         return this;
     }
 
     @Override
-    protected SendAnimation setReplyToMessageId(Long replyToMessageId) {
+    public SendAnimation setReplyToMessageId(Long replyToMessageId) {
         pSetReplyToMessageId(replyToMessageId);
         return this;
     }

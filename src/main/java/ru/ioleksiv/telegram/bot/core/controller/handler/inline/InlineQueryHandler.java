@@ -4,6 +4,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.ioleksiv.telegram.bot.core.api.builder.ActionBuilder;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 import ru.ioleksiv.telegram.bot.core.model.objects.Update;
 import ru.ioleksiv.telegram.bot.core.model.objects.inline.InlineQuery;
@@ -17,10 +18,11 @@ public class InlineQueryHandler extends Handler<InlineQuery> {
     @NotNull
     private final String query;
 
-    public InlineQueryHandler(@Nullable Object classInstance,
+    public InlineQueryHandler(@NotNull ActionBuilder actionBuilder,
+                              @Nullable Object classInstance,
                               @Nullable Method method,
                               @NotNull String query) {
-        super(classInstance, method);
+        super(actionBuilder, classInstance, method);
         this.query = query;
     }
 

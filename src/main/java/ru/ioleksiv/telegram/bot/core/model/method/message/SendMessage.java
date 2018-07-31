@@ -50,13 +50,13 @@ public class SendMessage extends FormattedMessageAction {
     }
 
     @Override
-    protected SendMessage setDisableNotification(Boolean disableNotification) {
+    public SendMessage setDisableNotification(Boolean disableNotification) {
         pSetDisableNotification(disableNotification);
         return this;
     }
 
     @Override
-    protected SendMessage setReplyToMessageId(Long replyToMessageId) {
+    public SendMessage setReplyToMessageId(Long replyToMessageId) {
         pSetReplyToMessageId(replyToMessageId);
         return this;
     }

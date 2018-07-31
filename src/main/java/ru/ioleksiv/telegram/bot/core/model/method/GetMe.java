@@ -17,7 +17,7 @@ public class GetMe extends RunnableAction<User> {
     }
 
     @Override
-    public Class<? extends CommonResponse<User>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<User>> getResultWrapperClass() {
         return ResponseCollection.UserResponse.class;
     }
 }

@@ -12,10 +12,10 @@ public class PassportData {
      * data	Array of EncryptedPassportElement	Array with information about documents and other Telegram Passport elements that was shared with the bot
      */
     @JsonProperty("data")
-    private List<EncryptedPassportElement> encryptedPassportElements;
+    private List<EncryptedPassportElement> encryptedPassportElements = null;
     /**
      * credentials	EncryptedCredentials	Encrypted credentials required to decrypt the data
      */
     @JsonProperty("credentials")
-    private EncryptedCredentials encryptedCredentials;
+    private EncryptedCredentials encryptedCredentials = null;
 }

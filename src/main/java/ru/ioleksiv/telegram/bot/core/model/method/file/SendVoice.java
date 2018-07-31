@@ -52,13 +52,13 @@ public class SendVoice extends CaptionAction {
     }
 
     @Override
-    protected SendVoice setDisableNotification(Boolean disableNotification) {
+    public SendVoice setDisableNotification(Boolean disableNotification) {
         pSetDisableNotification(disableNotification);
         return this;
     }
 
     @Override
-    protected SendVoice setReplyToMessageId(Long replyToMessageId) {
+    public SendVoice setReplyToMessageId(Long replyToMessageId) {
         pSetReplyToMessageId(replyToMessageId);
         return this;
     }

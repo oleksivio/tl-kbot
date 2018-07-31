@@ -11,12 +11,12 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 public class LeaveChat extends ChatAction<Boolean> {
     private static final String METHOD = "leaveChat";
 
-    protected LeaveChat(Networker networker) {
+    public LeaveChat(Networker networker) {
         super(METHOD, networker);
     }
 
     @Override
-    public Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
         return ResponseCollection.BooleanResponse.class;
     }
 

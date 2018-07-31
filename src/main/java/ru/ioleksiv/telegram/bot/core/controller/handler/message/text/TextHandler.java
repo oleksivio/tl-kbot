@@ -3,6 +3,7 @@ package ru.ioleksiv.telegram.bot.core.controller.handler.message.text;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.ioleksiv.telegram.bot.core.api.builder.ActionBuilder;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 import ru.ioleksiv.telegram.bot.core.model.objects.std.Message;
 import ru.ioleksiv.telegram.bot.core.utils.IterableUtils;
@@ -20,13 +21,14 @@ public abstract class TextHandler extends Handler<Message> {
     private final Collection<String> mEndWith;
     private final String mRegExp;
 
-    public TextHandler(@NotNull Object classInstance,
+    public TextHandler(@NotNull ActionBuilder actionBuilder,
+                       @NotNull Object classInstance,
                        @NotNull Method method,
                        @NotNull Collection<String> startWith,
                        @NotNull Collection<String> equalWith,
                        @NotNull Collection<String> endWith,
                        String regExp) {
-        super(classInstance, method);
+        super(actionBuilder, classInstance, method);
         mStartWith = startWith;
         mEqualsWith = equalWith;
         mEndWith = endWith;

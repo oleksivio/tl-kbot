@@ -7,7 +7,7 @@ import ru.ioleksiv.telegram.bot.core.model.objects.std.keyboard.IKeyboard;
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendphoto">sendPhoto</a>
  */
-public class SendPhotoFile extends UploadFile {
+public class SendPhotoFile extends UploadMediaFile {
     private static final String METHOD = "sendPhoto";
     /**
      * photo	InputFile or String Photo to send. Pass a file_id as String to send a photo that

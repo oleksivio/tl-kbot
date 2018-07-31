@@ -32,7 +32,7 @@ public class GetFile extends RunnableAction<File> {
     }
 
     @Override
-    public Class<? extends CommonResponse<File>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<File>> getResultWrapperClass() {
         return ResponseCollection.FileResponse.class;
     }
 }

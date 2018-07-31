@@ -108,13 +108,13 @@ public class SendVenue extends MessageAction {
     }
 
     @Override
-    protected SendVenue setDisableNotification(Boolean disableNotification) {
+    public SendVenue setDisableNotification(Boolean disableNotification) {
         pSetDisableNotification(disableNotification);
         return this;
     }
 
     @Override
-    protected SendVenue setReplyToMessageId(Long replyToMessageId) {
+    public SendVenue setReplyToMessageId(Long replyToMessageId) {
         pSetReplyToMessageId(replyToMessageId);
         return this;
     }

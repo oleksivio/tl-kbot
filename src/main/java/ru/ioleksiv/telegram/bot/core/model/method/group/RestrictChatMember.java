@@ -47,7 +47,7 @@ public class RestrictChatMember extends ChatAction<Boolean> {
     @JsonProperty("can_add_web_page_previews")
     private Boolean canAddWebPagePreviews = null;
 
-    protected RestrictChatMember(Networker networker) {
+    public RestrictChatMember(Networker networker) {
         super(METHOD, networker);
     }
 
@@ -106,7 +106,7 @@ public class RestrictChatMember extends ChatAction<Boolean> {
     }
 
     @Override
-    public Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
         return ResponseCollection.BooleanResponse.class;
     }
 

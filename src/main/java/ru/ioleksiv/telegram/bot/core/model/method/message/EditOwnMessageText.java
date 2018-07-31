@@ -6,12 +6,12 @@ import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 
 public class EditOwnMessageText extends EditMessageText<Message> {
-    EditOwnMessageText(Networker networker) {
+    public EditOwnMessageText(Networker networker) {
         super(networker);
     }
 
     @Override
-    public Class<? extends CommonResponse<Message>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<Message>> getResultWrapperClass() {
         return ResponseCollection.MessageResponse.class;
     }
 }

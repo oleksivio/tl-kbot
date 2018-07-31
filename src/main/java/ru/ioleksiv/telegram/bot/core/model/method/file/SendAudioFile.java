@@ -7,7 +7,7 @@ import ru.ioleksiv.telegram.bot.core.model.objects.std.keyboard.IKeyboard;
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendaudio">sendAudio</a>
  */
-public class SendAudioFile extends UploadFile {
+public class SendAudioFile extends UploadMediaFile {
     private static final String METHOD = "sendAudio";
 
     /**

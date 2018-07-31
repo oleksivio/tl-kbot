@@ -12,7 +12,7 @@ public class EditOwnMessageLiveLocation extends EditMessageLiveLocation<Message>
     }
 
     @Override
-    public Class<? extends CommonResponse<Message>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<Message>> getResultWrapperClass() {
         return ResponseCollection.MessageResponse.class;
     }
 }

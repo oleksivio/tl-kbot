@@ -77,13 +77,13 @@ public class SendContact extends MessageAction {
     }
 
     @Override
-    protected SendContact setDisableNotification(Boolean disableNotification) {
+    public SendContact setDisableNotification(Boolean disableNotification) {
         pSetDisableNotification(disableNotification);
         return this;
     }
 
     @Override
-    protected SendContact setReplyToMessageId(Long replyToMessageId) {
+    public SendContact setReplyToMessageId(Long replyToMessageId) {
         pSetReplyToMessageId(replyToMessageId);
         return this;
     }

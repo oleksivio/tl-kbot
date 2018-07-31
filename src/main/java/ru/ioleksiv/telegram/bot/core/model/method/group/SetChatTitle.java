@@ -18,12 +18,12 @@ public class SetChatTitle extends ChatAction<Boolean> {
     @JsonProperty("title")
     private String title = null;
 
-    protected SetChatTitle(Networker networker) {
+    public SetChatTitle(Networker networker) {
         super(METHOD, networker);
     }
 
     @Override
-    public Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
         return ResponseCollection.BooleanResponse.class;
     }
 

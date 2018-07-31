@@ -4,6 +4,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.ioleksiv.telegram.bot.core.api.builder.ActionBuilder;
 import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
 import ru.ioleksiv.telegram.bot.core.model.objects.Update;
 
@@ -14,21 +15,24 @@ import java.util.Objects;
 public abstract class Handler<T> {
     private static final Logger LOGGER = LoggerFactory.getLogger(Handler.class);
 
-    @Nullable
+    @NotNull
     private final Method method;
-    @Nullable
+    @NotNull
     private final Object classInstance;
+    @NotNull
+    private final ActionBuilder actionBuilder;
 
-    protected Handler(@Nullable Object classInstance, @Nullable Method method) {
+    protected Handler(@NotNull ActionBuilder actionBuilder, @NotNull Object classInstance,
+                      @NotNull Method method) {
         this.classInstance = classInstance;
         this.method = method;
-
+        this.actionBuilder = actionBuilder;
     }
 
     @NotNull
     public HandlerResult invoke(@Nullable Update update) {
 
-        if (classInstance == null || method == null || update == null) {
+        if (update == null) {
             // Not valid arguments
             return HandlerResult.noAction();
         }
@@ -40,10 +44,10 @@ public abstract class Handler<T> {
             T methodParameter = unpacker(update);
 
             if (methodParameter != null
-                    && methodArgsTypes.length == 1
-                    && Objects.equals(methodArgsTypes[0], methodParameter.getClass())) {
+                    && methodArgsTypes.length == 2
+                    && Objects.equals(methodArgsTypes[1], methodParameter.getClass())) {
 
-                return (HandlerResult) method.invoke(classInstance, methodParameter);
+                return (HandlerResult) method.invoke(classInstance, actionBuilder, methodParameter);
             }
 
         }

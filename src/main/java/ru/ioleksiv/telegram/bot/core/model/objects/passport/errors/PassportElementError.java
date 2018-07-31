@@ -22,12 +22,12 @@ public abstract class PassportElementError {
      * type	String	The section of the user's Telegram Passport which has the error
      */
     @JsonProperty("type")
-    private String type;
+    private String type = null;
     /**
      * message	String	Error message
      */
     @JsonProperty("message")
-    private String message;
+    private String message = null;
 
     protected PassportElementError(String source) {
         this.source = source;

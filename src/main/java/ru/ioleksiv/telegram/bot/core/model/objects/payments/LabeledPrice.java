@@ -10,7 +10,7 @@ public class LabeledPrice {
      * label	String	Portion label
      */
     @JsonProperty("label")
-    private String label;
+    private String label = null;
     /**
      * amount	Integer	Price of the product in the smallest units of the currency (integer, not float/double).
      * For example, for a price of US$ 1.45 pass amount = 145.
@@ -18,7 +18,7 @@ public class LabeledPrice {
      * (2 for the majority of currencies).
      */
     @JsonProperty("amount")
-    private Integer amount;
+    private Integer amount = null;
 
     public String getLabel() {
         return label;

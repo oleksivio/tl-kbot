@@ -3,6 +3,7 @@ package ru.ioleksiv.telegram.bot.core.controller.handler.callback;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.ioleksiv.telegram.bot.core.api.builder.ActionBuilder;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 import ru.ioleksiv.telegram.bot.core.model.objects.Update;
 import ru.ioleksiv.telegram.bot.core.model.objects.std.CallbackQuery;
@@ -19,13 +20,14 @@ public class CallbackHandler extends Handler<CallbackQuery> {
     private final Collection<String> endWith;
     private final String regExp;
 
-    public CallbackHandler(@NotNull Object classInstance,
+    public CallbackHandler(@NotNull ActionBuilder actionBuilder,
+                           @NotNull Object classInstance,
                            @NotNull Method method,
                            @NotNull Collection<String> startWith,
                            @NotNull Collection<String> equalWith,
                            @NotNull Collection<String> endWith,
                            String regExp) {
-        super(classInstance, method);
+        super(actionBuilder, classInstance, method);
         this.startWith = startWith;
         equalsWith = equalWith;
         this.endWith = endWith;

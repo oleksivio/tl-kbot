@@ -12,12 +12,12 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 public class GetChat extends ChatAction<Chat> {
     private static final String METHOD = "getChat";
 
-    protected GetChat(Networker networker) {
+    public GetChat(Networker networker) {
         super(METHOD, networker);
     }
 
     @Override
-    public Class<? extends CommonResponse<Chat>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<Chat>> getResultWrapperClass() {
         return ResponseCollection.ChatResponse.class;
     }
 

@@ -11,12 +11,12 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 public class DeleteChatStickerSet extends ChatAction<Boolean> {
     private static final String METHOD = "deleteChatStickerSet";
 
-    protected DeleteChatStickerSet(Networker networker) {
+    public DeleteChatStickerSet(Networker networker) {
         super(METHOD, networker);
     }
 
     @Override
-    public Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
         return ResponseCollection.BooleanResponse.class;
     }
 

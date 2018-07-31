@@ -67,13 +67,13 @@ public class SendLocation extends MessageAction {
     }
 
     @Override
-    protected SendLocation setDisableNotification(Boolean disableNotification) {
+    public SendLocation setDisableNotification(Boolean disableNotification) {
         pSetDisableNotification(disableNotification);
         return this;
     }
 
     @Override
-    protected SendLocation setReplyToMessageId(Long replyToMessageId) {
+    public SendLocation setReplyToMessageId(Long replyToMessageId) {
         pSetReplyToMessageId(replyToMessageId);
         return this;
     }

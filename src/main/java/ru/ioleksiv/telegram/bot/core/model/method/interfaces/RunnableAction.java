@@ -5,10 +5,9 @@ import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
-import ru.ioleksiv.telegram.bot.core.model.method.IMethod;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 
-public abstract class RunnableAction<RES> implements IMethod<RES> {
+public abstract class RunnableAction<RES> extends IAction<RES> {
     private static final Logger LOG = LoggerFactory.getLogger(RunnableAction.class);
 
     private final String method;
@@ -27,7 +26,6 @@ public abstract class RunnableAction<RES> implements IMethod<RES> {
         return commonResponse != null ? commonResponse.get() : null;
     }
 
-    @Override
     @JsonProperty("method")
     public String getMethod() {
         return method;

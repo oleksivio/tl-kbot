@@ -17,7 +17,7 @@ public class SetChatStickerSet extends ChatAction<Boolean> {
     @JsonProperty("sticker_set_name")
     private String stickerSetName = null;
 
-    protected SetChatStickerSet(Networker networker) {
+    public SetChatStickerSet(Networker networker) {
         super(METHOD, networker);
     }
 
@@ -31,7 +31,7 @@ public class SetChatStickerSet extends ChatAction<Boolean> {
     }
 
     @Override
-    public Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
         return ResponseCollection.BooleanResponse.class;
     }
 

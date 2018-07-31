@@ -12,7 +12,7 @@ public class EditOwnMessageMedia extends EditMessageMedia<Message> {
     }
 
     @Override
-    public Class<? extends CommonResponse<Message>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<Message>> getResultWrapperClass() {
         return ResponseCollection.MessageResponse.class;
     }
 }

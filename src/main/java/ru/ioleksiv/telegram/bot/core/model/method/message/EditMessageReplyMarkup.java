@@ -7,7 +7,7 @@ import ru.ioleksiv.telegram.bot.core.model.objects.std.keyboard.InlineKeyboardMa
 /**
  * @see <a href="https://core.telegram.org/bots/api#editmessagereplymarkup">editMessageReplyMarkup</a>
  */
-abstract class EditMessageReplyMarkup<RES> extends EditAction<RES> {
+public abstract class EditMessageReplyMarkup<RES> extends EditAction<RES> {
     private static final String METHOD = "editMessageReplyMarkup";
 
     EditMessageReplyMarkup(Networker networker) {
@@ -21,7 +21,7 @@ abstract class EditMessageReplyMarkup<RES> extends EditAction<RES> {
     }
 
     @Override
-    public EditMessageReplyMarkup<RES> setInlineMessageId(Long inlineMessageId) {
+    public EditMessageReplyMarkup<RES> setInlineMessageId(String inlineMessageId) {
         pSetInlineMessageId(inlineMessageId);
         return this;
     }

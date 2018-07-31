@@ -56,16 +56,16 @@ public abstract class MessageAction extends ChatAction<Message> {
         return disableNotification;
     }
 
-    protected abstract MessageAction setDisableNotification(Boolean disableNotification);
+    public abstract MessageAction setDisableNotification(Boolean disableNotification);
 
     public Long getReplyToMessageId() {
         return replyToMessageId;
     }
 
-    protected abstract MessageAction setReplyToMessageId(Long replyToMessageId);
+    public abstract MessageAction setReplyToMessageId(Long replyToMessageId);
 
     @Override
-    public Class<? extends CommonResponse<Message>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<Message>> getResultWrapperClass() {
         return ResponseCollection.MessageResponse.class;
     }
 }

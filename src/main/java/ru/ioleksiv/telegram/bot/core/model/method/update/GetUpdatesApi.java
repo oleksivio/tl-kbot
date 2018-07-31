@@ -32,7 +32,7 @@ public class GetUpdatesApi extends RunnableAction<List<Update>> {
     }
 
     @Override
-    public Class<? extends CommonResponse<List<Update>>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<List<Update>>> getResultWrapperClass() {
         return ResponseCollection.UpdatesArrayResponse.class;
     }
 

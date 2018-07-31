@@ -11,22 +11,22 @@ public class ShippingQuery {
      * id	String	Unique query identifier
      */
     @JsonProperty("id")
-    private String id;
+    private String id = null;
     /**
      * from	User	User who sent the query
      */
     @JsonProperty("from")
-    private User from;
+    private User from = null;
     /**
      * invoice_payload	String	Bot specified invoice payload
      */
     @JsonProperty("invoice_payload")
-    private String invoicePayload;
+    private String invoicePayload = null;
     /**
      * shipping_address	ShippingAddress	User specified shipping address
      */
     @JsonProperty("shipping_address")
-    private ShippingAddress shippingAddress;
+    private ShippingAddress shippingAddress = null;
 
     public String getId() {
         return id;

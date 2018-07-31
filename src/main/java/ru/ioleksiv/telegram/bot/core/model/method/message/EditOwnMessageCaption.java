@@ -7,12 +7,12 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 
 public class EditOwnMessageCaption extends EditMessageCaption<Message> {
 
-    EditOwnMessageCaption(Networker networker) {
+    public EditOwnMessageCaption(Networker networker) {
         super(networker);
     }
 
     @Override
-    public Class<? extends CommonResponse<Message>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<Message>> getResultWrapperClass() {
         return ResponseCollection.MessageResponse.class;
     }
 }

@@ -6,12 +6,12 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 
 public class EditOtherMessageReplyMarkup extends EditMessageReplyMarkup<Boolean> {
 
-    EditOtherMessageReplyMarkup(Networker networker) {
+    public EditOtherMessageReplyMarkup(Networker networker) {
         super(networker);
     }
 
     @Override
-    public Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
         return ResponseCollection.BooleanResponse.class;
     }
 }

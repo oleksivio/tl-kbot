@@ -8,6 +8,7 @@ import ru.ioleksiv.telegram.bot.core.api.annotations.behavior.Stateless;
 import ru.ioleksiv.telegram.bot.core.api.annotations.handler.After;
 import ru.ioleksiv.telegram.bot.core.api.annotations.handler.Before;
 import ru.ioleksiv.telegram.bot.core.api.annotations.handler.update.Default;
+import ru.ioleksiv.telegram.bot.core.api.builder.ActionBuilder;
 import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 import ru.ioleksiv.telegram.bot.core.controller.handler.UpdateHandler;
@@ -22,12 +23,15 @@ import java.util.List;
 import java.util.Optional;
 
 public class AnnotationProcessor {
-
     @NotNull
     private final MainProcessor mainProcessor;
+    @NotNull
+    private final ActionBuilder actionBuilder;
 
-    public AnnotationProcessor(@NotNull MainProcessor mainProcessor) {
+    public AnnotationProcessor(@NotNull MainProcessor mainProcessor,
+                               @NotNull ActionBuilder actionBuilder) {
         this.mainProcessor = mainProcessor;
+        this.actionBuilder = actionBuilder;
     }
 
     public void add(@NotNull Object obj) {
@@ -35,21 +39,22 @@ public class AnnotationProcessor {
         Class<?> objClz = obj.getClass();
 
         if (objClz.isAnnotationPresent(Session.class)) {
-            TelegramProcessor sessionProcessor = createSessionHandler(objClz, obj);
+            TelegramProcessor sessionProcessor = createSessionHandler(actionBuilder, objClz, obj);
             mainProcessor.addSession(sessionProcessor);
         }
         else if (objClz.isAnnotationPresent(Stateless.class)) {
-            List<TelegramProcessor> statelessProcessor = createStatelessHandler(objClz, obj);
+            List<TelegramProcessor> statelessProcessor = createStatelessHandler(actionBuilder, objClz, obj);
             mainProcessor.addStateless(statelessProcessor);
         }
         else if (objClz.isAnnotationPresent(DefaultStateless.class)) {
-            TelegramProcessor defaultProcessor = getDefaultProcessor(objClz, obj);
+            TelegramProcessor defaultProcessor = getDefaultProcessor(actionBuilder, objClz, obj);
             mainProcessor.setDefault(defaultProcessor);
         }
     }
 
     @NotNull
-    private static TelegramProcessor createSessionHandler(@NotNull Class clazz,
+    private static TelegramProcessor createSessionHandler(@NotNull ActionBuilder actionBuilder,
+                                                          @NotNull Class clazz,
                                                           @NotNull Object obj) {
 
         Handler initialHandler = null;
@@ -59,7 +64,7 @@ public class AnnotationProcessor {
 
         for (Method method : clazz.getDeclaredMethods()) {
 
-            Optional<Handler> optionalHandler = HandlerFactory.create(obj, method);
+            Optional<Handler> optionalHandler = HandlerFactory.create(actionBuilder, obj, method);
             if (!optionalHandler.isPresent()) {
                 continue;
             }
@@ -93,14 +98,15 @@ public class AnnotationProcessor {
     }
 
     @NotNull
-    private static List<TelegramProcessor> createStatelessHandler(@NotNull Class clazz,
+    private static List<TelegramProcessor> createStatelessHandler(@NotNull ActionBuilder actionBuilder,
+                                                                  @NotNull Class clazz,
                                                                   @NotNull Object obj) {
         Handler beforeHandler = null;
         Handler afterHandler = null;
         Collection<Handler> simpleHandlerList = new ArrayList<>();
 
         for (Method method : clazz.getDeclaredMethods()) {
-            Optional<Handler> optionalHandler = HandlerFactory.create(obj, method);
+            Optional<Handler> optionalHandler = HandlerFactory.create(actionBuilder, obj, method);
             if (!optionalHandler.isPresent()) {
                 continue;
             }
@@ -127,11 +133,12 @@ public class AnnotationProcessor {
     }
 
     @NotNull
-    private static TelegramProcessor getDefaultProcessor(@NotNull Class<?> clazz,
+    private static TelegramProcessor getDefaultProcessor(@NotNull ActionBuilder actionBuilder,
+                                                         @NotNull Class<?> clazz,
                                                          @NotNull Object obj) {
         for (Method method : clazz.getDeclaredMethods()) {
             if (method.isAnnotationPresent(Default.class)) {
-                UpdateHandler updateHandler = new UpdateHandler(obj, method);
+                UpdateHandler updateHandler = new UpdateHandler(actionBuilder, obj, method);
                 return updateHandler::invoke;
             }
         }

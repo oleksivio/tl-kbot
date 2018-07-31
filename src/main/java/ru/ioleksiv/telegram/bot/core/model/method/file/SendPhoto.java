@@ -38,13 +38,13 @@ public class SendPhoto extends CaptionAction {
     }
 
     @Override
-    protected SendPhoto setDisableNotification(Boolean disableNotification) {
+    public SendPhoto setDisableNotification(Boolean disableNotification) {
         pSetDisableNotification(disableNotification);
         return this;
     }
 
     @Override
-    protected SendPhoto setReplyToMessageId(Long replyToMessageId) {
+    public SendPhoto setReplyToMessageId(Long replyToMessageId) {
         pSetReplyToMessageId(replyToMessageId);
         return this;
     }

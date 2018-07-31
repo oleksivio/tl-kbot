@@ -7,6 +7,7 @@ import ru.ioleksiv.telegram.bot.core.api.annotations.handler.inline.TextInlineQu
 import ru.ioleksiv.telegram.bot.core.api.annotations.handler.message.ContactMessage;
 import ru.ioleksiv.telegram.bot.core.api.annotations.handler.message.LocationMessage;
 import ru.ioleksiv.telegram.bot.core.api.annotations.handler.message.TextMessage;
+import ru.ioleksiv.telegram.bot.core.api.builder.ActionBuilder;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 import ru.ioleksiv.telegram.bot.core.controller.handler.inline.InlineQueryHandler;
 import ru.ioleksiv.telegram.bot.core.controller.handler.message.ContactHandler;
@@ -29,7 +30,8 @@ final class HandlerFactory {
     }
 
     @NotNull
-    static Optional<Handler> create(@NotNull Object classInstance,
+    static Optional<Handler> create(@NotNull ActionBuilder actionBuilder,
+                                    @NotNull Object classInstance,
                                     @NotNull Method method) {
 
         if (method.isAnnotationPresent(TextMessage.class)) {
@@ -42,7 +44,8 @@ final class HandlerFactory {
 
             String regExp = text.regExp();
 
-            Handler textHandler = createTextHandler(classInstance,
+            Handler textHandler = createTextHandler(actionBuilder,
+                                                    classInstance,
                                                     method,
                                                     startWithCollection,
                                                     equalsWithCollection,
@@ -54,22 +57,22 @@ final class HandlerFactory {
 
         if (method.isAnnotationPresent(TextInlineQuery.class)) {
             TextInlineQuery query = method.getAnnotation(TextInlineQuery.class);
-            Handler inlineQueryHandler = new InlineQueryHandler(
-                    classInstance,
-                    method,
-                    query.query());
+            Handler inlineQueryHandler = new InlineQueryHandler(actionBuilder,
+                                                                classInstance,
+                                                                method,
+                                                                query.query());
 
             return Optional.of(inlineQueryHandler);
         }
 
         if (method.isAnnotationPresent(LocationMessage.class)) {
-            Handler locationHandler = new LocationHandler(classInstance, method);
+            Handler locationHandler = new LocationHandler(actionBuilder, classInstance, method);
 
             return Optional.of(locationHandler);
         }
 
         if (method.isAnnotationPresent(ContactMessage.class)) {
-            Handler contactHandler = new ContactHandler(classInstance, method);
+            Handler contactHandler = new ContactHandler(actionBuilder, classInstance, method);
 
             return Optional.of(contactHandler);
         }
@@ -77,7 +80,8 @@ final class HandlerFactory {
         return Optional.empty();
     }
 
-    private static TextHandler createTextHandler(@NotNull Object classInstance,
+    private static TextHandler createTextHandler(@NotNull ActionBuilder actionBuilder,
+                                                 @NotNull Object classInstance,
                                                  @NotNull Method method,
                                                  Collection<String> startWithCollection,
                                                  Collection<String> equalsWithCollection,
@@ -86,7 +90,8 @@ final class HandlerFactory {
                                                  TextMessage.Type type) {
         switch (type) {
             case MESSAGE: {
-                return new MessageHandler(classInstance,
+                return new MessageHandler(actionBuilder,
+                                          classInstance,
                                           method,
                                           startWithCollection,
                                           equalsWithCollection,
@@ -94,7 +99,8 @@ final class HandlerFactory {
                                           regExp);
             }
             case EDITED_MESSAGE: {
-                return new EditedMessageHandler(classInstance,
+                return new EditedMessageHandler(actionBuilder,
+                                                classInstance,
                                                 method,
                                                 startWithCollection,
                                                 equalsWithCollection,
@@ -102,7 +108,8 @@ final class HandlerFactory {
                                                 regExp);
             }
             case CHANNEL_POST: {
-                return new ChannelPostHandler(classInstance,
+                return new ChannelPostHandler(actionBuilder,
+                                              classInstance,
                                               method,
                                               startWithCollection,
                                               equalsWithCollection,
@@ -110,7 +117,8 @@ final class HandlerFactory {
                                               regExp);
             }
             case EDITED_CHANNEL_POST: {
-                return new EditedChannelPostHandler(classInstance,
+                return new EditedChannelPostHandler(actionBuilder,
+                                                    classInstance,
                                                     method,
                                                     startWithCollection,
                                                     equalsWithCollection,

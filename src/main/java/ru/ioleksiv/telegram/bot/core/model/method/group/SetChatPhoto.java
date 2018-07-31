@@ -19,12 +19,12 @@ public class SetChatPhoto extends ChatAction<Boolean> {
     @JsonProperty("photo")
     private File photo = null;
 
-    protected SetChatPhoto(Networker networker) {
+    public SetChatPhoto(Networker networker) {
         super(METHOD, networker);
     }
 
     @Override
-    public Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
         return ResponseCollection.BooleanResponse.class;
     }
 

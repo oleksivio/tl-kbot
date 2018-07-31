@@ -100,13 +100,13 @@ public class SendVideo extends ThumbAction {
     }
 
     @Override
-    protected SendVideo setDisableNotification(Boolean disableNotification) {
+    public SendVideo setDisableNotification(Boolean disableNotification) {
         pSetDisableNotification(disableNotification);
         return this;
     }
 
     @Override
-    protected SendVideo setReplyToMessageId(Long replyToMessageId) {
+    public SendVideo setReplyToMessageId(Long replyToMessageId) {
         pSetReplyToMessageId(replyToMessageId);
         return this;
     }

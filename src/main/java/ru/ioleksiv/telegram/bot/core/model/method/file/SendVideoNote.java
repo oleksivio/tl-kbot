@@ -71,13 +71,13 @@ public class SendVideoNote extends ThumbAction {
     }
 
     @Override
-    protected SendVideoNote setDisableNotification(Boolean disableNotification) {
+    public SendVideoNote setDisableNotification(Boolean disableNotification) {
         pSetDisableNotification(disableNotification);
         return this;
     }
 
     @Override
-    protected SendVideoNote setReplyToMessageId(Long replyToMessageId) {
+    public SendVideoNote setReplyToMessageId(Long replyToMessageId) {
         pSetReplyToMessageId(replyToMessageId);
         return this;
     }

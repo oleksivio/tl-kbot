@@ -62,7 +62,7 @@ public class ForwardMessage extends ChatAction<Message> {
     }
 
     @Override
-    public Class<? extends CommonResponse<Message>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<Message>> getResultWrapperClass() {
         return ResponseCollection.MessageResponse.class;
     }
 

@@ -11,7 +11,7 @@ public class EditOtherMessageLiveLocation extends EditMessageLiveLocation<Boolea
     }
 
     @Override
-    public Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
         return ResponseCollection.BooleanResponse.class;
     }
 }

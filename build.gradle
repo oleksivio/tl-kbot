@@ -3,15 +3,13 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'io.spring.gradle:dependency-management-plugin:1.0.5.RELEASE'
+        classpath 'io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE'
     }
 }
 
-
-
 plugins {
     id 'java'
-    id 'io.spring.dependency-management' version '1.0.5.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.6.RELEASE'
 }
 
 group 'ru.ioleksiv'
@@ -67,9 +65,6 @@ dependencies {
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.5'
 
     compile 'org.slf4j:jcl-over-slf4j:1.7.12'
-
-
-
 
 
 

@@ -51,7 +51,7 @@ public abstract class EditMessageLiveLocation<RES> extends EditAction<RES> {
     }
 
     @Override
-    public EditMessageLiveLocation<RES> setInlineMessageId(Long inlineMessageId) {
+    public EditMessageLiveLocation<RES> setInlineMessageId(String inlineMessageId) {
         pSetInlineMessageId(inlineMessageId);
         return this;
     }

@@ -22,7 +22,7 @@ public class PassportElementErrorFiles extends PassportElementError {
     @JsonProperty("file_hashes")
     private List<String> fileHashes = new ArrayList<>();
 
-    protected PassportElementErrorFiles() {
+    public PassportElementErrorFiles() {
         super(FILES);
     }
 

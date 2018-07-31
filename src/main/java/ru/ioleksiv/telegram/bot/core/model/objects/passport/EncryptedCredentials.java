@@ -10,17 +10,17 @@ public class EncryptedCredentials {
      * data	String	Base64-encoded encrypted JSON-serialized data with unique user's payload, data hashes and secrets required for EncryptedPassportElement decryption and authentication
      */
     @JsonProperty("data")
-    private String data;
+    private String data = null;
     /**
      * hash	String	Base64-encoded data hash for data authentication
      */
     @JsonProperty("hash")
-    private String hash;
+    private String hash = null;
     /**
      * secret	String	Base64-encoded secret, encrypted with the bot's public RSA key, required for data decryption
      */
     @JsonProperty("secret")
-    private String secret;
+    private String secret = null;
 
     public String getData() {
         return data;

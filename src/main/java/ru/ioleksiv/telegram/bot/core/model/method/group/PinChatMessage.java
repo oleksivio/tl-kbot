@@ -24,7 +24,7 @@ public class PinChatMessage extends ChatAction<Boolean> {
     @JsonProperty("disable_notification")
     private Boolean disableNotification = null;
 
-    protected PinChatMessage(Networker networker) {
+    public PinChatMessage(Networker networker) {
         super(METHOD, networker);
     }
 
@@ -38,7 +38,7 @@ public class PinChatMessage extends ChatAction<Boolean> {
     }
 
     @Override
-    public Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
         return ResponseCollection.BooleanResponse.class;
     }
 

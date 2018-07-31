@@ -19,7 +19,7 @@ public class GetChatMember extends ChatAction<ChatMember> {
     @JsonProperty("user_id")
     private Long userId = null;
 
-    protected GetChatMember(Networker networker) {
+    public GetChatMember(Networker networker) {
         super(METHOD, networker);
     }
 
@@ -33,7 +33,7 @@ public class GetChatMember extends ChatAction<ChatMember> {
     }
 
     @Override
-    public Class<? extends CommonResponse<ChatMember>> getResultWrapperClass() {
+   protected Class<? extends CommonResponse<ChatMember>> getResultWrapperClass() {
         return ResponseCollection.ChatMemberResponse.class;
     }
 
