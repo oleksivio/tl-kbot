@@ -24,7 +24,9 @@ public class ChosenInlineResult {
     @JsonProperty("location")
     private Location location = null;
     /**
-     * inline_message_id	String	Optional. Identifier of the sent inline message. Available only if there is an inline keyboard attached to the message. Will be also received in callback queries and can be used to message the message.
+     * inline_message_id	String	Optional. Identifier of the sent inline message. Available only if there is an
+     * inline keyboard attached to the message.
+     * Will be also received in callback queries and can be used to message the message.
      */
     @JsonProperty("inline_message_id")
     private String inlineMessageId = null;

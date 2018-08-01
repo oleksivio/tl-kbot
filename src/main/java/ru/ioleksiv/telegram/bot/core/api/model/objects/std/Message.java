@@ -1,6 +1,9 @@
 package ru.ioleksiv.telegram.bot.core.api.model.objects.std;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.core.api.model.objects.passport.PassportData;
+import ru.ioleksiv.telegram.bot.core.api.model.objects.payments.Invoice;
+import ru.ioleksiv.telegram.bot.core.api.model.objects.payments.SuccessfulPayment;
 import ru.ioleksiv.telegram.bot.core.api.model.objects.std.files.Audio;
 import ru.ioleksiv.telegram.bot.core.api.model.objects.std.files.Document;
 import ru.ioleksiv.telegram.bot.core.api.model.objects.std.files.MessageEntity;
@@ -248,28 +251,52 @@ public class Message {
      */
     @JsonProperty("pinned_message")
     private Message pinnedMessage = null;
-//    /**
-//     * invoice	Invoice	Optional. Message is an invoice for a payment, information about the invoice.
-//     * todo
-//     */
-//
-//    /**
-//     * successful_payment	SuccessfulPayment	Optional. Message is a service message about a
-//     * successful payment, information about the payment.
-//     * todo
-//     */
+    /**
+     * invoice	Invoice	Optional. Message is an invoice for a payment, information about the invoice.
+     */
+    @JsonProperty("invoice")
+    private Invoice invoice = null;
+    /**
+     * successful_payment	SuccessfulPayment	Optional. Message is a service message about a
+     * successful payment, information about the payment.
+     */
+    @JsonProperty("successful_payment")
+    private SuccessfulPayment successfulPayment = null;
     /**
      * connected_website	String	Optional. The domain name of the website on which the user has
      * logged in.
-     * More about Telegram Login »
      */
     @JsonProperty("connected_website")
     private String connectedWebsite = null;
-    //    /**
-//     * passport_data	PassportData	Optional. Telegram Passport data
-//     */
-//    @JsonProperty("passport_data")
-//    private PassportData passportData;
+    /**
+     * passport_data	PassportData	Optional. Telegram Passport data
+     */
+    @JsonProperty("passport_data")
+    private PassportData passportData = null;
+
+    public Invoice getInvoice() {
+        return invoice;
+    }
+
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
+    }
+
+    public SuccessfulPayment getSuccessfulPayment() {
+        return successfulPayment;
+    }
+
+    public void setSuccessfulPayment(SuccessfulPayment successfulPayment) {
+        this.successfulPayment = successfulPayment;
+    }
+
+    public PassportData getPassportData() {
+        return passportData;
+    }
+
+    public void setPassportData(PassportData passportData) {
+        this.passportData = passportData;
+    }
 
     public Game getGame() {
         return game;
