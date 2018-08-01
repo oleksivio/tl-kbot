@@ -4,10 +4,10 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.ioleksiv.telegram.bot.core.api.builder.ActionBuilder;
+import ru.ioleksiv.telegram.bot.core.api.model.ActionBuilder;
+import ru.ioleksiv.telegram.bot.core.api.model.objects.Update;
+import ru.ioleksiv.telegram.bot.core.api.model.objects.std.Message;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
-import ru.ioleksiv.telegram.bot.core.model.objects.Update;
-import ru.ioleksiv.telegram.bot.core.model.objects.std.Message;
 
 import java.lang.reflect.Method;
 

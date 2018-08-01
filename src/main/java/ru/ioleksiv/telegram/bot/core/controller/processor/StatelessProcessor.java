@@ -2,16 +2,11 @@ package ru.ioleksiv.telegram.bot.core.controller.processor;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import ru.ioleksiv.telegram.bot.core.api.TelegramProcessor;
+import ru.ioleksiv.telegram.bot.core.api.model.objects.Update;
 import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
-import ru.ioleksiv.telegram.bot.core.model.objects.Update;
 
-public class StatelessProcessor implements TelegramProcessor {
-    private static final Logger LOGGER = LoggerFactory.getLogger(StatelessProcessor.class);
-
+public class StatelessProcessor {
     @Nullable
     private final Handler mBeforeMethod;
     @Nullable
@@ -27,36 +22,35 @@ public class StatelessProcessor implements TelegramProcessor {
         mMainHandler = mainHandler;
     }
 
-    @Override
     @NotNull
-    public HandlerResult process(@Nullable Update update) {
+    HandlerResult process(@Nullable Update update) {
         if (!mMainHandler.isAcceptable(update)) {
-            return HandlerResult.noAction();
+            return HandlerResult.pass();
         }
 
         if (mBeforeMethod != null) {
             HandlerResult beforeActions = mBeforeMethod.invoke(update);
 
-            if (!beforeActions.hasNoAction()) {
+            if (!beforeActions.isPassed()) {
                 return beforeActions;
             }
         }
 
         HandlerResult resultActionList = mMainHandler.invoke(update);
 
-        if (!resultActionList.hasNoAction()) {
+        if (!resultActionList.isPassed()) {
             return resultActionList;
         }
 
         if (mAfterMethod != null) {
             HandlerResult afterActions = mAfterMethod.invoke(update);
 
-            if (!afterActions.hasNoAction()) {
+            if (!afterActions.isPassed()) {
                 return afterActions;
             }
         }
 
-        return HandlerResult.noAction();
+        return HandlerResult.pass();
     }
 
 }

@@ -1,7 +1,7 @@
 package ru.ioleksiv.telegram.bot.core.model.method.file;
 
+import ru.ioleksiv.telegram.bot.core.model.method.UploadMessageFile;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
-import ru.ioleksiv.telegram.bot.core.model.method.interfaces.UploadMessageFile;
 
 public abstract class UploadMediaFile extends UploadMessageFile {
     /**

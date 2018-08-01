@@ -3,9 +3,9 @@ package ru.ioleksiv.telegram.bot.core.controller.handler.message.text;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.ioleksiv.telegram.bot.core.api.builder.ActionBuilder;
+import ru.ioleksiv.telegram.bot.core.api.model.ActionBuilder;
+import ru.ioleksiv.telegram.bot.core.api.model.objects.std.Message;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
-import ru.ioleksiv.telegram.bot.core.model.objects.std.Message;
 import ru.ioleksiv.telegram.bot.core.utils.IterableUtils;
 
 import java.lang.reflect.Method;
@@ -16,28 +16,28 @@ import java.util.regex.Pattern;
 public abstract class TextHandler extends Handler<Message> {
     private static final Logger LOGGER = LoggerFactory.getLogger(TextHandler.class);
 
-    private final Collection<String> mStartWith;
-    private final Collection<String> mEqualsWith;
-    private final Collection<String> mEndWith;
+    private final Collection<String> startWith;
+    private final Collection<String> equalsWith;
+    private final Collection<String> endWith;
     private final String mRegExp;
 
-    public TextHandler(@NotNull ActionBuilder actionBuilder,
-                       @NotNull Object classInstance,
-                       @NotNull Method method,
-                       @NotNull Collection<String> startWith,
-                       @NotNull Collection<String> equalWith,
-                       @NotNull Collection<String> endWith,
-                       String regExp) {
+    TextHandler(@NotNull ActionBuilder actionBuilder,
+                @NotNull Object classInstance,
+                @NotNull Method method,
+                @NotNull Collection<String> startWith,
+                @NotNull Collection<String> equalWith,
+                @NotNull Collection<String> endWith,
+                String regExp) {
         super(actionBuilder, classInstance, method);
-        mStartWith = startWith;
-        mEqualsWith = equalWith;
-        mEndWith = endWith;
+        this.startWith = startWith;
+        equalsWith = equalWith;
+        this.endWith = endWith;
         mRegExp = regExp;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(mStartWith, mEqualsWith, mEndWith);
+        return Objects.hash(startWith, equalsWith, endWith);
     }
 
     @Override
@@ -49,9 +49,9 @@ public abstract class TextHandler extends Handler<Message> {
             return false;
         }
         TextHandler thisObj = (TextHandler) o;
-        return Objects.equals(mStartWith, thisObj.mStartWith) &&
-                Objects.equals(mEqualsWith, thisObj.mEqualsWith) &&
-                Objects.equals(mEndWith, thisObj.mEndWith);
+        return Objects.equals(startWith, thisObj.startWith) &&
+                Objects.equals(equalsWith, thisObj.equalsWith) &&
+                Objects.equals(endWith, thisObj.endWith);
     }
 
     @Override
@@ -62,15 +62,15 @@ public abstract class TextHandler extends Handler<Message> {
             return false;
         }
 
-        if (!mStartWith.isEmpty() && !IterableUtils.checkAll(mStartWith, text::startsWith)) {
+        if (!startWith.isEmpty() && !IterableUtils.checkAll(startWith, text::startsWith)) {
             return false;
         }
 
-        if (!mEndWith.isEmpty() && !IterableUtils.checkAll(mEndWith, text::endsWith)) {
+        if (!endWith.isEmpty() && !IterableUtils.checkAll(endWith, text::endsWith)) {
             return false;
         }
 
-        if (!mEqualsWith.isEmpty() && !IterableUtils.checkAll(mEqualsWith, text::equals)) {
+        if (!equalsWith.isEmpty() && !IterableUtils.checkAll(equalsWith, text::equals)) {
             return false;
         }
 

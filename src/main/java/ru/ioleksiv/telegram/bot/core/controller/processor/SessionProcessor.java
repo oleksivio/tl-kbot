@@ -1,17 +1,16 @@
 package ru.ioleksiv.telegram.bot.core.controller.processor;
 
 import org.jetbrains.annotations.NotNull;
-import ru.ioleksiv.telegram.bot.core.api.TelegramProcessor;
+import ru.ioleksiv.telegram.bot.core.api.model.objects.Update;
 import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
-import ru.ioleksiv.telegram.bot.core.model.objects.Update;
 
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SessionProcessor implements TelegramProcessor {
+public class SessionProcessor {
     private final Map<Integer, Handler> mOrderMap = new HashMap<>();
     // FixMe order manager: incapsulate logic
     private final OrderManager mOrderManager = new OrderManager();
@@ -22,9 +21,22 @@ public class SessionProcessor implements TelegramProcessor {
         mOrderMap.put(order, handler);
     }
 
+    public void check() throws IllegalArgumentException {
+        if (initialHandler == null) {
+            throw new IllegalArgumentException("Invalid session handler state. " +
+                                                       "Can't be less than one" +
+                                                       " Session Initial method's");
+        }
+
+        if (cancelHandler == null) {
+            throw new IllegalArgumentException("Invalid session handler state. " +
+                                                       "Can't be less than one" +
+                                                       " Session Cancel method's");
+        }
+    }
+
     @NotNull
-    @Override
-    public HandlerResult process(Update update) {
+    HandlerResult process(Update update) {
 
         if (!mOrderManager.isActive() && initialHandler.isAcceptable(update)) {
             HandlerResult handlerResult = initialHandler.invoke(update);
@@ -56,25 +68,12 @@ public class SessionProcessor implements TelegramProcessor {
                     return handlerResult;
                 }
 
+                return HandlerResult.success();
             }
 
         }
 
-        return HandlerResult.noAction();
-    }
-
-    public void check() throws IllegalArgumentException {
-        if (initialHandler == null) {
-            throw new IllegalArgumentException("Invalid session handler state. " +
-                                                       "Can't be less than one" +
-                                                       " Session Initial method's");
-        }
-
-        if (cancelHandler == null) {
-            throw new IllegalArgumentException("Invalid session handler state. " +
-                                                       "Can't be less than one" +
-                                                       " Session Cancel method's");
-        }
+        return HandlerResult.pass();
     }
 
     public void setInitialHandler(Handler initialHandler) {

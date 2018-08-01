@@ -1,8 +1,9 @@
 package ru.ioleksiv.telegram.bot.core.model.method.game;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.core.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
-import ru.ioleksiv.telegram.bot.core.model.method.interfaces.ChatAction;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#setgamescore>setGameScore</a>
@@ -13,25 +14,25 @@ public abstract class SetGameScore<RES> extends ChatAction<RES> {
      * score	Integer	Yes	New score, must be non-negative
      */
     @JsonProperty("score")
-    private Integer score;
+    private Integer score = null;
     /**
      * force	Boolean	Optional	Pass True, if the high score is allowed to decrease. This can be useful when fixing
      * mistakes or banning cheaters
      */
     @JsonProperty("force")
-    private Boolean force;
+    private Boolean force = null;
     /**
      * disable_edit_message	Boolean	Optional	Pass True, if the game message should not be automatically edited to
      * include the current scoreboard
      */
     @JsonProperty("disable_edit_message")
-    private Boolean disableEditMessage;
+    private Boolean disableEditMessage = null;
 
     /**
      * user_id	Integer	Yes	Target user id
      */
     @JsonProperty("user_id")
-    private Long userId;
+    private Long userId = null;
     /**
      * message_id	Integer	Optional	Required if inline_message_id is not specified. Identifier of the sent message
      */
@@ -104,6 +105,12 @@ public abstract class SetGameScore<RES> extends ChatAction<RES> {
     @Override
     public SetGameScore<RES> setChatId(Long chatId) {
         pSetChatId(chatId);
+        return this;
+    }
+
+    @Override
+    public SetGameScore<RES> setNetworkErrorListener(NetworkError onNetworkError) {
+        pSetNetworkErrorListener(onNetworkError);
         return this;
     }
 }

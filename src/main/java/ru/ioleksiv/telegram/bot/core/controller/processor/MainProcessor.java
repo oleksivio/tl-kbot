@@ -2,60 +2,44 @@ package ru.ioleksiv.telegram.bot.core.controller.processor;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import ru.ioleksiv.telegram.bot.core.api.TelegramProcessor;
+import ru.ioleksiv.telegram.bot.core.api.model.TelegramProcessor;
+import ru.ioleksiv.telegram.bot.core.api.model.objects.Update;
 import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
-import ru.ioleksiv.telegram.bot.core.model.objects.Update;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
 public class MainProcessor implements TelegramProcessor {
     @NotNull
-    private final Collection<TelegramProcessor> mStatelessHandlers = new ArrayList<>();
+    private final Collection<StatelessProcessor> statelessProcessors = new ArrayList<>();
     @NotNull
-    private final Collection<TelegramProcessor> mSessionHandlers = new ArrayList<>();
-    @Nullable
-    private TelegramProcessor mDefaultHandler = null;
+    private final Collection<SessionProcessor> sessionProcessors = new ArrayList<>();
 
     @Override
-    @NotNull
-    public HandlerResult process(@Nullable Update update) {
+    public void process(@Nullable Update update) {
 
-        for (TelegramProcessor handler : mSessionHandlers) {
+        for (SessionProcessor handler : sessionProcessors) {
             HandlerResult handlerResult = handler.process(update);
-            if (!handlerResult.hasNoAction()) {
-                return handlerResult;
+            if (!handlerResult.isPassed()) {
+                return;
             }
         }
 
-        for (TelegramProcessor handler : mStatelessHandlers) {
+        for (StatelessProcessor handler : statelessProcessors) {
             HandlerResult handlerResult = handler.process(update);
-            if (!handlerResult.hasNoAction()) {
-                return handlerResult;
+            if (!handlerResult.isPassed()) {
+                return;
             }
         }
 
-        if (mDefaultHandler != null) {
-            HandlerResult resultList = mDefaultHandler.process(update);
-
-            if (!resultList.isEmpty()) {
-                return resultList;
-            }
-        }
-
-        return HandlerResult.noAction();
-
     }
 
-    public void addStateless(Collection<TelegramProcessor> processor) {
-        mStatelessHandlers.addAll(processor);
+    public void addStateless(Collection<StatelessProcessor> processor) {
+        statelessProcessors.addAll(processor);
     }
 
-    public void addSession(TelegramProcessor processor) {
-        mSessionHandlers.add(processor);
+    public void addSession(SessionProcessor processor) {
+        sessionProcessors.add(processor);
     }
 
-    public void setDefault(TelegramProcessor defaultProcessor) {
-        mDefaultHandler = defaultProcessor;
-    }
 }

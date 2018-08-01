@@ -2,18 +2,26 @@ package ru.ioleksiv.telegram.bot.core.configuration;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
-import ru.ioleksiv.telegram.bot.core.api.TelegramProcessor;
-import ru.ioleksiv.telegram.bot.core.api.builder.ActionBuilder;
+import ru.ioleksiv.telegram.bot.core.api.model.TelegramProcessor;
+import ru.ioleksiv.telegram.bot.core.api.model.ActionBuilder;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.AnnotationProcessor;
+import ru.ioleksiv.telegram.bot.core.controller.annotations.composer.SessionComposer;
+import ru.ioleksiv.telegram.bot.core.controller.annotations.composer.StatelessComposer;
+import ru.ioleksiv.telegram.bot.core.controller.annotations.factory.HandlerFactory;
+import ru.ioleksiv.telegram.bot.core.controller.annotations.factory.interfaces.SimpleFactory;
+import ru.ioleksiv.telegram.bot.core.controller.builder.ActionBuilderImpl;
 import ru.ioleksiv.telegram.bot.core.controller.network.Loader;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
-import ru.ioleksiv.telegram.bot.core.controller.network.Sender;
 import ru.ioleksiv.telegram.bot.core.controller.processor.MainProcessor;
 import ru.ioleksiv.telegram.bot.core.controller.updater.Updater;
 
+import java.util.Collection;
+
 @Configuration
+@ComponentScan("ru.ioleksiv.telegram.bot.core.controller.annotations.factory.impl")
 public class LibraryConfiguration {
 
     @Bean
@@ -22,15 +30,9 @@ public class LibraryConfiguration {
     }
 
     @Bean
-    public Sender sender(Networker networker) {
-        return new Sender(networker);
-    }
-
-    @Bean
     public Updater updater(Loader loader,
-                           Sender sender,
                            TelegramProcessor telegramProcessor) {
-        return new Updater(telegramProcessor, loader, sender);
+        return new Updater(telegramProcessor, loader);
     }
 
     @Bean
@@ -50,14 +52,30 @@ public class LibraryConfiguration {
     }
 
     @Bean
-    public AnnotationProcessor annotationProcessor(MainProcessor mainProcessor,
-                                                   ActionBuilder actionBuilder) {
-        return new AnnotationProcessor(mainProcessor, actionBuilder);
+    public HandlerFactory handlerFactory(Collection<SimpleFactory> factories) {
+        return new HandlerFactory(factories);
     }
 
     @Bean
-    public ActionBuilder methodBuilder(Networker networker) {
-        return new ActionBuilder(networker);
+    public StatelessComposer statelessComposer(HandlerFactory handlerFactory) {
+        return new StatelessComposer(handlerFactory);
+    }
+
+    @Bean
+    public AnnotationProcessor annotationProcessor(MainProcessor mainProcessor,
+                                                   SessionComposer sessionComposer,
+                                                   StatelessComposer statelessComposer) {
+        return new AnnotationProcessor(mainProcessor, statelessComposer, sessionComposer);
+    }
+
+    @Bean
+    public ActionBuilder actionBuilder(Networker networker) {
+        return new ActionBuilderImpl(networker);
+    }
+
+    @Bean
+    public SessionComposer sessionComposer(HandlerFactory handlerFactory) {
+        return new SessionComposer(handlerFactory);
     }
 
 }

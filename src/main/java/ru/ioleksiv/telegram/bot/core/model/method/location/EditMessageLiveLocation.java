@@ -1,9 +1,10 @@
 package ru.ioleksiv.telegram.bot.core.model.method.location;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.core.api.model.objects.std.keyboard.InlineKeyboardMarkup;
+import ru.ioleksiv.telegram.bot.core.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.core.model.method.EditAction;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
-import ru.ioleksiv.telegram.bot.core.model.method.interfaces.EditAction;
-import ru.ioleksiv.telegram.bot.core.model.objects.std.keyboard.InlineKeyboardMarkup;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#editmessagelivelocation">editMessageLiveLocation</a>
@@ -22,7 +23,7 @@ public abstract class EditMessageLiveLocation<RES> extends EditAction<RES> {
     @JsonProperty("longitude")
     private Double longitude = null;
 
-    EditMessageLiveLocation(Networker networker) {
+    public EditMessageLiveLocation(Networker networker) {
         super(METHOD, networker);
     }
 
@@ -65,6 +66,12 @@ public abstract class EditMessageLiveLocation<RES> extends EditAction<RES> {
     @Override
     public EditMessageLiveLocation<RES> setChatId(Long chatId) {
         pSetChatId(chatId);
+        return this;
+    }
+
+    @Override
+    public EditMessageLiveLocation<RES> setNetworkErrorListener(NetworkError onNetworkError) {
+        pSetNetworkErrorListener(onNetworkError);
         return this;
     }
 }

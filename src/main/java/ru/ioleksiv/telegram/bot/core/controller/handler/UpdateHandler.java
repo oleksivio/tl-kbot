@@ -2,8 +2,8 @@ package ru.ioleksiv.telegram.bot.core.controller.handler;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import ru.ioleksiv.telegram.bot.core.api.builder.ActionBuilder;
-import ru.ioleksiv.telegram.bot.core.model.objects.Update;
+import ru.ioleksiv.telegram.bot.core.api.model.ActionBuilder;
+import ru.ioleksiv.telegram.bot.core.api.model.objects.Update;
 
 import java.lang.reflect.Method;
 

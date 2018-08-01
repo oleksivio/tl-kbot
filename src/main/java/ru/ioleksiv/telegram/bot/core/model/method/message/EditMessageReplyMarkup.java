@@ -1,8 +1,9 @@
 package ru.ioleksiv.telegram.bot.core.model.method.message;
 
+import ru.ioleksiv.telegram.bot.core.api.model.objects.std.keyboard.InlineKeyboardMarkup;
+import ru.ioleksiv.telegram.bot.core.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.core.model.method.EditAction;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
-import ru.ioleksiv.telegram.bot.core.model.method.interfaces.EditAction;
-import ru.ioleksiv.telegram.bot.core.model.objects.std.keyboard.InlineKeyboardMarkup;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#editmessagereplymarkup">editMessageReplyMarkup</a>
@@ -10,7 +11,7 @@ import ru.ioleksiv.telegram.bot.core.model.objects.std.keyboard.InlineKeyboardMa
 public abstract class EditMessageReplyMarkup<RES> extends EditAction<RES> {
     private static final String METHOD = "editMessageReplyMarkup";
 
-    EditMessageReplyMarkup(Networker networker) {
+    public EditMessageReplyMarkup(Networker networker) {
         super(METHOD, networker);
     }
 
@@ -35,6 +36,12 @@ public abstract class EditMessageReplyMarkup<RES> extends EditAction<RES> {
     @Override
     public EditMessageReplyMarkup<RES> setChatId(Long chatId) {
         pSetChatId(chatId);
+        return this;
+    }
+
+    @Override
+    public EditMessageReplyMarkup<RES> setNetworkErrorListener(NetworkError onNetworkError) {
+        pSetNetworkErrorListener(onNetworkError);
         return this;
     }
 }

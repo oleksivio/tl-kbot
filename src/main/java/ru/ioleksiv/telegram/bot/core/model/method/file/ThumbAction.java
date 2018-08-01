@@ -1,8 +1,8 @@
 package ru.ioleksiv.telegram.bot.core.model.method.file;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.core.model.method.CaptionAction;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
-import ru.ioleksiv.telegram.bot.core.model.method.interfaces.CaptionAction;
 
 public abstract class ThumbAction extends CaptionAction {
     /**
@@ -15,11 +15,11 @@ public abstract class ThumbAction extends CaptionAction {
     @JsonProperty("thumb")
     private String thumb = null;
 
-    ThumbAction(String method, Networker networker) {
+    public ThumbAction(String method, Networker networker) {
         super(method, networker);
     }
 
-    void pSetThumb(String thumb) {
+    protected void pSetThumb(String thumb) {
         this.thumb = thumb;
     }
 

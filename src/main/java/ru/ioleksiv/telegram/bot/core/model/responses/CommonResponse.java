@@ -5,27 +5,33 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CommonResponse<T> {
-    @JsonProperty("result")
-    private T mTelegramObject = null;
     @JsonProperty("ok")
-    private boolean mStatus = false;
+    private boolean status = false;
+    @JsonProperty("result")
+    private T telegramObject = null;
+
 
     public T get() {
-        return mTelegramObject;
+        return telegramObject;
     }
 
     public void set(T telegramObject) {
-        mTelegramObject = telegramObject;
+        this.telegramObject = telegramObject;
     }
+
 
     @JsonProperty("ok")
     public boolean isStatus() {
-        return mStatus;
+        return status;
     }
 
     @JsonProperty("ok")
     public void setStatus(boolean ok) {
-        mStatus = ok;
+        status = ok;
     }
+
+    /**
+     *  {"ok":false,"error_code":400,"description":"Bad Request: message can't be edited"}
+     */
 
 }

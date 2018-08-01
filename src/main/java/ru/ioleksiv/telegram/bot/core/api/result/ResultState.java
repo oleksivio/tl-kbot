@@ -1,7 +1,7 @@
 package ru.ioleksiv.telegram.bot.core.api.result;
 
-public enum ResultState {
-    NO_ACTION,
+enum ResultState {
+    PASS,
     SUCCESS,
     ERROR,
     CANCEL_SESSION,

@@ -27,4 +27,5 @@ public @interface TextMessage {
         CHANNEL_POST,
         EDITED_CHANNEL_POST,
     }
+
 }
