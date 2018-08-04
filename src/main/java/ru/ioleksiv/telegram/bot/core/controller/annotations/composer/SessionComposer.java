@@ -1,7 +1,7 @@
 package ru.ioleksiv.telegram.bot.core.controller.annotations.composer;
 
 import ru.ioleksiv.telegram.bot.core.api.annotations.behavior.Session;
-import ru.ioleksiv.telegram.bot.core.controller.annotations.factory.HandlerFactory;
+import ru.ioleksiv.telegram.bot.core.controller.annotations.converter.HandlerFactory;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 import ru.ioleksiv.telegram.bot.core.controller.processor.SessionProcessor;
 

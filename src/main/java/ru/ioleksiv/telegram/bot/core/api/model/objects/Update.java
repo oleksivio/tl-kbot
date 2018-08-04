@@ -109,6 +109,7 @@ public class Update {
      * <p>
      * Optional. New incoming pre-checkout query. Contains full information about checkout
      */
+    @JsonProperty("pre_checkout_query")
     private PreCheckoutQuery preCheckoutQuery = null;
 
     public Message getEditedMessage() {

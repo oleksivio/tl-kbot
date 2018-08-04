@@ -29,21 +29,21 @@ public class StatelessProcessor {
         }
 
         if (mBeforeMethod != null) {
-            HandlerResult beforeActions = mBeforeMethod.invoke(update);
+            HandlerResult beforeActions = mBeforeMethod.run(update);
 
             if (!beforeActions.isPassed()) {
                 return beforeActions;
             }
         }
 
-        HandlerResult resultActionList = mMainHandler.invoke(update);
+        HandlerResult resultActionList = mMainHandler.run(update);
 
         if (!resultActionList.isPassed()) {
             return resultActionList;
         }
 
         if (mAfterMethod != null) {
-            HandlerResult afterActions = mAfterMethod.invoke(update);
+            HandlerResult afterActions = mAfterMethod.run(update);
 
             if (!afterActions.isPassed()) {
                 return afterActions;

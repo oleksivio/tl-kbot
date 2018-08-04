@@ -1,8 +1,8 @@
 package ru.ioleksiv.telegram.bot.core.controller.annotations.composer;
 
-import ru.ioleksiv.telegram.bot.core.api.annotations.handler.After;
-import ru.ioleksiv.telegram.bot.core.api.annotations.handler.Before;
-import ru.ioleksiv.telegram.bot.core.controller.annotations.factory.HandlerFactory;
+import ru.ioleksiv.telegram.bot.core.api.annotations.behavior.After;
+import ru.ioleksiv.telegram.bot.core.api.annotations.behavior.Before;
+import ru.ioleksiv.telegram.bot.core.controller.annotations.converter.HandlerFactory;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 import ru.ioleksiv.telegram.bot.core.controller.processor.StatelessProcessor;
 

@@ -39,7 +39,7 @@ public class SessionProcessor {
     HandlerResult process(Update update) {
 
         if (!mOrderManager.isActive() && initialHandler.isAcceptable(update)) {
-            HandlerResult handlerResult = initialHandler.invoke(update);
+            HandlerResult handlerResult = initialHandler.run(update);
             if (handlerResult.hasSuccess()) {
                 mOrderManager.next(mOrderMap.keySet());
             }
@@ -49,7 +49,7 @@ public class SessionProcessor {
         if (mOrderManager.isActive() && cancelHandler.isAcceptable(update)) {
             mOrderManager.reset();
 
-            return cancelHandler.invoke(update);
+            return cancelHandler.run(update);
         }
 
         if (mOrderManager.isActive()) {
@@ -57,7 +57,7 @@ public class SessionProcessor {
 
             if (handler != null && handler.isAcceptable(update)) {
 
-                HandlerResult handlerResult = handler.invoke(update);
+                HandlerResult handlerResult = handler.run(update);
 
                 if (handlerResult.hasSuccess()) {
                     mOrderManager.next(mOrderMap.keySet());

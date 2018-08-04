@@ -5,13 +5,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
-import ru.ioleksiv.telegram.bot.core.api.model.TelegramProcessor;
 import ru.ioleksiv.telegram.bot.core.api.model.ActionBuilder;
+import ru.ioleksiv.telegram.bot.core.api.model.TelegramProcessor;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.AnnotationProcessor;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.composer.SessionComposer;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.composer.StatelessComposer;
-import ru.ioleksiv.telegram.bot.core.controller.annotations.factory.HandlerFactory;
-import ru.ioleksiv.telegram.bot.core.controller.annotations.factory.interfaces.SimpleFactory;
+import ru.ioleksiv.telegram.bot.core.controller.annotations.converter.HandlerFactory;
+import ru.ioleksiv.telegram.bot.core.controller.annotations.converter.filter.FilterConverter;
+import ru.ioleksiv.telegram.bot.core.controller.annotations.converter.handler.HandlerConverter;
 import ru.ioleksiv.telegram.bot.core.controller.builder.ActionBuilderImpl;
 import ru.ioleksiv.telegram.bot.core.controller.network.Loader;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
@@ -21,7 +22,7 @@ import ru.ioleksiv.telegram.bot.core.controller.updater.Updater;
 import java.util.Collection;
 
 @Configuration
-@ComponentScan("ru.ioleksiv.telegram.bot.core.controller.annotations.factory.impl")
+@ComponentScan("ru.ioleksiv.telegram.bot.core.controller.annotations.converter.impl")
 public class LibraryConfiguration {
 
     @Bean
@@ -52,8 +53,9 @@ public class LibraryConfiguration {
     }
 
     @Bean
-    public HandlerFactory handlerFactory(Collection<SimpleFactory> factories) {
-        return new HandlerFactory(factories);
+    public HandlerFactory handlerFactory(Collection<FilterConverter> filterConverters,
+                                         Collection<HandlerConverter> handlerConverters) {
+        return new HandlerFactory(filterConverters, handlerConverters);
     }
 
     @Bean
