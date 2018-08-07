@@ -1,7 +1,7 @@
 package ru.ioleksiv.telegram.bot.core.model.method;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ru.ioleksiv.telegram.bot.core.api.model.objects.std.keyboard.InlineKeyboardMarkup;
+import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.InlineKeyboardMarkup;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 public abstract class EditAction<RES> extends ChatAction<RES> {

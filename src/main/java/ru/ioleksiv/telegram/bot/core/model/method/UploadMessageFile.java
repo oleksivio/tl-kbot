@@ -1,7 +1,7 @@
 package ru.ioleksiv.telegram.bot.core.model.method;
 
-import ru.ioleksiv.telegram.bot.core.api.model.objects.std.Message;
-import ru.ioleksiv.telegram.bot.core.api.model.objects.std.keyboard.IKeyboard;
+import ru.ioleksiv.telegram.bot.api.model.objects.std.Message;
+import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.IKeyboard;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;

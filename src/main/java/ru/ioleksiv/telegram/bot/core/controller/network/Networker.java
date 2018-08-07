@@ -4,21 +4,24 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestOperations;
-import ru.ioleksiv.telegram.bot.core.api.model.ErrorResponse;
+import ru.ioleksiv.telegram.bot.api.model.ErrorResponse;
+import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
-import ru.ioleksiv.telegram.bot.core.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.core.model.method.Action;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 
 import java.io.IOException;
 
+@Controller
 public class Networker {
     private static final Logger LOG = LoggerFactory.getLogger(Handler.class);
 
@@ -28,11 +31,10 @@ public class Networker {
     private final String url;
 
     public Networker(RestOperations template,
-                     String token) {
+                     @Value("${telegram.bot.token}") String token) {
         this.url = TELEGRAM_SERVER_URL + token + URL_SEPARATOR;
         this.template = template;
     }
-
 
     //FIXME union run and upload methods.
 
@@ -52,6 +54,20 @@ public class Networker {
             LOG.error("", e);
         }
         return null;
+    }
+
+    @Nullable
+    private static ErrorResponse parseErrorResponse(HttpClientErrorException exception) {
+        String serverException = exception.getResponseBodyAsString();
+        try {
+            return new ObjectMapper().readValue(serverException, ErrorResponse.class);
+        }
+        catch (IOException ignored) {
+
+        }
+
+        return null;
+
     }
 
     @Nullable
@@ -76,19 +92,6 @@ public class Networker {
         catch (RestClientException e) {
             LOG.error("", e);
         }
-        return null;
-
-    }
-
-    @Nullable
-    private static ErrorResponse parseErrorResponse(HttpClientErrorException exception){
-        String serverException = exception.getResponseBodyAsString();
-        try {
-            return new ObjectMapper().readValue(serverException, ErrorResponse.class);
-        } catch (IOException ignored){
-
-        }
-
         return null;
 
     }

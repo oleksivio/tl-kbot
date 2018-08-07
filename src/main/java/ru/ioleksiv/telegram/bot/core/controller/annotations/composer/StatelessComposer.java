@@ -1,8 +1,9 @@
 package ru.ioleksiv.telegram.bot.core.controller.annotations.composer;
 
-import ru.ioleksiv.telegram.bot.core.api.annotations.behavior.After;
-import ru.ioleksiv.telegram.bot.core.api.annotations.behavior.Before;
-import ru.ioleksiv.telegram.bot.core.controller.annotations.converter.HandlerFactory;
+import org.springframework.stereotype.Controller;
+import ru.ioleksiv.telegram.bot.api.annotations.behavior.After;
+import ru.ioleksiv.telegram.bot.api.annotations.behavior.Before;
+import ru.ioleksiv.telegram.bot.core.controller.annotations.HandlerFactory;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 import ru.ioleksiv.telegram.bot.core.controller.processor.StatelessProcessor;
 
@@ -12,6 +13,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
+@Controller
 public class StatelessComposer {
     private final HandlerFactory handlerFactory;
 

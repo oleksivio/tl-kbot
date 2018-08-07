@@ -1,9 +1,9 @@
 package ru.ioleksiv.telegram.bot.core.model.method.message;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ru.ioleksiv.telegram.bot.core.api.model.objects.std.files.inputmedia.InputMedia;
-import ru.ioleksiv.telegram.bot.core.api.model.objects.std.keyboard.InlineKeyboardMarkup;
-import ru.ioleksiv.telegram.bot.core.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.api.model.objects.std.files.inputmedia.InputMedia;
+import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.InlineKeyboardMarkup;
+import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.core.model.method.EditAction;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 

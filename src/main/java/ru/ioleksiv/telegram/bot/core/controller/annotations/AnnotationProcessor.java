@@ -1,8 +1,9 @@
 package ru.ioleksiv.telegram.bot.core.controller.annotations;
 
 import org.jetbrains.annotations.NotNull;
-import ru.ioleksiv.telegram.bot.core.api.annotations.behavior.Session;
-import ru.ioleksiv.telegram.bot.core.api.annotations.behavior.Stateless;
+import org.springframework.stereotype.Controller;
+import ru.ioleksiv.telegram.bot.api.annotations.behavior.Session;
+import ru.ioleksiv.telegram.bot.api.annotations.behavior.Stateless;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.composer.SessionComposer;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.composer.StatelessComposer;
 import ru.ioleksiv.telegram.bot.core.controller.processor.MainProcessor;
@@ -11,6 +12,7 @@ import ru.ioleksiv.telegram.bot.core.controller.processor.StatelessProcessor;
 
 import java.util.List;
 
+@Controller
 public class AnnotationProcessor {
 
     @NotNull

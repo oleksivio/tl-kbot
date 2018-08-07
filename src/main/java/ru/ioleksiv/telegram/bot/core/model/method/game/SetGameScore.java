@@ -1,7 +1,7 @@
 package ru.ioleksiv.telegram.bot.core.model.method.game;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ru.ioleksiv.telegram.bot.core.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 

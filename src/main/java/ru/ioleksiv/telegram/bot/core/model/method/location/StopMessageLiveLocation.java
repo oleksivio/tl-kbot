@@ -1,7 +1,7 @@
 package ru.ioleksiv.telegram.bot.core.model.method.location;
 
-import ru.ioleksiv.telegram.bot.core.api.model.objects.std.keyboard.InlineKeyboardMarkup;
-import ru.ioleksiv.telegram.bot.core.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.InlineKeyboardMarkup;
+import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.method.EditAction;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;

@@ -2,13 +2,15 @@ package ru.ioleksiv.telegram.bot.core.controller.processor;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import ru.ioleksiv.telegram.bot.core.api.model.TelegramProcessor;
-import ru.ioleksiv.telegram.bot.core.api.model.objects.Update;
-import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
+import org.springframework.stereotype.Controller;
+import ru.ioleksiv.telegram.bot.api.model.TelegramProcessor;
+import ru.ioleksiv.telegram.bot.api.model.objects.Update;
+import ru.ioleksiv.telegram.bot.api.result.HandlerResult;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
+@Controller
 public class MainProcessor implements TelegramProcessor {
     @NotNull
     private final Collection<StatelessProcessor> statelessProcessors = new ArrayList<>();
@@ -16,17 +18,17 @@ public class MainProcessor implements TelegramProcessor {
     private final Collection<SessionProcessor> sessionProcessors = new ArrayList<>();
 
     @Override
-    public void process(@Nullable Update update) {
+    public void receive(@Nullable Update update) {
 
         for (SessionProcessor handler : sessionProcessors) {
-            HandlerResult handlerResult = handler.process(update);
+            HandlerResult handlerResult = handler.receive(update);
             if (!handlerResult.isPassed()) {
                 return;
             }
         }
 
         for (StatelessProcessor handler : statelessProcessors) {
-            HandlerResult handlerResult = handler.process(update);
+            HandlerResult handlerResult = handler.receive(update);
             if (!handlerResult.isPassed()) {
                 return;
             }

@@ -2,12 +2,14 @@ package ru.ioleksiv.telegram.bot.core.controller.updater;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.ioleksiv.telegram.bot.core.api.model.TelegramProcessor;
-import ru.ioleksiv.telegram.bot.core.api.model.TelegramUpdater;
-import ru.ioleksiv.telegram.bot.core.api.model.objects.Update;
+import org.springframework.stereotype.Controller;
+import ru.ioleksiv.telegram.bot.api.model.TelegramProcessor;
+import ru.ioleksiv.telegram.bot.api.model.TelegramUpdater;
+import ru.ioleksiv.telegram.bot.api.model.objects.Update;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 import ru.ioleksiv.telegram.bot.core.controller.network.Loader;
 
+@Controller
 public class Updater implements TelegramUpdater {
     private static final Logger LOG = LoggerFactory.getLogger(Handler.class);
 
@@ -26,7 +28,7 @@ public class Updater implements TelegramUpdater {
 
         for (Update update : updates) {
             try {
-                telegramProcessor.process(update);
+                telegramProcessor.receive(update);
             }
             catch (Exception processException) {
                 error(update, processException);

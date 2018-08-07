@@ -2,29 +2,16 @@ package ru.ioleksiv.telegram.bot.core.controller.annotations.converter.filter.me
 
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
-import ru.ioleksiv.telegram.bot.core.api.annotations.filter.message.TextMessage;
-import ru.ioleksiv.telegram.bot.core.api.model.ActionBuilder;
-import ru.ioleksiv.telegram.bot.core.api.model.objects.std.Message;
-import ru.ioleksiv.telegram.bot.core.controller.annotations.converter.filter.FilterConverter;
-import ru.ioleksiv.telegram.bot.core.controller.handler.filter.Filter;
-import ru.ioleksiv.telegram.bot.core.controller.handler.filter.MessageTextFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.message.TextMessage;
+import ru.ioleksiv.telegram.bot.api.model.objects.std.Message;
+import ru.ioleksiv.telegram.bot.core.controller.handler.checker.Checker;
+import ru.ioleksiv.telegram.bot.core.controller.handler.checker.TextChecker;
+import ru.ioleksiv.telegram.bot.core.controller.handler.unpacker.Unpacker;
 
 import java.util.Arrays;
 
 @Component
-public final class TextMessageFilter extends FilterConverter<TextMessage, Message> {
-
-    public TextMessageFilter(ActionBuilder actionBuilder) {
-        super(actionBuilder);
-    }
-
-    @Override
-    public Filter<Message> toChecker(@NotNull TextMessage annotationArgs) {
-        return new MessageTextFilter(Arrays.asList(annotationArgs.startWith()),
-                                     Arrays.asList(annotationArgs.equalWith()),
-                                     Arrays.asList(annotationArgs.endWith()),
-                                     annotationArgs.regExp());
-    }
+public final class TextMessageFilter extends MessageFilterConverter<TextMessage, String> {
 
     @Override
     public Class<TextMessage> getFactoryAnnotation() {
@@ -32,8 +19,21 @@ public final class TextMessageFilter extends FilterConverter<TextMessage, Messag
     }
 
     @Override
-    public Class<Message> getFilterInputClass() {
-        return Message.class;
+    protected @NotNull Checker<String> createChecker(TextMessage annotation) {
+        return new TextChecker(Arrays.asList(annotation.startWith()),
+                               Arrays.asList(annotation.equalWith()),
+                               Arrays.asList(annotation.endWith()),
+                               annotation.regExp());
+    }
+
+    @Override
+    public Unpacker<Message, String> getUnpacker() {
+        return Message::getText;
+    }
+
+    @Override
+    protected @NotNull Class<String> outClass() {
+        return String.class;
     }
 
 }

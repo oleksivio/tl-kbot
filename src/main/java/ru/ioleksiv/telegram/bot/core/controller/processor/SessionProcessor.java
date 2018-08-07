@@ -1,8 +1,8 @@
 package ru.ioleksiv.telegram.bot.core.controller.processor;
 
 import org.jetbrains.annotations.NotNull;
-import ru.ioleksiv.telegram.bot.core.api.model.objects.Update;
-import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
+import ru.ioleksiv.telegram.bot.api.model.objects.Update;
+import ru.ioleksiv.telegram.bot.api.result.HandlerResult;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 
 import java.util.Collection;
@@ -36,9 +36,9 @@ public class SessionProcessor {
     }
 
     @NotNull
-    HandlerResult process(Update update) {
+    HandlerResult receive(Update update) {
 
-        if (!mOrderManager.isActive() && initialHandler.isAcceptable(update)) {
+        if (!mOrderManager.isActive() && initialHandler.hasSubscription(update)) {
             HandlerResult handlerResult = initialHandler.run(update);
             if (handlerResult.hasSuccess()) {
                 mOrderManager.next(mOrderMap.keySet());
@@ -46,7 +46,7 @@ public class SessionProcessor {
             return handlerResult;
         }
 
-        if (mOrderManager.isActive() && cancelHandler.isAcceptable(update)) {
+        if (mOrderManager.isActive() && cancelHandler.hasSubscription(update)) {
             mOrderManager.reset();
 
             return cancelHandler.run(update);
@@ -55,7 +55,7 @@ public class SessionProcessor {
         if (mOrderManager.isActive()) {
             Handler handler = mOrderMap.get(mOrderManager.getCurrent());
 
-            if (handler != null && handler.isAcceptable(update)) {
+            if (handler != null && handler.hasSubscription(update)) {
 
                 HandlerResult handlerResult = handler.run(update);
 

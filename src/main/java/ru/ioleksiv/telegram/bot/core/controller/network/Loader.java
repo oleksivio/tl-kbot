@@ -3,13 +3,15 @@ package ru.ioleksiv.telegram.bot.core.controller.network;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.ioleksiv.telegram.bot.core.api.model.method.update.GetUpdatesApi;
-import ru.ioleksiv.telegram.bot.core.api.model.objects.Update;
+import org.springframework.stereotype.Controller;
+import ru.ioleksiv.telegram.bot.api.model.method.update.GetUpdatesApi;
+import ru.ioleksiv.telegram.bot.api.model.objects.Update;
 
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+@Controller
 public class Loader {
     private static final Logger LOG = LoggerFactory.getLogger(Loader.class);
     private final Networker networker;

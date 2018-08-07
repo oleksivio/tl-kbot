@@ -2,8 +2,8 @@ package ru.ioleksiv.telegram.bot.core.controller.processor;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import ru.ioleksiv.telegram.bot.core.api.model.objects.Update;
-import ru.ioleksiv.telegram.bot.core.api.result.HandlerResult;
+import ru.ioleksiv.telegram.bot.api.model.objects.Update;
+import ru.ioleksiv.telegram.bot.api.result.HandlerResult;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 
 public class StatelessProcessor {
@@ -23,8 +23,8 @@ public class StatelessProcessor {
     }
 
     @NotNull
-    HandlerResult process(@Nullable Update update) {
-        if (!mMainHandler.isAcceptable(update)) {
+    HandlerResult receive(@Nullable Update update) {
+        if (!mMainHandler.hasSubscription(update)) {
             return HandlerResult.pass();
         }
 
