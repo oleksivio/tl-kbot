@@ -20,6 +20,7 @@ import ru.ioleksiv.telegram.bot.core.model.method.Action;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 
 import java.io.IOException;
+import java.util.Optional;
 
 @Controller
 public class Networker {
@@ -38,12 +39,11 @@ public class Networker {
 
     //FIXME combine run and upload methods.
 
-    @Nullable
-    public <T extends CommonResponse> T run(Action action,
-                                            Class<T> clazz,
-                                            @Nullable NetworkError networkError) {
+    public <T extends CommonResponse> Optional<T> run(Action action,
+                                                      Class<T> clazz,
+                                                      @Nullable NetworkError networkError) {
         try {
-            return template.postForEntity(url, action, clazz).getBody();
+            return Optional.of(template.postForEntity(url, action, clazz).getBody());
         }
         catch (HttpClientErrorException httpException) {
             if (networkError != null) {
@@ -53,7 +53,7 @@ public class Networker {
         catch (RestClientException e) {
             LOG.error("", e);
         }
-        return null;
+        return Optional.empty();
     }
 
     @Nullable
@@ -70,10 +70,9 @@ public class Networker {
 
     }
 
-    @Nullable
-    public <T extends CommonResponse> T upload(MultiValueMap<String, Object> requestMap,
-                                               Class<T> clazz,
-                                               @Nullable NetworkError networkError) {
+    public <T extends CommonResponse> Optional<T> upload(MultiValueMap<String, Object> requestMap,
+                                                         Class<T> clazz,
+                                                         @Nullable NetworkError networkError) {
         try {
 
             HttpHeaders headers = new HttpHeaders();
@@ -82,7 +81,7 @@ public class Networker {
             HttpEntity<MultiValueMap<String, Object>> requestEntity =
                     new HttpEntity<>(requestMap, headers);
 
-            return template.postForObject(url, requestEntity, clazz);
+            return Optional.of(template.postForObject(url, requestEntity, clazz));
         }
         catch (HttpClientErrorException httpException) {
             if (networkError != null) {
@@ -92,7 +91,7 @@ public class Networker {
         catch (RestClientException e) {
             LOG.error("", e);
         }
-        return null;
+        return Optional.empty();
 
     }
 

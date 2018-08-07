@@ -1,10 +1,11 @@
 package ru.ioleksiv.telegram.bot.core.model.method;
 
-import org.jetbrains.annotations.Nullable;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.util.LinkedMultiValueMap;
-import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
+import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
+
+import java.util.Optional;
 
 public abstract class UploadFile<RES> extends NetworkErrorAction<RES> {
     private static final String METHOD_KEY = "method";
@@ -19,17 +20,12 @@ public abstract class UploadFile<RES> extends NetworkErrorAction<RES> {
     }
 
     @Override
-    @Nullable
-    public RES send() {
+    public Optional<RES> send() {
+        return networker.upload(requestMap,
+                                getResultWrapperClass(),
+                                getNetworkErrorListener())
+                .map(CommonResponse::get);
 
-        CommonResponse<RES> uploadResponse = networker.upload(requestMap,
-                                                              getResultWrapperClass(),
-                                                              getNetworkErrorListener());
-        if (uploadResponse == null) {
-            return null;
-        }
-
-        return uploadResponse.get();
     }
 
     protected void putFile(String key, FileSystemResource file) {
