@@ -2,29 +2,27 @@ package ru.ioleksiv.telegram.bot.core.controller.handler.checker;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import ru.ioleksiv.telegram.bot.core.utils.IterableUtils;
 
 import java.util.Collection;
 import java.util.regex.Pattern;
 
 public class TextChecker implements Checker<String> {
-    private static final Logger LOGGER = LoggerFactory.getLogger(TextChecker.class);
-
     private final Collection<String> startWith;
     private final Collection<String> equalsWith;
     private final Collection<String> endWith;
+    private final Collection<String> contains;
     private final String mRegExp;
 
     public TextChecker(@NotNull Collection<String> startWith,
-                       @NotNull Collection<String> equalWith,
+                       @NotNull Collection<String> equalsWith,
                        @NotNull Collection<String> endWith,
+                       @NotNull Collection<String> contains,
                        String regExp) {
 
         this.startWith = startWith;
-        equalsWith = equalWith;
+        this.equalsWith = equalsWith;
         this.endWith = endWith;
+        this.contains = contains;
         mRegExp = regExp;
     }
 
@@ -35,15 +33,19 @@ public class TextChecker implements Checker<String> {
             return false;
         }
 
-        if (!startWith.isEmpty() && !IterableUtils.checkAll(startWith, argument::startsWith)) {
+        if (!startWith.isEmpty() && startWith.stream().noneMatch(argument::startsWith)) {
             return false;
         }
 
-        if (!endWith.isEmpty() && !IterableUtils.checkAll(endWith, argument::endsWith)) {
+        if (!endWith.isEmpty() && endWith.stream().noneMatch(argument::endsWith)) {
             return false;
         }
 
-        if (!equalsWith.isEmpty() && !IterableUtils.checkAll(equalsWith, argument::equals)) {
+        if (!equalsWith.isEmpty() && equalsWith.stream().noneMatch(argument::equals)) {
+            return false;
+        }
+
+        if (!contains.isEmpty() && contains.stream().noneMatch(argument::contains)) {
             return false;
         }
 

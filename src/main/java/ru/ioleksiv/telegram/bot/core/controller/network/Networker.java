@@ -36,7 +36,7 @@ public class Networker {
         this.template = template;
     }
 
-    //FIXME union run and upload methods.
+    //FIXME combine run and upload methods.
 
     @Nullable
     public <T extends CommonResponse> T run(Action action,

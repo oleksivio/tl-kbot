@@ -19,5 +19,6 @@ public @interface DataCallbackQuery {
 
     String[] endWith() default {};
 
-    //todo add contains
+    String[] contains() default {};
+
 }

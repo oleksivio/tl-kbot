@@ -22,10 +22,12 @@ public class DataCallbackConverter extends FilterConverter<DataCallbackQuery, Ca
     }
 
     @Override
-    public @NotNull Checker<String> createChecker(DataCallbackQuery annotation) {
+    @NotNull
+    public  Checker<String> createChecker(DataCallbackQuery annotation) {
         return new TextChecker(Arrays.asList(annotation.startWith()),
                                Arrays.asList(annotation.equalWith()),
                                Arrays.asList(annotation.endWith()),
+                               Arrays.asList(annotation.contains()),
                                annotation.regExp());
     }
 

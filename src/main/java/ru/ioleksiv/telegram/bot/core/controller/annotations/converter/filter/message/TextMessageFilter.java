@@ -19,10 +19,12 @@ public final class TextMessageFilter extends MessageFilterConverter<TextMessage,
     }
 
     @Override
-    protected @NotNull Checker<String> createChecker(TextMessage annotation) {
+    @NotNull
+    protected Checker<String> createChecker(TextMessage annotation) {
         return new TextChecker(Arrays.asList(annotation.startWith()),
                                Arrays.asList(annotation.equalWith()),
                                Arrays.asList(annotation.endWith()),
+                               Arrays.asList(annotation.contains()),
                                annotation.regExp());
     }
 
@@ -32,7 +34,8 @@ public final class TextMessageFilter extends MessageFilterConverter<TextMessage,
     }
 
     @Override
-    protected @NotNull Class<String> outClass() {
+    @NotNull
+    protected Class<String> outClass() {
         return String.class;
     }
 

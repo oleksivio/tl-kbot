@@ -19,5 +19,5 @@ public @interface ChatInstanceCallbackQuery {
 
     String[] endWith() default {};
 
-    //todo add contains
+    String[] contains() default {};
 }
