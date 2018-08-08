@@ -2,9 +2,9 @@ package ru.ioleksiv.telegram.bot.core.model.method;
 
 import ru.ioleksiv.telegram.bot.api.model.objects.std.Message;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.IKeyboard;
+import ru.ioleksiv.telegram.bot.core.controller.network.FileNetworker;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 public abstract class UploadMessageFile extends UploadFile<Message> {
     /**
@@ -29,7 +29,7 @@ public abstract class UploadMessageFile extends UploadFile<Message> {
      */
     protected static final String CHAT_ID_KEY = "chat_id";
 
-    protected UploadMessageFile(String method, Networker networker) {
+    protected UploadMessageFile(String method, FileNetworker networker) {
         super(method, networker);
     }
 

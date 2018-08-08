@@ -3,10 +3,10 @@ package ru.ioleksiv.telegram.bot.api.model.method.inline;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.inline.queryresult.InlineQueryResult;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.RunnableAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,12 +58,12 @@ public class AnswerInlineQuery extends RunnableAction<Boolean> {
     @JsonProperty("switch_pm_parameter")
     private String switchPmParameter = null;
 
-    public AnswerInlineQuery(Networker networker) {
-        super(METHOD, networker);
+    public AnswerInlineQuery(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public AnswerInlineQuery addInlineQueryResult(InlineQueryResult inlineQueryResult) {
-        this.inlineQueryResults.add(inlineQueryResult);
+        inlineQueryResults.add(inlineQueryResult);
         return this;
     }
 

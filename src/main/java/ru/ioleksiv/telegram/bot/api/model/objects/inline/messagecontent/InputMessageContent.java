@@ -1,4 +1,6 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.inline.messagecontent;
 
-public interface InputMessageContent {
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
+
+public interface InputMessageContent extends ITelegram {
 }

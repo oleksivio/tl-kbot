@@ -1,6 +1,7 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std.files;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,17 +9,17 @@ import java.util.List;
 /**
  * @see <a href="https://core.telegram.org/bots/api#userprofilephotos">UserProfilePhotos</a>
  */
-public class UserProfilePhotos {
+public class UserProfilePhotos implements ITelegram {
+    /**
+     * photos	Array of Array of PhotoSize	Requested profile pictures (in up to 4 sizes each)
+     */
+    @JsonProperty("photos")
+    private final List<List<PhotoSize>> photos = new ArrayList<>();
     /**
      * total_count	Integer	Total number of profile pictures the target user has
      */
     @JsonProperty("total_count")
     private Integer totalCount = null;
-    /**
-     * photos	Array of Array of PhotoSize	Requested profile pictures (in up to 4 sizes each)
-     */
-    @JsonProperty("photos")
-    private List<List<PhotoSize>> photos = new ArrayList<>();
 
     public Integer getTotalCount() {
         return totalCount;

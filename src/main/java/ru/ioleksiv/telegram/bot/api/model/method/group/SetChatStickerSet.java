@@ -2,10 +2,10 @@ package ru.ioleksiv.telegram.bot.api.model.method.group;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#setchatstickerset">setChatStickerSet</a>
@@ -18,8 +18,8 @@ public class SetChatStickerSet extends ChatAction<Boolean> {
     @JsonProperty("sticker_set_name")
     private String stickerSetName = null;
 
-    public SetChatStickerSet(Networker networker) {
-        super(METHOD, networker);
+    public SetChatStickerSet(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public String getStickerSetName() {

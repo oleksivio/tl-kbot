@@ -3,8 +3,8 @@ package ru.ioleksiv.telegram.bot.api.model.method.file;
 import org.springframework.core.io.FileSystemResource;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.IKeyboard;
+import ru.ioleksiv.telegram.bot.core.controller.network.FileNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.file.UploadMediaFile;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendaudio">sendAudio</a>
@@ -38,8 +38,8 @@ public class SendAudioFile extends UploadMediaFile {
      */
     private static final String THUMB_KEY = "thumb";
 
-    public SendAudioFile(Networker networker) {
-        super(METHOD, networker);
+    public SendAudioFile(FileNetworker fileNetworker) {
+        super(METHOD, fileNetworker);
     }
 
     public SendAudioFile setThumb(FileSystemResource thumb) {

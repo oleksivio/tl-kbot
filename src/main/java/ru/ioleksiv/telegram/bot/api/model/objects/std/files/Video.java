@@ -1,11 +1,12 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std.files;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#video">Video</a>
  */
-public class Video {
+public class Video implements ITelegram {
     /**
      * file_id	String	Unique identifier for this files
      */

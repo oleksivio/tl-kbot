@@ -4,12 +4,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.files.PhotoSize;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#sticker">Sticker</a>
  */
-public class Sticker {
+public class Sticker implements ITelegram {
     private static final Logger LOG = LoggerFactory.getLogger(Sticker.class);
+    /**
+     * mask_position	MaskPosition	Optional. For mask stickers, the position where the mask should be placed
+     */
+    @JsonProperty("mask_position")
+    private final MaskPosition maskPosition = null;
     /**
      * file_id	String	Unique identifier for this files
      */
@@ -40,11 +46,6 @@ public class Sticker {
      */
     @JsonProperty("set_name")
     private String setName = null;
-    /**
-     * mask_position	MaskPosition	Optional. For mask stickers, the position where the mask should be placed
-     */
-    @JsonProperty("mask_position")
-    private MaskPosition maskPosition = null;
     /**
      * file_size	Integer	Optional. File size
      */

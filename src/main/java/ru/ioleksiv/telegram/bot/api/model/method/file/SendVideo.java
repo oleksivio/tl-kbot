@@ -3,8 +3,8 @@ package ru.ioleksiv.telegram.bot.api.model.method.file;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.IKeyboard;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.file.ThumbAction;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendvideo">sendVideo</a>
@@ -40,8 +40,8 @@ public class SendVideo extends ThumbAction {
     @JsonProperty("supports_streaming")
     private Boolean supportsStreaming = null;
 
-    public SendVideo(Networker networker) {
-        super(METHOD, networker);
+    public SendVideo(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public String getVideo() {

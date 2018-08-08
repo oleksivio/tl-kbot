@@ -2,10 +2,10 @@ package ru.ioleksiv.telegram.bot.api.model.method.group;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#setchattitle">setChatTitle</a>
@@ -19,8 +19,8 @@ public class SetChatTitle extends ChatAction<Boolean> {
     @JsonProperty("title")
     private String title = null;
 
-    public SetChatTitle(Networker networker) {
-        super(METHOD, networker);
+    public SetChatTitle(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     @Override

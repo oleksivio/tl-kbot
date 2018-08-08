@@ -3,8 +3,8 @@ package ru.ioleksiv.telegram.bot.api.model.method.location;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.IKeyboard;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.MessageAction;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendvenue">sendVenue</a>
@@ -44,8 +44,8 @@ public class SendVenue extends MessageAction {
     @JsonProperty("foursquare_type")
     private String foursquareType = null;
 
-    public SendVenue(Networker networker) {
-        super(METHOD, networker);
+    public SendVenue(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public String getFoursquareType() {

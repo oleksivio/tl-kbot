@@ -3,10 +3,10 @@ package ru.ioleksiv.telegram.bot.api.model.method.sticker;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.sticker.MaskPosition;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.RunnableAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#addstickertoset>addStickerToSet</a>
@@ -39,8 +39,8 @@ public class AddStickerToSet extends RunnableAction<Boolean> {
     @JsonProperty("mask_position")
     private MaskPosition maskPosition = null;
 
-    public AddStickerToSet(Networker networker) {
-        super(METHOD, networker);
+    public AddStickerToSet(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public Long getUserId() {

@@ -3,8 +3,8 @@ package ru.ioleksiv.telegram.bot.api.model.method.sticker;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.IKeyboard;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.MessageAction;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendsticker>sendSticker</a>
@@ -18,8 +18,8 @@ public class SendSticker extends MessageAction {
     @JsonProperty("sticker")
     private String sticker = null;
 
-    public SendSticker(Networker networker) {
-        super(METHOD, networker);
+    public SendSticker(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public String getSticker() {

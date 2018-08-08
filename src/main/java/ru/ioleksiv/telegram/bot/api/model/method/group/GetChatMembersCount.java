@@ -1,10 +1,10 @@
 package ru.ioleksiv.telegram.bot.api.model.method.group;
 
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#getchatmemberscount">getChatMembersCount</a>
@@ -12,8 +12,8 @@ import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 public class GetChatMembersCount extends ChatAction<Integer> {
     private static final String METHOD = "getChatMembersCount";
 
-    public GetChatMembersCount(Networker networker) {
-        super(METHOD, networker);
+    public GetChatMembersCount(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     @Override

@@ -1,6 +1,8 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std.files.inputmedia;
 
-public interface InputMedia {
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
+
+public interface InputMedia extends ITelegram {
 
     String getType();
 

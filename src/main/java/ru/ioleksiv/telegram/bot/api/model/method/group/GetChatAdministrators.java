@@ -2,10 +2,10 @@ package ru.ioleksiv.telegram.bot.api.model.method.group;
 
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.ChatMember;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 import java.util.List;
 
@@ -15,8 +15,8 @@ import java.util.List;
 public class GetChatAdministrators extends ChatAction<List<ChatMember>> {
     private static final String METHOD = "getChatAdministrators";
 
-    public GetChatAdministrators(Networker networker) {
-        super(METHOD, networker);
+    public GetChatAdministrators(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     @Override

@@ -1,11 +1,12 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.payments;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#shippingaddress>ShippingAddress</a>
  */
-public class ShippingAddress {
+public class ShippingAddress implements ITelegram {
     /**
      * country_code	String	ISO 3166-1 alpha-2 country code
      */

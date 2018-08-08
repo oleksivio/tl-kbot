@@ -2,10 +2,10 @@ package ru.ioleksiv.telegram.bot.api.model.method.group;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#restrictchatmember">restrictChatMember</a>
@@ -48,8 +48,8 @@ public class RestrictChatMember extends ChatAction<Boolean> {
     @JsonProperty("can_add_web_page_previews")
     private Boolean canAddWebPagePreviews = null;
 
-    public RestrictChatMember(Networker networker) {
-        super(METHOD, networker);
+    public RestrictChatMember(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public Long getUserId() {

@@ -22,7 +22,7 @@ public class Updater implements TelegramUpdater {
     }
 
     @Override
-    public final void process() {
+    public final void retrieve() {
 
         Iterable<Update> updates = loader.loadUpdates();
 

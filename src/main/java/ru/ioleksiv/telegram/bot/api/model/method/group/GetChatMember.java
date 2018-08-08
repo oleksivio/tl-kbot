@@ -3,10 +3,10 @@ package ru.ioleksiv.telegram.bot.api.model.method.group;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.ChatMember;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#getchatmember">getChatMember</a>
@@ -20,8 +20,8 @@ public class GetChatMember extends ChatAction<ChatMember> {
     @JsonProperty("user_id")
     private Long userId = null;
 
-    public GetChatMember(Networker networker) {
-        super(METHOD, networker);
+    public GetChatMember(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public Long getUserId() {

@@ -4,10 +4,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.Message;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.files.inputmedia.InputMedia;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,8 +35,8 @@ public class SendMediaGroup extends ChatAction<Message> {
     @JsonProperty("reply_to_message_id")
     private Long replyToMessageId = null;
 
-    public SendMediaGroup(Networker networker) {
-        super(METHOD, networker);
+    public SendMediaGroup(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public List<InputMedia> getMedia() {

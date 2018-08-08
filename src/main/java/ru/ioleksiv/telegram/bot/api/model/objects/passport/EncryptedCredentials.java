@@ -1,11 +1,12 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.passport;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#encryptedcredentials>EncryptedCredentials</a>
  */
-public class EncryptedCredentials {
+public class EncryptedCredentials implements ITelegram {
     /**
      * data	String	Base64-encoded encrypted JSON-serialized data with unique user's payload, data hashes and secrets required for EncryptedPassportElement decryption and authentication
      */

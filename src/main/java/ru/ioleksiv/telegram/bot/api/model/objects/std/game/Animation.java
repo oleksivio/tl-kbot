@@ -2,11 +2,12 @@ package ru.ioleksiv.telegram.bot.api.model.objects.std.game;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.files.PhotoSize;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#animation">Animation</a>
  */
-public class Animation {
+public class Animation implements ITelegram {
     /**
      * file_id	String	Unique file identifier
      */

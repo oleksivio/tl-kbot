@@ -10,7 +10,6 @@ public class CommonResponse<T> {
     @JsonProperty("result")
     private T telegramObject = null;
 
-
     public T get() {
         return telegramObject;
     }
@@ -18,7 +17,6 @@ public class CommonResponse<T> {
     public void set(T telegramObject) {
         this.telegramObject = telegramObject;
     }
-
 
     @JsonProperty("ok")
     public boolean isStatus() {

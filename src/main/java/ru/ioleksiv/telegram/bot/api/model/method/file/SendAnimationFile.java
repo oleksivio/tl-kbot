@@ -3,8 +3,8 @@ package ru.ioleksiv.telegram.bot.api.model.method.file;
 import org.springframework.core.io.FileSystemResource;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.IKeyboard;
+import ru.ioleksiv.telegram.bot.core.controller.network.FileNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.file.UploadMediaFile;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendanimation>sendAnimation</a>
@@ -40,8 +40,8 @@ public class SendAnimationFile extends UploadMediaFile {
      */
     private static final String THUMB_KEY = "thumb";
 
-    public SendAnimationFile(Networker networker) {
-        super(METHOD, networker);
+    public SendAnimationFile(FileNetworker fileNetworker) {
+        super(METHOD, fileNetworker);
     }
 
     public SendAnimationFile setThumb(FileSystemResource thumb) {

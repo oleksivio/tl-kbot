@@ -3,8 +3,9 @@ package ru.ioleksiv.telegram.bot.api.model.objects.inline.queryresult;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.jetbrains.annotations.Contract;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.InlineKeyboardMarkup;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
-public abstract class InlineQueryResult {
+public abstract class InlineQueryResult implements ITelegram {
     /**
      * type	String	Type of the result, must be article
      */

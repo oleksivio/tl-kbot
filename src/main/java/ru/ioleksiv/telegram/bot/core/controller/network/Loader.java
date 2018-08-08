@@ -1,10 +1,9 @@
 package ru.ioleksiv.telegram.bot.core.controller.network;
 
-import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import ru.ioleksiv.telegram.bot.api.model.method.update.GetUpdatesApi;
+import ru.ioleksiv.telegram.bot.api.model.ActionBuilder;
 import ru.ioleksiv.telegram.bot.api.model.objects.Update;
 
 import java.util.Collections;
@@ -14,32 +13,28 @@ import java.util.List;
 @Controller
 public class Loader {
     private static final Logger LOG = LoggerFactory.getLogger(Loader.class);
-    private final Networker networker;
+    private final ActionBuilder actionBuilder;
 
-    public Loader(Networker networker) {
-        this.networker = networker;
+    public Loader(ActionBuilder actionBuilder) {
+        this.actionBuilder = actionBuilder;
     }
 
     public List<Update> loadUpdates() {
-        List<Update> updatesArray = getUpdateWithOffset(0);
+        List<Update> updatesArray = actionBuilder.getUpdates()
+                .send()
+                .orElse(Collections.emptyList());
 
         LOG.trace("Process " + updatesArray.size() + " updates");
 
         if (!updatesArray.isEmpty()) {
             // change received updates state
             Update lastUpdate = Collections.max(updatesArray, Comparator.comparingLong(Update::getUpdateId));
-            getUpdateWithOffset(lastUpdate.getUpdateId().intValue() + 1);
+            actionBuilder.getUpdates()
+                    .setOffset(lastUpdate.getUpdateId().intValue() + 1)
+                    .send();
         }
 
         return updatesArray;
-    }
-
-    @NotNull
-    private List<Update> getUpdateWithOffset(int offset) {
-        GetUpdatesApi request = new GetUpdatesApi(networker);
-        request.setOffset(offset);
-
-        return request.send().orElse(Collections.emptyList());
     }
 
 }

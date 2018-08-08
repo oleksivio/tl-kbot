@@ -3,8 +3,8 @@ package ru.ioleksiv.telegram.bot.api.model.method.file;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.IKeyboard;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.file.ThumbAction;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendvideonote">sendVideoNote</a>
@@ -29,8 +29,8 @@ public class SendVideoNote extends ThumbAction {
     @JsonProperty("length")
     private Integer length = null;
 
-    public SendVideoNote(Networker networker) {
-        super(METHOD, networker);
+    public SendVideoNote(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public Integer getLength() {

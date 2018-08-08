@@ -3,8 +3,8 @@ package ru.ioleksiv.telegram.bot.api.model.method.sticker;
 import org.springframework.core.io.FileSystemResource;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.IKeyboard;
+import ru.ioleksiv.telegram.bot.core.controller.network.FileNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.UploadMessageFile;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendsticker>sendSticker</a>
@@ -16,8 +16,8 @@ public class SendStickerFile extends UploadMessageFile {
      */
     private static final String STIKER_KEY = "sticker";
 
-    public SendStickerFile(Networker networker) {
-        super(METHOD, networker);
+    public SendStickerFile(FileNetworker fileNetworker) {
+        super(METHOD, fileNetworker);
     }
 
     public SendStickerFile setSticker(FileSystemResource sticker) {

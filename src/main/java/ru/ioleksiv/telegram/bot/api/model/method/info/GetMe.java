@@ -2,10 +2,10 @@ package ru.ioleksiv.telegram.bot.api.model.method.info;
 
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.User;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.RunnableAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#getme">getMe</a>
@@ -13,8 +13,8 @@ import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 public class GetMe extends RunnableAction<User> {
     private static final String METHOD = "getMe";
 
-    public GetMe(Networker networker) {
-        super(METHOD, networker);
+    public GetMe(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     @Override

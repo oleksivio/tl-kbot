@@ -2,11 +2,12 @@ package ru.ioleksiv.telegram.bot.api.model.objects.payments;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.User;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#precheckoutquery>PreCheckoutQuery</a>
  */
-public class PreCheckoutQuery {
+public class PreCheckoutQuery implements ITelegram {
     /**
      * id	String	Unique query identifier
      */

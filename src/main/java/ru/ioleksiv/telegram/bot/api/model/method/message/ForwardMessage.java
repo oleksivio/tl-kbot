@@ -3,10 +3,10 @@ package ru.ioleksiv.telegram.bot.api.model.method.message;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.Message;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#forwardmessage">forwardMessage</a>
@@ -31,8 +31,8 @@ public class ForwardMessage extends ChatAction<Message> {
     @JsonProperty("message_id")
     private Long messageId = null;
 
-    public ForwardMessage(Networker networker) {
-        super(FORWARD_MESSAGE, networker);
+    public ForwardMessage(ActionNetworker actionNetworker) {
+        super(FORWARD_MESSAGE, actionNetworker);
     }
 
     public Long getFromChatId() {

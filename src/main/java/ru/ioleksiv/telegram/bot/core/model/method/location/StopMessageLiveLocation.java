@@ -1,10 +1,10 @@
 package ru.ioleksiv.telegram.bot.core.model.method.location;
 
-import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.InlineKeyboardMarkup;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.InlineKeyboardMarkup;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.method.EditAction;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#stopmessagelivelocation">stopMessageLiveLocation</a>
@@ -12,8 +12,8 @@ import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 public abstract class StopMessageLiveLocation<RES> extends EditAction<RES> {
     private static final String METHOD = "stopMessageLiveLocation";
 
-    public StopMessageLiveLocation(Networker networker) {
-        super(METHOD, networker);
+    public StopMessageLiveLocation(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     @Override

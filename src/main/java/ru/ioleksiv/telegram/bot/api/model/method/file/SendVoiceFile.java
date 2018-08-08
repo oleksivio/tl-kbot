@@ -3,8 +3,8 @@ package ru.ioleksiv.telegram.bot.api.model.method.file;
 import org.springframework.core.io.FileSystemResource;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.IKeyboard;
+import ru.ioleksiv.telegram.bot.core.controller.network.FileNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.file.UploadMediaFile;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendvoice">sendVoice</a>
@@ -22,8 +22,8 @@ public class SendVoiceFile extends UploadMediaFile {
      */
     private static final String DURATION_KEY = "duration";
 
-    public SendVoiceFile(Networker networker) {
-        super(METHOD, networker);
+    public SendVoiceFile(FileNetworker fileNetworker) {
+        super(METHOD, fileNetworker);
     }
 
     public SendVoiceFile setVoice(FileSystemResource voice) {

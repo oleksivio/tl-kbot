@@ -1,11 +1,12 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.payments;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#orderinfo>OrderInfo</a>
  */
-public class OrderInfo {
+public class OrderInfo implements ITelegram {
     /**
      * name	String	Optional. User name
      */

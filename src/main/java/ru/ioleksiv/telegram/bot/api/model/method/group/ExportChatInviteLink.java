@@ -1,10 +1,10 @@
 package ru.ioleksiv.telegram.bot.api.model.method.group;
 
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#exportchatinvitelink">exportChatInviteLink</a>
@@ -12,8 +12,8 @@ import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 public class ExportChatInviteLink extends ChatAction<String> {
     private static final String METHOD = "exportChatInviteLink";
 
-    public ExportChatInviteLink(Networker networker) {
-        super(METHOD, networker);
+    public ExportChatInviteLink(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     @Override

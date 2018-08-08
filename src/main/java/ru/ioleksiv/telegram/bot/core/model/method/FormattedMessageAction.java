@@ -1,7 +1,7 @@
 package ru.ioleksiv.telegram.bot.core.model.method;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 
 public abstract class FormattedMessageAction extends MessageAction {
     /**
@@ -11,8 +11,8 @@ public abstract class FormattedMessageAction extends MessageAction {
     @JsonProperty("parse_mode")
     private String parseMode = null;
 
-    protected FormattedMessageAction(String method, Networker networker) {
-        super(method, networker);
+    protected FormattedMessageAction(String method, ActionNetworker actionNetworker) {
+        super(method, actionNetworker);
     }
 
     protected void pSetParseMode(String parseMode) {

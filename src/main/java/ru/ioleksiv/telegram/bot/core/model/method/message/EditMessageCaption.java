@@ -1,10 +1,10 @@
 package ru.ioleksiv.telegram.bot.core.model.method.message;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.InlineKeyboardMarkup;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.InlineKeyboardMarkup;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.EditAction;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#editmessagecaption">editMessageCaption</a>
@@ -23,8 +23,8 @@ public abstract class EditMessageCaption<RES> extends EditAction<RES> {
     @JsonProperty("parse_mode")
     private String parseMode = null;
 
-    protected EditMessageCaption(Networker networker) {
-        super(METHOD, networker);
+    protected EditMessageCaption(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public String getCaption() {

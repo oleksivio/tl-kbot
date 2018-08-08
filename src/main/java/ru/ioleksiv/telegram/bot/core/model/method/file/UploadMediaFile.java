@@ -1,7 +1,7 @@
 package ru.ioleksiv.telegram.bot.core.model.method.file;
 
+import ru.ioleksiv.telegram.bot.core.controller.network.FileNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.UploadMessageFile;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 public abstract class UploadMediaFile extends UploadMessageFile {
     /**
@@ -15,7 +15,7 @@ public abstract class UploadMediaFile extends UploadMessageFile {
      */
     protected static final String PARSE_MODE_KEY = "parse_mode";
 
-    protected UploadMediaFile(String method, Networker networker) {
-        super(method, networker);
+    protected UploadMediaFile(String method, FileNetworker fileNetworker) {
+        super(method, fileNetworker);
     }
 }

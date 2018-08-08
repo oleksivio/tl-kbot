@@ -1,8 +1,9 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.passport.errors;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
-public abstract class PassportElementError {
+public abstract class PassportElementError implements ITelegram {
     protected static final String PERSONAL_DETAILS = "personal_details";
     protected static final String PASSPORT = "passport";
     protected static final String DRIVER_LICENSE = "driver_license";

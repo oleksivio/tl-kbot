@@ -2,10 +2,10 @@ package ru.ioleksiv.telegram.bot.api.model.method.group;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 import java.io.File;
 
@@ -20,8 +20,8 @@ public class SetChatPhoto extends ChatAction<Boolean> {
     @JsonProperty("photo")
     private File photo = null;
 
-    public SetChatPhoto(Networker networker) {
-        super(METHOD, networker);
+    public SetChatPhoto(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     @Override

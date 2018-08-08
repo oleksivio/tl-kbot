@@ -3,10 +3,10 @@ package ru.ioleksiv.telegram.bot.api.model.method.file;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.files.File;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.RunnableAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#getfile">getFile</a>
@@ -19,8 +19,8 @@ public class GetFile extends RunnableAction<File> {
     @JsonProperty("file_id")
     private String fileId = null;
 
-    public GetFile(Networker networker) {
-        super(METHOD, networker);
+    public GetFile(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public String getFileId() {

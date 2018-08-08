@@ -4,10 +4,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.Message;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.InlineKeyboardMarkup;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendgame>sendGame</a>
@@ -37,8 +37,8 @@ public class SendGame extends ChatAction<Message> {
     @JsonProperty("reply_to_message_id")
     private Long replyToMessageId = null;
 
-    public SendGame(Networker networker) {
-        super(METHOD, networker);
+    public SendGame(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public String getGameShortName() {

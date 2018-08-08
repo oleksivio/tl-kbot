@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
 
 public abstract class FilterConverter<A extends Annotation, IN, OUT> {
 
-    public Filter<IN,OUT> createFilter(Method method) {
+    public Filter<IN, OUT> createFilter(Method method) {
         A annotation = method.getAnnotation(getFactoryAnnotation());
         Checker<OUT> checker = createChecker(annotation);
 

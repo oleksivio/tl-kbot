@@ -2,8 +2,8 @@ package ru.ioleksiv.telegram.bot.core.model.method.game;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#setgamescore>setGameScore</a>
@@ -44,8 +44,8 @@ public abstract class SetGameScore<RES> extends ChatAction<RES> {
     @JsonProperty("inline_message_id")
     private String inlineMessageId = null;
 
-    public SetGameScore(Networker networker) {
-        super(METHOD, networker);
+    public SetGameScore(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public Integer getScore() {

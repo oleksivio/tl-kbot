@@ -1,13 +1,15 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.payments;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#shippingoption>ShippingOption</a>
  */
-public class ShippingOption {
+public class ShippingOption implements ITelegram {
     /**
      * id	String	Shipping option identifier
      */
@@ -22,7 +24,7 @@ public class ShippingOption {
      * prices	Array of LabeledPrice	List of price portions
      */
     @JsonProperty("prices")
-    private List<LabeledPrice> prices = null;
+    private List<LabeledPrice> prices = new ArrayList<>();
 
     public String getId() {
         return id;

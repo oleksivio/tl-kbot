@@ -2,7 +2,6 @@ package ru.ioleksiv.telegram.bot.core.configuration;
 
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Configuration;
@@ -11,8 +10,11 @@ import ru.ioleksiv.telegram.bot.core.controller.annotations.AnnotationProcessor;
 @Configuration
 public class BotApplicationContext implements ApplicationContextAware {
 
-    @Autowired
-    private AnnotationProcessor annotationProcessor;
+    private final AnnotationProcessor annotationProcessor;
+
+    public BotApplicationContext(AnnotationProcessor annotationProcessor) {
+        this.annotationProcessor = annotationProcessor;
+    }
 
     @Override
     public void setApplicationContext(@NotNull ApplicationContext applicationContext)

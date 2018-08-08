@@ -3,10 +3,10 @@ package ru.ioleksiv.telegram.bot.api.model.method.sticker;
 import org.springframework.core.io.FileSystemResource;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.sticker.MaskPosition;
+import ru.ioleksiv.telegram.bot.core.controller.network.FileNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.UploadFile;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#createnewstickerset>createNewStickerSet</a>
@@ -42,8 +42,8 @@ public class CreateNewStickerFileSet extends UploadFile<Boolean> {
      */
     private static final String MASK_POSITON_KEY = "mask_position";
 
-    public CreateNewStickerFileSet(Networker networker) {
-        super(METHOD, networker);
+    public CreateNewStickerFileSet(FileNetworker fileNetworker) {
+        super(METHOD, fileNetworker);
     }
 
     @Override

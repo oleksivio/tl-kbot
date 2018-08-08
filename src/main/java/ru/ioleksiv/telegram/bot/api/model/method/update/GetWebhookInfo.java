@@ -2,10 +2,10 @@ package ru.ioleksiv.telegram.bot.api.model.method.update;
 
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.WebhookInfo;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.RunnableAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#getwebhookinfo">getWebhookInfo</a>
@@ -13,8 +13,8 @@ import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 public class GetWebhookInfo extends RunnableAction<WebhookInfo> {
     private static final String METHOD = "getWebhookInfo";
 
-    public GetWebhookInfo(Networker networker) {
-        super(METHOD, networker);
+    public GetWebhookInfo(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     @Override

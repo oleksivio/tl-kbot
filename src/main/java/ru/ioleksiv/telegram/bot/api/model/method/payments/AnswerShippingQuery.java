@@ -3,11 +3,12 @@ package ru.ioleksiv.telegram.bot.api.model.method.payments;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.payments.ShippingOption;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.RunnableAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,18 +27,21 @@ public class AnswerShippingQuery extends RunnableAction<Boolean> {
     @JsonProperty("ok")
     private Boolean ok = null;
     /**
-     * shipping_options	Array of ShippingOption	Optional	Required if ok is True. A JSON-serialized array of available shipping options.
+     * shipping_options	Array of ShippingOption	Optional	Required if ok is True. A JSON-serialized array of available
+     * shipping options.
      */
     @JsonProperty("shipping_options")
-    private List<ShippingOption> shippingOptions = null;
+    private List<ShippingOption> shippingOptions = new ArrayList<>();
     /**
-     * error_message	String	Optional	Required if ok is False. Error message in human readable form that explains why it is impossible to complete the order (e.g. "Sorry, delivery to your desired address is unavailable'). Telegram will display this message to the user.
+     * error_message	String	Optional	Required if ok is False. Error message in human readable form that explains
+     * why it is impossible to complete the order (e.g. "Sorry, delivery to your desired address is unavailable').
+     * Telegram will display this message to the user.
      */
     @JsonProperty("error_message")
     private String errorMessage = null;
 
-    public AnswerShippingQuery(Networker networker) {
-        super(METHOD, networker);
+    public AnswerShippingQuery(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public String getShippingQueryId() {

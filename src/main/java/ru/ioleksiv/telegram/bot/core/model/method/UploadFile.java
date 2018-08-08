@@ -2,7 +2,7 @@ package ru.ioleksiv.telegram.bot.core.model.method;
 
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.util.LinkedMultiValueMap;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
+import ru.ioleksiv.telegram.bot.core.controller.network.FileNetworker;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 
 import java.util.Optional;
@@ -10,20 +10,20 @@ import java.util.Optional;
 public abstract class UploadFile<RES> extends NetworkErrorAction<RES> {
     private static final String METHOD_KEY = "method";
 
-    private final Networker networker;
+    private final FileNetworker fileNetworker;
     private final LinkedMultiValueMap<String, Object> requestMap;
 
-    protected UploadFile(String method, Networker networker) {
-        this.networker = networker;
+    protected UploadFile(String method, FileNetworker fileNetworker) {
+        this.fileNetworker = fileNetworker;
         requestMap = new LinkedMultiValueMap<>();
         requestMap.add(METHOD_KEY, method);
     }
 
     @Override
     public Optional<RES> send() {
-        return networker.upload(requestMap,
-                                getResultWrapperClass(),
-                                getNetworkErrorListener())
+        return fileNetworker.run(requestMap,
+                                 getResultWrapperClass(),
+                                 getNetworkErrorListener())
                 .map(CommonResponse::get);
 
     }

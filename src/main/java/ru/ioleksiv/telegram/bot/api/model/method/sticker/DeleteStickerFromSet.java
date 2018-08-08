@@ -2,10 +2,10 @@ package ru.ioleksiv.telegram.bot.api.model.method.sticker;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.RunnableAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#deletestickerfromset>deleteStickerFromSet</a>
@@ -18,8 +18,8 @@ public class DeleteStickerFromSet extends RunnableAction<Boolean> {
     @JsonProperty("sticker")
     private String sticker = null;
 
-    public DeleteStickerFromSet(Networker networker) {
-        super(METHOD, networker);
+    public DeleteStickerFromSet(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public String getSticker() {

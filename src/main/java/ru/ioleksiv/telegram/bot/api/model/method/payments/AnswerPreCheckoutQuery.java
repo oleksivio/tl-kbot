@@ -2,10 +2,10 @@ package ru.ioleksiv.telegram.bot.api.model.method.payments;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.RunnableAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#answerprecheckoutquery>answerPreCheckoutQuery</a>
@@ -28,8 +28,8 @@ public class AnswerPreCheckoutQuery extends RunnableAction<Boolean> {
     @JsonProperty("error_message")
     private String errorMessage = null;
 
-    public AnswerPreCheckoutQuery(Networker networker) {
-        super(METHOD, networker);
+    public AnswerPreCheckoutQuery(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public String getPreCheckoutQueryId() {

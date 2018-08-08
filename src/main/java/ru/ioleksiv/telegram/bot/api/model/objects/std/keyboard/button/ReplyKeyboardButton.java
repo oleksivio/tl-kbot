@@ -17,15 +17,15 @@ public class ReplyKeyboardButton implements IButton {
      * when the button is pressed. Available in private chats only
      */
     @JsonProperty("request_contact")
-    private boolean requestContact = false;
+    private Boolean requestContact = null;
     /**
      * request_location	Boolean	Optional. If True, the user's current location will be sent when the
      * button is pressed. Available in private chats only
      */
     @JsonProperty("request_location")
-    private boolean requestLocation = false;
+    private Boolean requestLocation = null;
 
-    public boolean isRequestContact() {
+    public Boolean getRequestContact() {
         return requestContact;
     }
 
@@ -33,7 +33,7 @@ public class ReplyKeyboardButton implements IButton {
         this.requestContact = requestContact;
     }
 
-    public boolean isRequestLocation() {
+    public Boolean getRequestLocation() {
         return requestLocation;
     }
 

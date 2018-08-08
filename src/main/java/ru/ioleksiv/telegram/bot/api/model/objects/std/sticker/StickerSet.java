@@ -1,6 +1,7 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std.sticker;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 /**
  * @see <a href="https://core.telegram.org/bots/api#stickerset>StickerSetResponse</a>
  */
-public class StickerSet {
+public class StickerSet implements ITelegram {
     /**
      * name	String	Sticker set name
      */

@@ -1,13 +1,15 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.passport;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#encryptedpassportelement>EncryptedPassportElement</a>
  */
-public class EncryptedPassportElement {
+public class EncryptedPassportElement implements ITelegram {
     public static final String TYPE_PERSONAL_DETAILS = "personal_details";
     public static final String TYPE_PASSPORT = "passport";
     public static final String TYPE_DRIVER_LICENSE = "driver_license";
@@ -45,17 +47,23 @@ public class EncryptedPassportElement {
     @JsonProperty("email")
     private String email = null;
     /**
-     * files	Array of PassportFile	Optional. Array of encrypted files with documents provided by the user, available for “utility_bill”, “bank_statement”, “rental_agreement”, “passport_registration” and “temporary_registration” types. Files can be decrypted and verified using the accompanying EncryptedCredentials.
+     * files	Array of PassportFile	Optional. Array of encrypted files with documents provided by the user,
+     * available for “utility_bill”, “bank_statement”, “rental_agreement”, “passport_registration” and
+     * “temporary_registration” types. Files can be decrypted and verified using the accompanying EncryptedCredentials.
      */
     @JsonProperty("files")
-    private List<PassportFile> files = null;
+    private List<PassportFile> files = new ArrayList<>();
     /**
-     * front_side	PassportFile	Optional. Encrypted file with the front side of the document, provided by the user. Available for “passport”, “driver_license”, “identity_card” and “internal_passport”. The file can be decrypted and verified using the accompanying EncryptedCredentials.
+     * front_side	PassportFile	Optional. Encrypted file with the front side of the document, provided by the user.
+     * Available for “passport”, “driver_license”, “identity_card” and “internal_passport”. The file can be decrypted
+     * and verified using the accompanying EncryptedCredentials.
      */
     @JsonProperty("front_side")
     private PassportFile frontSide = null;
     /**
-     * reverse_side	PassportFile	Optional. Encrypted file with the reverse side of the document, provided by the user. Available for “driver_license” and “identity_card”. The file can be decrypted and verified using the accompanying EncryptedCredentials.
+     * reverse_side	PassportFile	Optional. Encrypted file with the reverse side of the document, provided by the user.
+     * Available for “driver_license” and “identity_card”. The file can be decrypted and verified using the accompanying
+     * EncryptedCredentials.
      */
     @JsonProperty("reverse_side")
     private PassportFile reverseSide = null;

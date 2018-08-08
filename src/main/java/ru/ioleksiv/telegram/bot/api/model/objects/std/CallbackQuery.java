@@ -4,11 +4,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.callback.ChatInstanceCallbackQuery;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.callback.DataCallbackQuery;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.callback.GameNameCallbackQuery;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#callbackquery">CallbackQuery</a>
  */
-public class CallbackQuery {
+public class CallbackQuery implements ITelegram {
     /**
      * id	String	Unique identifier for this query
      */

@@ -3,10 +3,10 @@ package ru.ioleksiv.telegram.bot.api.model.method.game;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.game.GameHighScore;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 import java.util.List;
 
@@ -32,8 +32,8 @@ public class GetGameHighScores extends ChatAction<List<GameHighScore>> {
     @JsonProperty("inline_message_id")
     private String inlineMessageId = null;
 
-    public GetGameHighScores(Networker networker) {
-        super(METHOD, networker);
+    public GetGameHighScores(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public Long getUserId() {

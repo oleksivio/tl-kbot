@@ -2,10 +2,10 @@ package ru.ioleksiv.telegram.bot.api.model.method.group;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#promotechatmember">promoteChatMember</a>
@@ -67,8 +67,8 @@ public class PromoteChatMember extends ChatAction<Boolean> {
     @JsonProperty("can_promote_members")
     private Boolean canPromoteMembers = null;
 
-    public PromoteChatMember(Networker networker) {
-        super(METHOD, networker);
+    public PromoteChatMember(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     @Override

@@ -5,21 +5,37 @@ import ru.ioleksiv.telegram.bot.api.annotations.filter.message.AnimationMessage;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.message.AudioMessage;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.message.CaptionEntitiesMessage;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.message.CaptionMessage;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.message.ConnectedWebsiteMessage;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.message.ContactMessage;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.message.DeleteChatPhotoMessage;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.message.DocumentMessage;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.message.EditDateMessage;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.message.EntitiesMessage;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.message.ForwardChannelMessage;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.message.ForwardMessage;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.message.GameMessage;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.message.GroupChatCreatedMessage;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.message.InvoiceMessage;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.message.LeftChatMembersMessage;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.message.LocationMessage;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.message.NewChatMembersMessage;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.message.NewChatPhotoMessage;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.message.NewChatTitleMessage;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.message.PassportDataMessage;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.message.PhotoMessage;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.message.PinnedMessage;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.message.ReplyMessage;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.message.StickerMessage;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.message.SuccessfullPaymentMessage;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.message.TextMessage;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.message.UserMessage;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.message.VenueMessage;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.message.VideoMessage;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.message.VideoNoteMessage;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.message.VoiceMessage;
+import ru.ioleksiv.telegram.bot.api.model.objects.passport.PassportData;
+import ru.ioleksiv.telegram.bot.api.model.objects.payments.Invoice;
+import ru.ioleksiv.telegram.bot.api.model.objects.payments.SuccessfulPayment;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.files.Audio;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.files.Document;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.files.MessageEntity;
@@ -29,23 +45,8 @@ import ru.ioleksiv.telegram.bot.api.model.objects.std.files.VideoNote;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.files.Voice;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.game.Animation;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.game.Game;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.message.ConnectedWebsiteMessage;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.message.ContactMessage;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.message.ForwardChannelMessage;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.message.ForwardMessage;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.message.GroupChatCreatedMessage;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.message.InvoiceMessage;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.message.LocationMessage;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.message.PassportDataMessage;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.message.PinnedMessage;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.message.SuccessfullPaymentMessage;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.message.TextMessage;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.message.UserMessage;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.message.VenueMessage;
-import ru.ioleksiv.telegram.bot.api.model.objects.passport.PassportData;
-import ru.ioleksiv.telegram.bot.api.model.objects.payments.Invoice;
-import ru.ioleksiv.telegram.bot.api.model.objects.payments.SuccessfulPayment;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.sticker.Sticker;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +54,7 @@ import java.util.List;
 /**
  * @see <a href="https://core.telegram.org/bots/api#message">Message</a>
  */
-public class Message {
+public class Message implements ITelegram {
     /**
      * message_id	Integer	Unique message identifier inside this chat
      */
@@ -61,6 +62,7 @@ public class Message {
     private Long messageId = null;
     /**
      * To setup filter:
+     *
      * @see UserMessage
      * from	User	Optional. Sender, empty for messages sent to channels
      */
@@ -73,6 +75,7 @@ public class Message {
     private long date = 0;
     /**
      * To setup filter:
+     *
      * @see ForwardMessage
      * chat	Chat	Conversation the message belongs to
      */
@@ -80,6 +83,7 @@ public class Message {
     private Chat chat = null;
     /**
      * To setup filter:
+     *
      * @see ForwardMessage
      * forward_from	User	Optional. For forwarded messages, sender of the original message
      */
@@ -87,8 +91,9 @@ public class Message {
     private User forwardFrom = null;
     /**
      * To setup filter:
-     * @see ForwardChannelMessage
      *
+     * @see ForwardChannelMessage
+     * <p>
      * forward_from_chat	Chat	Optional. For messages forwarded from channels, information
      * about the original channel
      */
@@ -96,6 +101,7 @@ public class Message {
     private Chat forwardFromChat = null;
     /**
      * To setup filter:
+     *
      * @see ForwardChannelMessage
      * forward_from_message_id	Integer	Optional. For messages forwarded from channels, identifier
      * of the original message in the channel
@@ -104,6 +110,7 @@ public class Message {
     private Long forwardFromMessageId = null;
     /**
      * To setup filter:
+     *
      * @see ForwardMessage
      * forward_signature	String	Optional. For messages forwarded from channels, signature of
      * the post author if present
@@ -118,6 +125,7 @@ public class Message {
     private Long forwardDate = null;
     /**
      * To setup filter:
+     *
      * @see ReplyMessage
      * reply_to_message	Message	Optional. For replies, the original message. Note that the Message
      * object in this field will not contain further reply_to_message fields even if it itself is a
@@ -127,6 +135,7 @@ public class Message {
     private Message replyToMessage = null;
     /**
      * To setup filter:
+     *
      * @see EditDateMessage
      * edit_date	Integer	Optional. Date the message was last edited in Unix time
      */
@@ -146,6 +155,7 @@ public class Message {
     private String authorSignature = null;
     /**
      * To setup filter:
+     *
      * @see TextMessage
      * text	String	Optional. For text messages, the actual UTF-8 text of the message, 0-4096
      * characters.
@@ -154,6 +164,7 @@ public class Message {
     private String text = null;
     /**
      * To setup filter:
+     *
      * @see AudioMessage
      * audio	Audio	Optional. Message is an audio files, information about the files
      */
@@ -161,6 +172,7 @@ public class Message {
     private Audio audio = null;
     /**
      * To setup filter:
+     *
      * @see PhotoMessage
      * photo	Array of PhotoSize	Optional. Message is a photo, available sizes of the photo
      */
@@ -168,6 +180,7 @@ public class Message {
     private List<PhotoSize> photo = new ArrayList<>();
     /**
      * To setup filter:
+     *
      * @see CaptionMessage
      * caption	String	Optional. Caption for the audio, document, photo, video or voice, 0-200
      * characters
@@ -176,6 +189,7 @@ public class Message {
     private String caption = null;
     /**
      * To setup filter:
+     *
      * @see ContactMessage
      * contact Optional. Message is a shared contact, information about the contact
      */
@@ -183,6 +197,7 @@ public class Message {
     private Contact contact = null;
     /**
      * To setup filter:
+     *
      * @see LocationMessage
      * location	Optional. Message is a shared location, information about the location
      */
@@ -190,14 +205,16 @@ public class Message {
     private Location location = null;
     /**
      * To setup filter:
+     *
      * @see NewChatMembersMessage
      * new_chat_members	Array of User	Optional. New members that were added to the group or
      * supergroup and information about them (the bot itself may be one of these members)
      */
     @JsonProperty("new_chat_members")
-    private List<User> newChatMembers = null;
+    private List<User> newChatMembers = new ArrayList<>();
     /**
      * To setup filter:
+     *
      * @see LeftChatMembersMessage
      * left_chat_member	User	Optional. A member was removed from the group, information about
      * them (this member may be the bot itself)
@@ -206,6 +223,7 @@ public class Message {
     private User leftChatMember = null;
     /**
      * To setup filter:
+     *
      * @see DocumentMessage
      * document	Document	Optional. Message is a general files, information about the files
      */
@@ -213,6 +231,7 @@ public class Message {
     private Document document = null;
     /**
      * To setup filter:
+     *
      * @see AnimationMessage
      * animation	Animation	Optional. Message is an animation, information about the animation.
      * For backward compatibility, when this field is set, the document field will also be set
@@ -221,6 +240,7 @@ public class Message {
     private Animation animation = null;
     /**
      * To setup filter:
+     *
      * @see GameMessage
      * game	Game	Optional. Message is a game, information about the game.
      */
@@ -228,6 +248,7 @@ public class Message {
     private Game game = null;
     /**
      * To setup filter:
+     *
      * @see NewChatTitleMessage
      * new_chat_title	String	Optional. A chat title was changed to this value
      */
@@ -235,6 +256,7 @@ public class Message {
     private String newChatTitle = null;
     /**
      * To setup filter:
+     *
      * @see StickerMessage
      * sticker	Sticker	Optional. Message is a sticker, information about the sticker
      */
@@ -242,6 +264,7 @@ public class Message {
     private Sticker sticker = null;
     /**
      * To setup filter:
+     *
      * @see VideoMessage
      * video	Video	Optional. Message is a video, information about the video
      */
@@ -249,6 +272,7 @@ public class Message {
     private Video video = null;
     /**
      * To setup filter:
+     *
      * @see VoiceMessage
      * voice	Voice	Optional. Message is a voice message, information about the files
      */
@@ -256,6 +280,7 @@ public class Message {
     private Voice voice = null;
     /**
      * To setup filter:
+     *
      * @see EntitiesMessage
      * entities	Array of MessageEntity	Optional. For text messages, special entities like usernames,
      * URLs, bot commands, etc. that appear in the text
@@ -264,6 +289,7 @@ public class Message {
     private List<MessageEntity> entities = new ArrayList<>();
     /**
      * To setup filter:
+     *
      * @see CaptionEntitiesMessage
      * caption_entities	Array of MessageEntity	Optional. For messages with a caption, special
      * entities like usernames, URLs, bot commands, etc. that appear in the caption
@@ -272,6 +298,7 @@ public class Message {
     private List<MessageEntity> captionEntities = new ArrayList<>();
     /**
      * To setup filter:
+     *
      * @see VideoNoteMessage
      * video_note	VideoNote	Optional. Message is a video note, information about the video message
      */
@@ -279,6 +306,7 @@ public class Message {
     private VideoNote videoNote = null;
     /**
      * To setup filter:
+     *
      * @see NewChatPhotoMessage
      * new_chat_photo	Array of PhotoSize	Optional. A chat photo was change to this value
      */
@@ -286,6 +314,7 @@ public class Message {
     private PhotoSize newChatPhoto = null;
     /**
      * To setup filter:
+     *
      * @see DeleteChatPhotoMessage
      * delete_chat_photo	True	Optional. Service message: the chat photo was deleted
      */
@@ -293,6 +322,7 @@ public class Message {
     private Boolean deleteChatPhoto = null;
     /**
      * To setup filter:
+     *
      * @see GroupChatCreatedMessage
      * group_chat_created	True	Optional. Service message: the group has been created
      */
@@ -300,6 +330,7 @@ public class Message {
     private Boolean groupChatCreated = null;
     /**
      * To setup filter:
+     *
      * @see VenueMessage
      * venue	Venue	Optional. Message is a venue, information about the venue
      */
@@ -342,6 +373,7 @@ public class Message {
     private Long migrateFromChatId = null;
     /**
      * To setup filter:
+     *
      * @see PinnedMessage
      * pinned_message	Message	Optional. Specified message was pinned. Note that the Message
      * object in this field will not contain further reply_to_message fields even if it is itself
@@ -351,6 +383,7 @@ public class Message {
     private Message pinnedMessage = null;
     /**
      * To setup filter:
+     *
      * @see InvoiceMessage
      * invoice	Invoice	Optional. Message is an invoice for a payment, information about the invoice.
      */
@@ -358,6 +391,7 @@ public class Message {
     private Invoice invoice = null;
     /**
      * To setup filter:
+     *
      * @see SuccessfullPaymentMessage
      * successful_payment	SuccessfulPayment	Optional. Message is a service message about a
      * successful payment, information about the payment.
@@ -366,6 +400,7 @@ public class Message {
     private SuccessfulPayment successfulPayment = null;
     /**
      * To setup filter:
+     *
      * @see ConnectedWebsiteMessage
      * connected_website	String	Optional. The domain name of the website on which the user has
      * logged in.
@@ -374,6 +409,7 @@ public class Message {
     private String connectedWebsite = null;
     /**
      * To setup filter:
+     *
      * @see PassportDataMessage
      * passport_data	PassportData	Optional. Telegram Passport data
      */

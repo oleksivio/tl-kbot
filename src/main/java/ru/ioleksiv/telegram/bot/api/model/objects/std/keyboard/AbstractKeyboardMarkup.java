@@ -23,11 +23,11 @@ public class AbstractKeyboardMarkup<T extends IButton> implements IKeyboard {
         keyboard.remove(row);
     }
 
-    protected List<ButtonRow<T>> getRows() {
+    protected List<ButtonRow<T>> getKeyboard() {
         return new ArrayList<>(keyboard);
     }
 
-    protected void setRows(Collection<ButtonRow<T>> rows) {
+    protected void setKeyboard(Collection<ButtonRow<T>> rows) {
         keyboard.clear();
         keyboard.addAll(rows);
     }

@@ -1,6 +1,5 @@
 package ru.ioleksiv.telegram.bot.api.model;
 
-import ru.ioleksiv.telegram.bot.api.model.method.payments.SendInvoice;
 import ru.ioleksiv.telegram.bot.api.model.method.file.GetFile;
 import ru.ioleksiv.telegram.bot.api.model.method.file.SendAnimation;
 import ru.ioleksiv.telegram.bot.api.model.method.file.SendAnimationFile;
@@ -65,6 +64,7 @@ import ru.ioleksiv.telegram.bot.api.model.method.message.SendMessage;
 import ru.ioleksiv.telegram.bot.api.model.method.passport.SetPassportDataErrors;
 import ru.ioleksiv.telegram.bot.api.model.method.payments.AnswerPreCheckoutQuery;
 import ru.ioleksiv.telegram.bot.api.model.method.payments.AnswerShippingQuery;
+import ru.ioleksiv.telegram.bot.api.model.method.payments.SendInvoice;
 import ru.ioleksiv.telegram.bot.api.model.method.sticker.AddStickerFileToSet;
 import ru.ioleksiv.telegram.bot.api.model.method.sticker.AddStickerToSet;
 import ru.ioleksiv.telegram.bot.api.model.method.sticker.CreateNewStickerFileSet;
@@ -76,7 +76,7 @@ import ru.ioleksiv.telegram.bot.api.model.method.sticker.SendStickerFile;
 import ru.ioleksiv.telegram.bot.api.model.method.sticker.SetStickerPositionInSet;
 import ru.ioleksiv.telegram.bot.api.model.method.sticker.UploadStickerFile;
 import ru.ioleksiv.telegram.bot.api.model.method.update.DeleteWebhook;
-import ru.ioleksiv.telegram.bot.api.model.method.update.GetUpdatesApi;
+import ru.ioleksiv.telegram.bot.api.model.method.update.GetUpdates;
 import ru.ioleksiv.telegram.bot.api.model.method.update.GetWebhookInfo;
 import ru.ioleksiv.telegram.bot.api.model.method.update.SetWebhook;
 
@@ -235,7 +235,7 @@ public interface ActionBuilder {
 
     GetStickerSet getStickerSet();
 
-    GetUpdatesApi getUpdatesApi();
+    GetUpdates getUpdates();
 
     GetWebhookInfo getWebhookInfo();
 

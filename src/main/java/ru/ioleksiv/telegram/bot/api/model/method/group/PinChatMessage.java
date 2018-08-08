@@ -2,10 +2,10 @@ package ru.ioleksiv.telegram.bot.api.model.method.group;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#pinchatmessage">pinChatMessage</a>
@@ -25,8 +25,8 @@ public class PinChatMessage extends ChatAction<Boolean> {
     @JsonProperty("disable_notification")
     private Boolean disableNotification = null;
 
-    public PinChatMessage(Networker networker) {
-        super(METHOD, networker);
+    public PinChatMessage(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public Long getMessageId() {

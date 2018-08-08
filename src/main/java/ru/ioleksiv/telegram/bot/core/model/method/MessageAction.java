@@ -5,9 +5,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.Message;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.IKeyboard;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 public abstract class MessageAction extends ChatAction<Message> {
     private static final Logger LOG = LoggerFactory.getLogger(MessageAction.class);
@@ -30,8 +30,8 @@ public abstract class MessageAction extends ChatAction<Message> {
     @JsonProperty("reply_to_message_id")
     private Long replyToMessageId = null;
 
-    public MessageAction(String method, Networker networker) {
-        super(method, networker);
+    public MessageAction(String method, ActionNetworker actionNetworker) {
+        super(method, actionNetworker);
     }
 
     protected void pSetReplyToMessageId(Long replyToMessageId) {

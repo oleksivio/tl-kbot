@@ -3,8 +3,8 @@ package ru.ioleksiv.telegram.bot.api.model.method.file;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.IKeyboard;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.CaptionAction;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendvoice">sendVoice</a>
@@ -24,8 +24,8 @@ public class SendVoice extends CaptionAction {
     @JsonProperty("duration")
     private Integer duration = null;
 
-    public SendVoice(Networker networker) {
-        super(METHOD, networker);
+    public SendVoice(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public String getVoice() {

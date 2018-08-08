@@ -1,11 +1,12 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.payments;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#successfulpayment>SuccessfulPayment</a>
  */
-public class SuccessfulPayment {
+public class SuccessfulPayment implements ITelegram {
     /**
      * currency	String	Three-letter ISO 4217 currency code
      */

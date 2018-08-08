@@ -1,11 +1,12 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std.sticker;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#maskposition>MaskPosition</a>
  */
-public class MaskPosition {
+public class MaskPosition implements ITelegram {
     /**
      * point	String	The part of the face relative to which the mask should be placed. One of “forehead”, “eyes”,
      * “mouth”, or “chin”.

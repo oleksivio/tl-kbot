@@ -1,11 +1,12 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#chatmember">ChatMember</a>
  */
-public class ChatMember {
+public class ChatMember implements ITelegram {
     /**
      * user	User	Information about the user
      */

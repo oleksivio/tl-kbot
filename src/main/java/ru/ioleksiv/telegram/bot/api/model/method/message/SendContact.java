@@ -3,8 +3,8 @@ package ru.ioleksiv.telegram.bot.api.model.method.message;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.IKeyboard;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.MessageAction;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendcontact">sendContact</a>
@@ -32,8 +32,8 @@ public class SendContact extends MessageAction {
     @JsonProperty("vcard")
     private String vcard = null;
 
-    public SendContact(Networker networker) {
-        super(METHOD, networker);
+    public SendContact(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public String getPhoneNumber() {

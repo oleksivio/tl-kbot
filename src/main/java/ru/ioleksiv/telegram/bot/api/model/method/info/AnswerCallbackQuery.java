@@ -2,10 +2,10 @@ package ru.ioleksiv.telegram.bot.api.model.method.info;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.RunnableAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#answercallbackquery">answerCallbackQuery</a>
@@ -45,8 +45,8 @@ public class AnswerCallbackQuery extends RunnableAction<Boolean> {
     @JsonProperty("cache_time")
     private Integer cacheTime = null;
 
-    public AnswerCallbackQuery(Networker networker) {
-        super(METHOD, networker);
+    public AnswerCallbackQuery(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public String getCallbackQueryId() {

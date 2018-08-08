@@ -34,40 +34,40 @@ public class ReplyKeyboardMarkup extends AbstractKeyboardMarkup<ReplyKeyboardBut
     @JsonProperty("selective")
     private Boolean selective = null;
 
+    public Boolean isResizeKeyboard() {
+        return resizeKeyboard;
+    }
+
+    public Boolean isOneTimeKeyboard() {
+        return oneTimeKeyboard;
+    }
+
+    public Boolean isSelective() {
+        return selective;
+    }
+
     /**
      * keyboard	Array of Array of KeyboardButton	Array of button rows, each represented by an
      * Array of KeyboardButton objects
      */
     @Override
     @JsonProperty("keyboard")
-    public List<ButtonRow<ReplyKeyboardButton>> getRows() {
-        return super.getRows();
+    public List<ButtonRow<ReplyKeyboardButton>> getKeyboard() {
+        return super.getKeyboard();
     }
 
     @Override
     @JsonProperty("keyboard")
-    public void setRows(Collection<ButtonRow<ReplyKeyboardButton>> rows) {
-        super.setRows(rows);
-    }
-
-    public boolean isResizeKeyboard() {
-        return resizeKeyboard;
+    public void setKeyboard(Collection<ButtonRow<ReplyKeyboardButton>> rows) {
+        super.setKeyboard(rows);
     }
 
     public void setResizeKeyboard(Boolean resizeKeyboard) {
         this.resizeKeyboard = resizeKeyboard;
     }
 
-    public boolean isOneTimeKeyboard() {
-        return oneTimeKeyboard;
-    }
-
     public void setOneTimeKeyboard(boolean oneTimeKeyboard) {
         this.oneTimeKeyboard = oneTimeKeyboard;
-    }
-
-    public boolean isSelective() {
-        return selective;
     }
 
     public void setSelective(Boolean selective) {

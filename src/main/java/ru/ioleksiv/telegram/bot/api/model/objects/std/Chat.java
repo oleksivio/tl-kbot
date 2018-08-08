@@ -2,11 +2,12 @@ package ru.ioleksiv.telegram.bot.api.model.objects.std;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.files.ChatPhoto;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#chat">Chat</a>
  */
-public class Chat {
+public class Chat implements ITelegram {
     public static final String TYPE_PRIVATE = "private";
     public static final String TYPE_GROUP = "group";
     public static final String TYPE_SUPERGROUP = "supergroup";

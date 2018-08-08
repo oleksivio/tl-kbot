@@ -3,8 +3,8 @@ package ru.ioleksiv.telegram.bot.api.model.method.file;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.IKeyboard;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.file.ThumbAction;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendaudio">sendAudio</a>
@@ -36,8 +36,8 @@ public class SendAudio extends ThumbAction {
     @JsonProperty("title")
     private String title = null;
 
-    public SendAudio(Networker networker) {
-        super(METHOD, networker);
+    public SendAudio(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public Integer getDuration() {

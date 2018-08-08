@@ -1,14 +1,14 @@
 package ru.ioleksiv.telegram.bot.api.model.method.game;
 
 import ru.ioleksiv.telegram.bot.api.model.objects.std.Message;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.game.SetGameScore;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 public class SetOwnGameScore extends SetGameScore<Message> {
-    public SetOwnGameScore(Networker networker) {
-        super(networker);
+    public SetOwnGameScore(ActionNetworker actionNetworker) {
+        super(actionNetworker);
     }
 
     @Override

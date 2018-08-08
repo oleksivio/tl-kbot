@@ -1,13 +1,15 @@
 package ru.ioleksiv.telegram.bot.api.model.objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#webhookinfo">WebhookInfo</a>
  */
-public class WebhookInfo {
+public class WebhookInfo implements ITelegram {
     /**
      * url	String	Webhook URL, may be empty if webhook is not set up
      * has_custom_certificate	Boolean	True, if a custom certificate was provided for webhook
@@ -42,7 +44,7 @@ public class WebhookInfo {
      * allowed_updates	Array of String
      */
     @JsonProperty("allowed_updates")
-    private List<String> allowedUpdates = null;
+    private List<String> allowedUpdates = new ArrayList<>();
 
     public String getUrl() {
         return url;

@@ -3,8 +3,8 @@ package ru.ioleksiv.telegram.bot.api.model.method.file;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.IKeyboard;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.file.ThumbAction;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendanimation>sendAnimation</a>
@@ -34,8 +34,8 @@ public class SendAnimation extends ThumbAction {
     @JsonProperty("height")
     private Integer height = null;
 
-    public SendAnimation(Networker networker) {
-        super(METHOD, networker);
+    public SendAnimation(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public String getAnimation() {

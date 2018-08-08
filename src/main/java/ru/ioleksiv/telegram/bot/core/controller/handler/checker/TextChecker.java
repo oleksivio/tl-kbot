@@ -49,11 +49,7 @@ public class TextChecker implements Checker<String> {
             return false;
         }
 
-        if (!mRegExp.isEmpty() && !Pattern.matches(mRegExp, argument)) {
-            return false;
-        }
-
-        return true;
+        return mRegExp.isEmpty() || Pattern.matches(mRegExp, argument);
     }
 
 }

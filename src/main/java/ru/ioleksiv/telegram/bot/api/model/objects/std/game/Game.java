@@ -3,13 +3,15 @@ package ru.ioleksiv.telegram.bot.api.model.objects.std.game;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.files.MessageEntity;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.files.PhotoSize;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#game">Game</a>
  */
-public class Game {
+public class Game implements ITelegram {
     /**
      * title	String	Title of the game
      */
@@ -24,7 +26,7 @@ public class Game {
      * photo	Array of PhotoSize	Photo that will be displayed in the game message in chats.
      */
     @JsonProperty("photo")
-    private List<PhotoSize> photo = null;
+    private List<PhotoSize> photo = new ArrayList<>();
     /**
      * text	String	Optional. Brief description of the game or high scores included in the game message.
      * Can be automatically edited to include current high scores for the game when the bot calls setGameScore,
@@ -37,7 +39,7 @@ public class Game {
      * bot commands, etc.
      */
     @JsonProperty("text_entities")
-    private List<MessageEntity> textEntities = null;
+    private List<MessageEntity> textEntities = new ArrayList<>();
     /**
      * animation	Animation	Optional. Animation that will be displayed in the game message in chats. Upload via BotFather
      */

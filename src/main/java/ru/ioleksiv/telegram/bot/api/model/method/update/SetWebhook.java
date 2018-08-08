@@ -2,10 +2,10 @@ package ru.ioleksiv.telegram.bot.api.model.method.update;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.RunnableAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -58,8 +58,8 @@ public class SetWebhook extends RunnableAction<Boolean> {
     @JsonProperty("allowed_updates")
     private List<String> allowedUpdates = new ArrayList<>();
 
-    public SetWebhook(Networker networker) {
-        super(METHOD, networker);
+    public SetWebhook(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public String getUrl() {

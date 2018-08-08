@@ -1,11 +1,11 @@
 package ru.ioleksiv.telegram.bot.core.model.method.message;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.files.inputmedia.InputMedia;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.InlineKeyboardMarkup;
-import ru.ioleksiv.telegram.bot.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.EditAction;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#editmessagemedia>editMessageMedia</a>
@@ -18,8 +18,8 @@ public abstract class EditMessageMedia<RES> extends EditAction<RES> {
     @JsonProperty("media")
     private InputMedia inputMedia = null;
 
-    protected EditMessageMedia(Networker networker) {
-        super(METHOD, networker);
+    protected EditMessageMedia(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public InputMedia getInputMedia() {

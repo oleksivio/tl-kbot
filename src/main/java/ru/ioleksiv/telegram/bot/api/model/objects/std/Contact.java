@@ -2,8 +2,9 @@ package ru.ioleksiv.telegram.bot.api.model.objects.std;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.jetbrains.annotations.NotNull;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
-public class Contact {
+public class Contact implements ITelegram {
     /**
      * phone_number	String	Contact's phone number
      */

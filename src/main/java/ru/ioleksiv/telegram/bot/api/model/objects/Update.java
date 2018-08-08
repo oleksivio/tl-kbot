@@ -8,8 +8,9 @@ import ru.ioleksiv.telegram.bot.api.model.objects.payments.PreCheckoutQuery;
 import ru.ioleksiv.telegram.bot.api.model.objects.payments.ShippingQuery;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.CallbackQuery;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.Message;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
-public class Update {
+public class Update implements ITelegram {
     /**
      * update_id
      * <p>

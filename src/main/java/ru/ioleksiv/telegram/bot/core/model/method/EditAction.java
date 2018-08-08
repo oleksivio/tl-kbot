@@ -2,7 +2,7 @@ package ru.ioleksiv.telegram.bot.core.model.method;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.InlineKeyboardMarkup;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 
 public abstract class EditAction<RES> extends ChatAction<RES> {
     /**
@@ -24,8 +24,8 @@ public abstract class EditAction<RES> extends ChatAction<RES> {
     @JsonProperty("inline_message_id")
     private String inlineMessageId = null;
 
-    protected EditAction(String method, Networker networker) {
-        super(method, networker);
+    protected EditAction(String method, ActionNetworker actionNetworker) {
+        super(method, actionNetworker);
     }
 
     protected void pSetMessageId(Long messageId) {

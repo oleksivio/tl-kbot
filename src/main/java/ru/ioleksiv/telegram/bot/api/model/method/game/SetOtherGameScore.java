@@ -1,12 +1,12 @@
 package ru.ioleksiv.telegram.bot.api.model.method.game;
 
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.game.SetGameScore;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 public class SetOtherGameScore extends SetGameScore<Boolean> {
-    public SetOtherGameScore(Networker networker) {
+    public SetOtherGameScore(ActionNetworker networker) {
         super(networker);
     }
 

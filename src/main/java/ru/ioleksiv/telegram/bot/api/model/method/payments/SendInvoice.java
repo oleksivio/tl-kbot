@@ -1,15 +1,16 @@
 package ru.ioleksiv.telegram.bot.api.model.method.payments;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.payments.LabeledPrice;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.Message;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.InlineKeyboardMarkup;
-import ru.ioleksiv.telegram.bot.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,7 +29,8 @@ public class SendInvoice extends ChatAction<Message> {
     @JsonProperty("description")
     private String description = null;
     /**
-     * payload	String	Yes	Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes.
+     * payload	String	Yes	Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for
+     * your internal processes.
      */
     @JsonProperty("payload")
     private String payload = null;
@@ -38,7 +40,8 @@ public class SendInvoice extends ChatAction<Message> {
     @JsonProperty("provider_token")
     private String providerToken = null;
     /**
-     * start_parameter	String	Yes	Unique deep-linking parameter that can be used to generate this invoice when used as a start parameter
+     * start_parameter	String	Yes	Unique deep-linking parameter that can be used to generate this invoice when used as
+     * a start parameter
      */
     @JsonProperty("start_parameter")
     private String startParameter = null;
@@ -48,17 +51,20 @@ public class SendInvoice extends ChatAction<Message> {
     @JsonProperty("currency")
     private String currency = null;
     /**
-     * prices	Array of LabeledPrice	Yes	Price breakdown, a list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.)
+     * prices	Array of LabeledPrice	Yes	Price breakdown, a list of components (e.g. product price, tax, discount,
+     * delivery cost, delivery tax, bonus, etc.)
      */
     @JsonProperty("prices")
-    private List<LabeledPrice> prices = null;
+    private List<LabeledPrice> prices = new ArrayList<>();
     /**
-     * provider_data	String	Optional	JSON-encoded data about the invoice, which will be shared with the payment provider. A detailed description of required fields should be provided by the payment provider.
+     * provider_data	String	Optional	JSON-encoded data about the invoice, which will be shared with the payment
+     * provider. A detailed description of required fields should be provided by the payment provider.
      */
     @JsonProperty("provider_data")
     private String providerData = null;
     /**
-     * photo_url	String	Optional	URL of the product photo for the invoice. Can be a photo of the goods or a marketing image for a service. People like it better when they see what they are paying for.
+     * photo_url	String	Optional	URL of the product photo for the invoice. Can be a photo of the goods or a marketing
+     * image for a service. People like it better when they see what they are paying for.
      */
     @JsonProperty("photo_url")
     private String photoUrl = null;
@@ -128,8 +134,8 @@ public class SendInvoice extends ChatAction<Message> {
     @JsonProperty("reply_markup")
     private InlineKeyboardMarkup replyMarkup = null;
 
-    public SendInvoice(Networker networker) {
-        super(METHOD, networker);
+    public SendInvoice(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public String getTitle() {

@@ -3,8 +3,8 @@ package ru.ioleksiv.telegram.bot.api.model.method.location;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.IKeyboard;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.MessageAction;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendlocation">sendLocation</a>
@@ -29,8 +29,8 @@ public class SendLocation extends MessageAction {
     @JsonProperty("live_period")
     private Integer livePeriod = null;
 
-    public SendLocation(Networker networker) {
-        super(METHOD, networker);
+    public SendLocation(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
 
     }
 

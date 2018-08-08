@@ -2,10 +2,10 @@ package ru.ioleksiv.telegram.bot.api.model.method.message;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#deletemessage">deleteMessage</a>
@@ -19,8 +19,8 @@ public class DeleteMessage extends ChatAction<Boolean> {
     @JsonProperty("message_id")
     private Long messageId = null;
 
-    public DeleteMessage(Networker networker) {
-        super(METHOD, networker);
+    public DeleteMessage(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     @Override

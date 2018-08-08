@@ -3,11 +3,12 @@ package ru.ioleksiv.telegram.bot.api.model.objects.inline;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.Location;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.User;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#choseninlineresult>ChosenInlineResult</a>
  */
-public class ChosenInlineResult {
+public class ChosenInlineResult implements ITelegram {
     /**
      * result_id	String	The unique identifier for the result that was chosen
      */

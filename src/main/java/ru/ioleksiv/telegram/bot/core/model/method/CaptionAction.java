@@ -1,7 +1,7 @@
 package ru.ioleksiv.telegram.bot.core.model.method;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 
 public abstract class CaptionAction extends FormattedMessageAction {
 
@@ -12,8 +12,8 @@ public abstract class CaptionAction extends FormattedMessageAction {
     @JsonProperty("caption")
     private String caption = null;
 
-    protected CaptionAction(String method, Networker networker) {
-        super(method, networker);
+    protected CaptionAction(String method, ActionNetworker actionNetworker) {
+        super(method, actionNetworker);
     }
 
     protected void pSetCaption(String caption) {

@@ -3,8 +3,8 @@ package ru.ioleksiv.telegram.bot.api.model.method.message;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.IKeyboard;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.FormattedMessageAction;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendmessage">sendMessage</a>
@@ -22,8 +22,8 @@ public class SendMessage extends FormattedMessageAction {
     @JsonProperty("disable_web_page_preview")
     private Boolean disableWebPagePreview = null;
 
-    public SendMessage(Networker networker) {
-        super(METHOD, networker);
+    public SendMessage(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public String getText() {

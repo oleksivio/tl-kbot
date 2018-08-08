@@ -3,11 +3,12 @@ package ru.ioleksiv.telegram.bot.api.model.method.passport;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.passport.errors.PassportElementError;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.RunnableAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,10 +25,10 @@ public class SetPassportDataErrors extends RunnableAction<Boolean> {
      * errors	Array of PassportElementError	Yes	A JSON-serialized array describing the errors
      */
     @JsonProperty("errors")
-    private List<PassportElementError> errors = null;
+    private List<PassportElementError> errors = new ArrayList<>();
 
-    public SetPassportDataErrors(Networker networker) {
-        super(METHOD, networker);
+    public SetPassportDataErrors(ActionNetworker actionNetworker) {
+        super(METHOD, actionNetworker);
     }
 
     public Integer getUserId() {

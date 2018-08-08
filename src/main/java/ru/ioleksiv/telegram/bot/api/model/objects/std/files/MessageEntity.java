@@ -2,11 +2,12 @@ package ru.ioleksiv.telegram.bot.api.model.objects.std.files;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.User;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#messageentity">MessageEntity</a>
  */
-public class MessageEntity {
+public class MessageEntity implements ITelegram {
     public static final String TYPE_MENTION = "mention";
     public static final String TYPE_HASHTAG = "hashtag";
     public static final String TYPE_CASHTAG = "cashtag";

@@ -78,412 +78,417 @@ import ru.ioleksiv.telegram.bot.api.model.method.sticker.SendStickerFile;
 import ru.ioleksiv.telegram.bot.api.model.method.sticker.SetStickerPositionInSet;
 import ru.ioleksiv.telegram.bot.api.model.method.sticker.UploadStickerFile;
 import ru.ioleksiv.telegram.bot.api.model.method.update.DeleteWebhook;
-import ru.ioleksiv.telegram.bot.api.model.method.update.GetUpdatesApi;
+import ru.ioleksiv.telegram.bot.api.model.method.update.GetUpdates;
 import ru.ioleksiv.telegram.bot.api.model.method.update.GetWebhookInfo;
 import ru.ioleksiv.telegram.bot.api.model.method.update.SetWebhook;
-import ru.ioleksiv.telegram.bot.core.controller.network.Networker;
+import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
+import ru.ioleksiv.telegram.bot.core.controller.network.FileNetworker;
 
 @Component
 public class ActionBuilderImpl implements ActionBuilder {
-    private final Networker networker;
 
-    public ActionBuilderImpl(Networker networker) {
-        this.networker = networker;
+    private final ActionNetworker actionNetworker;
+    private final FileNetworker fileNetworker;
+
+    public ActionBuilderImpl(ActionNetworker actionNetworker,
+                             FileNetworker fileNetworker) {
+        this.actionNetworker = actionNetworker;
+        this.fileNetworker = fileNetworker;
     }
 
     @Override
     public AnswerCallbackQuery answerCallbackQuery() {
-        return new AnswerCallbackQuery(networker);
+        return new AnswerCallbackQuery((actionNetworker));
     }
 
     @Override
     public SendChatAction sendChatAction() {
-        return new SendChatAction(networker);
+        return new SendChatAction(actionNetworker);
     }
 
     @Override
     public SendContact sendContact() {
-        return new SendContact(networker);
+        return new SendContact(actionNetworker);
     }
 
     @Override
     public SendAnimationFile sendAnimationFile() {
-        return new SendAnimationFile(networker);
+        return new SendAnimationFile(fileNetworker);
     }
 
     @Override
     public SendAnimation sendAnimation() {
-        return new SendAnimation(networker);
+        return new SendAnimation(actionNetworker);
     }
 
     @Override
     public SendAudioFile sendAudioFile() {
-        return new SendAudioFile(networker);
+        return new SendAudioFile(fileNetworker);
     }
 
     @Override
     public SendAudio sendAudio() {
-        return new SendAudio(networker);
+        return new SendAudio(actionNetworker);
     }
 
     @Override
     public SendDocumentFile sendDocumentFile() {
-        return new SendDocumentFile(networker);
+        return new SendDocumentFile(fileNetworker);
     }
 
     @Override
     public SendDocument sendDocument() {
-        return new SendDocument(networker);
+        return new SendDocument(actionNetworker);
     }
 
     @Override
     public SendMediaGroup sendMediaGroup() {
-        return new SendMediaGroup(networker);
+        return new SendMediaGroup(actionNetworker);
     }
 
     @Override
     public SendPhotoFile sendPhotoFile() {
-        return new SendPhotoFile(networker);
+        return new SendPhotoFile(fileNetworker);
     }
 
     @Override
     public SendPhoto sendPhoto() {
-        return new SendPhoto(networker);
+        return new SendPhoto(actionNetworker);
     }
 
     @Override
     public SendVideoFile sendVideoFile() {
-        return new SendVideoFile(networker);
+        return new SendVideoFile(fileNetworker);
     }
 
     @Override
     public SendVideo sendVideo() {
-        return new SendVideo(networker);
+        return new SendVideo(actionNetworker);
     }
 
     @Override
     public SendVideoNoteFile sendVideoNoteFile() {
-        return new SendVideoNoteFile(networker);
+        return new SendVideoNoteFile(fileNetworker);
     }
 
     @Override
     public SendVideoNote sendVideoNote() {
-        return new SendVideoNote(networker);
+        return new SendVideoNote(actionNetworker);
     }
 
     @Override
     public SendVoiceFile sendVoiceFile() {
-        return new SendVoiceFile(networker);
+        return new SendVoiceFile(fileNetworker);
     }
 
     @Override
     public SendVoice sendVoice() {
-        return new SendVoice(networker);
+        return new SendVoice(actionNetworker);
     }
 
     @Override
     public SendGame sendGame() {
-        return new SendGame(networker);
+        return new SendGame(actionNetworker);
     }
 
     @Override
     public SetOtherGameScore setOtherGameScore() {
-        return new SetOtherGameScore(networker);
+        return new SetOtherGameScore(actionNetworker);
     }
 
     @Override
     public SetOwnGameScore setOwnGameScore() {
-        return new SetOwnGameScore(networker);
+        return new SetOwnGameScore(actionNetworker);
     }
 
     @Override
     public DeleteChatPhoto deleteChatPhoto() {
-        return new DeleteChatPhoto(networker);
+        return new DeleteChatPhoto(actionNetworker);
     }
 
     @Override
     public DeleteChatStickerSet deleteChatStickerSet() {
-        return new DeleteChatStickerSet(networker);
+        return new DeleteChatStickerSet(actionNetworker);
     }
 
     @Override
     public ExportChatInviteLink exportChatInviteLink() {
-        return new ExportChatInviteLink(networker);
+        return new ExportChatInviteLink(actionNetworker);
     }
 
     @Override
     public KickChatMember kickChatMember() {
-        return new KickChatMember(networker);
+        return new KickChatMember(actionNetworker);
     }
 
     @Override
     public LeaveChat leaveChat() {
-        return new LeaveChat(networker);
+        return new LeaveChat(actionNetworker);
     }
 
     @Override
     public PinChatMessage pinChatMessage() {
-        return new PinChatMessage(networker);
+        return new PinChatMessage(actionNetworker);
     }
 
     @Override
     public PromoteChatMember promoteChatMember() {
-        return new PromoteChatMember(networker);
+        return new PromoteChatMember(actionNetworker);
     }
 
     @Override
     public RestrictChatMember restrictChatMember() {
-        return new RestrictChatMember(networker);
+        return new RestrictChatMember(actionNetworker);
     }
 
     @Override
     public SetChatDescription setChatDescription() {
-        return new SetChatDescription(networker);
+        return new SetChatDescription(actionNetworker);
     }
 
     @Override
     public SetChatPhoto setChatPhoto() {
-        return new SetChatPhoto(networker);
+        return new SetChatPhoto(actionNetworker);
     }
 
     @Override
     public SetChatStickerSet setChatStickerSet() {
-        return new SetChatStickerSet(networker);
+        return new SetChatStickerSet(actionNetworker);
     }
 
     @Override
     public SetChatTitle setChatTitle() {
-        return new SetChatTitle(networker);
+        return new SetChatTitle(actionNetworker);
     }
 
     @Override
     public UnbanChatMember unbanChatMember() {
-        return new UnbanChatMember(networker);
+        return new UnbanChatMember(actionNetworker);
     }
 
     @Override
     public UnpinChatMessage unpinChatMessage() {
-        return new UnpinChatMessage(networker);
+        return new UnpinChatMessage(actionNetworker);
     }
 
     @Override
     public AnswerInlineQuery answerInlineQuery() {
-        return new AnswerInlineQuery(networker);
+        return new AnswerInlineQuery(actionNetworker);
     }
 
     @Override
     public EditOtherMessageLiveLocation editOtherMessageLiveLocation() {
-        return new EditOtherMessageLiveLocation(networker);
+        return new EditOtherMessageLiveLocation(actionNetworker);
     }
 
     @Override
     public EditOwnMessageLiveLocation editOwnMessageLiveLocation() {
-        return new EditOwnMessageLiveLocation(networker);
+        return new EditOwnMessageLiveLocation(actionNetworker);
     }
 
     @Override
     public SendLocation sendLocation() {
-        return new SendLocation(networker);
+        return new SendLocation(actionNetworker);
     }
 
     @Override
     public SendVenue sendVenue() {
-        return new SendVenue(networker);
+        return new SendVenue(actionNetworker);
     }
 
     @Override
     public StopOtherMessageLiveLocation stopOtherMessageLiveLocation() {
-        return new StopOtherMessageLiveLocation(networker);
+        return new StopOtherMessageLiveLocation(actionNetworker);
     }
 
     @Override
     public StopOwnMessageLiveLocation stopOwnMessageLiveLocation() {
-        return new StopOwnMessageLiveLocation(networker);
+        return new StopOwnMessageLiveLocation(actionNetworker);
     }
 
     @Override
     public DeleteMessage deleteMessage() {
-        return new DeleteMessage(networker);
+        return new DeleteMessage(actionNetworker);
     }
 
     @Override
     public EditOtherMessageCaption editOtherMessageCaption() {
-        return new EditOtherMessageCaption(networker);
+        return new EditOtherMessageCaption(actionNetworker);
     }
 
     @Override
     public EditOtherMessageMedia editOtherMessageMedia() {
-        return new EditOtherMessageMedia(networker);
+        return new EditOtherMessageMedia(actionNetworker);
     }
 
     @Override
     public EditOtherMessageReplyMarkup editOtherMessageReplyMarkup() {
-        return new EditOtherMessageReplyMarkup(networker);
+        return new EditOtherMessageReplyMarkup(actionNetworker);
     }
 
     @Override
     public EditOtherMessageText editOtherMessageText() {
-        return new EditOtherMessageText(networker);
+        return new EditOtherMessageText(actionNetworker);
     }
 
     @Override
     public EditOwnMessageCaption editOwnMessageCaption() {
-        return new EditOwnMessageCaption(networker);
+        return new EditOwnMessageCaption(actionNetworker);
     }
 
     @Override
     public EditOwnMessageMedia editOwnMessageMedia() {
-        return new EditOwnMessageMedia(networker);
+        return new EditOwnMessageMedia(actionNetworker);
     }
 
     @Override
     public EditOwnMessageReplyMarkup editOwnMessageReplyMarkup() {
-        return new EditOwnMessageReplyMarkup(networker);
+        return new EditOwnMessageReplyMarkup(actionNetworker);
     }
 
     @Override
     public EditOwnMessageText editOwnMessageText() {
-        return new EditOwnMessageText(networker);
+        return new EditOwnMessageText(actionNetworker);
     }
 
     @Override
     public ForwardMessage forwardMessage() {
-        return new ForwardMessage(networker);
+        return new ForwardMessage(actionNetworker);
     }
 
     @Override
     public SendMessage sendMessage() {
-        return new SendMessage(networker);
+        return new SendMessage(actionNetworker);
     }
 
     @Override
     public SetPassportDataErrors setPassportDataErrors() {
-        return new SetPassportDataErrors(networker);
+        return new SetPassportDataErrors(actionNetworker);
     }
 
     @Override
     public AnswerPreCheckoutQuery answerPreCheckoutQuery() {
-        return new AnswerPreCheckoutQuery(networker);
+        return new AnswerPreCheckoutQuery(actionNetworker);
     }
 
     @Override
     public AnswerShippingQuery answerShippingQuery() {
-        return new AnswerShippingQuery(networker);
+        return new AnswerShippingQuery(actionNetworker);
     }
 
     @Override
     public SendInvoice sendInvoice() {
-        return new SendInvoice(networker);
+        return new SendInvoice(actionNetworker);
     }
 
     @Override
     public AddStickerFileToSet addStickerFileToSet() {
-        return new AddStickerFileToSet(networker);
+        return new AddStickerFileToSet(fileNetworker);
     }
 
     @Override
     public AddStickerToSet addStickerToSet() {
-        return new AddStickerToSet(networker);
+        return new AddStickerToSet(actionNetworker);
     }
 
     @Override
     public CreateNewStickerFileSet createNewStickerFileSet() {
-        return new CreateNewStickerFileSet(networker);
+        return new CreateNewStickerFileSet(fileNetworker);
     }
 
     @Override
     public CreateNewStickerSet createNewStickerSet() {
-        return new CreateNewStickerSet(networker);
+        return new CreateNewStickerSet(actionNetworker);
     }
 
     @Override
     public DeleteStickerFromSet deleteStickerFromSet() {
-        return new DeleteStickerFromSet(networker);
+        return new DeleteStickerFromSet(actionNetworker);
     }
 
     @Override
     public SendStickerFile sendStickerFile() {
-        return new SendStickerFile(networker);
+        return new SendStickerFile(fileNetworker);
     }
 
     @Override
     public SendSticker sendSticker() {
-        return new SendSticker(networker);
+        return new SendSticker(actionNetworker);
     }
 
     @Override
     public SetStickerPositionInSet setStickerPositionInSet() {
-        return new SetStickerPositionInSet(networker);
+        return new SetStickerPositionInSet(actionNetworker);
     }
 
     @Override
     public UploadStickerFile uploadStickerFile() {
-        return new UploadStickerFile(networker);
+        return new UploadStickerFile(fileNetworker);
     }
 
     @Override
     public DeleteWebhook deleteWebhook() {
-        return new DeleteWebhook(networker);
+        return new DeleteWebhook(actionNetworker);
     }
 
     @Override
     public SetWebhook setWebhook() {
-        return new SetWebhook(networker);
+        return new SetWebhook(actionNetworker);
     }
 
     @Override
     public GetMe getMe() {
-        return new GetMe(networker);
+        return new GetMe(actionNetworker);
     }
 
     @Override
     public GetUserProfilePhotos getUserProfilePhotos() {
-        return new GetUserProfilePhotos(networker);
+        return new GetUserProfilePhotos(actionNetworker);
     }
 
     @Override
     public GetFile getFile() {
-        return new GetFile(networker);
+        return new GetFile(actionNetworker);
     }
 
     @Override
     public GetGameHighScores getGameHighScores() {
-        return new GetGameHighScores(networker);
+        return new GetGameHighScores(actionNetworker);
     }
 
     @Override
     public GetChatAdministrators getChatAdministrators() {
-        return new GetChatAdministrators(networker);
+        return new GetChatAdministrators(actionNetworker);
     }
 
     @Override
     public GetChat getChat() {
-        return new GetChat(networker);
+        return new GetChat(actionNetworker);
     }
 
     @Override
     public GetChatMember getChatMember() {
-        return new GetChatMember(networker);
+        return new GetChatMember(actionNetworker);
     }
 
     @Override
     public GetChatMembersCount getChatMembersCount() {
-        return new GetChatMembersCount(networker);
+        return new GetChatMembersCount(actionNetworker);
     }
 
     @Override
     public GetStickerSet getStickerSet() {
-        return new GetStickerSet(networker);
+        return new GetStickerSet(actionNetworker);
     }
 
     @Override
-    public GetUpdatesApi getUpdatesApi() {
-        return new GetUpdatesApi(networker);
+    public GetUpdates getUpdates() {
+        return new GetUpdates(actionNetworker);
     }
 
     @Override
     public GetWebhookInfo getWebhookInfo() {
-        return new GetWebhookInfo(networker);
+        return new GetWebhookInfo(actionNetworker);
     }
 
 }

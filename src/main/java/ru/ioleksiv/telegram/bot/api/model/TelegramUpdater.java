@@ -4,7 +4,7 @@ import ru.ioleksiv.telegram.bot.api.model.objects.Update;
 
 public interface TelegramUpdater {
 
-    void process();
+    void retrieve();
 
     void error(Update update, Exception onProcessException);
 }

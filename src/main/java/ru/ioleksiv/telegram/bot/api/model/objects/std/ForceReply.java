@@ -1,11 +1,12 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#forcereply">ForceReply</a>
  */
-public class ForceReply {
+public class ForceReply implements ITelegram {
     /**
      * force_reply	True	Shows reply interface to the user, as if they manually selected the bot‘s
      * message and tapped ’Reply'

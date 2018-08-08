@@ -22,14 +22,14 @@ public class InlineKeyboardMarkup extends AbstractKeyboardMarkup<InlineKeyboardB
 
     @Override
     @JsonProperty("inline_keyboard")
-    public List<ButtonRow<InlineKeyboardButton>> getRows() {
-        return super.getRows();
+    public List<ButtonRow<InlineKeyboardButton>> getKeyboard() {
+        return super.getKeyboard();
     }
 
     @Override
     @JsonProperty("inline_keyboard")
-    public void setRows(Collection<ButtonRow<InlineKeyboardButton>> rows) {
-        super.setRows(rows);
+    public void setKeyboard(Collection<ButtonRow<InlineKeyboardButton>> rows) {
+        super.setKeyboard(rows);
     }
 
 }

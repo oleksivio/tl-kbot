@@ -11,7 +11,7 @@ public class InlineQueryResultGame extends InlineQueryResult {
      * game_short_name	String	Short name of the game
      */
     @JsonProperty("game_short_name")
-    private String gameShortName = null;
+    private final String gameShortName = null;
 
     InlineQueryResultGame() {
         super(TYPE);
