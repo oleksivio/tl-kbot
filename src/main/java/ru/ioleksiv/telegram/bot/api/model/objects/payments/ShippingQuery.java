@@ -1,6 +1,9 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.payments;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.shipping.AddressShippingQuery;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.shipping.PayloadShippingQuery;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.shipping.UserShippingQuery;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.User;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
@@ -14,16 +17,25 @@ public class ShippingQuery implements ITelegram {
     @JsonProperty("id")
     private String id = null;
     /**
+     * To setup filter:
+     *
+     * @see UserShippingQuery
      * from	User	User who sent the query
      */
     @JsonProperty("from")
     private User from = null;
     /**
+     * To setup filter:
+     *
+     * @see PayloadShippingQuery
      * invoice_payload	String	Bot specified invoice payload
      */
     @JsonProperty("invoice_payload")
     private String invoicePayload = null;
     /**
+     * To setup filter:
+     *
+     * @see AddressShippingQuery
      * shipping_address	ShippingAddress	User specified shipping address
      */
     @JsonProperty("shipping_address")

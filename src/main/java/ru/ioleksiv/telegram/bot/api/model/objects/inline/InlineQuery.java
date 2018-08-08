@@ -1,6 +1,9 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.inline;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.inline.LocationInlineQuery;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.inline.QueryInlineQuery;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.inline.UserInlineQuery;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.Location;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.User;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
@@ -15,16 +18,25 @@ public class InlineQuery implements ITelegram {
     @JsonProperty("id")
     private String id = null;
     /**
+     * To setup filter:
+     *
+     * @see UserInlineQuery
      * from	User	Sender
      */
     @JsonProperty("from")
     private User from = null;
     /**
+     * To setup filter:
+     *
+     * @see LocationInlineQuery
      * location	Location	Optional. Sender location, only for bots that request user location
      */
     @JsonProperty("location")
     private Location location = null;
     /**
+     * To setup filter:
+     *
+     * @see QueryInlineQuery
      * query	String	Text of the query (up to 512 characters)
      */
     @JsonProperty("query")
