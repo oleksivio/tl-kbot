@@ -14,12 +14,12 @@ public class SetStickerPositionInSet extends RunnableAction<Boolean> {
     private static final String METHOD = "setStickerPositionInSet";
 
     /**
-     * sticker	String	Yes	File identifier of the sticker
+     * sticker String Yes File identifier of the sticker
      */
     @JsonProperty("sticker")
     private final String sticker = null;
     /**
-     * position	Integer	Yes	New sticker position in the set, zero-based
+     * position Integer Yes New sticker position in the set, zero-based
      */
     @JsonProperty("position")
     private final Integer position = null;

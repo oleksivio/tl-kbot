@@ -11,12 +11,12 @@ import java.util.List;
  */
 public class UserProfilePhotos implements ITelegram {
     /**
-     * photos	Array of Array of PhotoSize	Requested profile pictures (in up to 4 sizes each)
+     * photos Array of Array of PhotoSize Requested profile pictures (in up to 4 sizes each)
      */
     @JsonProperty("photos")
     private final List<List<PhotoSize>> photos = new ArrayList<>();
     /**
-     * total_count	Integer	Total number of profile pictures the target user has
+     * total_count Integer Total number of profile pictures the target user has
      */
     @JsonProperty("total_count")
     private Integer totalCount = null;

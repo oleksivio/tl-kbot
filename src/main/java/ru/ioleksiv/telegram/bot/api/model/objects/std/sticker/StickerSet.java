@@ -11,22 +11,22 @@ import java.util.List;
  */
 public class StickerSet implements ITelegram {
     /**
-     * name	String	Sticker set name
+     * name String Sticker set name
      */
     @JsonProperty("name")
     private String name = null;
     /**
-     * title	String	Sticker set title
+     * title String Sticker set title
      */
     @JsonProperty("title")
     private String title = null;
     /**
-     * contains_masks	Boolean	True, if the sticker set contains masks
+     * contains_masks Boolean True, if the sticker set contains masks
      */
     @JsonProperty("contains_masks")
     private Boolean containsMasks = null;
     /**
-     * stickers	Array of Sticker	List of all set stickers
+     * stickers Array of Sticker List of all set stickers
      */
     @JsonProperty("stickers")
     private List<Sticker> stickers = new ArrayList<>();

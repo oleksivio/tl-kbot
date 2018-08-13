@@ -15,7 +15,7 @@ public class GetStickerSet extends RunnableAction<StickerSet> {
     private static final String METHOD = "getStickerSet";
 
     /**
-     * name	String	Yes	Name of the sticker set
+     * name String Yes Name of the sticker set
      */
     @JsonProperty("name")
     private String name = null;

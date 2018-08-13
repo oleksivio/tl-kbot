@@ -8,97 +8,97 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
  */
 public class ChatMember implements ITelegram {
     /**
-     * user	User	Information about the user
+     * user User Information about the user
      */
     @JsonProperty("user")
     private User user = null;
     /**
-     * status	String	The member's status in the chat. Can be “creator”, “administrator”, “member”,
+     * status String The member's status in the chat. Can be “creator”, “administrator”, “member”,
      * “restricted”, “left” or “kicked”
      */
     @JsonProperty("status")
     private String status = null;
     /**
-     * until_date	Integer	Optional. Restricted and kicked only. Date when restrictions will be
+     * until_date Integer Optional. Restricted and kicked only. Date when restrictions will be
      * lifted for this user, unix time
      */
     @JsonProperty("until_date")
     private Long untilDate = null;
     /**
-     * can_be_edited	Boolean	Optional. Administrators only. True, if the bot is allowed to message
+     * can_be_edited Boolean Optional. Administrators only. True, if the bot is allowed to message
      * administrator privileges of that user
      */
     @JsonProperty("can_be_edited")
     private Boolean canBeEdited = null;
     /**
-     * can_change_info	Boolean	Optional. Administrators only. True, if the administrator can change
+     * can_change_info Boolean Optional. Administrators only. True, if the administrator can change
      * the chat title, photo and other settings
      */
     @JsonProperty("can_change_info")
     private Boolean canChangeInfo = null;
     /**
-     * can_post_messages	Boolean	Optional. Administrators only. True, if the administrator can post
+     * can_post_messages Boolean Optional. Administrators only. True, if the administrator can post
      * in the channel, channels only
      */
     @JsonProperty("can_post_messages")
     private Boolean canPostMessages = null;
     /**
-     * can_edit_messages	Boolean	Optional. Administrators only. True, if the administrator can message
+     * can_edit_messages Boolean Optional. Administrators only. True, if the administrator can message
      * messages of other users and can pin messages, channels only
      */
     @JsonProperty("can_edit_messages")
     private Boolean canEditMessages = null;
     /**
-     * can_delete_messages	Boolean	Optional. Administrators only. True, if the administrator can
+     * can_delete_messages Boolean Optional. Administrators only. True, if the administrator can
      * delete messages of other users
      */
     @JsonProperty("can_delete_messages")
     private Boolean canDeleteMessages = null;
     /**
-     * can_invite_users	Boolean	Optional. Administrators only. True, if the administrator can invite
+     * can_invite_users Boolean Optional. Administrators only. True, if the administrator can invite
      * new users to the chat
      */
     @JsonProperty("can_invite_users")
     private Boolean canInviteUsers = null;
     /**
-     * can_restrict_members	Boolean	Optional. Administrators only. True, if the administrator can
+     * can_restrict_members Boolean Optional. Administrators only. True, if the administrator can
      * restrict, ban or unban chat members
      */
     @JsonProperty("can_restrict_members")
     private Boolean canRestrictMembers = null;
     /**
-     * can_pin_messages	Boolean	Optional. Administrators only. True, if the administrator can pin
+     * can_pin_messages Boolean Optional. Administrators only. True, if the administrator can pin
      * messages, supergroups only
      */
     @JsonProperty("can_pin_messages")
     private Boolean canPinMessages = null;
     /**
-     * can_promote_members	Boolean	Optional. Administrators only. True, if the administrator can add
+     * can_promote_members Boolean Optional. Administrators only. True, if the administrator can add
      * new administrators with a subset of his own privileges or demote administrators that he has
      * promoted, directly or indirectly (promoted by administrators that were appointed by the user)
      */
     @JsonProperty("can_promote_members")
     private Boolean canPromoteMembers = null;
     /**
-     * can_send_messages	Boolean	Optional. Restricted only. True, if the user can send text
+     * can_send_messages Boolean Optional. Restricted only. True, if the user can send text
      * messages, contacts, locations and venues
      */
     @JsonProperty("can_send_messages")
     private Boolean canSendMessages = null;
     /**
-     * can_send_media_messages	Boolean	Optional. Restricted only. True, if the user can send audios,
+     * can_send_media_messages Boolean Optional. Restricted only. True, if the user can send audios,
      * documents, photos, videos, video notes and voice notes, implies can_send_messages
      */
     @JsonProperty("can_send_media_messages")
     private Boolean canSendMediaMessages = null;
     /**
-     * can_send_other_messages	Boolean	Optional. Restricted only. True, if the user can send
+     * can_send_other_messages Boolean Optional. Restricted only. True, if the user can send
      * animations, games, stickers and use inline bots, implies can_send_media_messages
      */
     @JsonProperty("can_send_other_messages")
     private Boolean canSendOtherMessages = null;
     /**
-     * can_add_web_page_previews	Boolean	Optional. Restricted only. True, if user may add web
+     * can_add_web_page_previews Boolean Optional. Restricted only. True, if user may add web
      * page previews to his messages, implies can_send_media_messages
      */
     @JsonProperty("can_add_web_page_previews")

@@ -7,19 +7,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class ReplyKeyboardButton implements IButton {
     /**
-     * text	String	Text of the button. If none of the optional fields are used, it will be sent as
+     * text String Text of the button. If none of the optional fields are used, it will be sent as
      * a message when the button is pressed
      */
     @JsonProperty("text")
     private String text = null;
     /**
-     * request_contact	Boolean	Optional. If True, the user's phone number will be sent as a contact
+     * request_contact Boolean Optional. If True, the user's phone number will be sent as a contact
      * when the button is pressed. Available in private chats only
      */
     @JsonProperty("request_contact")
     private Boolean requestContact = null;
     /**
-     * request_location	Boolean	Optional. If True, the user's current location will be sent when the
+     * request_location Boolean Optional. If True, the user's current location will be sent when the
      * button is pressed. Available in private chats only
      */
     @JsonProperty("request_location")

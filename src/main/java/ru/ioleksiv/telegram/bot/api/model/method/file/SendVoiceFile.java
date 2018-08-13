@@ -12,13 +12,13 @@ import ru.ioleksiv.telegram.bot.core.model.method.file.UploadMediaFile;
 public class SendVoiceFile extends UploadMediaFile {
     private static final String METHOD = "sendVoice";
     /**
-     * voice	InputFile or String Audio file to send. Pass a file_id as String to send a file
+     * voice InputFile or String Audio file to send. Pass a file_id as String to send a file
      * that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram
      * to get a file from the Internet, or upload a new one using multipart/form-data.
      */
     private static final String VOICE_KEY = "voice";
     /**
-     * duration	Integer	Optional	Duration of the voice message in seconds
+     * duration Integer Optional Duration of the voice message in seconds
      */
     private static final String DURATION_KEY = "duration";
 

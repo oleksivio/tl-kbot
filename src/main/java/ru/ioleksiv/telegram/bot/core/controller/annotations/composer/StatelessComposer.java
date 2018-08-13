@@ -3,7 +3,6 @@ package ru.ioleksiv.telegram.bot.core.controller.annotations.composer;
 import org.springframework.stereotype.Controller;
 import ru.ioleksiv.telegram.bot.api.annotations.behavior.After;
 import ru.ioleksiv.telegram.bot.api.annotations.behavior.Before;
-import ru.ioleksiv.telegram.bot.core.controller.annotations.HandlerFactory;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 import ru.ioleksiv.telegram.bot.core.controller.processor.StatelessProcessor;
 
@@ -15,10 +14,10 @@ import java.util.Optional;
 
 @Controller
 public class StatelessComposer {
-    private final HandlerFactory handlerFactory;
+    private final HandlerComposer handlerComposer;
 
-    public StatelessComposer(HandlerFactory handlerFactory) {
-        this.handlerFactory = handlerFactory;
+    public StatelessComposer(HandlerComposer handlerComposer) {
+        this.handlerComposer = handlerComposer;
     }
 
     public List<StatelessProcessor> create(Class<?> objClz, Object obj) {
@@ -27,7 +26,7 @@ public class StatelessComposer {
         Collection<Handler> simpleHandlerList = new ArrayList<>();
 
         for (Method method : objClz.getDeclaredMethods()) {
-            Optional<Handler> optionalHandler = handlerFactory.create(obj, method);
+            Optional<Handler> optionalHandler = handlerComposer.create(obj, method);
             if (!optionalHandler.isPresent()) {
                 continue;
             }

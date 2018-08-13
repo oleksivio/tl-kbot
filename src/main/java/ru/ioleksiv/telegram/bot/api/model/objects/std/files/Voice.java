@@ -8,22 +8,22 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
  */
 public class Voice implements ITelegram {
     /**
-     * file_id	String	Unique identifier for this files
+     * file_id String Unique identifier for this files
      */
     @JsonProperty("file_id")
     private String fileId = null;
     /**
-     * duration	Integer	Duration of the audio in seconds as defined by sender
+     * duration Integer Duration of the audio in seconds as defined by sender
      */
     @JsonProperty("duration")
     private Integer duration = null;
     /**
-     * mime_type	String	Optional. MIME type of the files as defined by sender
+     * mime_type String Optional. MIME type of the files as defined by sender
      */
     @JsonProperty("mime_type")
     private String mimeType = null;
     /**
-     * file_size	Integer	Optional. File size
+     * file_size Integer Optional. File size
      */
     @JsonProperty("file_size")
     private Integer fileSize = null;

@@ -11,35 +11,35 @@ import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 public abstract class SetGameScore<RES> extends ChatAction<RES> {
     private static final String METHOD = "setGameScore";
     /**
-     * score	Integer	Yes	New score, must be non-negative
+     * score Integer Yes New score, must be non-negative
      */
     @JsonProperty("score")
     private Integer score = null;
     /**
-     * force	Boolean	Optional	Pass True, if the high score is allowed to decrease. This can be useful when fixing
+     * force Boolean Optional Pass True, if the high score is allowed to decrease. This can be useful when fixing
      * mistakes or banning cheaters
      */
     @JsonProperty("force")
     private Boolean force = null;
     /**
-     * disable_edit_message	Boolean	Optional	Pass True, if the game message should not be automatically edited to
+     * disable_edit_message Boolean Optional Pass True, if the game message should not be automatically edited to
      * include the current scoreboard
      */
     @JsonProperty("disable_edit_message")
     private Boolean disableEditMessage = null;
 
     /**
-     * user_id	Integer	Yes	Target user id
+     * user_id Integer Yes Target user id
      */
     @JsonProperty("user_id")
     private Long userId = null;
     /**
-     * message_id	Integer	Optional	Required if inline_message_id is not specified. Identifier of the sent message
+     * message_id Integer Optional Required if inline_message_id is not specified. Identifier of the sent message
      */
     @JsonProperty("message_id")
     private Long messageId = null;
     /**
-     * inline_message_id	String	Optional	Required if chat_id and message_id are not specified. Identifier of the inline message
+     * inline_message_id String Optional Required if chat_id and message_id are not specified. Identifier of the inline message
      */
     @JsonProperty("inline_message_id")
     private String inlineMessageId = null;

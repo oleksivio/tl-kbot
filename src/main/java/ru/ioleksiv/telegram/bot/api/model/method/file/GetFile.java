@@ -14,7 +14,7 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 public class GetFile extends RunnableAction<File> {
     private static final String METHOD = "getFile";
     /**
-     * file_id	String		File identifier to get info about
+     * file_id String  File identifier to get info about
      */
     @JsonProperty("file_id")
     private String fileId = null;

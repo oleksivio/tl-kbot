@@ -9,7 +9,7 @@ public class InlineQueryResultCachedVoice extends TitledInlineResult {
     private static final String TYPE = "voice";
 
     /**
-     * voice_file_id	String	A valid file identifier for the voice message
+     * voice_file_id String A valid file identifier for the voice message
      */
     @JsonProperty("voice_file_id")
     private String voiceFileId = null;

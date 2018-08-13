@@ -13,36 +13,36 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 public class RestrictChatMember extends ChatAction<Boolean> {
     private static final String METHOD = "restrictChatMember";
     /**
-     * user_id	Integer Unique identifier of the target user
+     * user_id Integer Unique identifier of the target user
      */
     @JsonProperty("user_id")
     private Long userId = null;
     /**
-     * until_date	Integer	Optional	Date when the user will be unbanned, unix time. If user is
+     * until_date Integer Optional Date when the user will be unbanned, unix time. If user is
      * banned for more than 366 days or less than 30 seconds from the current time they are
      * considered to be banned forever
      */
     @JsonProperty("until_date")
     private Long untilDate = null;
     /**
-     * can_send_messages	Boolean	Optional	Pass True, if the user can send text messages, contacts, locations and venues
+     * can_send_messages Boolean Optional Pass True, if the user can send text messages, contacts, locations and venues
      */
     @JsonProperty("can_send_messages")
     private Boolean canSendMessages = null;
     /**
-     * can_send_media_messages	Boolean	Optional	Pass True, if the user can send audios, documents, photos, videos,
+     * can_send_media_messages Boolean Optional Pass True, if the user can send audios, documents, photos, videos,
      * video notes and voice notes, implies can_send_messages
      */
     @JsonProperty("can_send_media_messages")
     private Boolean canSendMediaMessages = null;
     /**
-     * can_send_other_messages	Boolean	Optional	Pass True, if the user can send animations, games, stickers and use
+     * can_send_other_messages Boolean Optional Pass True, if the user can send animations, games, stickers and use
      * inline bots, implies can_send_media_messages
      */
     @JsonProperty("can_send_other_messages")
     private Boolean canSendOtherMessages = null;
     /**
-     * can_add_web_page_previews	Boolean	Optional	Pass True, if the user may add web page previews to their messages,
+     * can_add_web_page_previews Boolean Optional Pass True, if the user may add web page previews to their messages,
      * implies can_send_media_messages
      */
     @JsonProperty("can_add_web_page_previews")

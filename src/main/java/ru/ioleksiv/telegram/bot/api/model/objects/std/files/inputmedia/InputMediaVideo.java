@@ -7,19 +7,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class InputMediaVideo implements InputMedia {
     /**
-     * type	String	Type of the result, must be video
+     * type String Type of the result, must be video
      */
     @JsonProperty("type")
     private String type = null;
     /**
-     * media	String	File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended),
+     * media String File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended),
      * pass an HTTP URL for Telegram to get a file from the Internet, or pass "attach://<file_attach_name>" to upload a
      * new one using multipart/form-data under <file_attach_name> name.
      */
     @JsonProperty("media")
     private String media = null;
     /**
-     * thumb	InputFile or String	Optional. Thumbnail of the file sent. The thumbnail should be in JPEG format and less
+     * thumb InputFile or String Optional. Thumbnail of the file sent. The thumbnail should be in JPEG format and less
      * than 200 kB in size. A thumbnail‘s width and height should not exceed 90. Ignored if the file is not uploaded
      * using multipart/form-data. Thumbnails can’t be reused and can be only uploaded as a new file, so you can pass
      * “attach://<file_attach_name>” if the thumbnail was uploaded using multipart/form-data under <file_attach_name>.
@@ -27,33 +27,33 @@ public class InputMediaVideo implements InputMedia {
     @JsonProperty("thumb")
     private String thumb = null;
     /**
-     * caption	String	Optional. Caption of the video to be sent, 0-200 characters
+     * caption String Optional. Caption of the video to be sent, 0-200 characters
      */
     @JsonProperty("caption")
     private String caption = null;
     /**
-     * parse_mode	String	Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic,
+     * parse_mode String Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic,
      * fixed-width text or inline URLs in the media caption.
      */
     @JsonProperty("parse_mode")
     private String parseMode = null;
     /**
-     * width	Integer	Optional. Video width
+     * width Integer Optional. Video width
      */
     @JsonProperty("width")
     private Integer width = null;
     /**
-     * height	Integer	Optional. Video height
+     * height Integer Optional. Video height
      */
     @JsonProperty("height")
     private Integer height = null;
     /**
-     * duration	Integer	Optional. Video duration
+     * duration Integer Optional. Video duration
      */
     @JsonProperty("duration")
     private Integer duration = null;
     /**
-     * supports_streaming	Boolean	Optional. Pass True, if the uploaded video is suitable for streaming
+     * supports_streaming Boolean Optional. Pass True, if the uploaded video is suitable for streaming
      */
     @JsonProperty("supports_streaming")
     private Boolean supportsStreaming = null;

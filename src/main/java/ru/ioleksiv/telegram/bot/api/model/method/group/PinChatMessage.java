@@ -13,12 +13,12 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 public class PinChatMessage extends ChatAction<Boolean> {
     private static final String METHOD = "pinChatMessage";
     /**
-     * message_id	Integer Identifier of a message to pin
+     * message_id Integer Identifier of a message to pin
      */
     @JsonProperty("message_id")
     private Long messageId = null;
     /**
-     * disable_notification	Boolean	Optional	Pass True, if it is not necessary to send a
+     * disable_notification Boolean Optional Pass True, if it is not necessary to send a
      * notification to all chat members about the new pinned message. Notifications are always
      * disabled in channels.
      */

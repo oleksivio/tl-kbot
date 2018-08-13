@@ -9,32 +9,32 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 public class Document implements ITelegram {
 
     /**
-     * file_id	String	Unique identifier for this files
+     * file_id String Unique identifier for this files
      */
     @JsonProperty("file_id")
     private String fileId = null;
     /**
-     * thumb	PhotoSize	Optional. Document thumbnail as defined by sender
+     * thumb PhotoSize Optional. Document thumbnail as defined by sender
      */
     @JsonProperty("thumb")
     private PhotoSize thumb = null;
     /**
-     * emoji String	Optional. Emoji associated with the sticker
+     * emoji String Optional. Emoji associated with the sticker
      */
     @JsonProperty("emoji")
     private String emoji = null;
     /**
-     * file_name	String	Optional. Original filename as defined by sender
+     * file_name String Optional. Original filename as defined by sender
      */
     @JsonProperty("file_name")
     private String fileName = null;
     /**
-     * mime_type	String	Optional. MIME type of the files as defined by sender
+     * mime_type String Optional. MIME type of the files as defined by sender
      */
     @JsonProperty("mime_type")
     private String mimeType = null;
     /**
-     * file_size	Integer	Optional. File size
+     * file_size Integer Optional. File size
      */
     @JsonProperty("file_size")
     private Integer fileSize = null;

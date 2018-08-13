@@ -15,24 +15,24 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 public class SendGame extends ChatAction<Message> {
     private static final String METHOD = "sendGame";
     /**
-     * game_short_name	String	Yes	Short name of the game, serves as the unique identifier for the game. Set up your games via Botfather.
+     * game_short_name String Yes Short name of the game, serves as the unique identifier for the game. Set up your games via Botfather.
      */
     @JsonProperty("game_short_name")
     private String gameShortName = null;
     /**
-     * reply_markup	InlineKeyboardMarkup	Optional	A JSON-serialized object for an inline keyboard.
+     * reply_markup InlineKeyboardMarkup Optional A JSON-serialized object for an inline keyboard.
      * If empty, one ‘Play game_title’ button will be shown. If not empty, the first button must launch the game.
      */
     @JsonProperty("reply_markup")
     private InlineKeyboardMarkup replyMarkup = null;
     /**
-     * disable_notification	Boolean	Optional	Sends the message silently. Users will receive a notification with
+     * disable_notification Boolean Optional Sends the message silently. Users will receive a notification with
      * no sound.
      */
     @JsonProperty("disable_notification")
     private Boolean disableNotification = null;
     /**
-     * reply_to_message_id	Integer	Optional	If the message is a reply, ID of the original message
+     * reply_to_message_id Integer Optional If the message is a reply, ID of the original message
      */
     @JsonProperty("reply_to_message_id")
     private Long replyToMessageId = null;

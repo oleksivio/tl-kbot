@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class InlineQueryResultCachedGif extends TitledInlineResult {
     private static final String TYPE = "gif";
     /**
-     * gif_file_id	String	A valid file identifier for the GIF file
+     * gif_file_id String A valid file identifier for the GIF file
      */
     @JsonProperty("gif_file_id")
     private String gifFileId = null;

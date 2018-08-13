@@ -13,7 +13,7 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 public class UnbanChatMember extends ChatAction<Boolean> {
     private static final String METHOD = "unbanChatMember";
     /**
-     * user_id	Integer Unique identifier of the target user
+     * user_id Integer Unique identifier of the target user
      */
     @JsonProperty("user_id")
     private Long userId = null;

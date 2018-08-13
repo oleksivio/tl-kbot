@@ -8,12 +8,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class InlineQueryResultCachedDocument extends TitledInlineResult {
     private static final String TYPE = "document";
     /**
-     * document_file_id	String	A valid file identifier for the file
+     * document_file_id String A valid file identifier for the file
      */
     @JsonProperty("document_file_id")
     private String document_file_id = null;
     /**
-     * description	String	Optional. Short description of the result
+     * description String Optional. Short description of the result
      */
     @JsonProperty("description")
     private String description = null;

@@ -8,18 +8,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class InlineQueryResultAudio extends TitledInlineResult {
     private static final String TYPE = "audio";
     /**
-     * audio_url	String	A valid URL for the audio file
+     * audio_url String A valid URL for the audio file
      */
     @JsonProperty("audio_url")
     private String audioUrl = null;
 
     /**
-     * performer	String	Optional. Performer
+     * performer String Optional. Performer
      */
     @JsonProperty("performer")
     private String performer = null;
     /**
-     * audio_duration	Integer	Optional. Audio duration in seconds
+     * audio_duration Integer Optional. Audio duration in seconds
      */
     @JsonProperty("audio_duration")
     private Integer audioDuration = null;

@@ -12,20 +12,20 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 public abstract class MessageAction extends ChatAction<Message> {
     private static final Logger LOG = LoggerFactory.getLogger(MessageAction.class);
     /**
-     * reply_markup	InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply	Optional
+     * reply_markup InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply Optional
      * Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard,
      * instructions to remove reply keyboard or to force a reply from the user.
      */
     @JsonProperty("reply_markup")
     private IKeyboard replyMarkup = null;
     /**
-     * disable_notification	Boolean	Optional	Sends the message silently. Users will receive a notification with
+     * disable_notification Boolean Optional Sends the message silently. Users will receive a notification with
      * no sound.
      */
     @JsonProperty("disable_notification")
     private Boolean disableNotification = null;
     /**
-     * reply_to_message_id	Integer	Optional	If the message is a reply, ID of the original message
+     * reply_to_message_id Integer Optional If the message is a reply, ID of the original message
      */
     @JsonProperty("reply_to_message_id")
     private Long replyToMessageId = null;

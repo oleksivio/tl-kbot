@@ -13,24 +13,24 @@ public class SendAudioFile extends UploadMediaFile {
     private static final String METHOD = "sendAudio";
 
     /**
-     * audio	InputFile Audio file to send. Upload a new
+     * audio InputFile Audio file to send. Upload a new
      * file using multipart/form-data.
      */
     private static final String AUDIO_KEY = "audio";
     /**
-     * duration	Integer	Optional	Duration of the audio in seconds
+     * duration Integer Optional Duration of the audio in seconds
      */
     private static final String DURATION_KEY = "duration";
     /**
-     * performer	String	Optional	Performer
+     * performer String Optional Performer
      */
     private static final String PERFORMER_KEY = "performer";
     /**
-     * title	String	Optional	Track name
+     * title String Optional Track name
      */
     private static final String TITLE_KEY = "title";
     /**
-     * thumb	InputFile or String	Optional	Thumbnail of the file sent. The thumbnail should be
+     * thumb InputFile or String Optional Thumbnail of the file sent. The thumbnail should be
      * in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed
      * 90. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can’t be reused
      * and can be only uploaded as a new file, so you can pass “attach://<file_attach_name>” if the

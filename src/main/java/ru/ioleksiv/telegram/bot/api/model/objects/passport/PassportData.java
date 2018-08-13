@@ -11,12 +11,12 @@ import java.util.List;
  */
 public class PassportData implements ITelegram {
     /**
-     * data	Array of EncryptedPassportElement	Array with information about documents and other Telegram Passport elements that was shared with the bot
+     * data Array of EncryptedPassportElement Array with information about documents and other Telegram Passport elements that was shared with the bot
      */
     @JsonProperty("data")
     private List<EncryptedPassportElement> encryptedPassportElements = new ArrayList<>();
     /**
-     * credentials	EncryptedCredentials	Encrypted credentials required to decrypt the data
+     * credentials EncryptedCredentials Encrypted credentials required to decrypt the data
      */
     @JsonProperty("credentials")
     private EncryptedCredentials encryptedCredentials = null;

@@ -13,12 +13,12 @@ public abstract class EditMessageLiveLocation<RES> extends EditAction<RES> {
     private static final String METHOD = "editMessageLiveLocation";
 
     /**
-     * latitude	Float number Latitude of new location
+     * latitude Float number Latitude of new location
      */
     @JsonProperty("latitude")
     private Double latitude = null;
     /**
-     * longitude	Float number Longitude of new location
+     * longitude Float number Longitude of new location
      */
     @JsonProperty("longitude")
     private Double longitude = null;

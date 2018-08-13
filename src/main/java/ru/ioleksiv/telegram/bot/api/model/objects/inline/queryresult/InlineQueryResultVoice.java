@@ -8,13 +8,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class InlineQueryResultVoice extends TitledInlineResult {
     public static final String TYPE = "voice";
     /**
-     * voice_url	String	A valid URL for the voice recording
+     * voice_url String A valid URL for the voice recording
      */
     @JsonProperty("voice_url")
     private String voiceUrl = null;
 
     /**
-     * voice_duration	Integer	Optional. Recording duration in seconds
+     * voice_duration Integer Optional. Recording duration in seconds
      */
     @JsonProperty("voice_duration")
     private Integer voiceDuration = null;

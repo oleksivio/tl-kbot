@@ -8,17 +8,17 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
  */
 public class PassportFile implements ITelegram {
     /**
-     * file_id	String	Unique identifier for this file
+     * file_id String Unique identifier for this file
      */
     @JsonProperty("file_id")
     private String fileId = null;
     /**
-     * file_size	Integer	File size
+     * file_size Integer File size
      */
     @JsonProperty("file_size")
     private Integer fileSize = null;
     /**
-     * file_date	Integer	Unix time when the file was uploaded
+     * file_date Integer Unix time when the file was uploaded
      */
     @JsonProperty("file_date")
     private Integer fileDate = null;

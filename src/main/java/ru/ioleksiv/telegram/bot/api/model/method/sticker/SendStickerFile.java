@@ -12,7 +12,7 @@ import ru.ioleksiv.telegram.bot.core.model.method.UploadMessageFile;
 public class SendStickerFile extends UploadMessageFile {
     private static final String METHOD = "sendSticker";
     /**
-     * sticker	InputFile	Yes	Sticker to send. Upload a new one using multipart/form-data.
+     * sticker InputFile Yes Sticker to send. Upload a new one using multipart/form-data.
      */
     private static final String STIKER_KEY = "sticker";
 

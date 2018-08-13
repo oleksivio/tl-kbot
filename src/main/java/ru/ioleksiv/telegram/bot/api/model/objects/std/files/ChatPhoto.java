@@ -8,13 +8,13 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
  */
 public class ChatPhoto implements ITelegram {
     /**
-     * small_file_id	String	Unique file identifier of small (160x160) chat photo. This file_id
+     * small_file_id String Unique file identifier of small (160x160) chat photo. This file_id
      * can be used only for photo download.
      */
     @JsonProperty("small_file_id")
     private String smallFileId = null;
     /**
-     * big_file_id	String	Unique file identifier of big (640x640) chat photo. This file_id can be
+     * big_file_id String Unique file identifier of big (640x640) chat photo. This file_id can be
      * used only for photo download.
      */
     @JsonProperty("big_file_id")

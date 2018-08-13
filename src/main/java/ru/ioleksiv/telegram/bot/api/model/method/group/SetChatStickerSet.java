@@ -13,7 +13,7 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 public class SetChatStickerSet extends ChatAction<Boolean> {
     private static final String METHOD = "setChatStickerSet";
     /**
-     * sticker_set_name	String Name of the sticker set to be set as the group sticker set
+     * sticker_set_name String Name of the sticker set to be set as the group sticker set
      */
     @JsonProperty("sticker_set_name")
     private String stickerSetName = null;

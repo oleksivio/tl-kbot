@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class InlineQueryResultCachedMpeg4Gif extends TitledInlineResult {
     private static final String TYPE = "mpeg4_gif";
     /**
-     * mpeg4_file_id	String	A valid file identifier for the MP4 file
+     * mpeg4_file_id String A valid file identifier for the MP4 file
      */
     @JsonProperty("mpeg4_file_id")
     private String mpeg4FileId = null;

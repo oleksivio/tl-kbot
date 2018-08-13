@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class InlineQueryResultCachedSticker extends ContentInlineResult {
     private static final String TYPE = "sticker";
     /**
-     * sticker_file_id	String	A valid file identifier of the sticker
+     * sticker_file_id String A valid file identifier of the sticker
      */
     @JsonProperty("sticker_file_id")
     private String stickerFileId = null;

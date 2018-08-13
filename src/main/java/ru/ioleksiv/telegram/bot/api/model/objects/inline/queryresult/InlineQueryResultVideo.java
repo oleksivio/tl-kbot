@@ -8,37 +8,37 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class InlineQueryResultVideo extends TitledInlineResult {
     public static final String TYPE = "video";
     /**
-     * video_url	String	A valid URL for the embedded video player or video file
+     * video_url String A valid URL for the embedded video player or video file
      */
     @JsonProperty("video_url")
     private String videoUrl = null;
     /**
-     * mime_type	String	Mime type of the content of video url, “text/html” or “video/mp4”
+     * mime_type String Mime type of the content of video url, “text/html” or “video/mp4”
      */
     @JsonProperty("mime_type")
     private String mimeType = null;
     /**
-     * thumb_url	String	URL of the thumbnail (jpeg only) for the video
+     * thumb_url String URL of the thumbnail (jpeg only) for the video
      */
     @JsonProperty("thumb_url")
     private String thumbUrl = null;
     /**
-     * video_width	Integer	Optional. Video width
+     * video_width Integer Optional. Video width
      */
     @JsonProperty("video_width")
     private Integer videoWidth = null;
     /**
-     * video_height	Integer	Optional. Video height
+     * video_height Integer Optional. Video height
      */
     @JsonProperty("video_height")
     private Integer videoHeight = null;
     /**
-     * video_duration	Integer	Optional. Video duration in seconds
+     * video_duration Integer Optional. Video duration in seconds
      */
     @JsonProperty("video_duration")
     private Integer videoDuration = null;
     /**
-     * description	String	Optional. Short description of the result
+     * description String Optional. Short description of the result
      */
     @JsonProperty("description")
     private String description = null;

@@ -16,12 +16,12 @@ public class PassportElementErrorDataField extends PassportElementError {
     public static final String TYPE_ADDRESS = ADDRESS;
 
     /**
-     * field_name	String	Name of the data field which has the error
+     * field_name String Name of the data field which has the error
      */
     @JsonProperty("field_name")
     private String fieldName = null;
     /**
-     * data_hash	String	Base64-encoded data hash
+     * data_hash String Base64-encoded data hash
      */
     @JsonProperty("data_hash")
     private String dataHash = null;

@@ -17,17 +17,17 @@ public class GetGameHighScores extends ChatAction<List<GameHighScore>> {
     private static final String METHOD = "getGameHighScores";
 
     /**
-     * user_id	Integer	Yes	Target user id
+     * user_id Integer Yes Target user id
      */
     @JsonProperty("user_id")
     private Long userId = null;
     /**
-     * message_id	Integer	Optional	Required if inline_message_id is not specified. Identifier of the sent message
+     * message_id Integer Optional Required if inline_message_id is not specified. Identifier of the sent message
      */
     @JsonProperty("message_id")
     private Long messageId = null;
     /**
-     * inline_message_id	String	Optional	Required if chat_id and message_id are not specified. Identifier of the inline message
+     * inline_message_id String Optional Required if chat_id and message_id are not specified. Identifier of the inline message
      */
     @JsonProperty("inline_message_id")
     private String inlineMessageId = null;

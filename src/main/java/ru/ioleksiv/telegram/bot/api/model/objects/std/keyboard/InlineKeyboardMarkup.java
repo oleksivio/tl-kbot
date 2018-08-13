@@ -16,7 +16,7 @@ public class InlineKeyboardMarkup extends AbstractKeyboardMarkup<InlineKeyboardB
     private static final Logger LOGGER = LoggerFactory.getLogger(InlineKeyboardMarkup.class);
 
     /**
-     * inline_keyboard	Array of Array of InlineKeyboardButton	Array of button rows, each
+     * inline_keyboard Array of Array of InlineKeyboardButton Array of button rows, each
      * represented by an Array of InlineKeyboardButton objects
      */
 

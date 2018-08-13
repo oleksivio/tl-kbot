@@ -9,27 +9,27 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
  */
 public class Animation implements ITelegram {
     /**
-     * file_id	String	Unique file identifier
+     * file_id String Unique file identifier
      */
     @JsonProperty("file_id")
     private String fileId = null;
     /**
-     * thumb	PhotoSize	Optional. Animation thumbnail as defined by sender
+     * thumb PhotoSize Optional. Animation thumbnail as defined by sender
      */
     @JsonProperty("thumb")
     private PhotoSize thumb = null;
     /**
-     * file_name	String	Optional. Original animation filename as defined by sender
+     * file_name String Optional. Original animation filename as defined by sender
      */
     @JsonProperty("file_name")
     private String fileName = null;
     /**
-     * mime_type	String	Optional. MIME type of the file as defined by sender
+     * mime_type String Optional. MIME type of the file as defined by sender
      */
     @JsonProperty("mime_type")
     private String mimeType = null;
     /**
-     * file_size	Integer	Optional. File size
+     * file_size Integer Optional. File size
      */
     @JsonProperty("file_size")
     private Integer fileSize = null;

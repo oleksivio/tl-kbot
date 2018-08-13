@@ -8,32 +8,32 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class InlineQueryResultDocument extends TitledInlineResult {
     private static final String TYPE = "document";
     /**
-     * document_url	String	A valid URL for the file
+     * document_url String A valid URL for the file
      */
     @JsonProperty("document_url")
     private String documentUrl = null;
     /**
-     * mime_type	String	Mime type of the content of the file, either “application/pdf” or “application/zip”
+     * mime_type String Mime type of the content of the file, either “application/pdf” or “application/zip”
      */
     @JsonProperty("mime_type")
     private String mimeType = null;
     /**
-     * description	String	Optional. Short description of the result
+     * description String Optional. Short description of the result
      */
     @JsonProperty("description")
     private String description = null;
     /**
-     * thumb_url	String	Optional. URL of the thumbnail (jpeg only) for the file
+     * thumb_url String Optional. URL of the thumbnail (jpeg only) for the file
      */
     @JsonProperty("thumb_url")
     private String thumbUrl = null;
     /**
-     * thumb_width	Integer	Optional. Thumbnail width
+     * thumb_width Integer Optional. Thumbnail width
      */
     @JsonProperty("thumb_width")
     private Integer thumbWidth = null;
     /**
-     * thumb_height	Integer	Optional. Thumbnail height
+     * thumb_height Integer Optional. Thumbnail height
      */
     @JsonProperty("thumb_height")
     private Integer thumbHeight = null;

@@ -8,43 +8,43 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class InlineQueryResultVenue extends TitledInlineResult {
     private static final String TYPE = "venue";
     /**
-     * latitude	Float number Latitude of the venue
+     * latitude Float number Latitude of the venue
      */
     @JsonProperty("latitude")
     private Double latitude = null;
     /**
-     * longitude	Float number Longitude of the venue
+     * longitude Float number Longitude of the venue
      */
     @JsonProperty("longitude")
     private Double longitude = null;
     /**
-     * address	String Address of the venue
+     * address String Address of the venue
      */
     @JsonProperty("address")
     private String address = null;
     /**
-     * foursquare_id	String	Optional	Foursquare identifier of the venue
+     * foursquare_id String Optional Foursquare identifier of the venue
      */
     @JsonProperty("foursquare_id")
     private String foursquareId = null;
     /**
-     * foursquare_type	String	Optional. Foursquare type of the venue. (For example,
+     * foursquare_type String Optional. Foursquare type of the venue. (For example,
      * “arts_entertainment/default”, “arts_entertainment/aquarium” or “food/icecream”.)
      */
     @JsonProperty("foursquare_type")
     private String foursquareType = null;
     /**
-     * thumb_url	String	Optional. URL of the thumbnail (jpeg only) for the file
+     * thumb_url String Optional. URL of the thumbnail (jpeg only) for the file
      */
     @JsonProperty("thumb_url")
     private String thumbUrl = null;
     /**
-     * thumb_width	Integer	Optional. Thumbnail width
+     * thumb_width Integer Optional. Thumbnail width
      */
     @JsonProperty("thumb_width")
     private Integer thumbWidth = null;
     /**
-     * thumb_height	Integer	Optional. Thumbnail height
+     * thumb_height Integer Optional. Thumbnail height
      */
     @JsonProperty("thumb_height")
     private Integer thumbHeight = null;

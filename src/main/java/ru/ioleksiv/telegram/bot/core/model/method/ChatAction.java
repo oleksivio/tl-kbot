@@ -5,7 +5,7 @@ import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 
 public abstract class ChatAction<RES> extends RunnableAction<RES> {
     /**
-     * chat_id	Integer or String Unique identifier for the target chat or username of the
+     * chat_id Integer or String Unique identifier for the target chat or username of the
      * target channel (in the format @channelusername)
      */
     @JsonProperty("chat_id")

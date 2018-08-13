@@ -13,35 +13,35 @@ import java.util.List;
  */
 public class Game implements ITelegram {
     /**
-     * title	String	Title of the game
+     * title String Title of the game
      */
     @JsonProperty("title")
     private String title = null;
     /**
-     * description	String	Description of the game
+     * description String Description of the game
      */
     @JsonProperty("description")
     private String description = null;
     /**
-     * photo	Array of PhotoSize	Photo that will be displayed in the game message in chats.
+     * photo Array of PhotoSize Photo that will be displayed in the game message in chats.
      */
     @JsonProperty("photo")
     private List<PhotoSize> photo = new ArrayList<>();
     /**
-     * text	String	Optional. Brief description of the game or high scores included in the game message.
+     * text String Optional. Brief description of the game or high scores included in the game message.
      * Can be automatically edited to include current high scores for the game when the bot calls setGameScore,
      * or manually edited using editMessageText. 0-4096 characters.
      */
     @JsonProperty("text")
     private String text = null;
     /**
-     * text_entities	Array of MessageEntity	Optional. Special entities that appear in text, such as usernames, URLs,
+     * text_entities Array of MessageEntity Optional. Special entities that appear in text, such as usernames, URLs,
      * bot commands, etc.
      */
     @JsonProperty("text_entities")
     private List<MessageEntity> textEntities = new ArrayList<>();
     /**
-     * animation	Animation	Optional. Animation that will be displayed in the game message in chats. Upload via BotFather
+     * animation Animation Optional. Animation that will be displayed in the game message in chats. Upload via BotFather
      */
     @JsonProperty("animation")
     private Animation animation = null;

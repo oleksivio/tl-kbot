@@ -12,7 +12,7 @@ import ru.ioleksiv.telegram.bot.core.model.method.CaptionAction;
 public class SendPhoto extends CaptionAction {
     private static final String METHOD = "sendPhoto";
     /**
-     * photo	 String		Photo to send. Pass a file_id as String to send a photo that
+     * photo  String  Photo to send. Pass a file_id as String to send a photo that
      * exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to
      * get a photo from the Internet
      */

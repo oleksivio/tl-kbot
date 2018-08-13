@@ -14,18 +14,18 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 public class GetUserProfilePhotos extends RunnableAction<UserProfilePhotos> {
     private static final String METHOD = "getUserProfilePhotos";
     /**
-     * user_id	Integer Unique identifier of the target user
+     * user_id Integer Unique identifier of the target user
      */
     @JsonProperty("user_id")
     private Long userId = null;
     /**
-     * offset	Integer	Optional	Sequential number of the first photo to be returned. By default,
+     * offset Integer Optional Sequential number of the first photo to be returned. By default,
      * all photos are returned.
      */
     @JsonProperty("offset")
     private Integer offset = null;
     /**
-     * limit	Integer	Optional	Limits the number of photos to be retrieved. Values between 1—100
+     * limit Integer Optional Limits the number of photos to be retrieved. Values between 1—100
      * are accepted. Defaults to 100.
      */
     @JsonProperty("limit")

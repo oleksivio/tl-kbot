@@ -7,17 +7,17 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 public abstract class InlineQueryResult implements ITelegram {
     /**
-     * type	String	Type of the result, must be article
+     * type String Type of the result, must be article
      */
     @JsonProperty("type")
     private final String type;
     /**
-     * id	String	Unique identifier for this result, 1-64 bytes
+     * id String Unique identifier for this result, 1-64 bytes
      */
     @JsonProperty("id")
     private String id = null;
     /**
-     * reply_markup	InlineKeyboardMarkup	Optional. Inline keyboard attached to the message
+     * reply_markup InlineKeyboardMarkup Optional. Inline keyboard attached to the message
      */
     @JsonProperty("reply_markup")
     private InlineKeyboardMarkup replyMarkup = null;

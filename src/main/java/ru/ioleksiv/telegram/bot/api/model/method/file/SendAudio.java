@@ -12,7 +12,7 @@ import ru.ioleksiv.telegram.bot.core.model.method.file.ThumbAction;
 public class SendAudio extends ThumbAction {
     static final String METHOD = "sendAudio";
     /**
-     * audio	 String	 	Audio file to send. Pass a file_id as String to send an
+     * audio  String   Audio file to send. Pass a file_id as String to send an
      * audio file that exists on the Telegram servers (recommended), pass an HTTP URL as a String
      * for Telegram to get an audio file from the Internet, or upload a new
      * one using multipart/form-data.
@@ -21,17 +21,17 @@ public class SendAudio extends ThumbAction {
     private String audio = null;
 
     /**
-     * duration	Integer	Optional	Duration of the audio in seconds
+     * duration Integer Optional Duration of the audio in seconds
      */
     @JsonProperty("duration")
     private Integer duration = null;
     /**
-     * performer	String	Optional	Performer
+     * performer String Optional Performer
      */
     @JsonProperty("performer")
     private String performer = null;
     /**
-     * title	String	Optional	Track name
+     * title String Optional Track name
      */
     @JsonProperty("title")
     private String title = null;

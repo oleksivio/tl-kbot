@@ -10,7 +10,7 @@ public class PassportElementErrorReverseSide extends PassportElementError {
     public static final String TYPE_DRIVER_LICENSE = DRIVER_LICENSE;
     public static final String TYPE_IDENTITY_CARD = IDENTITY_CARD;
     /**
-     * file_hash	String	Base64-encoded hash of the file with the reverse side of the document
+     * file_hash String Base64-encoded hash of the file with the reverse side of the document
      */
     @JsonProperty("file_hash")
     private String fileHash = null;

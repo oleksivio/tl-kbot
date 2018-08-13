@@ -8,27 +8,27 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
  */
 public class Venue implements ITelegram {
     /**
-     * location	Location	Venue location
+     * location Location Venue location
      */
     @JsonProperty("location")
     private Location location = null;
     /**
-     * title	String	Name of the venue
+     * title String Name of the venue
      */
     @JsonProperty("title")
     private String title = null;
     /**
-     * address	String	Address of the venue
+     * address String Address of the venue
      */
     @JsonProperty("address")
     private String address = null;
     /**
-     * foursquare_id	String	Optional. Foursquare identifier of the venue
+     * foursquare_id String Optional. Foursquare identifier of the venue
      */
     @JsonProperty("foursquare_id")
     private String foursquareId = null;
     /**
-     * foursquare_type	String	Optional. Foursquare type of the venue. (For example,
+     * foursquare_type String Optional. Foursquare type of the venue. (For example,
      * “arts_entertainment/default”, “arts_entertainment/aquarium” or “food/icecream”.)
      */
     @JsonProperty("foursquare_type")

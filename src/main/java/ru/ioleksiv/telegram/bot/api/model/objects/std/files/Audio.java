@@ -9,37 +9,37 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 public class Audio implements ITelegram {
 
     /**
-     * file_id	String	Unique identifier for this files
+     * file_id String Unique identifier for this files
      */
     @JsonProperty("file_id")
     private String fileId = null;
     /**
-     * duration	Integer	Duration of the audio in seconds as defined by sender
+     * duration Integer Duration of the audio in seconds as defined by sender
      */
     @JsonProperty("duration")
     private Integer duration = null;
     /**
-     * performer	String	Optional. Performer of the audio as defined by sender or by audio tags
+     * performer String Optional. Performer of the audio as defined by sender or by audio tags
      */
     @JsonProperty("performer")
     private String performer = null;
     /**
-     * title	String	Optional. Title of the audio as defined by sender or by audio tags
+     * title String Optional. Title of the audio as defined by sender or by audio tags
      */
     @JsonProperty("title")
     private String title = null;
     /**
-     * mime_type	String	Optional. MIME type of the files as defined by sender
+     * mime_type String Optional. MIME type of the files as defined by sender
      */
     @JsonProperty("mime_type")
     private String mimeType = null;
     /**
-     * file_size	Integer	Optional. File size
+     * file_size Integer Optional. File size
      */
     @JsonProperty("file_size")
     private Integer fileSize = null;
     /**
-     * thumb	PhotoSize	Optional. Thumbnail of the album cover to which the music file belongs
+     * thumb PhotoSize Optional. Thumbnail of the album cover to which the music file belongs
      */
     @JsonProperty("thumb")
     private PhotoSize thumb = null;

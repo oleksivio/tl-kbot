@@ -14,7 +14,7 @@ public class DeleteMessage extends ChatAction<Boolean> {
     private static final String METHOD = "deleteMessage";
 
     /**
-     * message_id	Integer Identifier of the message to delete
+     * message_id Integer Identifier of the message to delete
      */
     @JsonProperty("message_id")
     private Long messageId = null;

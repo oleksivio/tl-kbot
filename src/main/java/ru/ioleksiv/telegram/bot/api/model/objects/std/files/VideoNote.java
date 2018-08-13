@@ -8,27 +8,27 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
  */
 public class VideoNote implements ITelegram {
     /**
-     * file_id	String	Unique identifier for this files
+     * file_id String Unique identifier for this files
      */
     @JsonProperty("file_id")
     private String fileId = null;
     /**
-     * length	Integer	Video width and height as defined by sender
+     * length Integer Video width and height as defined by sender
      */
     @JsonProperty("length")
     private Integer length = null;
     /**
-     * duration	Integer	Duration of the video in seconds as defined by sender
+     * duration Integer Duration of the video in seconds as defined by sender
      */
     @JsonProperty("duration")
     private Integer duration = null;
     /**
-     * thumb	PhotoSize	Optional. Video thumbnail
+     * thumb PhotoSize Optional. Video thumbnail
      */
     @JsonProperty("thumb")
     private PhotoSize thumb = null;
     /**
-     * file_size	Integer	Optional. File size
+     * file_size Integer Optional. File size
      */
     @JsonProperty("file_size")
     private Integer fileSize = null;

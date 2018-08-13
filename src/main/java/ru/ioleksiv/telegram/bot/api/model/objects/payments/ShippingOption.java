@@ -11,17 +11,17 @@ import java.util.List;
  */
 public class ShippingOption implements ITelegram {
     /**
-     * id	String	Shipping option identifier
+     * id String Shipping option identifier
      */
     @JsonProperty("id")
     private String id = null;
     /**
-     * title	String	Option title
+     * title String Option title
      */
     @JsonProperty("title")
     private String title = null;
     /**
-     * prices	Array of LabeledPrice	List of price portions
+     * prices Array of LabeledPrice List of price portions
      */
     @JsonProperty("prices")
     private List<LabeledPrice> prices = new ArrayList<>();

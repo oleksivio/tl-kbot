@@ -6,27 +6,27 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 public class Contact implements ITelegram {
     /**
-     * phone_number	String	Contact's phone number
+     * phone_number String Contact's phone number
      */
     @JsonProperty("phone_number")
     private String mPhoneNumber = "";
     /**
-     * first_name	String	Contact's first name
+     * first_name String Contact's first name
      */
     @JsonProperty("first_name")
     private String mFirstName = "";
     /**
-     * last_name	String	Optional. Contact's last name
+     * last_name String Optional. Contact's last name
      */
     @JsonProperty("last_name")
     private String mLastName = "";
     /**
-     * user_id	Integer	Optional. Contact's user identifier in Telegram
+     * user_id Integer Optional. Contact's user identifier in Telegram
      */
     @JsonProperty("user_id")
     private Integer mUserId = null;
     /**
-     * vCard	String	Optional	Additional data about the contact in the form of a vCard, 0-2048 bytes
+     * vCard String Optional Additional data about the contact in the form of a vCard, 0-2048 bytes
      */
     @JsonProperty("vCard")
     private String vCard = null;

@@ -5,7 +5,7 @@ import ru.ioleksiv.telegram.bot.api.model.objects.inline.messagecontent.InputMes
 
 public abstract class ContentInlineResult extends InlineQueryResult {
     /**
-     * input_message_content	InputMessageContent	Optional. Content of the message to be sent
+     * input_message_content InputMessageContent Optional. Content of the message to be sent
      */
     @JsonProperty("input_message_content")
     private InputMessageContent inputMessageContent = null;

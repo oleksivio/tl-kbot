@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public abstract class TitledInlineResult extends FormattedInlineResult {
     /**
-     * title	String	Title for the result
+     * title String Title for the result
      */
     @JsonProperty("title")
     private String title = null;

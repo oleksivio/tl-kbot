@@ -12,12 +12,12 @@ import ru.ioleksiv.telegram.bot.core.model.method.FormattedMessageAction;
 public class SendMessage extends FormattedMessageAction {
     private static final String METHOD = "sendMessage";
     /**
-     * text	String Text of the message to be sent
+     * text String Text of the message to be sent
      */
     @JsonProperty("text")
     private String text = null;
     /**
-     * disable_web_page_preview	Boolean	Optional	Disables link previews for links in this message
+     * disable_web_page_preview Boolean Optional Disables link previews for links in this message
      */
     @JsonProperty("disable_web_page_preview")
     private Boolean disableWebPagePreview = null;

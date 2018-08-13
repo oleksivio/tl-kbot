@@ -19,7 +19,7 @@ public class SendVoice extends CaptionAction {
     @JsonProperty("voice")
     private String voice = null;
     /**
-     * duration	Integer	Optional	Duration of the voice message in seconds
+     * duration Integer Optional Duration of the voice message in seconds
      */
     @JsonProperty("duration")
     private Integer duration = null;

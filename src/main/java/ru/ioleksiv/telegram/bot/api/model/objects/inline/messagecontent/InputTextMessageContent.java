@@ -7,17 +7,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class InputTextMessageContent implements InputMessageContent {
     /**
-     * message_text	String	Text of the message to be sent, 1-4096 characters
+     * message_text String Text of the message to be sent, 1-4096 characters
      */
     @JsonProperty("message_text")
     private String messageText = null;
     /**
-     * parse_mode	String	Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message.
+     * parse_mode String Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message.
      */
     @JsonProperty("parse_mode")
     private String parseMode = null;
     /**
-     * disable_web_page_preview	Boolean	Optional. Disables link previews for links in the sent message
+     * disable_web_page_preview Boolean Optional. Disables link previews for links in the sent message
      */
     @JsonProperty("disable_web_page_preview")
     private Boolean disableWebPagePreview = null;

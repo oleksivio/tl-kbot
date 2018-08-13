@@ -12,42 +12,42 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 public class Sticker implements ITelegram {
     private static final Logger LOG = LoggerFactory.getLogger(Sticker.class);
     /**
-     * mask_position	MaskPosition	Optional. For mask stickers, the position where the mask should be placed
+     * mask_position MaskPosition Optional. For mask stickers, the position where the mask should be placed
      */
     @JsonProperty("mask_position")
     private final MaskPosition maskPosition = null;
     /**
-     * file_id	String	Unique identifier for this files
+     * file_id String Unique identifier for this files
      */
     @JsonProperty("file_id")
     private String fileId = null;
     /**
-     * width	Integer	Sticker width
+     * width Integer Sticker width
      */
     @JsonProperty("width")
     private Integer width = null;
     /**
-     * height	Integer	Sticker height
+     * height Integer Sticker height
      */
     @JsonProperty("height")
     private Integer height = null;
     /**
-     * thumb	PhotoSize	Optional. Sticker thumbnail in the .webp or .jpg format
+     * thumb PhotoSize Optional. Sticker thumbnail in the .webp or .jpg format
      */
     @JsonProperty("thumb")
     private PhotoSize thumb = null;
     /**
-     * emoji String	Optional. Emoji associated with the sticker
+     * emoji String Optional. Emoji associated with the sticker
      */
     @JsonProperty("emoji")
     private String emoji = null;
     /**
-     * set_name	String	Optional. Name of the sticker set to which the sticker belongs
+     * set_name String Optional. Name of the sticker set to which the sticker belongs
      */
     @JsonProperty("set_name")
     private String setName = null;
     /**
-     * file_size	Integer	Optional. File size
+     * file_size Integer Optional. File size
      */
     @JsonProperty("file_size")
     private Integer fileSize = null;

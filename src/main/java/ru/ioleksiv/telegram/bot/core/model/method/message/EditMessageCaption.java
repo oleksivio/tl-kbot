@@ -12,12 +12,12 @@ import ru.ioleksiv.telegram.bot.core.model.method.EditAction;
 public abstract class EditMessageCaption<RES> extends EditAction<RES> {
     private static final String METHOD = "editMessageCaption";
     /**
-     * caption	String	Optional	New caption of the message
+     * caption String Optional New caption of the message
      */
     @JsonProperty("caption")
     private String caption = null;
     /**
-     * parse_mode	String	Optional	Send Markdown or HTML, if you want Telegram apps to show bold,
+     * parse_mode String Optional Send Markdown or HTML, if you want Telegram apps to show bold,
      * italic, fixed-width text or inline URLs in the media caption.
      */
     @JsonProperty("parse_mode")

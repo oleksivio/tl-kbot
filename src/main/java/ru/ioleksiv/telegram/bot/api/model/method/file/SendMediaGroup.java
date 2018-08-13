@@ -18,19 +18,19 @@ import java.util.List;
 public class SendMediaGroup extends ChatAction<Message> {
     private static final String METHOD = "sendMediaGroup";
     /**
-     * media	Array of InputMedia A JSON-serialized array describing photos and videos to be
+     * media Array of InputMedia A JSON-serialized array describing photos and videos to be
      * sent, must include 2–10 items
      */
     @JsonProperty("media")
     private List<InputMedia> media = new ArrayList<>();
     /**
-     * disable_notification	Boolean	Optional	Sends the messages silently. Users will receive a
+     * disable_notification Boolean Optional Sends the messages silently. Users will receive a
      * notification with no sound.
      */
     @JsonProperty("disable_notification")
     private Boolean disableNotification = null;
     /**
-     * reply_to_message_id	Integer	Optional	If the messages are a reply, ID of the original message
+     * reply_to_message_id Integer Optional If the messages are a reply, ID of the original message
      */
     @JsonProperty("reply_to_message_id")
     private Long replyToMessageId = null;

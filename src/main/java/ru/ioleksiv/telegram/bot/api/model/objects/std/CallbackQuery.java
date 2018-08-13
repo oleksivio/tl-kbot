@@ -1,12 +1,9 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.callback.ChatInstanceCallbackQuery;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.callback.DataCallbackQuery;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.callback.GameNameCallbackQuery;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.callback.InlineMessageCallbackQuery;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.callback.MessageCallbackQuery;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.callback.UserCallbackQuery;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primary.MessageFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.StringFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.UserFilter;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
@@ -14,23 +11,23 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
  */
 public class CallbackQuery implements ITelegram {
     /**
-     * id	String	Unique identifier for this query
+     * id String Unique identifier for this query
      */
     @JsonProperty("id")
     private String id = null;
     /**
      * To setup filter:
      *
-     * @see UserCallbackQuery
-     * from	User	Sender
+     * @see UserFilter from
+     * from User Sender
      */
     @JsonProperty("from")
     private User from = null;
     /**
      * To setup filter:
      *
-     * @see MessageCallbackQuery
-     * message	Message	Optional. Message with the callback button that originated the query. Note
+     * @see MessageFilter message
+     * message Message Optional. Message with the callback button that originated the query. Note
      * that message content and message date will not be available if the message is too old
      */
     @JsonProperty("message")
@@ -38,8 +35,8 @@ public class CallbackQuery implements ITelegram {
     /**
      * To setup filter:
      *
-     * @see InlineMessageCallbackQuery
-     * inline_message_id	String	Optional. Identifier of the message sent via the bot in inline mode,
+     * @see StringFilter inlineMessageId
+     * inline_message_id String Optional. Identifier of the message sent via the bot in inline mode,
      * that originated the query.
      */
     @JsonProperty("inline_message_id")
@@ -47,8 +44,8 @@ public class CallbackQuery implements ITelegram {
     /**
      * To setup filter:
      *
-     * @see ChatInstanceCallbackQuery
-     * chat_instance	String	Global identifier, uniquely corresponding to the chat to which the
+     * @see StringFilter chatInstance
+     * chat_instance String Global identifier, uniquely corresponding to the chat to which the
      * message with the callback button was sent. Useful for high scores in games.
      */
     @JsonProperty("chat_instance")
@@ -56,8 +53,8 @@ public class CallbackQuery implements ITelegram {
     /**
      * To setup filter:
      *
-     * @see DataCallbackQuery
-     * data	String	Optional. Data associated with the callback button. Be aware that a bad client
+     * @see StringFilter data
+     * data String Optional. Data associated with the callback button. Be aware that a bad client
      * can send arbitrary data in this field.
      */
     @JsonProperty("data")
@@ -65,8 +62,8 @@ public class CallbackQuery implements ITelegram {
     /**
      * To setup filter:
      *
-     * @see GameNameCallbackQuery
-     * game_short_name	String	Optional. Short name of a Game to be returned, serves as the unique
+     * @see StringFilter gameShortName
+     * game_short_name String Optional. Short name of a Game to be returned, serves as the unique
      * identifier for the game
      */
     @JsonProperty("game_short_name")

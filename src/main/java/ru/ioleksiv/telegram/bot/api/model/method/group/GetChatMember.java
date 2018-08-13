@@ -15,7 +15,7 @@ public class GetChatMember extends ChatAction<ChatMember> {
     private static final String METHOD = "getChatMember";
 
     /**
-     * user_id	Integer Unique identifier of the target user
+     * user_id Integer Unique identifier of the target user
      */
     @JsonProperty("user_id")
     private Long userId = null;

@@ -22,7 +22,7 @@ public class SendChatAction extends ChatAction<Boolean> {
     public static final String ACTION_RECORD_VIDEO_NOTE = "record_video_note";
     public static final String ACTION_UPLOAD_VIDEO_NOTE = "upload_video_note";
     /**
-     * action	String Type of action to broadcast.
+     * action String Type of action to broadcast.
      * Choose one, depending on what the user is about to receive:
      * typing for text messages,
      * upload_photo for photos,

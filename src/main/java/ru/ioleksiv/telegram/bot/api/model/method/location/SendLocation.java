@@ -13,17 +13,17 @@ public class SendLocation extends MessageAction {
     private static final String METHOD = "sendLocation";
 
     /**
-     * latitude	Float number Latitude of the location
+     * latitude Float number Latitude of the location
      */
     @JsonProperty("latitude")
     private Double latitude = null;
     /**
-     * longitude	Float number Longitude of the location
+     * longitude Float number Longitude of the location
      */
     @JsonProperty("longitude")
     private Double longitude = null;
     /**
-     * live_period	Integer	Optional	Period in seconds for which the location will be
+     * live_period Integer Optional Period in seconds for which the location will be
      * updated (see Live Locations, should be between 60 and 86400
      */
     @JsonProperty("live_period")

@@ -13,26 +13,26 @@ public class SendAnimationFile extends UploadMediaFile {
     private static final String METHOD = "sendAnimation";
 
     /**
-     * animation	InputFile or String	Yes	Animation to send. Pass a file_id as String to send an
+     * animation InputFile or String Yes Animation to send. Pass a file_id as String to send an
      * animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String
      * for Telegram to get an animation from the Internet, or upload a new animation using
      * multipart/form-data.
      */
     private static final String ANIMATION_KEY = "animation";
     /**
-     * duration	Integer	Optional	Duration of sent animation in seconds
+     * duration Integer Optional Duration of sent animation in seconds
      */
     private static final String DURATION_KEY = "duration";
     /**
-     * width	Integer	Optional	Animation width
+     * width Integer Optional Animation width
      */
     private static final String WIDTH_KEY = "width";
     /**
-     * height	Integer	Optional	Animation height
+     * height Integer Optional Animation height
      */
     private static final String HEIGHT_KEY = "height";
     /**
-     * thumb	InputFile or String	Optional	Thumbnail of the file sent. The thumbnail should be
+     * thumb InputFile or String Optional Thumbnail of the file sent. The thumbnail should be
      * in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed
      * 90. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can’t be reused
      * and can be only uploaded as a new file, so you can pass “attach://<file_attach_name>” if the

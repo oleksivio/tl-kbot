@@ -6,7 +6,7 @@ import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 public abstract class CaptionAction extends FormattedMessageAction {
 
     /**
-     * caption	String	Optional	File caption (may also be used when resending file by file_id),
+     * caption String Optional File caption (may also be used when resending file by file_id),
      * 0-200 characters
      */
     @JsonProperty("caption")

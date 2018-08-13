@@ -12,7 +12,7 @@ public class PassportElementErrorSelfie extends PassportElementError {
     public static final String TYPE_IDENTITY_CARD = IDENTITY_CARD;
     public static final String TYPE_INTERNAL_PASSPORT = INTERNAL_PASSPORT;
     /**
-     * file_hash	String	Base64-encoded hash of the file with the front side of the document
+     * file_hash String Base64-encoded hash of the file with the front side of the document
      */
     @JsonProperty("file_hash")
     private String fileHash = null;

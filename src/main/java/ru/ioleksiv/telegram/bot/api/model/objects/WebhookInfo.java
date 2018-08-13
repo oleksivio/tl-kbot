@@ -11,37 +11,37 @@ import java.util.List;
  */
 public class WebhookInfo implements ITelegram {
     /**
-     * url	String	Webhook URL, may be empty if webhook is not set up
-     * has_custom_certificate	Boolean	True, if a custom certificate was provided for webhook
+     * url String Webhook URL, may be empty if webhook is not set up
+     * has_custom_certificate Boolean True, if a custom certificate was provided for webhook
      * certificate checks
      */
     @JsonProperty("url")
     private String url = null;
     /**
-     * pending_update_count	Integer	Number of updates awaiting delivery
+     * pending_update_count Integer Number of updates awaiting delivery
      */
     @JsonProperty("pending_update_count")
     private Integer pendingUpdateCount = null;
     /**
-     * last_error_date	Integer	Optional. Unix time for the most recent error that happened when
+     * last_error_date Integer Optional. Unix time for the most recent error that happened when
      * trying to deliver an update via webhook
      */
     @JsonProperty("last_error_date")
     private Long lastErrorDate = null;
     /**
-     * last_error_message	String	Optional. Error message in human-readable format for the most
+     * last_error_message String Optional. Error message in human-readable format for the most
      * recent error that happened when trying to deliver an update via webhook
      */
     @JsonProperty("last_error_message")
     private String lastErrorMessage = null;
     /**
-     * max_connections	Integer	Optional. Maximum allowed number of simultaneous HTTPS connections
+     * max_connections Integer Optional. Maximum allowed number of simultaneous HTTPS connections
      * to the webhook for update delivery
      */
     @JsonProperty("max_connections")
     private Integer maxConnections = null;
     /**
-     * allowed_updates	Array of String
+     * allowed_updates Array of String
      */
     @JsonProperty("allowed_updates")
     private List<String> allowedUpdates = new ArrayList<>();

@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class InlineQueryResultCachedAudio extends FormattedInlineResult {
     private static final String TYPE = "audio";
     /**
-     * audio_file_id	String	A valid file identifier for the audio file
+     * audio_file_id String A valid file identifier for the audio file
      */
     @JsonProperty("audio_file_id")
     private String audioFileId = null;

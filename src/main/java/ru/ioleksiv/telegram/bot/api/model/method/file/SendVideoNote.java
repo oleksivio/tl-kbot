@@ -12,19 +12,19 @@ import ru.ioleksiv.telegram.bot.core.model.method.file.ThumbAction;
 public class SendVideoNote extends ThumbAction {
     private static final String METHOD = "sendVideoNote";
     /**
-     * video_note	String	Video note to send. Pass a file_id as String to send a
+     * video_note String Video note to send. Pass a file_id as String to send a
      * video note that exists on the Telegram servers (recommended).
      * Sending video notes by a URL is currently unsupported
      */
     @JsonProperty("video_note")
     private String videoNote = null;
     /**
-     * duration	Integer	Optional	Duration of sent video in seconds
+     * duration Integer Optional Duration of sent video in seconds
      */
     @JsonProperty("duration")
     private Integer duration = null;
     /**
-     * length	Integer	Optional	Video width and height
+     * length Integer Optional Video width and height
      */
     @JsonProperty("length")
     private Integer length = null;

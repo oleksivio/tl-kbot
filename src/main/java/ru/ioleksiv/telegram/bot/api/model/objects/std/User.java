@@ -5,32 +5,32 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 public class User implements ITelegram {
     /**
-     * id	Integer	Unique identifier for this user or bot
+     * id Integer Unique identifier for this user or bot
      */
     @JsonProperty("id")
     private long id = 0;
     /**
-     * first_name	String	User‘s or bot’s first name
+     * first_name String User‘s or bot’s first name
      */
     @JsonProperty("first_name")
     private String firstName = "";
     /**
-     * last_name	String	Optional. User‘s or bot’s last name
+     * last_name String Optional. User‘s or bot’s last name
      */
     @JsonProperty("last_name")
     private String lastName = "";
     /**
-     * username	String	Optional. User‘s or bot’s username
+     * username String Optional. User‘s or bot’s username
      */
     @JsonProperty("username")
     private String username = "";
     /**
-     * language_code	String	Optional. IETF language tag of the user's language
+     * language_code String Optional. IETF language tag of the user's language
      */
     @JsonProperty("language_code")
     private String languageCode = "";
     /**
-     * is_bot	Boolean	True, if this user is a bot
+     * is_bot Boolean True, if this user is a bot
      */
     @JsonProperty("is_bot")
     private Boolean isBot = null;

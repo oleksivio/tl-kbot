@@ -8,27 +8,27 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class InlineQueryResultMpeg4Gif extends TitledInlineResult {
     private static final String TYPE = "mpeg4gif";
     /**
-     * mpeg4_url	String	A valid URL for the MP4 file. File size must not exceed 1MB
+     * mpeg4_url String A valid URL for the MP4 file. File size must not exceed 1MB
      */
     @JsonProperty("mpeg4_url")
     private String mpeg4Url = null;
     /**
-     * mpeg4_width	Integer	Optional. Video width
+     * mpeg4_width Integer Optional. Video width
      */
     @JsonProperty("mpeg4_width")
     private Integer mpeg4Width = null;
     /**
-     * mpeg4_height	Integer	Optional. Video height
+     * mpeg4_height Integer Optional. Video height
      */
     @JsonProperty("mpeg4_height")
     private Integer mpeg4Height = null;
     /**
-     * mpeg4_duration	Integer	Optional. Video duration
+     * mpeg4_duration Integer Optional. Video duration
      */
     @JsonProperty("mpeg4_duration")
     private Integer mpeg4Duration = null;
     /**
-     * thumb_url	String	URL of the static thumbnail (jpeg or gif) for the result
+     * thumb_url String URL of the static thumbnail (jpeg or gif) for the result
      */
     @JsonProperty("thumb_url")
     private String thumbUrl = null;

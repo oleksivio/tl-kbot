@@ -14,31 +14,31 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 public class CreateNewStickerFileSet extends UploadFile<Boolean> {
     private static final String METHOD = "createNewStickerSet";
     /**
-     * user_id	Integer	Yes	User identifier of created sticker set owner
+     * user_id Integer Yes User identifier of created sticker set owner
      */
     private static final String USER_ID_KEY = "user_id";
     /**
-     * name	String	Yes	Short name of sticker set, to be used in t.me/addstickers/ URLs (e.g., animals). Can contain only english letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in “_by_<bot username>”. <bot_username> is case insensitive. 1-64 characters.
+     * name String Yes Short name of sticker set, to be used in t.me/addstickers/ URLs (e.g., animals). Can contain only english letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in “_by_<bot username>”. <bot_username> is case insensitive. 1-64 characters.
      */
     private static final String NAME_KEY = "name";
     /**
-     * title	String	Yes	Sticker set title, 1-64 characters
+     * title String Yes Sticker set title, 1-64 characters
      */
     private static final String TITLE_KEY = "title";
     /**
-     * png_sticker	InputFile 	Yes	Png image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px. upload a new one using multipart/form-data.
+     * png_sticker InputFile  Yes Png image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px. upload a new one using multipart/form-data.
      */
     private static final String PNG_STICKER_KEY = "png_sticker";
     /**
-     * emojis	String	Yes	One or more emoji corresponding to the sticker
+     * emojis String Yes One or more emoji corresponding to the sticker
      */
     private static final String EMOJIS_KEY = "emojis";
     /**
-     * contains_masks	Boolean	Optional	Pass True, if a set of mask stickers should be created
+     * contains_masks Boolean Optional Pass True, if a set of mask stickers should be created
      */
     private static final String CONTAINS_MASKS_KEY = "contains_masks";
     /**
-     * mask_position	MaskPosition	Optional	A JSON-serialized object for position where the mask should be placed on faces
+     * mask_position MaskPosition Optional A JSON-serialized object for position where the mask should be placed on faces
      */
     private static final String MASK_POSITON_KEY = "mask_position";
 

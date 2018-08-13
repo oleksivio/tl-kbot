@@ -8,22 +8,22 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
  */
 public class PhotoSize implements ITelegram {
     /**
-     * file_id	String	Unique identifier for this files
+     * file_id String Unique identifier for this files
      */
     @JsonProperty("file_id")
     private String fileId = null;
     /**
-     * width	Integer	Photo width
+     * width Integer Photo width
      */
     @JsonProperty("width")
     private Integer width = null;
     /**
-     * height	Integer	Photo height
+     * height Integer Photo height
      */
     @JsonProperty("height")
     private Integer height = null;
     /**
-     * file_size	Integer	Optional. File size
+     * file_size Integer Optional. File size
      */
     @JsonProperty("file_size")
     private Integer fileSize = null;

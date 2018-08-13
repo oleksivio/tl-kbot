@@ -20,12 +20,12 @@ public abstract class PassportElementError implements ITelegram {
     @JsonProperty("source")
     private final String source;
     /**
-     * type	String	The section of the user's Telegram Passport which has the error
+     * type String The section of the user's Telegram Passport which has the error
      */
     @JsonProperty("type")
     private String type = null;
     /**
-     * message	String	Error message
+     * message String Error message
      */
     @JsonProperty("message")
     private String message = null;

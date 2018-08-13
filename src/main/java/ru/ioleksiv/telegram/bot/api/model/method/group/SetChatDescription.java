@@ -13,7 +13,7 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 public class SetChatDescription extends ChatAction<Boolean> {
     private static final String METHOD = "setChatDescription";
     /**
-     * description	String	Optional	New chat description, 0-255 characters
+     * description String Optional New chat description, 0-255 characters
      */
     @JsonProperty("description")
     private String description = null;

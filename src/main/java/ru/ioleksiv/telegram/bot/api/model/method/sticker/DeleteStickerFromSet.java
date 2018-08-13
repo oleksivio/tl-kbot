@@ -13,7 +13,7 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 public class DeleteStickerFromSet extends RunnableAction<Boolean> {
     private static final String METHOD = "deleteStickerFromSet";
     /**
-     * sticker	String	Yes	File identifier of the sticker
+     * sticker String Yes File identifier of the sticker
      */
     @JsonProperty("sticker")
     private String sticker = null;

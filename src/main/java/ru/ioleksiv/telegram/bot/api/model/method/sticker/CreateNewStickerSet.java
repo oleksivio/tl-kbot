@@ -14,37 +14,37 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 public class CreateNewStickerSet extends RunnableAction<Boolean> {
     private static final String METHOD = "createNewStickerSet";
     /**
-     * user_id	Integer	Yes	User identifier of created sticker set owner
+     * user_id Integer Yes User identifier of created sticker set owner
      */
     @JsonProperty("user_id")
     private Long userId = null;
     /**
-     * name	String	Yes	Short name of sticker set, to be used in t.me/addstickers/ URLs (e.g., animals). Can contain only english letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in “_by_<bot username>”. <bot_username> is case insensitive. 1-64 characters.
+     * name String Yes Short name of sticker set, to be used in t.me/addstickers/ URLs (e.g., animals). Can contain only english letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in “_by_<bot username>”. <bot_username> is case insensitive. 1-64 characters.
      */
     @JsonProperty("name")
     private String name = null;
     /**
-     * title	String	Yes	Sticker set title, 1-64 characters
+     * title String Yes Sticker set title, 1-64 characters
      */
     @JsonProperty("title")
     private String title = null;
     /**
-     * png_sticker	 String	Yes	Png image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px. Pass a file_id as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet
+     * png_sticker  String Yes Png image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px. Pass a file_id as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet
      */
     @JsonProperty("png_sticker")
     private String pngSticker = null;
     /**
-     * emojis	String	Yes	One or more emoji corresponding to the sticker
+     * emojis String Yes One or more emoji corresponding to the sticker
      */
     @JsonProperty("emojis")
     private String emojis = null;
     /**
-     * contains_masks	Boolean	Optional	Pass True, if a set of mask stickers should be created
+     * contains_masks Boolean Optional Pass True, if a set of mask stickers should be created
      */
     @JsonProperty("contains_masks")
     private Boolean containsMasks = null;
     /**
-     * mask_position	MaskPosition	Optional	A JSON-serialized object for position where the mask should be placed on faces
+     * mask_position MaskPosition Optional A JSON-serialized object for position where the mask should be placed on faces
      */
     @JsonProperty("mask_position")
     private MaskPosition maskPosition = null;

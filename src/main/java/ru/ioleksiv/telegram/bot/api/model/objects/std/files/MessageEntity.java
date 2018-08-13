@@ -22,29 +22,29 @@ public class MessageEntity implements ITelegram {
     public static final String TYPE_TEXT_LINK = "text_link";
     public static final String TYPE_TEXT_MENTION = "text_mention";
     /**
-     * type	String	Type of the entity. Can be mention (@username), hashtag, bot_command, url, email,
+     * type String Type of the entity. Can be mention (@username), hashtag, bot_command, url, email,
      * bold (bold text), italic (italic text), code (monowidth string), pre (monowidth block),
      * text_link (for clickable text URLs), text_mention (for users without usernames)
      */
     @JsonProperty("type")
     private String type = null;
     /**
-     * offset	Integer	Offset in UTF-16 code units to the start of the entity
+     * offset Integer Offset in UTF-16 code units to the start of the entity
      */
     @JsonProperty("offset")
     private String offset = null;
     /**
-     * length	Integer	Length of the entity in UTF-16 code units
+     * length Integer Length of the entity in UTF-16 code units
      */
     @JsonProperty("length")
     private Integer length = null;
     /**
-     * url	String	Optional. For “text_link” only, url that will be opened after user taps on the text
+     * url String Optional. For “text_link” only, url that will be opened after user taps on the text
      */
     @JsonProperty("url")
     private String url = null;
     /**
-     * user	User	Optional. For “text_mention” only, the mentioned user
+     * user User Optional. For “text_mention” only, the mentioned user
      */
     @JsonProperty("user")
     private User user = null;

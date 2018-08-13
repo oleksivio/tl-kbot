@@ -13,32 +13,32 @@ public class SendVenue extends MessageAction {
     private static final String METHOD = "sendVenue";
 
     /**
-     * latitude	Float number Latitude of the venue
+     * latitude Float number Latitude of the venue
      */
     @JsonProperty("latitude")
     private Double latitude = null;
     /**
-     * longitude	Float number Longitude of the venue
+     * longitude Float number Longitude of the venue
      */
     @JsonProperty("longitude")
     private Double longitude = null;
     /**
-     * title	String Name of the venue
+     * title String Name of the venue
      */
     @JsonProperty("title")
     private String title = null;
     /**
-     * address	String Address of the venue
+     * address String Address of the venue
      */
     @JsonProperty("address")
     private String address = null;
     /**
-     * foursquare_id	String	Optional	Foursquare identifier of the venue
+     * foursquare_id String Optional Foursquare identifier of the venue
      */
     @JsonProperty("foursquare_id")
     private String foursquareId = null;
     /**
-     * foursquare_type	String	Optional. Foursquare type of the venue. (For example,
+     * foursquare_type String Optional. Foursquare type of the venue. (For example,
      * “arts_entertainment/default”, “arts_entertainment/aquarium” or “food/icecream”.)
      */
     @JsonProperty("foursquare_type")

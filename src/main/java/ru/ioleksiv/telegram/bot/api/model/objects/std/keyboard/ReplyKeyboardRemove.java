@@ -7,14 +7,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class ReplyKeyboardRemove implements IKeyboard {
     /**
-     * remove_keyboard	True	Requests clients to remove the custom keyboard (user will not be able
+     * remove_keyboard True Requests clients to remove the custom keyboard (user will not be able
      * to summon this keyboard; if you want to hide the keyboard from sight but keep it accessible,
      * use one_time_keyboard in ReplyKeyboardMarkup)
      */
     @JsonProperty("remove_keyboard")
     private Boolean mRemoveKeyboard = null;
     /**
-     * selective	Boolean	Optional. Use this parameter if you want to remove the keyboard for
+     * selective Boolean Optional. Use this parameter if you want to remove the keyboard for
      * specific users only.
      * Targets:
      * 1) users that are @mentioned in the text of the Message object;

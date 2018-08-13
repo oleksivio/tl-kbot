@@ -13,7 +13,7 @@ public class SendDocument extends ThumbAction {
     private static final String METHOD = "sendDocument";
 
     /**
-     * document	 String		File to send. Pass a file_id as String to send a file that
+     * document  String  File to send. Pass a file_id as String to send a file that
      * exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to
      * get a file from the Internet
      */

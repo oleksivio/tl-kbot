@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class InlineQueryResultGame extends InlineQueryResult {
     private static final String TYPE = "game";
     /**
-     * game_short_name	String	Short name of the game
+     * game_short_name String Short name of the game
      */
     @JsonProperty("game_short_name")
     private final String gameShortName = null;

@@ -13,54 +13,54 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 public class PromoteChatMember extends ChatAction<Boolean> {
     private static final String METHOD = "promoteChatMember";
     /**
-     * user_id	Integer Unique identifier of the target user
+     * user_id Integer Unique identifier of the target user
      */
     @JsonProperty("user_id")
     private Long userId = null;
     /**
-     * can_change_info	Boolean	Optional	Pass True, if the administrator can change chat title,
+     * can_change_info Boolean Optional Pass True, if the administrator can change chat title,
      * photo and other settings
      */
     @JsonProperty("can_change_info")
     private Boolean canChangeInfo = null;
     /**
-     * can_post_messages	Boolean	Optional	Pass True, if the administrator can create channel posts,
+     * can_post_messages Boolean Optional Pass True, if the administrator can parse channel posts,
      * channels only
      */
     @JsonProperty("can_post_messages")
     private Boolean canPostMessages = null;
     /**
-     * can_edit_messages	Boolean	Optional	Pass True, if the administrator can message messages of
+     * can_edit_messages Boolean Optional Pass True, if the administrator can message messages of
      * other users and can pin messages, channels only
      */
     @JsonProperty("can_edit_messages")
     private Boolean canEditMessages = null;
     /**
-     * can_delete_messages	Boolean	Optional	Pass True, if the administrator can delete messages
+     * can_delete_messages Boolean Optional Pass True, if the administrator can delete messages
      * of other users
      */
     @JsonProperty("can_delete_messages")
     private Boolean canDeleteMessages = null;
     /**
-     * can_invite_users	Boolean	Optional	Pass True, if the administrator can invite new users to
+     * can_invite_users Boolean Optional Pass True, if the administrator can invite new users to
      * the chat
      */
     @JsonProperty("can_invite_users")
     private Boolean canInviteUsers = null;
     /**
-     * can_restrict_members	Boolean	Optional	Pass True, if the administrator can restrict, ban or
+     * can_restrict_members Boolean Optional Pass True, if the administrator can restrict, ban or
      * unban chat members
      */
     @JsonProperty("can_restrict_members")
     private Boolean canRestrictMembers = null;
     /**
-     * can_pin_messages	Boolean	Optional	Pass True, if the administrator can pin messages,
+     * can_pin_messages Boolean Optional Pass True, if the administrator can pin messages,
      * supergroups only
      */
     @JsonProperty("can_pin_messages")
     private Boolean canPinMessages = null;
     /**
-     * can_promote_members	Boolean	Optional	Pass True, if the administrator can add new
+     * can_promote_members Boolean Optional Pass True, if the administrator can add new
      * administrators with a subset of his own privileges or demote administrators that he has
      * promoted, directly or indirectly (promoted by administrators that were appointed by him)
      */

@@ -8,22 +8,22 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
  */
 public class OrderInfo implements ITelegram {
     /**
-     * name	String	Optional. User name
+     * name String Optional. User name
      */
     @JsonProperty("name")
     private String name = null;
     /**
-     * phone_number	String	Optional. User's phone number
+     * phone_number String Optional. User's phone number
      */
     @JsonProperty("phone_number")
     private String phoneNumber = null;
     /**
-     * email	String	Optional. User email
+     * email String Optional. User email
      */
     @JsonProperty("email")
     private String email = null;
     /**
-     * shipping_address	ShippingAddress	Optional. User shipping address
+     * shipping_address ShippingAddress Optional. User shipping address
      */
     @JsonProperty("shipping_address")
     private ShippingAddress shippingAddress = null;

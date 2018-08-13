@@ -14,7 +14,7 @@ public class SetChatTitle extends ChatAction<Boolean> {
     private static final String METHOD = "setChatTitle";
 
     /**
-     * title	String New chat title, 1-255 characters
+     * title String New chat title, 1-255 characters
      */
     @JsonProperty("title")
     private String title = null;

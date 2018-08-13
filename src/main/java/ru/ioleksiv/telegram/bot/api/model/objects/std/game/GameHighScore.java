@@ -9,17 +9,17 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
  */
 public class GameHighScore implements ITelegram {
     /**
-     * position	Integer	Position in high score table for the game
+     * position Integer Position in high score table for the game
      */
     @JsonProperty("position")
     private Integer position = null;
     /**
-     * user	User	User
+     * user User User
      */
     @JsonProperty("user")
     private User user = null;
     /**
-     * score	Integer	Score
+     * score Integer Score
      */
     @JsonProperty("score")
     private Integer score = null;

@@ -7,32 +7,32 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class InputVenueMessageContent implements InputMessageContent {
     /**
-     * latitude	Float	Latitude of the venue in degrees
+     * latitude Float Latitude of the venue in degrees
      */
     @JsonProperty("latitude")
     private Double latitude = null;
     /**
-     * longitude	Float	Longitude of the venue in degrees
+     * longitude Float Longitude of the venue in degrees
      */
     @JsonProperty("longitude")
     private Double longitude = null;
     /**
-     * title	String Name of the venue
+     * title String Name of the venue
      */
     @JsonProperty("title")
     private String title = null;
     /**
-     * address	String Address of the venue
+     * address String Address of the venue
      */
     @JsonProperty("address")
     private String address = null;
     /**
-     * foursquare_id	String	Optional	Foursquare identifier of the venue
+     * foursquare_id String Optional Foursquare identifier of the venue
      */
     @JsonProperty("foursquare_id")
     private String foursquareId = null;
     /**
-     * foursquare_type	String	Optional. Foursquare type of the venue. (For example,
+     * foursquare_type String Optional. Foursquare type of the venue. (For example,
      * “arts_entertainment/default”, “arts_entertainment/aquarium” or “food/icecream”.)
      */
     @JsonProperty("foursquare_type")

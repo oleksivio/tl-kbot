@@ -13,13 +13,13 @@ public class PassportElementErrorFrontSide extends PassportElementError {
     public static final String TYPE_IDENTITY_CARD = IDENTITY_CARD;
     public static final String TYPE_INTERNAL_PASSPORT = INTERNAL_PASSPORT;
     /**
-     * file_hash	String	Base64-encoded hash of the file with the front side of the document
+     * file_hash String Base64-encoded hash of the file with the front side of the document
      */
     @JsonProperty("file_hash")
     private String fileHash = null;
 
     /**
-     * type	String	The section of the user's Telegram Passport which has the issue, one of “passport”, “driver_license”,
+     * type String The section of the user's Telegram Passport which has the issue, one of “passport”, “driver_license”,
      * “identity_card”, “internal_passport”
      */
     public PassportElementErrorFrontSide() {

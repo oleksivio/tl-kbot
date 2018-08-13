@@ -1,9 +1,9 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.inline;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.inline.LocationInlineQuery;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.inline.QueryInlineQuery;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.inline.UserInlineQuery;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.LocationFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.StringFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.UserFilter;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.Location;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.User;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
@@ -13,36 +13,39 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
  */
 public class InlineQuery implements ITelegram {
     /**
-     * id	String	Unique identifier for this query
+     * id String Unique identifier for this query
      */
     @JsonProperty("id")
     private String id = null;
     /**
      * To setup filter:
      *
-     * @see UserInlineQuery
-     * from	User	Sender
+     * @see UserFilter from
+     * from User Sender
      */
     @JsonProperty("from")
     private User from = null;
     /**
      * To setup filter:
      *
-     * @see LocationInlineQuery
-     * location	Location	Optional. Sender location, only for bots that request user location
+     * @see LocationFilter location
+     * location Location Optional. Sender location, only for bots that request user location
      */
     @JsonProperty("location")
     private Location location = null;
     /**
      * To setup filter:
      *
-     * @see QueryInlineQuery
-     * query	String	Text of the query (up to 512 characters)
+     * @see StringFilter query
+     * query String Text of the query (up to 512 characters)
      */
     @JsonProperty("query")
     private String query = null;
     /**
-     * offset	String	Offset of the results to be returned, can be controlled by the bot
+     * To setup filter:
+     *
+     * @see StringFilter offset
+     * offset String Offset of the results to be returned, can be controlled by the bot
      */
     @JsonProperty("offset")
     private String offset = null;

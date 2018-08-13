@@ -14,12 +14,12 @@ public class KickChatMember extends ChatAction<Boolean> {
     private static final String METHOD = "kickChatMember";
 
     /**
-     * user_id	Integer Unique identifier of the target user
+     * user_id Integer Unique identifier of the target user
      */
     @JsonProperty("user_id")
     private Long userId = null;
     /**
-     * until_date	Integer	Optional	Date when the user will be unbanned, unix time. If user is
+     * until_date Integer Optional Date when the user will be unbanned, unix time. If user is
      * banned for more than 366 days or less than 30 seconds from the current time they are
      * considered to be banned forever
      */

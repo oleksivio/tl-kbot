@@ -14,7 +14,7 @@ public class PassportElementErrorFile extends PassportElementError {
     public static final String TYPE_PASSPORT_REGITRATION = PASSPORT_REGISTRATION;
     public static final String TYPE_TEMPORARY_REGISTRATION = TEMPORARY_REGISTRATION;
     /**
-     * file_hash	String	Base64-encoded hash of the file with the front side of the document
+     * file_hash String Base64-encoded hash of the file with the front side of the document
      */
     @JsonProperty("file_hash")
     private String fileHash = null;

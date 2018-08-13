@@ -8,17 +8,17 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
  */
 public class EncryptedCredentials implements ITelegram {
     /**
-     * data	String	Base64-encoded encrypted JSON-serialized data with unique user's payload, data hashes and secrets required for EncryptedPassportElement decryption and authentication
+     * data String Base64-encoded encrypted JSON-serialized data with unique user's payload, data hashes and secrets required for EncryptedPassportElement decryption and authentication
      */
     @JsonProperty("data")
     private String data = null;
     /**
-     * hash	String	Base64-encoded data hash for data authentication
+     * hash String Base64-encoded data hash for data authentication
      */
     @JsonProperty("hash")
     private String hash = null;
     /**
-     * secret	String	Base64-encoded secret, encrypted with the bot's public RSA key, required for data decryption
+     * secret String Base64-encoded secret, encrypted with the bot's public RSA key, required for data decryption
      */
     @JsonProperty("secret")
     private String secret = null;

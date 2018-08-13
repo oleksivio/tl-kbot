@@ -23,13 +23,13 @@ public class SessionProcessor {
 
     public void check() throws IllegalArgumentException {
         if (initialHandler == null) {
-            throw new IllegalArgumentException("Invalid session handler state. " +
+            throw new IllegalArgumentException("Invalid session unpacker state. " +
                                                        "Can't be less than one" +
                                                        " Session Initial method's");
         }
 
         if (cancelHandler == null) {
-            throw new IllegalArgumentException("Invalid session handler state. " +
+            throw new IllegalArgumentException("Invalid session unpacker state. " +
                                                        "Can't be less than one" +
                                                        " Session Cancel method's");
         }

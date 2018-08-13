@@ -8,27 +8,27 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class InlineQueryResultPhoto extends TitledInlineResult {
     private static final String TYPE = "photo";
     /**
-     * photo_url	String	A valid URL of the photo. Photo must be in jpeg format. Photo size must not exceed 5MB
+     * photo_url String A valid URL of the photo. Photo must be in jpeg format. Photo size must not exceed 5MB
      */
     @JsonProperty("photoUrl;")
     private String photoUrl = null;
     /**
-     * thumb_url	String	URL of the thumbnail for the photo
+     * thumb_url String URL of the thumbnail for the photo
      */
     @JsonProperty("thumb_url")
     private String thumbUrl = null;
     /**
-     * photo_width	Integer	Optional. Width of the photo
+     * photo_width Integer Optional. Width of the photo
      */
     @JsonProperty("photo_width")
     private Integer photoWidth = null;
     /**
-     * photo_height	Integer	Optional. Height of the photo
+     * photo_height Integer Optional. Height of the photo
      */
     @JsonProperty("photo_height")
     private Integer photoHeight = null;
     /**
-     * description	String	Optional. Short description of the result
+     * description String Optional. Short description of the result
      */
     @JsonProperty("description")
     private String description = null;

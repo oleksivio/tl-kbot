@@ -12,7 +12,7 @@ import ru.ioleksiv.telegram.bot.core.model.method.file.ThumbAction;
 public class SendVideo extends ThumbAction {
     private static final String METHOD = "sendVideo";
     /**
-     * video  String	Video to send. Pass a file_id as String to send a video that
+     * video  String Video to send. Pass a file_id as String to send a video that
      * exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to
      * get a video from the Internet
      */
@@ -20,22 +20,22 @@ public class SendVideo extends ThumbAction {
     private String video = null;
 
     /**
-     * duration	Integer	Optional	Duration of sent video in seconds
+     * duration Integer Optional Duration of sent video in seconds
      */
     @JsonProperty("duration")
     private Integer duration = null;
     /**
-     * width	Integer	Optional	Video width
+     * width Integer Optional Video width
      */
     @JsonProperty("width")
     private Integer width = null;
     /**
-     * height	Integer	Optional	Video height
+     * height Integer Optional Video height
      */
     @JsonProperty("height")
     private Integer height = null;
     /**
-     * supports_streaming	Boolean	Optional	Pass True, if the uploaded video is suitable for streaming
+     * supports_streaming Boolean Optional Pass True, if the uploaded video is suitable for streaming
      */
     @JsonProperty("supports_streaming")
     private Boolean supportsStreaming = null;

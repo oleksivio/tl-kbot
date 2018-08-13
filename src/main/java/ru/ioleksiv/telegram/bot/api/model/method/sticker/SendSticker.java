@@ -12,7 +12,7 @@ import ru.ioleksiv.telegram.bot.core.model.method.MessageAction;
 public class SendSticker extends MessageAction {
     private static final String METHOD = "sendSticker";
     /**
-     * sticker String	Yes	Sticker to send. Pass a file_id as String to send a file that exists on the
+     * sticker String Yes Sticker to send. Pass a file_id as String to send a file that exists on the
      * Telegram servers (recommended) or pass an HTTP URL as a String for Telegram to get a .webp file from the Internet
      */
     @JsonProperty("sticker")

@@ -17,12 +17,12 @@ import java.util.List;
 public class SetPassportDataErrors extends RunnableAction<Boolean> {
     private static final String METHOD = "setPassportDataErrors";
     /**
-     * user_id	Integer	Yes	User identifier
+     * user_id Integer Yes User identifier
      */
     @JsonProperty("user_id")
     private Integer userId = null;
     /**
-     * errors	Array of PassportElementError	Yes	A JSON-serialized array describing the errors
+     * errors Array of PassportElementError Yes A JSON-serialized array describing the errors
      */
     @JsonProperty("errors")
     private List<PassportElementError> errors = new ArrayList<>();

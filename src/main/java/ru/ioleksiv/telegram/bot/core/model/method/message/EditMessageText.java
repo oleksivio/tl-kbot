@@ -12,18 +12,18 @@ import ru.ioleksiv.telegram.bot.core.model.method.EditAction;
 public abstract class EditMessageText<RES> extends EditAction<RES> {
     private static final String METHOD = "editMessageText";
     /**
-     * text	String New text of the message
+     * text String New text of the message
      */
     @JsonProperty("text")
     private String text = null;
     /**
-     * parse_mode	String	Optional	Send Markdown or HTML, if you want Telegram apps to show bold,
+     * parse_mode String Optional Send Markdown or HTML, if you want Telegram apps to show bold,
      * italic, fixed-width text or inline URLs in your bot's message.
      */
     @JsonProperty("parse_mode")
     private String parseMode = null;
     /**
-     * disable_web_page_preview	Boolean	Optional	Disables link previews for links in this message
+     * disable_web_page_preview Boolean Optional Disables link previews for links in this message
      */
     @JsonProperty("disable_web_page_preview")
     private Boolean disableWebPagePreview = null;

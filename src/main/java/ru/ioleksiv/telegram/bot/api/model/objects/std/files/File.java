@@ -8,17 +8,17 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
  */
 public class File implements ITelegram {
     /**
-     * file_id	String	Unique identifier for this file
+     * file_id String Unique identifier for this file
      */
     @JsonProperty("file_id")
     private String fileId = null;
     /**
-     * file_size	Integer	Optional. File size, if known
+     * file_size Integer Optional. File size, if known
      */
     @JsonProperty("file_size")
     private Integer fileSize = null;
     /**
-     * file_path	String	Optional. File path. Use https://api.telegram.org/file/bot<token>/<file_path> to get the file.
+     * file_path String Optional. File path. Use https://api.telegram.org/file/bot<token>/<file_path> to get the file.
      */
     @JsonProperty("file_path")
     private String filePath = null;

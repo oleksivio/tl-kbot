@@ -5,7 +5,7 @@ import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 
 public abstract class FormattedMessageAction extends MessageAction {
     /**
-     * parse_mode	String	Optional	Send Markdown or HTML, if you want Telegram apps to show bold,
+     * parse_mode String Optional Send Markdown or HTML, if you want Telegram apps to show bold,
      * italic, fixed-width text or inline URLs in your bot's message.
      */
     @JsonProperty("parse_mode")

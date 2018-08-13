@@ -13,7 +13,7 @@ import ru.ioleksiv.telegram.bot.core.model.method.EditAction;
 public abstract class EditMessageMedia<RES> extends EditAction<RES> {
     private static final String METHOD = "editMessageMedia";
     /**
-     * media	InputMedia	Yes	A JSON-serialized object for a new media content of the message
+     * media InputMedia Yes A JSON-serialized object for a new media content of the message
      */
     @JsonProperty("media")
     private InputMedia inputMedia = null;
