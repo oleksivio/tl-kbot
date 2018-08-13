@@ -39,8 +39,10 @@ public class IncludeMessageFilterParser extends FilterParser<IncludeMessageFilte
     @Override
     public Checker<Message> createChecker(IncludeMessageFilter annotation, Finder finder) {
         UnionChecker<Message> unionChecker = new UnionChecker<>();
-        if (annotation.from().value().isActive()) {
-            unionChecker.add(msg -> Optional.ofNullable(msg.getAnimation()), finder.find(annotation.from()));
+
+        UserFilter from = annotation.from();
+        if (from.value().isActive()) {
+            unionChecker.add(msg -> Optional.ofNullable(msg.getAnimation()), finder.find(from));
         }
 
         ChatFilter chat = annotation.chat();

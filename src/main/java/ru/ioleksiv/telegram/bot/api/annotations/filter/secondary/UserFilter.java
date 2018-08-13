@@ -14,4 +14,15 @@ import java.lang.annotation.Target;
 public @interface UserFilter {
 
     AnnotationState value() default AnnotationState.ON;
+
+    StringFilter firstName() default @StringFilter(AnnotationState.OFF);
+
+    StringFilter lastName() default @StringFilter(AnnotationState.OFF);
+
+    StringFilter username() default @StringFilter(AnnotationState.OFF);
+
+    StringFilter languageCode() default @StringFilter(AnnotationState.OFF);
+
+    BooleanFilter isBot() default @BooleanFilter(AnnotationState.OFF);
+
 }
