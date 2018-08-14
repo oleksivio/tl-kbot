@@ -1,6 +1,6 @@
 package ru.ioleksiv.telegram.bot.api.annotations.filter.secondary;
 
-import ru.ioleksiv.telegram.bot.core.model.AnnotationState;
+import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -11,9 +11,9 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 @Documented
-public @interface EntitiesFilter {
+public @interface UserArrayFilter {
 
     AnnotationState value() default AnnotationState.ON;
 
-    String[] entity() default {};
+    UserFilter[] array() default @UserFilter(AnnotationState.OFF);
 }

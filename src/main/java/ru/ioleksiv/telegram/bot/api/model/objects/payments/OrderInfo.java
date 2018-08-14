@@ -1,6 +1,8 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.payments;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.ShippingAddressFilter;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
@@ -8,21 +10,33 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
  */
 public class OrderInfo implements ITelegram {
     /**
+     * To setup filter:
+     *
+     * @see StringFilter name
      * name String Optional. User name
      */
     @JsonProperty("name")
     private String name = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter phoneNumber
      * phone_number String Optional. User's phone number
      */
     @JsonProperty("phone_number")
     private String phoneNumber = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter email
      * email String Optional. User email
      */
     @JsonProperty("email")
     private String email = null;
     /**
+     * To setup filter:
+     *
+     * @see ShippingAddressFilter  shippingAddress
      * shipping_address ShippingAddress Optional. User shipping address
      */
     @JsonProperty("shipping_address")

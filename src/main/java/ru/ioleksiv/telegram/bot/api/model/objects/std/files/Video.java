@@ -1,6 +1,9 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std.files;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.PhotoFilter;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
@@ -13,31 +16,49 @@ public class Video implements ITelegram {
     @JsonProperty("file_id")
     private String fileId = null;
     /**
+     * To setup filter:
+     *
+     * @see IntegerFilter duration
      * duration Integer Duration of the video in seconds as defined by sender
      */
     @JsonProperty("duration")
     private Integer duration = null;
     /**
+     * To setup filter:
+     *
+     * @see IntegerFilter width
      * width Integer Video width as defined by sender
      */
     @JsonProperty("width")
     private Integer width = null;
     /**
+     * To setup filter:
+     *
+     * @see IntegerFilter height
      * height Integer Video height as defined by sender
      */
     @JsonProperty("height")
     private Integer height = null;
     /**
+     * To setup filter:
+     *
+     * @see PhotoFilter thumb
      * thumb PhotoSize Optional. Video thumbnail
      */
     @JsonProperty("thumb")
     private PhotoSize thumb = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter mimeType
      * mime_type String Optional. MIME type of the files as defined by sender
      */
     @JsonProperty("mime_type")
     private String mimeType = null;
     /**
+     * To setup filter:
+     *
+     * @see IntegerFilter fileSize
      * file_size Integer Optional. File size
      */
     @JsonProperty("file_size")

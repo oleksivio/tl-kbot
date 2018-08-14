@@ -2,6 +2,7 @@ package ru.ioleksiv.telegram.bot.api.model.objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.jetbrains.annotations.NotNull;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primary.MessageFilter;
 import ru.ioleksiv.telegram.bot.api.model.objects.inline.ChosenInlineResult;
 import ru.ioleksiv.telegram.bot.api.model.objects.inline.InlineQuery;
 import ru.ioleksiv.telegram.bot.api.model.objects.payments.PreCheckoutQuery;
@@ -10,6 +11,10 @@ import ru.ioleksiv.telegram.bot.api.model.objects.std.CallbackQuery;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.Message;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
+/**
+ * @see <a href="https://core.telegram.org/bots/api#update">Update</a>
+ */
+//todo javadoc handlers and filters
 public class Update implements ITelegram {
     /**
      * update_id
@@ -47,6 +52,9 @@ public class Update implements ITelegram {
     @JsonProperty("edited_message")
     private Message editedMessage = null;
     /**
+     * To setup filter:
+     *
+     * @see MessageFilter
      * channel_post
      * <p>
      * Message
@@ -57,6 +65,9 @@ public class Update implements ITelegram {
     @JsonProperty("channel_post")
     private Message channelPost = null;
     /**
+     * To setup filter:
+     *
+     * @see MessageFilter
      * edited_channel_post
      * <p>
      * Message
@@ -84,7 +95,7 @@ public class Update implements ITelegram {
      * their chat partner.
      */
     @JsonProperty("chosen_inline_result")
-    private ChosenInlineResult choosenInlineResult = null;
+    private ChosenInlineResult chosenInlineResult = null;
     /**
      * callback_query
      * <p>
@@ -145,12 +156,12 @@ public class Update implements ITelegram {
         this.inlineQuery = inlineQuery;
     }
 
-    public ChosenInlineResult getChoosenInlineResult() {
-        return choosenInlineResult;
+    public ChosenInlineResult getChosenInlineResult() {
+        return chosenInlineResult;
     }
 
-    public void setChoosenInlineResult(ChosenInlineResult choosenInlineResult) {
-        this.choosenInlineResult = choosenInlineResult;
+    public void setChosenInlineResult(ChosenInlineResult chosenInlineResult) {
+        this.chosenInlineResult = chosenInlineResult;
     }
 
     public CallbackQuery getCallbackQuery() {

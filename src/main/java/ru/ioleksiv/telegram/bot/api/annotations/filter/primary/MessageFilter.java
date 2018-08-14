@@ -1,30 +1,31 @@
 package ru.ioleksiv.telegram.bot.api.annotations.filter.primary;
 
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.BooleanFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.NotNullFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.AnimationFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.AudioFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.BooleanFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.CaptionEntitiesFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.ChatFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.ContactFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.DocumentFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.EntitiesFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.GameFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.IncludeMessageFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.InvoiceFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.LocationFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.NotNullFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.MessageEntityArrayFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.PassportDataFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.PhotoArrayFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.PhotoFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.StickerFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.StringFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.SuccessfulPaymentFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.UserArrayFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.UserFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.UserListFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.VenueFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.VideoFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.VideoNoteFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.VoiceFilter;
-import ru.ioleksiv.telegram.bot.core.model.AnnotationState;
+import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -40,6 +41,8 @@ public @interface MessageFilter {
     AnnotationState value() default AnnotationState.ON;
 
     UserFilter from() default @UserFilter(AnnotationState.OFF);
+
+    IntegerFilter date() default @IntegerFilter(AnnotationState.OFF);
 
     ChatFilter chat() default @ChatFilter(AnnotationState.OFF);
 
@@ -65,7 +68,7 @@ public @interface MessageFilter {
 
     AudioFilter audio() default @AudioFilter(AnnotationState.OFF);
 
-    PhotoFilter photo() default @PhotoFilter(AnnotationState.OFF);
+    PhotoArrayFilter photoArray() default @PhotoArrayFilter(AnnotationState.OFF);
 
     StringFilter caption() default @StringFilter(AnnotationState.OFF);
 
@@ -73,7 +76,7 @@ public @interface MessageFilter {
 
     LocationFilter location() default @LocationFilter(AnnotationState.OFF);
 
-    UserListFilter newChatMembers() default @UserListFilter(AnnotationState.OFF);
+    UserArrayFilter newChatMembers() default @UserArrayFilter(AnnotationState.OFF);
 
     UserFilter leftChatMember() default @UserFilter(AnnotationState.OFF);
 
@@ -91,9 +94,9 @@ public @interface MessageFilter {
 
     VoiceFilter voice() default @VoiceFilter(AnnotationState.OFF);
 
-    EntitiesFilter entities() default @EntitiesFilter(AnnotationState.OFF);
+    MessageEntityArrayFilter entityArray() default @MessageEntityArrayFilter(AnnotationState.OFF);
 
-    CaptionEntitiesFilter captionEntites() default @CaptionEntitiesFilter(AnnotationState.OFF);
+    MessageEntityArrayFilter captionEntityArray() default @MessageEntityArrayFilter(AnnotationState.OFF);
 
     VideoNoteFilter videoNote() default @VideoNoteFilter(AnnotationState.OFF);
 

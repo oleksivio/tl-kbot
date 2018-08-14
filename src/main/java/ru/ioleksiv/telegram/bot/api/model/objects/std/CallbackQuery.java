@@ -2,7 +2,7 @@ package ru.ioleksiv.telegram.bot.api.model.objects.std;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primary.MessageFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.StringFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.UserFilter;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 

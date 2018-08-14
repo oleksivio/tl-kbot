@@ -8,7 +8,7 @@ import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.producer.ArgU
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.producer.InvokerProducer;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 import ru.ioleksiv.telegram.bot.core.controller.handler.check.Checker;
-import ru.ioleksiv.telegram.bot.core.controller.handler.check.ExtractedChecker;
+import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.ExtractChecker;
 import ru.ioleksiv.telegram.bot.core.controller.handler.invoke.Invoker;
 import ru.ioleksiv.telegram.bot.core.controller.handler.unpack.Unpacker;
 import ru.ioleksiv.telegram.bot.core.controller.handler.unpack.UpdateUnpacker;
@@ -63,8 +63,8 @@ public final class HandlerComposer {
         }
         Unpacker<Update, ARG> argUnpacker = updateUnpacker.get();
 
-        ExtractedChecker<Update, ARG> updateChecker = new ExtractedChecker<>(argUnpacker,
-                                                                             argCheckerOptional.get());
+        ExtractChecker<Update, ARG> updateChecker = new ExtractChecker<>(argUnpacker,
+                                                                         argCheckerOptional.get());
 
         return Optional.of(new Handler<>(invokerOptional.get(), updateChecker, argUnpacker));
 

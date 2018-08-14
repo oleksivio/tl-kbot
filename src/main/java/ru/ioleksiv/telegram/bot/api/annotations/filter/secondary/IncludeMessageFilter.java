@@ -1,6 +1,10 @@
 package ru.ioleksiv.telegram.bot.api.annotations.filter.secondary;
 
-import ru.ioleksiv.telegram.bot.core.model.AnnotationState;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.BooleanFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.NotNullFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
+import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -16,6 +20,8 @@ public @interface IncludeMessageFilter {
     AnnotationState value() default AnnotationState.ON;
 
     UserFilter from() default @UserFilter(AnnotationState.OFF);
+
+    IntegerFilter date() default @IntegerFilter(AnnotationState.OFF);
 
     ChatFilter chat() default @ChatFilter(AnnotationState.OFF);
 
@@ -39,7 +45,7 @@ public @interface IncludeMessageFilter {
 
     AudioFilter audio() default @AudioFilter(AnnotationState.OFF);
 
-    PhotoFilter photo() default @PhotoFilter(AnnotationState.OFF);
+    PhotoArrayFilter photoArray() default @PhotoArrayFilter(AnnotationState.OFF);
 
     StringFilter caption() default @StringFilter(AnnotationState.OFF);
 
@@ -47,7 +53,7 @@ public @interface IncludeMessageFilter {
 
     LocationFilter location() default @LocationFilter(AnnotationState.OFF);
 
-    UserListFilter newChatMembers() default @UserListFilter(AnnotationState.OFF);
+    UserArrayFilter newChatMembers() default @UserArrayFilter(AnnotationState.OFF);
 
     UserFilter leftChatMember() default @UserFilter(AnnotationState.OFF);
 
@@ -65,9 +71,9 @@ public @interface IncludeMessageFilter {
 
     VoiceFilter voice() default @VoiceFilter(AnnotationState.OFF);
 
-    EntitiesFilter entities() default @EntitiesFilter(AnnotationState.OFF);
+    MessageEntityArrayFilter entityArray() default @MessageEntityArrayFilter(AnnotationState.OFF);
 
-    CaptionEntitiesFilter captionEntites() default @CaptionEntitiesFilter(AnnotationState.OFF);
+    MessageEntityArrayFilter captionEntityArray() default @MessageEntityArrayFilter(AnnotationState.OFF);
 
     VideoNoteFilter videoNote() default @VideoNoteFilter(AnnotationState.OFF);
 

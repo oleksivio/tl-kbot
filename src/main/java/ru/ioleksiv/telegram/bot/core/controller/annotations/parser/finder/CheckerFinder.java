@@ -3,7 +3,7 @@ package ru.ioleksiv.telegram.bot.core.controller.annotations.parser.finder;
 import org.springframework.stereotype.Controller;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import ru.ioleksiv.telegram.bot.core.controller.handler.check.Checker;
-import ru.ioleksiv.telegram.bot.core.controller.handler.check.NotNullChecker;
+import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.NotNullChecker;
 
 import java.lang.annotation.Annotation;
 import java.util.Collection;

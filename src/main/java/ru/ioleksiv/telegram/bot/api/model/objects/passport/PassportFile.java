@@ -1,6 +1,7 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.passport;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
@@ -13,11 +14,17 @@ public class PassportFile implements ITelegram {
     @JsonProperty("file_id")
     private String fileId = null;
     /**
+     * To setup filter:
+     *
+     * @see IntegerFilter fileSize
      * file_size Integer File size
      */
     @JsonProperty("file_size")
     private Integer fileSize = null;
     /**
+     * To setup filter:
+     *
+     * @see IntegerFilter fileDate
      * file_date Integer Unix time when the file was uploaded
      */
     @JsonProperty("file_date")

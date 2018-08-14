@@ -1,6 +1,7 @@
 package ru.ioleksiv.telegram.bot.api.annotations.filter.secondary;
 
-import ru.ioleksiv.telegram.bot.core.model.AnnotationState;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
+import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -14,4 +15,11 @@ import java.lang.annotation.Target;
 public @interface PhotoFilter {
 
     AnnotationState value() default AnnotationState.ON;
+
+    IntegerFilter width() default @IntegerFilter(AnnotationState.OFF);
+
+    IntegerFilter height() default @IntegerFilter(AnnotationState.OFF);
+
+    IntegerFilter fileSize() default @IntegerFilter(AnnotationState.OFF);
+
 }

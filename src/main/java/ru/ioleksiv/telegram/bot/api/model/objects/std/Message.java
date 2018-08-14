@@ -1,27 +1,26 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.primary.MessageFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.BooleanFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.NotNullFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.AnimationFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.AudioFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.BooleanFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.CaptionEntitiesFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.ChatFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.ContactFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.DocumentFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.EntitiesFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.GameFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.IncludeMessageFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.InvoiceFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.LocationFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.NotNullFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.MessageEntityArrayFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.PassportDataFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.PhotoFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.PhotoArrayFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.StickerFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.StringFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.SuccessfulPaymentFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.UserArrayFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.UserFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.UserListFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.VenueFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.VideoFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.VideoNoteFilter;
@@ -31,7 +30,6 @@ import ru.ioleksiv.telegram.bot.api.model.objects.payments.Invoice;
 import ru.ioleksiv.telegram.bot.api.model.objects.payments.SuccessfulPayment;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.files.Audio;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.files.Document;
-import ru.ioleksiv.telegram.bot.api.model.objects.std.files.MessageEntity;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.files.PhotoSize;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.files.Video;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.files.VideoNote;
@@ -41,13 +39,9 @@ import ru.ioleksiv.telegram.bot.api.model.objects.std.game.Game;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.sticker.Sticker;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * To setup filter:
- *
- * @see MessageFilter
  * @see <a href="https://core.telegram.org/bots/api#message">Message</a>
  */
 public class Message implements ITelegram {
@@ -65,10 +59,13 @@ public class Message implements ITelegram {
     @JsonProperty("from")
     private User from = null;
     /**
+     * To setup filter:
+     *
+     * @see IntegerFilter date
      * date Integer Date the message was sent in Unix time
      */
     @JsonProperty("date")
-    private long date = 0;
+    private Long date = null;
     /**
      * To setup filter:
      *
@@ -177,11 +174,11 @@ public class Message implements ITelegram {
     /**
      * To setup filter:
      *
-     * @see PhotoFilter photo
+     * @see PhotoArrayFilter photoArray
      * photo Array of PhotoSize Optional. Message is a photo, available sizes of the photo
      */
     @JsonProperty("photo")
-    private List<PhotoSize> photo = new ArrayList<>();
+    private List<PhotoSize> photo = null;
     /**
      * To setup filter:
      *
@@ -210,12 +207,12 @@ public class Message implements ITelegram {
     /**
      * To setup filter:
      *
-     * @see UserListFilter  newChatMembers
+     * @see UserArrayFilter  newChatMembers
      * new_chat_members Array of User Optional. New members that were added to the group or
      * supergroup and information about them (the bot itself may be one of these members)
      */
     @JsonProperty("new_chat_members")
-    private List<User> newChatMembers = new ArrayList<>();
+    private List<User> newChatMembers = null;
     /**
      * To setup filter:
      *
@@ -285,21 +282,21 @@ public class Message implements ITelegram {
     /**
      * To setup filter:
      *
-     * @see EntitiesFilter entities
+     * @see MessageEntityArrayFilter entityArray
      * entities Array of MessageEntity Optional. For text messages, special entities like usernames,
      * URLs, bot commands, etc. that appear in the text
      */
     @JsonProperty("entities")
-    private List<MessageEntity> entities = new ArrayList<>();
+    private List<MessageEntity> entities = null;
     /**
      * To setup filter:
      *
-     * @see CaptionEntitiesFilter captionEntites
+     * @see MessageEntityArrayFilter captionEntityArray
      * caption_entities Array of MessageEntity Optional. For messages with a caption, special
      * entities like usernames, URLs, bot commands, etc. that appear in the caption
      */
     @JsonProperty("caption_entities")
-    private List<MessageEntity> captionEntities = new ArrayList<>();
+    private List<MessageEntity> captionEntities = null;
     /**
      * To setup filter:
      *
@@ -311,11 +308,11 @@ public class Message implements ITelegram {
     /**
      * To setup filter:
      *
-     * @see PhotoFilter newChatPhoto
+     * @see PhotoArrayFilter newChatPhotoArray
      * new_chat_photo Array of PhotoSize Optional. A chat photo was change to this value
      */
     @JsonProperty("new_chat_photo")
-    private List<PhotoSize> newChatPhoto = new ArrayList<>();
+    private List<PhotoSize> newChatPhoto = null;
     /**
      * To setup filter:
      *
@@ -559,11 +556,11 @@ public class Message implements ITelegram {
         this.from = from;
     }
 
-    public long getDate() {
+    public Long getDate() {
         return date;
     }
 
-    public void setDate(long date) {
+    public void setDate(Long date) {
         this.date = date;
     }
 

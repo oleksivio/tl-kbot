@@ -1,7 +1,9 @@
-package ru.ioleksiv.telegram.bot.api.model.objects.std.files;
+package ru.ioleksiv.telegram.bot.api.model.objects.std;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ru.ioleksiv.telegram.bot.api.model.objects.std.User;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.UserFilter;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
@@ -22,6 +24,9 @@ public class MessageEntity implements ITelegram {
     public static final String TYPE_TEXT_LINK = "text_link";
     public static final String TYPE_TEXT_MENTION = "text_mention";
     /**
+     * To setup filter:
+     *
+     * @see StringFilter type
      * type String Type of the entity. Can be mention (@username), hashtag, bot_command, url, email,
      * bold (bold text), italic (italic text), code (monowidth string), pre (monowidth block),
      * text_link (for clickable text URLs), text_mention (for users without usernames)
@@ -34,16 +39,25 @@ public class MessageEntity implements ITelegram {
     @JsonProperty("offset")
     private String offset = null;
     /**
+     * To setup filter:
+     *
+     * @see IntegerFilter length
      * length Integer Length of the entity in UTF-16 code units
      */
     @JsonProperty("length")
     private Integer length = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter url
      * url String Optional. For “text_link” only, url that will be opened after user taps on the text
      */
     @JsonProperty("url")
     private String url = null;
     /**
+     * To setup filter:
+     *
+     * @see UserFilter user
      * user User Optional. For “text_mention” only, the mentioned user
      */
     @JsonProperty("user")

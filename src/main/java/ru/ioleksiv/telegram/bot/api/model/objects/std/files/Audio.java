@@ -1,6 +1,9 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std.files;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.PhotoFilter;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
@@ -14,31 +17,49 @@ public class Audio implements ITelegram {
     @JsonProperty("file_id")
     private String fileId = null;
     /**
+     * To setup filter:
+     *
+     * @see IntegerFilter duration
      * duration Integer Duration of the audio in seconds as defined by sender
      */
     @JsonProperty("duration")
     private Integer duration = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter performer
      * performer String Optional. Performer of the audio as defined by sender or by audio tags
      */
     @JsonProperty("performer")
     private String performer = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter title
      * title String Optional. Title of the audio as defined by sender or by audio tags
      */
     @JsonProperty("title")
     private String title = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter mimeType
      * mime_type String Optional. MIME type of the files as defined by sender
      */
     @JsonProperty("mime_type")
     private String mimeType = null;
     /**
+     * To setup filter:
+     *
+     * @see IntegerFilter fileSize
      * file_size Integer Optional. File size
      */
     @JsonProperty("file_size")
     private Integer fileSize = null;
     /**
+     * To setup filter:
+     *
+     * @see PhotoFilter thumb
      * thumb PhotoSize Optional. Thumbnail of the album cover to which the music file belongs
      */
     @JsonProperty("thumb")

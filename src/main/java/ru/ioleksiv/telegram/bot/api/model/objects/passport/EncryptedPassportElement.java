@@ -1,9 +1,12 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.passport;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.NotNullFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.PassportFileArrayFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.PassportFileFilter;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,6 +27,9 @@ public class EncryptedPassportElement implements ITelegram {
     public static final String TYPE_PHONE_NUMBER = "phone_number";
     public static final String TYPE_EMAIL = "email";
     /**
+     * To setup filter:
+     *
+     * @see StringFilter type
      * type String Element type.
      * One of “personal_details”, “passport”, “driver_license”, “identity_card”, “internal_passport”, “address”,
      * “utility_bill”, “bank_statement”, “rental_agreement”, “passport_registration”, “temporary_registration”,
@@ -32,28 +38,43 @@ public class EncryptedPassportElement implements ITelegram {
     @JsonProperty("type")
     private String type = null;
     /**
+     * To setup filter:
+     *
+     * @see NotNullFilter data
      * data String Optional. Base64-encoded encrypted Telegram Passport element data provided by the user, available for “personal_details”, “passport”, “driver_license”, “identity_card”, “identity_passport” and “address” types. Can be decrypted and verified using the accompanying EncryptedCredentials.
      */
     @JsonProperty("data")
     private String data = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter phoneNumber
      * phone_number String Optional. User's verified phone number, available only for “phone_number” type
      */
     @JsonProperty("phone_number")
     private String phoneNumber = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter email
      * email String Optional. User's verified email address, available only for “email” type
      */
     @JsonProperty("email")
     private String email = null;
     /**
+     * To setup filter:
+     *
+     * @see PassportFileArrayFilter fileArray
      * files Array of PassportFile Optional. Array of encrypted files with documents provided by the user,
      * available for “utility_bill”, “bank_statement”, “rental_agreement”, “passport_registration” and
      * “temporary_registration” types. Files can be decrypted and verified using the accompanying EncryptedCredentials.
      */
     @JsonProperty("files")
-    private List<PassportFile> files = new ArrayList<>();
+    private List<PassportFile> files = null;
     /**
+     * To setup filter:
+     *
+     * @see PassportFileFilter frontSide
      * front_side PassportFile Optional. Encrypted file with the front side of the document, provided by the user.
      * Available for “passport”, “driver_license”, “identity_card” and “internal_passport”. The file can be decrypted
      * and verified using the accompanying EncryptedCredentials.
@@ -61,6 +82,9 @@ public class EncryptedPassportElement implements ITelegram {
     @JsonProperty("front_side")
     private PassportFile frontSide = null;
     /**
+     * To setup filter:
+     *
+     * @see PassportFileFilter reverseSide
      * reverse_side PassportFile Optional. Encrypted file with the reverse side of the document, provided by the user.
      * Available for “driver_license” and “identity_card”. The file can be decrypted and verified using the accompanying
      * EncryptedCredentials.
@@ -68,6 +92,9 @@ public class EncryptedPassportElement implements ITelegram {
     @JsonProperty("reverse_side")
     private PassportFile reverseSide = null;
     /**
+     * To setup filter:
+     *
+     * @see PassportFileFilter selfie
      * selfie PassportFile Optional. Encrypted file with the selfie of the user holding a document, provided by the user; available for “passport”, “driver_license”, “identity_card” and “internal_passport”. The file can be decrypted and verified using the accompanying EncryptedCredentials.
      */
     @JsonProperty("selfie")

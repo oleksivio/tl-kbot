@@ -1,4 +1,4 @@
-package ru.ioleksiv.telegram.bot.core.model;
+package ru.ioleksiv.telegram.bot.api.model.annotation;
 
 import org.jetbrains.annotations.Contract;
 

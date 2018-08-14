@@ -1,15 +1,11 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.BooleanFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.StringFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.UserFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.BooleanFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
- * To setup filter:
- *
- * @see UserFilter
  * @see <a href="https://core.telegram.org/bots/api#user">User</a>
  */
 public class User implements ITelegram {
@@ -53,17 +49,17 @@ public class User implements ITelegram {
     /**
      * To setup filter:
      *
-     * @see BooleanFilter isBot
+     * @see BooleanFilter bot
      * is_bot Boolean True, if this user is a bot
      */
     @JsonProperty("is_bot")
     private Boolean isBot = null;
 
-    public Boolean getIsBot() {
+    public Boolean getBot() {
         return isBot;
     }
 
-    public void setIsBot(Boolean bot) {
+    public void setBot(Boolean bot) {
         isBot = bot;
     }
 

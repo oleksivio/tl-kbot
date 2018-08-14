@@ -1,6 +1,6 @@
 package ru.ioleksiv.telegram.bot.api.annotations.filter.secondary;
 
-import ru.ioleksiv.telegram.bot.core.model.AnnotationState;
+import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -14,4 +14,9 @@ import java.lang.annotation.Target;
 public @interface PassportDataFilter {
 
     AnnotationState value() default AnnotationState.ON;
+
+    EncryptedPassportElementArrayFilter encryptedPassportElements() default @EncryptedPassportElementArrayFilter(AnnotationState.OFF);
+
+    EncryptedCredentialsFilter encryptedCredentials() default @EncryptedCredentialsFilter(AnnotationState.OFF);
+
 }

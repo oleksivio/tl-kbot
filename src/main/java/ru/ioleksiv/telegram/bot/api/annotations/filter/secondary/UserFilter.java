@@ -1,6 +1,8 @@
 package ru.ioleksiv.telegram.bot.api.annotations.filter.secondary;
 
-import ru.ioleksiv.telegram.bot.core.model.AnnotationState;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.BooleanFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
+import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -23,6 +25,6 @@ public @interface UserFilter {
 
     StringFilter languageCode() default @StringFilter(AnnotationState.OFF);
 
-    BooleanFilter isBot() default @BooleanFilter(AnnotationState.OFF);
+    BooleanFilter bot() default @BooleanFilter(AnnotationState.OFF);
 
 }

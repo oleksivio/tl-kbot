@@ -1,10 +1,16 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.BooleanFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.ChatFilter;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.files.ChatPhoto;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
+ * To setup filter:
+ *
+ * @see ChatFilter chat
  * @see <a href="https://core.telegram.org/bots/api#chat">Chat</a>
  */
 public class Chat implements ITelegram {
@@ -21,32 +27,50 @@ public class Chat implements ITelegram {
     @JsonProperty("id")
     private long id = 0;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter type
      * type String Type of chat, can be either “private”, “group”, “supergroup” or “channel”
      */
     @JsonProperty("type")
     private String type = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter title
      * title String Optional. Title, for supergroups, channels and group chats
      */
     @JsonProperty("title")
     private String title = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter username
      * username String Optional. Username, for private chats, supergroups and channels if available
      */
     @JsonProperty("username")
     private String username = null;
 
     /**
+     * To setup filter:
+     *
+     * @see StringFilter firstName
      * first_name String Optional. First name of the other party in a private chat
      */
     @JsonProperty("first_name")
     private String firstName = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter lastName
      * last_name String Optional. Last name of the other party in a private chat
      */
     @JsonProperty("last_name")
     private String lastName = null;
     /**
+     * To setup filter:
+     *
+     * @see BooleanFilter allMembersAreAdministrators
      * all_members_are_administrators Boolean Optional. True if a group has ‘All Members Are Admins’
      * enabled.
      */

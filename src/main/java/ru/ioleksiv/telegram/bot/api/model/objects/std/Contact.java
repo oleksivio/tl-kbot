@@ -2,41 +2,61 @@ package ru.ioleksiv.telegram.bot.api.model.objects.std;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.jetbrains.annotations.NotNull;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.NotNullFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
+/**
+ * @see <a href="https://core.telegram.org/bots/api#contact">Contact</a>
+ */
 public class Contact implements ITelegram {
     /**
+     * To setup filter:
+     *
+     * @see StringFilter phoneNumber
      * phone_number String Contact's phone number
      */
     @JsonProperty("phone_number")
-    private String mPhoneNumber = "";
+    private String phoneNumber = "";
     /**
+     * To setup filter:
+     *
+     * @see StringFilter firstName
      * first_name String Contact's first name
      */
     @JsonProperty("first_name")
-    private String mFirstName = "";
+    private String firstName = "";
     /**
+     * To setup filter:
+     *
+     * @see StringFilter lastName
      * last_name String Optional. Contact's last name
      */
     @JsonProperty("last_name")
-    private String mLastName = "";
+    private String lastName = "";
     /**
+     * To setup filter:
+     *
+     * @see NotNullFilter userId
      * user_id Integer Optional. Contact's user identifier in Telegram
      */
     @JsonProperty("user_id")
-    private Integer mUserId = null;
+    private Long userId = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter vCard
      * vCard String Optional Additional data about the contact in the form of a vCard, 0-2048 bytes
      */
     @JsonProperty("vCard")
     private String vCard = null;
 
     public String getPhoneNumber() {
-        return mPhoneNumber;
+        return phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        mPhoneNumber = phoneNumber;
+        this.phoneNumber = phoneNumber;
     }
 
     public String getvCard() {
@@ -48,27 +68,27 @@ public class Contact implements ITelegram {
     }
 
     public String getFirstName() {
-        return mFirstName;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-        mFirstName = firstName;
+        this.firstName = firstName;
     }
 
     public String getLastName() {
-        return mLastName;
+        return lastName;
     }
 
     public void setLastName(@NotNull String lastName) {
-        mLastName = lastName;
+        this.lastName = lastName;
     }
 
-    public Integer getUserId() {
-        return mUserId;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUserId(int userId) {
-        mUserId = userId;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }
 

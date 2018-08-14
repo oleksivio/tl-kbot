@@ -1,6 +1,7 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std.files;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
@@ -13,16 +14,25 @@ public class PhotoSize implements ITelegram {
     @JsonProperty("file_id")
     private String fileId = null;
     /**
+     * To setup filter:
+     *
+     * @see IntegerFilter width
      * width Integer Photo width
      */
     @JsonProperty("width")
     private Integer width = null;
     /**
+     * To setup filter:
+     *
+     * @see IntegerFilter height
      * height Integer Photo height
      */
     @JsonProperty("height")
     private Integer height = null;
     /**
+     * To setup filter:
+     *
+     * @see IntegerFilter fileSize
      * file_size Integer Optional. File size
      */
     @JsonProperty("file_size")

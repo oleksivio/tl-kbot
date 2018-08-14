@@ -1,6 +1,9 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std.game;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.PhotoFilter;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.files.PhotoSize;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
@@ -14,25 +17,85 @@ public class Animation implements ITelegram {
     @JsonProperty("file_id")
     private String fileId = null;
     /**
+     * To setup filter:
+     *
+     * @see PhotoFilter thumb
      * thumb PhotoSize Optional. Animation thumbnail as defined by sender
      */
     @JsonProperty("thumb")
     private PhotoSize thumb = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter fileName
      * file_name String Optional. Original animation filename as defined by sender
      */
     @JsonProperty("file_name")
     private String fileName = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter mimeType
      * mime_type String Optional. MIME type of the file as defined by sender
      */
     @JsonProperty("mime_type")
     private String mimeType = null;
     /**
+     * To setup filter:
+     *
+     * @see IntegerFilter fileSize
      * file_size Integer Optional. File size
      */
     @JsonProperty("file_size")
     private Integer fileSize = null;
+    /**
+     * To setup filter:
+     *
+     * @see IntegerFilter width
+     * width	Integer	Video width as defined by sender
+     */
+    @JsonProperty("width")
+    private Integer width = null;
+    /**
+     * To setup filter:
+     *
+     * @see IntegerFilter height
+     * height	Integer	Video height as defined by sender
+     */
+    @JsonProperty("height")
+    private Integer height = null;
+    /**
+     * To setup filter:
+     *
+     * @see IntegerFilter duration
+     * duration	Integer	Duration of the video in seconds as defined by sender
+     */
+    @JsonProperty("duration")
+    private Integer duration = null;
+
+    public Integer getWidth() {
+        return width;
+    }
+
+    public void setWidth(Integer width) {
+        this.width = width;
+    }
+
+    public Integer getHeight() {
+        return height;
+    }
+
+    public void setHeight(Integer height) {
+        this.height = height;
+    }
+
+    public Integer getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Integer duration) {
+        this.duration = duration;
+    }
 
     public String getFileId() {
         return fileId;

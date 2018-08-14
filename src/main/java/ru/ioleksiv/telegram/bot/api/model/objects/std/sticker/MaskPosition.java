@@ -1,6 +1,7 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std.sticker;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
@@ -8,6 +9,9 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
  */
 public class MaskPosition implements ITelegram {
     /**
+     * To setup filter:
+     *
+     * @see StringFilter point
      * point String The part of the face relative to which the mask should be placed. One of “forehead”, “eyes”,
      * “mouth”, or “chin”.
      */

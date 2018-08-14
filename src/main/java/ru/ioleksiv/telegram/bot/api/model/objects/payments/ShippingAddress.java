@@ -1,6 +1,7 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.payments;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
@@ -8,31 +9,49 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
  */
 public class ShippingAddress implements ITelegram {
     /**
+     * To setup filter:
+     *
+     * @see StringFilter countryCode
      * country_code String ISO 3166-1 alpha-2 country code
      */
     @JsonProperty("country_code")
     private String countryCode = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter state
      * state String State, if applicable
      */
     @JsonProperty("state")
     private String state = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter city
      * city String City
      */
     @JsonProperty("city")
     private String city = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter streetLine1
      * street_line1 String First line for the address
      */
     @JsonProperty("street_line1")
     private String streetLine1 = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter streetLine2
      * street_line2 String Second line for the address
      */
     @JsonProperty("street_line2")
     private String streetLine2 = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter postCode
      * post_code String Address post code
      */
     @JsonProperty("post_code")

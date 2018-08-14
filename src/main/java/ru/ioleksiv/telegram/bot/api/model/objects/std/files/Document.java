@@ -1,6 +1,9 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std.files;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.PhotoFilter;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
@@ -14,26 +17,33 @@ public class Document implements ITelegram {
     @JsonProperty("file_id")
     private String fileId = null;
     /**
+     * To setup filter:
+     *
+     * @see PhotoFilter thumb
      * thumb PhotoSize Optional. Document thumbnail as defined by sender
      */
     @JsonProperty("thumb")
     private PhotoSize thumb = null;
     /**
-     * emoji String Optional. Emoji associated with the sticker
-     */
-    @JsonProperty("emoji")
-    private String emoji = null;
-    /**
+     * To setup filter:
+     *
+     * @see StringFilter fileName
      * file_name String Optional. Original filename as defined by sender
      */
     @JsonProperty("file_name")
     private String fileName = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter mimeType
      * mime_type String Optional. MIME type of the files as defined by sender
      */
     @JsonProperty("mime_type")
     private String mimeType = null;
     /**
+     * To setup filter:
+     *
+     * @see IntegerFilter fileSize
      * file_size Integer Optional. File size
      */
     @JsonProperty("file_size")
@@ -45,14 +55,6 @@ public class Document implements ITelegram {
 
     public void setThumb(PhotoSize thumb) {
         this.thumb = thumb;
-    }
-
-    public String getEmoji() {
-        return emoji;
-    }
-
-    public void setEmoji(String emoji) {
-        this.emoji = emoji;
     }
 
     public String getFileName() {

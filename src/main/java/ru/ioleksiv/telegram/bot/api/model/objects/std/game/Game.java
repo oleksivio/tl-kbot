@@ -1,11 +1,14 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std.game;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ru.ioleksiv.telegram.bot.api.model.objects.std.files.MessageEntity;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.AnimationFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.MessageEntityArrayFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.PhotoArrayFilter;
+import ru.ioleksiv.telegram.bot.api.model.objects.std.MessageEntity;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.files.PhotoSize;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,21 +16,33 @@ import java.util.List;
  */
 public class Game implements ITelegram {
     /**
+     * To setup filter:
+     *
+     * @see StringFilter title
      * title String Title of the game
      */
     @JsonProperty("title")
     private String title = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter description
      * description String Description of the game
      */
     @JsonProperty("description")
     private String description = null;
     /**
+     * To setup filter:
+     *
+     * @see PhotoArrayFilter photoArray
      * photo Array of PhotoSize Photo that will be displayed in the game message in chats.
      */
     @JsonProperty("photo")
-    private List<PhotoSize> photo = new ArrayList<>();
+    private List<PhotoSize> photo = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter text
      * text String Optional. Brief description of the game or high scores included in the game message.
      * Can be automatically edited to include current high scores for the game when the bot calls setGameScore,
      * or manually edited using editMessageText. 0-4096 characters.
@@ -35,12 +50,18 @@ public class Game implements ITelegram {
     @JsonProperty("text")
     private String text = null;
     /**
+     * To setup filter:
+     *
+     * @see MessageEntityArrayFilter textEntityArray
      * text_entities Array of MessageEntity Optional. Special entities that appear in text, such as usernames, URLs,
      * bot commands, etc.
      */
     @JsonProperty("text_entities")
-    private List<MessageEntity> textEntities = new ArrayList<>();
+    private List<MessageEntity> textEntities = null;
     /**
+     * To setup filter:
+     *
+     * @see AnimationFilter animation
      * animation Animation Optional. Animation that will be displayed in the game message in chats. Upload via BotFather
      */
     @JsonProperty("animation")

@@ -17,6 +17,6 @@ public class ChosenInlineResultUnpackerParser extends UnpackerParser<ChosenInlin
 
     @Override
     public UpdateUnpacker<ChosenInlineResult> getUpdateUnpacker() {
-        return new UpdateUnpacker<>(in -> Optional.ofNullable(in.getChoosenInlineResult()), ChosenInlineResult.class);
+        return new UpdateUnpacker<>(in -> Optional.ofNullable(in.getChosenInlineResult()), ChosenInlineResult.class);
     }
 }

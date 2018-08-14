@@ -1,9 +1,9 @@
 package ru.ioleksiv.telegram.bot.api.annotations.filter.primary;
 
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.LocationFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.StringFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.UserFilter;
-import ru.ioleksiv.telegram.bot.core.model.AnnotationState;
+import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

@@ -1,6 +1,8 @@
 package ru.ioleksiv.telegram.bot.api.annotations.filter.secondary;
 
-import ru.ioleksiv.telegram.bot.core.model.AnnotationState;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
+import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -14,4 +16,15 @@ import java.lang.annotation.Target;
 public @interface InvoiceFilter {
 
     AnnotationState value() default AnnotationState.ON;
+
+    StringFilter title() default @StringFilter(AnnotationState.OFF);
+
+    StringFilter description() default @StringFilter(AnnotationState.OFF);
+
+    StringFilter startParameter() default @StringFilter(AnnotationState.OFF);
+
+    StringFilter currency() default @StringFilter(AnnotationState.OFF);
+
+    IntegerFilter totalAmount() default @IntegerFilter(AnnotationState.OFF);
+
 }

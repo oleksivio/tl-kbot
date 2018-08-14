@@ -1,28 +1,44 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.DoubleFilter;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
+/**
+ * @see <a href="https://core.telegram.org/bots/api#location">Location</a>
+ */
 public class Location implements ITelegram {
-    @JsonProperty("latitude")
-    private float mLatitude = 0;
+    /**
+     * To setup filter:
+     *
+     * @see DoubleFilter longitude
+     * longitude	Float	Longitude as defined by sender
+     */
     @JsonProperty("longitude")
-    private float mLongitude = 0;
+    private Float longitude = null;
+    /**
+     * To setup filter:
+     *
+     * @see DoubleFilter latitude
+     * latitude	Float	Latitude as defined by sender
+     */
+    @JsonProperty("latitude")
+    private Float latitude = null;
 
-    public float getLatitude() {
-        return mLatitude;
+    public Float getLatitude() {
+        return latitude;
     }
 
-    public void setLatitude(float latitude) {
-        mLatitude = latitude;
+    public void setLatitude(Float latitude) {
+        this.latitude = latitude;
     }
 
-    public float getLongitude() {
-        return mLongitude;
+    public Float getLongitude() {
+        return longitude;
     }
 
-    public void setLongitude(float longitude) {
-        mLongitude = longitude;
+    public void setLongitude(Float longitude) {
+        this.longitude = longitude;
     }
 
 }

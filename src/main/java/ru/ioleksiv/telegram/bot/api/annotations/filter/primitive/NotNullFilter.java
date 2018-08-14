@@ -1,6 +1,6 @@
-package ru.ioleksiv.telegram.bot.api.annotations.filter.secondary;
+package ru.ioleksiv.telegram.bot.api.annotations.filter.primitive;
 
-import ru.ioleksiv.telegram.bot.core.model.AnnotationState;
+import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

@@ -1,7 +1,9 @@
 package ru.ioleksiv.telegram.bot.api.annotations.filter.primary;
 
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.StringFilter;
-import ru.ioleksiv.telegram.bot.core.model.AnnotationState;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.ShippingAddressFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.UserFilter;
+import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -16,8 +18,10 @@ public @interface ShippingQueryFilter {
 
     AnnotationState value() default AnnotationState.ON;
 
+    UserFilter from() default @UserFilter(AnnotationState.OFF);
+
     StringFilter invoicePayload() default @StringFilter(AnnotationState.OFF);
 
-    StringFilter shippingAddress() default @StringFilter(AnnotationState.OFF);
+    ShippingAddressFilter shippingAddress() default @ShippingAddressFilter(AnnotationState.OFF);
 
 }

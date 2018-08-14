@@ -1,6 +1,8 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.payments;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
@@ -8,26 +10,41 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
  */
 public class Invoice implements ITelegram {
     /**
+     * To setup filter:
+     *
+     * @see StringFilter title
      * title String Product name
      */
     @JsonProperty("title")
     private String title = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter description
      * description String Product description
      */
     @JsonProperty("description")
     private String description = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter startParameter
      * start_parameter String Unique bot deep-linking parameter that can be used to generate this invoice
      */
     @JsonProperty("start_parameter")
     private String startParameter = null;
     /**
+     * To setup filter:
+     *
+     * @see StringFilter currency
      * currency String Three-letter ISO 4217 currency code
      */
     @JsonProperty("currency")
     private String currency = null;
     /**
+     * To setup filter:
+     *
+     * @see IntegerFilter totalAmount
      * total_amount Integer Total price in the smallest units of the currency (integer, not float/double).
      * For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the
      * number of digits past the decimal point for each currency (2 for the majority of currencies).
