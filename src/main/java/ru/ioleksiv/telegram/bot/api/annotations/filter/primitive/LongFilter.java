@@ -11,16 +11,16 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 @Documented
-public @interface IntegerFilter {
+public @interface LongFilter {
 
     AnnotationState value() default AnnotationState.ON;
 
-    int lessThan() default Integer.MAX_VALUE;
+    long lessThan() default Long.MAX_VALUE;
 
-    int lessOrEqual() default Integer.MAX_VALUE;
+    long lessOrEqual() default Long.MAX_VALUE;
 
-    int moreThan() default Integer.MIN_VALUE;
+    long moreThan() default Long.MIN_VALUE;
 
-    int moreOrEqual() default Integer.MIN_VALUE;
+    long moreOrEqual() default Long.MIN_VALUE;
 
 }

@@ -2,14 +2,14 @@ package ru.ioleksiv.telegram.bot.core.controller.handler.check.impl;
 
 import ru.ioleksiv.telegram.bot.core.controller.handler.check.Checker;
 
-public class IntegerChecker implements Checker<Integer> {
-    private final int lessThan;
-    private final int lessOrEqual;
-    private final int moreThan;
-    private final int moreOrEqual;
+public class LongChecker implements Checker<Long> {
+    private final long lessThan;
+    private final long lessOrEqual;
+    private final long moreThan;
+    private final long moreOrEqual;
 
-    public IntegerChecker(int lessThan, int lessOrEqual,
-                          int moreThan, int moreOrEqual) {
+    public LongChecker(long lessThan, long lessOrEqual,
+                       long moreThan, long moreOrEqual) {
         this.lessThan = lessThan;
         this.lessOrEqual = lessOrEqual;
         this.moreThan = moreThan;
@@ -17,7 +17,7 @@ public class IntegerChecker implements Checker<Integer> {
     }
 
     @Override
-    public boolean check(Integer argument) {
+    public boolean check(Long argument) {
         if (argument == null) {
             return false;
         }

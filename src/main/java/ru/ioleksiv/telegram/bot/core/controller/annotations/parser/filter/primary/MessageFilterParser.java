@@ -3,7 +3,7 @@ package ru.ioleksiv.telegram.bot.core.controller.annotations.parser.filter.prima
 import org.springframework.stereotype.Controller;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primary.MessageFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.BooleanFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.LongFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.NotNullFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.AnimationFilter;
@@ -47,7 +47,7 @@ public class MessageFilterParser extends FilterParser<MessageFilter, Message> {
             unionExtractChecker.add(msg -> Optional.ofNullable(msg.getAnimation()), finder.find(from));
         }
 
-        IntegerFilter date = annotation.date();
+        LongFilter date = annotation.date();
         if (date.value().isActive()) {
             unionExtractChecker.add(msg -> Optional.ofNullable(msg.getDate()), finder.find(date));
         }

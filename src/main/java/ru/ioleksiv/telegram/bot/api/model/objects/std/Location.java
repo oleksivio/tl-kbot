@@ -15,7 +15,7 @@ public class Location implements ITelegram {
      * longitude	Float	Longitude as defined by sender
      */
     @JsonProperty("longitude")
-    private Float longitude = null;
+    private Double longitude = null;
     /**
      * To setup filter:
      *
@@ -23,21 +23,21 @@ public class Location implements ITelegram {
      * latitude	Float	Latitude as defined by sender
      */
     @JsonProperty("latitude")
-    private Float latitude = null;
+    private Double latitude = null;
 
-    public Float getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Float latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
-    public Float getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Float longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 

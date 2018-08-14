@@ -2,7 +2,7 @@ package ru.ioleksiv.telegram.bot.api.model.objects.std;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.BooleanFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.LongFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.NotNullFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.AnimationFilter;
@@ -61,7 +61,7 @@ public class Message implements ITelegram {
     /**
      * To setup filter:
      *
-     * @see IntegerFilter date
+     * @see LongFilter date
      * date Integer Date the message was sent in Unix time
      */
     @JsonProperty("date")
