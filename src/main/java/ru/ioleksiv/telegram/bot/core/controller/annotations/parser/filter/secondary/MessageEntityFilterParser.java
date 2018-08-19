@@ -9,20 +9,21 @@ import ru.ioleksiv.telegram.bot.api.model.objects.std.MessageEntity;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import ru.ioleksiv.telegram.bot.core.controller.handler.check.Checker;
+import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.StringTypeChecker;
 import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.UnionExtractChecker;
 
 import java.util.Optional;
 
 @Component
-public class MessageEntityFilterParser extends FilterParser<MessageEntityFilter, MessageEntity> {
+public class MessageEntityFilterParser implements FilterParser<MessageEntityFilter, MessageEntity> {
 
     @Override
     public Checker<MessageEntity> createChecker(MessageEntityFilter annotation, Finder finder) {
         UnionExtractChecker<MessageEntity> unionExtractChecker = new UnionExtractChecker<>();
 
-        StringFilter type = annotation.type();
-        if (type.value().isActive()) {
-            unionExtractChecker.add(in -> Optional.ofNullable(in.getType()), finder.find(type));
+        MessageEntity.Type type = annotation.type();
+        if (type.isActive()) {
+            unionExtractChecker.add(in -> Optional.ofNullable(in.getType()), new StringTypeChecker(type.toString()));
         }
         IntegerFilter length = annotation.length();
         if (length.value().isActive()) {

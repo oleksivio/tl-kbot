@@ -13,7 +13,7 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.UnionExtractC
 import java.util.Optional;
 
 @Component
-public class VoiceFilterParser extends FilterParser<VoiceFilter, Voice> {
+public class VoiceFilterParser implements FilterParser<VoiceFilter, Voice> {
 
     @Override
     public Checker<Voice> createChecker(VoiceFilter annotation, Finder finder) {

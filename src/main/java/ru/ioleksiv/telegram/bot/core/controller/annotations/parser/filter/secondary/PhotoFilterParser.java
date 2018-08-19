@@ -12,7 +12,7 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.UnionExtractC
 import java.util.Optional;
 
 @Component
-public class PhotoFilterParser extends FilterParser<PhotoFilter, PhotoSize> {
+public class PhotoFilterParser implements FilterParser<PhotoFilter, PhotoSize> {
 
     @Override
     public Checker<PhotoSize> createChecker(PhotoFilter annotation, Finder finder) {

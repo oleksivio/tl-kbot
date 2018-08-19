@@ -14,7 +14,7 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.UnionExtractC
 import java.util.Optional;
 
 @Component
-public class DocumentFilterParser extends FilterParser<DocumentFilter, Document> {
+public class DocumentFilterParser implements FilterParser<DocumentFilter, Document> {
 
     @Override
     public Checker<Document> createChecker(DocumentFilter annotation, Finder finder) {

@@ -14,7 +14,7 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.UnionExtractC
 import java.util.Optional;
 
 @Component
-public class InlineQueryFilterParser extends FilterParser<InlineQueryFilter, InlineQuery> {
+public class InlineQueryFilterParser implements FilterParser<InlineQueryFilter, InlineQuery> {
 
     @Override
     public Checker<InlineQuery> createChecker(InlineQueryFilter annotation, Finder finder) {

@@ -6,8 +6,8 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.Checker;
 
 import java.lang.annotation.Annotation;
 
-public abstract class FilterParser<A extends Annotation, IN> implements Parser<A> {
+public interface FilterParser<A extends Annotation, IN> extends Parser<A> {
 
-    public abstract Checker<IN> createChecker(A annotation, Finder finder);
+    Checker<IN> createChecker(A annotation, Finder finder);
 
 }

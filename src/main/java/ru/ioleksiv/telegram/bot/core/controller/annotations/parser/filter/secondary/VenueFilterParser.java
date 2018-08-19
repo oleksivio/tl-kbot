@@ -14,7 +14,7 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.UnionExtractC
 import java.util.Optional;
 
 @Component
-public class VenueFilterParser extends FilterParser<VenueFilter, Venue> {
+public class VenueFilterParser implements FilterParser<VenueFilter, Venue> {
 
     @Override
     public Checker<Venue> createChecker(VenueFilter annotation, Finder finder) {

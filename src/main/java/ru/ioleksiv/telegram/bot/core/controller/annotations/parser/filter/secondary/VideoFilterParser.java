@@ -14,7 +14,7 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.UnionExtractC
 import java.util.Optional;
 
 @Component
-public class VideoFilterParser extends FilterParser<VideoFilter, Video> {
+public class VideoFilterParser implements FilterParser<VideoFilter, Video> {
 
     @Override
     public Checker<Video> createChecker(VideoFilter annotation, Finder finder) {

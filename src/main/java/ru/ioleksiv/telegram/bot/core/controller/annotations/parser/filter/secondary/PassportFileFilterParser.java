@@ -12,7 +12,7 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.UnionExtractC
 import java.util.Optional;
 
 @Component
-public class PassportFileFilterParser extends FilterParser<PassportFileFilter, PassportFile> {
+public class PassportFileFilterParser implements FilterParser<PassportFileFilter, PassportFile> {
 
     @Override
     public Checker<PassportFile> createChecker(PassportFileFilter annotation, Finder finder) {

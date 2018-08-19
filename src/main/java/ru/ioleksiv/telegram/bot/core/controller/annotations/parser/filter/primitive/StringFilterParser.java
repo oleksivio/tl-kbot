@@ -8,14 +8,14 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.Checker;
 import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.StringChecker;
 
 @Component
-public class StringFilterParser extends FilterParser<StringFilter, String> {
+public class StringFilterParser implements FilterParser<StringFilter, String> {
 
     @Override
     public Checker<String> createChecker(StringFilter annotation, Finder finder) {
         return new StringChecker(annotation.startWith(),
                                  annotation.equalWith(),
                                  annotation.endWith(),
-                                 annotation.contains(),
+                                 annotation.contain(),
                                  annotation.regExp());
     }
 

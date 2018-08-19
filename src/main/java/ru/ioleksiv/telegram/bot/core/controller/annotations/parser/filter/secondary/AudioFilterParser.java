@@ -14,7 +14,7 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.UnionExtractC
 import java.util.Optional;
 
 @Component
-public class AudioFilterParser extends FilterParser<AudioFilter, Audio> {
+public class AudioFilterParser implements FilterParser<AudioFilter, Audio> {
 
     @Override
     public Checker<Audio> createChecker(AudioFilter annotation, Finder finder) {

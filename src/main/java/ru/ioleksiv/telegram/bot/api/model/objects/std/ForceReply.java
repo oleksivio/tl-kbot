@@ -7,12 +7,7 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
  * @see <a href="https://core.telegram.org/bots/api#forcereply">ForceReply</a>
  */
 public class ForceReply implements ITelegram {
-    /**
-     * force_reply True Shows reply interface to the user, as if they manually selected the bot‘s
-     * message and tapped ’Reply'
-     */
-    @JsonProperty("force_reply")
-    private final boolean forceReply = true;
+
     /**
      * selective Boolean Optional. Use this parameter if you want to force reply from specific users
      * only. Targets:
@@ -22,8 +17,14 @@ public class ForceReply implements ITelegram {
     @JsonProperty("selective")
     private Boolean selective = null;
 
+    /**
+     * force_reply True Shows reply interface to the user, as if they manually selected the bot‘s
+     * message and tapped ’Reply'
+     */
+
+    @JsonProperty("force_reply")
     public boolean isForceReply() {
-        return forceReply;
+        return true;
     }
 
     public Boolean getSelective() {

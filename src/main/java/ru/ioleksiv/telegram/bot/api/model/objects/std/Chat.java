@@ -1,6 +1,7 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.jetbrains.annotations.Contract;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.BooleanFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.ChatFilter;
@@ -14,10 +15,6 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
  * @see <a href="https://core.telegram.org/bots/api#chat">Chat</a>
  */
 public class Chat implements ITelegram {
-    public static final String TYPE_PRIVATE = "private";
-    public static final String TYPE_GROUP = "group";
-    public static final String TYPE_SUPERGROUP = "supergroup";
-    public static final String TYPE_CHANNEL = "channel";
     /**
      * id Integer Unique identifier for this chat. This number may be greater than 32 bits and some
      * programming languages may have difficulty/silent defects in interpreting it. But it is
@@ -50,7 +47,6 @@ public class Chat implements ITelegram {
      */
     @JsonProperty("username")
     private String username = null;
-
     /**
      * To setup filter:
      *
@@ -76,7 +72,6 @@ public class Chat implements ITelegram {
      */
     @JsonProperty("all_members_are_administrators")
     private Boolean allMembersAreAdmin = null;
-
     /**
      * photo ChatPhoto Optional. Chat photo. Returned only in getChat.
      */
@@ -215,6 +210,30 @@ public class Chat implements ITelegram {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public enum Type {
+        PRIVATE("private"),
+        GROUP("group"),
+        SUPERGROUP("supergroup"),
+        CHANNEL("channel"),
+        ALL("");
+
+        private final String name;
+
+        Type(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public String toString() {
+            return name;
+        }
+
+        @Contract(pure = true)
+        public boolean isActive(){
+            return this != ALL;
+        }
     }
 
 }

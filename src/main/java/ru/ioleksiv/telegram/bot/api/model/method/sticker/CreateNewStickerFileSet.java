@@ -18,7 +18,9 @@ public class CreateNewStickerFileSet extends UploadFile<Boolean> {
      */
     private static final String USER_ID_KEY = "user_id";
     /**
-     * name String Yes Short name of sticker set, to be used in t.me/addstickers/ URLs (e.g., animals). Can contain only english letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in “_by_<bot username>”. <bot_username> is case insensitive. 1-64 characters.
+     * name String Yes Short name of sticker set, to be used in t.me/addstickers/ URLs (e.g., animals). Can contain only
+     * english letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must
+     * end in “_by_<bot username>”. <bot_username> is case insensitive. 1-64 characters.
      */
     private static final String NAME_KEY = "name";
     /**
@@ -26,7 +28,8 @@ public class CreateNewStickerFileSet extends UploadFile<Boolean> {
      */
     private static final String TITLE_KEY = "title";
     /**
-     * png_sticker InputFile  Yes Png image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px. upload a new one using multipart/form-data.
+     * png_sticker InputFile  Yes Png image with the sticker, must be up to 512 kilobytes in size, dimensions must not
+     * exceed 512px, and either width or height must be exactly 512px. upload a new one using multipart/form-data.
      */
     private static final String PNG_STICKER_KEY = "png_sticker";
     /**

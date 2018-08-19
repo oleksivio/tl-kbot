@@ -13,7 +13,7 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.UnionExtractC
 import java.util.Optional;
 
 @Component
-public class CallbackQueryFilterParser extends FilterParser<CallbackQueryFilter, CallbackQuery> {
+public class CallbackQueryFilterParser implements FilterParser<CallbackQueryFilter, CallbackQuery> {
 
     @Override
     public Checker<CallbackQuery> createChecker(CallbackQueryFilter annotation,

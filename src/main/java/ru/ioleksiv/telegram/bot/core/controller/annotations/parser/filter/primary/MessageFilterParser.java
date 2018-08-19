@@ -36,7 +36,7 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.UnionExtractC
 import java.util.Optional;
 
 @Controller
-public class MessageFilterParser extends FilterParser<MessageFilter, Message> {
+public class MessageFilterParser implements FilterParser<MessageFilter, Message> {
 
     @Override
     public Checker<Message> createChecker(MessageFilter annotation, Finder finder) {

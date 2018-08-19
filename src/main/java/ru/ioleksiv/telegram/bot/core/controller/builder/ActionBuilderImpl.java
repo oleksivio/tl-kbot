@@ -248,7 +248,7 @@ public class ActionBuilderImpl implements ActionBuilder {
 
     @Override
     public SetChatPhoto setChatPhoto() {
-        return new SetChatPhoto(actionNetworker);
+        return new SetChatPhoto(fileNetworker);
     }
 
     @Override
@@ -433,7 +433,7 @@ public class ActionBuilderImpl implements ActionBuilder {
 
     @Override
     public SetWebhook setWebhook() {
-        return new SetWebhook(actionNetworker);
+        return new SetWebhook(fileNetworker);
     }
 
     @Override

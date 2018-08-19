@@ -15,7 +15,7 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.UnionExtractC
 import java.util.Optional;
 
 @Component
-public class SuccessfulPaymentFilterParser extends FilterParser<SuccessfulPaymentFilter, SuccessfulPayment> {
+public class SuccessfulPaymentFilterParser implements FilterParser<SuccessfulPaymentFilter, SuccessfulPayment> {
 
     @Override
     public Checker<SuccessfulPayment> createChecker(SuccessfulPaymentFilter annotation, Finder finder) {

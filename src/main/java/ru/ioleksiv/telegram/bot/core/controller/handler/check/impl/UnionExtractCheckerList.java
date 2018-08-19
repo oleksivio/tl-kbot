@@ -1,17 +1,18 @@
 package ru.ioleksiv.telegram.bot.core.controller.handler.check.impl;
 
 import ru.ioleksiv.telegram.bot.core.controller.handler.check.Checker;
+import ru.ioleksiv.telegram.bot.core.controller.handler.unpack.Unpacker;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class UnionChecker<ELEM> implements Checker<List<ELEM>> {
+public class UnionExtractCheckerList<ELEM> implements Checker<List<ELEM>> {
 
     private final Collection<Checker<ELEM>> checkerCollection = new ArrayList<>();
 
-    public void add(Checker<ELEM> checker) {
-        checkerCollection.add(checker);
+    public <OUT> void add(Unpacker<ELEM, OUT> unpacker, Checker<OUT> checker) {
+        checkerCollection.add(new ExtractChecker<>(unpacker, checker));
     }
 
     @Override

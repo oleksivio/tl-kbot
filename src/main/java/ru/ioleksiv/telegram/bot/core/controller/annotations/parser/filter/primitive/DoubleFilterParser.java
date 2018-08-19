@@ -8,7 +8,7 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.Checker;
 import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.DoubleChecker;
 
 @Component
-public class DoubleFilterParser extends FilterParser<DoubleFilter, Double> {
+public class DoubleFilterParser implements FilterParser<DoubleFilter, Double> {
 
     @Override
     public Checker<Double> createChecker(DoubleFilter annotation, Finder finder) {

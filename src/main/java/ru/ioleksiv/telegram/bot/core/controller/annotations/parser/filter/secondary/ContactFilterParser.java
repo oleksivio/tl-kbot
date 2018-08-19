@@ -13,7 +13,7 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.UnionExtractC
 import java.util.Optional;
 
 @Component
-public class ContactFilterParser extends FilterParser<ContactFilter, Contact> {
+public class ContactFilterParser implements FilterParser<ContactFilter, Contact> {
 
     @Override
     public Checker<Contact> createChecker(ContactFilter annotation, Finder finder) {

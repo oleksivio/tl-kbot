@@ -8,7 +8,7 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.Checker;
 import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.BooleanChecker;
 
 @Component
-public class BooleanFilterParser extends FilterParser<BooleanFilter, Boolean> {
+public class BooleanFilterParser implements FilterParser<BooleanFilter, Boolean> {
 
     @Override
     public Checker<Boolean> createChecker(BooleanFilter annotation, Finder finder) {

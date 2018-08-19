@@ -3,6 +3,7 @@ package ru.ioleksiv.telegram.bot.api.annotations.filter.secondary;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.BooleanFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
+import ru.ioleksiv.telegram.bot.api.model.objects.std.Chat;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -17,7 +18,7 @@ public @interface ChatFilter {
 
     AnnotationState value() default AnnotationState.ON;
 
-    StringFilter type() default @StringFilter(AnnotationState.OFF);
+    Chat.Type type() default Chat.Type.ALL;
 
     StringFilter title() default @StringFilter(AnnotationState.OFF);
 

@@ -14,7 +14,7 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.UnionExtractC
 import java.util.Optional;
 
 @Component
-public class PreCheckoutQueryFilterParser extends FilterParser<PreCheckoutQueryFilter, PreCheckoutQuery> {
+public class PreCheckoutQueryFilterParser implements FilterParser<PreCheckoutQueryFilter, PreCheckoutQuery> {
 
     @Override
     public Checker<PreCheckoutQuery> createChecker(PreCheckoutQueryFilter annotation, Finder finder) {

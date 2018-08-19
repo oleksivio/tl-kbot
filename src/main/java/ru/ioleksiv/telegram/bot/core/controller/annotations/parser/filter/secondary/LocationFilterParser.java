@@ -12,7 +12,7 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.UnionExtractC
 import java.util.Optional;
 
 @Component
-public class LocationFilterParser extends FilterParser<LocationFilter, Location> {
+public class LocationFilterParser implements FilterParser<LocationFilter, Location> {
 
     @Override
     public Checker<Location> createChecker(LocationFilter annotation, Finder finder) {

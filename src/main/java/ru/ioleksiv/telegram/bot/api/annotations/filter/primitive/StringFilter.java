@@ -23,6 +23,6 @@ public @interface StringFilter {
 
     String[] endWith() default {};
 
-    String[] contains() default {};
+    String[] contain() default {};
 
 }

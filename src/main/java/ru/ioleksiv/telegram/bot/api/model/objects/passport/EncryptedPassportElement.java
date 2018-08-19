@@ -13,19 +13,6 @@ import java.util.List;
  * @see <a href="https://core.telegram.org/bots/api#encryptedpassportelement>EncryptedPassportElement</a>
  */
 public class EncryptedPassportElement implements ITelegram {
-    public static final String TYPE_PERSONAL_DETAILS = "personal_details";
-    public static final String TYPE_PASSPORT = "passport";
-    public static final String TYPE_DRIVER_LICENSE = "driver_license";
-    public static final String TYPE_IDENTITY_CARD = "identity_card";
-    public static final String TYPE_INTERNAL_PASSPORT = "internal_passport";
-    public static final String TYPE_ADDRESS = "address";
-    public static final String TYPE_UTILITY_BILL = "utility_bill";
-    public static final String TYPE_BANK_STATEMENT = "bank_statement";
-    public static final String TYPE_RENTAL_AGREEMENT = "rental_agreement";
-    public static final String TYPE_PASSPORT_REGISTRATION = "passport_registration";
-    public static final String TYPE_TEMPORARY_REGISTRATION = "temporary_registration";
-    public static final String TYPE_PHONE_NUMBER = "phone_number";
-    public static final String TYPE_EMAIL = "email";
     /**
      * To setup filter:
      *
@@ -162,5 +149,37 @@ public class EncryptedPassportElement implements ITelegram {
 
     public void setSelfie(PassportFile selfie) {
         this.selfie = selfie;
+    }
+
+    public enum Type {
+        PERSONAL_DETAILS("personal_details"),
+        PASSPORT("passport"),
+        DRIVER_LICENSE("driver_license"),
+        IDENTITY_CARD("identity_card"),
+        INTERNAL_PASSPORT("internal_passport"),
+        ADDRESS("address"),
+        UTILITY_BILL("utility_bill"),
+        BANK_STATEMENT("bank_statement"),
+        RENTAL_AGREEMENT("rental_agreement"),
+        PASSPORT_REGISTRATION("passport_registration"),
+        TEMPORARY_REGISTRATION("temporary_registration"),
+        PHONE_NUMBER("phone_number"),
+        EMAIL("email"),
+        ALL("");
+
+        private final String name;
+
+        Type(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public String toString() {
+            return name;
+        }
+
+        public boolean isActive() {
+            return this != ALL;
+        }
     }
 }

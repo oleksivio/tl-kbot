@@ -14,7 +14,7 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.UnionExtractC
 import java.util.Optional;
 
 @Component
-public class AnimationFilterParser extends FilterParser<AnimationFilter, Animation> {
+public class AnimationFilterParser implements FilterParser<AnimationFilter, Animation> {
 
     @Override
     public Checker<Animation> createChecker(AnimationFilter annotation, Finder finder) {

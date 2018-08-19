@@ -8,7 +8,7 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.Checker;
 import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.IntegerChecker;
 
 @Component
-public class IntegerFilterParser extends FilterParser<IntegerFilter, Integer> {
+public class IntegerFilterParser implements FilterParser<IntegerFilter, Integer> {
 
     @Override
     public Checker<Integer> createChecker(IntegerFilter annotation, Finder finder) {

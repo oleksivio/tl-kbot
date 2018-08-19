@@ -8,7 +8,7 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.Checker;
 import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.LongChecker;
 
 @Component
-public class LongFilterParser extends FilterParser<LongFilter, Long> {
+public class LongFilterParser implements FilterParser<LongFilter, Long> {
 
     @Override
     public Checker<Long> createChecker(LongFilter annotation, Finder finder) {

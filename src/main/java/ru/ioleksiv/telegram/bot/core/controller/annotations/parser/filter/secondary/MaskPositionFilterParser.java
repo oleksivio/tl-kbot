@@ -12,7 +12,7 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.UnionExtractC
 import java.util.Optional;
 
 @Component
-public class MaskPositionFilterParser extends FilterParser<MaskPositionFilter, MaskPosition> {
+public class MaskPositionFilterParser implements FilterParser<MaskPositionFilter, MaskPosition> {
 
     @Override
     public Checker<MaskPosition> createChecker(MaskPositionFilter annotation, Finder finder) {

@@ -10,19 +10,38 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
  * @see <a href="https://core.telegram.org/bots/api#messageentity">MessageEntity</a>
  */
 public class MessageEntity implements ITelegram {
-    public static final String TYPE_MENTION = "mention";
-    public static final String TYPE_HASHTAG = "hashtag";
-    public static final String TYPE_CASHTAG = "cashtag";
-    public static final String TYPE_BOT_COMMAND = "bot_command";
-    public static final String TYPE_URL = "url";
-    public static final String TYPE_EMAIL = "email";
-    public static final String TYPE_PHONE_NUMBER = "phone_number";
-    public static final String TYPE_BOLD_TEXT = "bold";
-    public static final String TYPE_ITALIC_TEXT = "italic";
-    public static final String TYPE_CODE = "code";
-    public static final String TYPE_PRE = "pre";
-    public static final String TYPE_TEXT_LINK = "text_link";
-    public static final String TYPE_TEXT_MENTION = "text_mention";
+    public enum Type {
+        MENTION("mention"),
+        HASHTAG("hashtag"),
+        CASHTAG("cashtag"),
+        BOT_COMMAND("bot_command"),
+        URL("url"),
+        EMAIL("email"),
+        PHONE_NUMBER("phone_number"),
+        BOLD_TEXT("bold"),
+        ITALIC_TEXT("italic"),
+        CODE("code"),
+        PRE("pre"),
+        TEXT_LINK("text_link"),
+        TEXT_MENTION("text_mention"),
+        ALL("");
+
+        private final String name;
+
+        Type(String name) {
+            this.name = name;
+        }
+
+
+        @Override
+        public String toString() {
+            return name;
+        }
+
+        public boolean isActive(){
+           return this != ALL;
+        }
+    }
     /**
      * To setup filter:
      *

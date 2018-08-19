@@ -12,7 +12,7 @@ import ru.ioleksiv.telegram.bot.core.model.method.file.ThumbAction;
 public class SendAnimation extends ThumbAction {
     private static final String METHOD = "sendAnimation";
     /**
-     * animation InputFile or String Yes Animation to send. Pass a file_id as String to send an animation that exists on
+     * animation String Yes Animation to send. Pass a file_id as String to send an animation that exists on
      * the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the
      * Internet, or upload a new animation using multipart/form-data.
      */

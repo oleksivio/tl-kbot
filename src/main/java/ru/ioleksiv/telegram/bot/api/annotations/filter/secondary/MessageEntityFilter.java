@@ -3,6 +3,7 @@ package ru.ioleksiv.telegram.bot.api.annotations.filter.secondary;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
+import ru.ioleksiv.telegram.bot.api.model.objects.std.MessageEntity;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -17,7 +18,7 @@ public @interface MessageEntityFilter {
 
     AnnotationState value() default AnnotationState.ON;
 
-    StringFilter type() default @StringFilter(AnnotationState.OFF);
+    MessageEntity.Type type() default MessageEntity.Type.ALL;
 
     IntegerFilter length() default @IntegerFilter(AnnotationState.OFF);
 

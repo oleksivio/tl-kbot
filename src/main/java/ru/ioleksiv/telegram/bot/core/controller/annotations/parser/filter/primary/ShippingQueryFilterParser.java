@@ -14,7 +14,7 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.UnionExtractC
 import java.util.Optional;
 
 @Component
-public class ShippingQueryFilterParser extends FilterParser<ShippingQueryFilter, ShippingQuery> {
+public class ShippingQueryFilterParser implements FilterParser<ShippingQueryFilter, ShippingQuery> {
 
     @Override
     public Checker<ShippingQuery> createChecker(ShippingQueryFilter annotation, Finder finder) {

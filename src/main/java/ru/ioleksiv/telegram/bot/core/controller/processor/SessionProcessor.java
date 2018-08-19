@@ -63,7 +63,7 @@ public class SessionProcessor {
                     mOrderManager.next(mOrderMap.keySet());
                     return handlerResult;
                 }
-                else if (handlerResult.hasCancelSession()) {
+                if (handlerResult.hasCancelSession()) {
                     mOrderManager.reset();
                     return handlerResult;
                 }

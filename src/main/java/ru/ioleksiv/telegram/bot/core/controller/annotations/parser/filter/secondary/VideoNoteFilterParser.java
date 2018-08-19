@@ -13,7 +13,7 @@ import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.UnionExtractC
 import java.util.Optional;
 
 @Component
-public class VideoNoteFilterParser extends FilterParser<VideoNoteFilter, VideoNote> {
+public class VideoNoteFilterParser implements FilterParser<VideoNoteFilter, VideoNote> {
 
     @Override
     public Checker<VideoNote> createChecker(VideoNoteFilter annotation, Finder finder) {
