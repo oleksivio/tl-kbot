@@ -2,8 +2,8 @@ package ru.ioleksiv.telegram.bot.api.model.objects.payments;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.OrderInfoFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.UserFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.OrderInfoFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.UserFilter;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.User;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 

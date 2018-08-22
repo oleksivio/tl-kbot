@@ -7,8 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class PassportElementErrorReverseSide extends PassportElementError {
     private static final String SOURCE = "reverse_side";
-    public static final String TYPE_DRIVER_LICENSE = DRIVER_LICENSE;
-    public static final String TYPE_IDENTITY_CARD = IDENTITY_CARD;
+
     /**
      * file_hash String Base64-encoded hash of the file with the reverse side of the document
      */
@@ -26,4 +25,23 @@ public class PassportElementErrorReverseSide extends PassportElementError {
     public void setFileHash(String fileHash) {
         this.fileHash = fileHash;
     }
+
+    public void setType(Type type) {
+        setType(type.stringName());
+    }
+
+    public enum Type {
+        DRIVER_LICENSE(ErrorConstants.DRIVER_LICENSE),
+        IDENTITY_CARD(ErrorConstants.IDENTITY_CARD);
+        private final String name;
+
+        Type(String name) {
+            this.name = name;
+        }
+
+        public String stringName() {
+            return name;
+        }
+    }
+
 }

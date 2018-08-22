@@ -11,11 +11,6 @@ import java.util.List;
 public class PassportElementErrorFiles extends PassportElementError {
     private static final String FILES = "files";
 
-    public static final String TYPE_UTILITY_BILL = UTILITY_BILL;
-    public static final String TYPE_BANK_STATEMENT = BANK_STATEMENT;
-    public static final String TYPE_RENTAL_AGREEMENT = RENTAL_AGREENENT;
-    public static final String TYPE_PASSPORT_REGITRATION = PASSPORT_REGISTRATION;
-    public static final String TYPE_TEMPORARY_REGISTRATION = TEMPORARY_REGISTRATION;
     /**
      * file_hashes Array of String List of base64-encoded file hashes
      */
@@ -32,5 +27,27 @@ public class PassportElementErrorFiles extends PassportElementError {
 
     public void setFileHashes(List<String> fileHashes) {
         this.fileHashes = fileHashes;
+    }
+
+    public void setType(Type type) {
+        setType(type.stringName());
+    }
+
+    public enum Type {
+        UTILITY_BILL(ErrorConstants.UTILITY_BILL),
+        BANK_STATEMENT(ErrorConstants.BANK_STATEMENT),
+        RENTAL_AGREENENT(ErrorConstants.RENTAL_AGREENENT),
+        PASSPORT_REGISTRATION(ErrorConstants.PASSPORT_REGISTRATION),
+        TEMPORARY_REGISTRATION(ErrorConstants.TEMPORARY_REGISTRATION);
+
+        private final String name;
+
+        Type(String name) {
+            this.name = name;
+        }
+
+        public String stringName() {
+            return name;
+        }
     }
 }

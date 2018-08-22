@@ -6,7 +6,7 @@ import ru.ioleksiv.telegram.bot.api.model.objects.std.files.File;
 import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.RunnableAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
-import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
+import ru.ioleksiv.telegram.bot.core.model.responses.FileResponse;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#getfile">getFile</a>
@@ -34,7 +34,7 @@ public class GetFile extends RunnableAction<File> {
 
     @Override
     protected Class<? extends CommonResponse<File>> getResultWrapperClass() {
-        return ResponseCollection.FileResponse.class;
+        return FileResponse.class;
     }
 
     @Override

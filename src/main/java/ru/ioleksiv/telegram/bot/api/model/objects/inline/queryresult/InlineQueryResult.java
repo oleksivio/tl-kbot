@@ -1,7 +1,6 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.inline.queryresult;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.jetbrains.annotations.Contract;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.InlineKeyboardMarkup;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
@@ -26,7 +25,6 @@ public abstract class InlineQueryResult implements ITelegram {
         this.type = type;
     }
 
-    @Contract(pure = true)
     public final String getType() {
         return type;
     }

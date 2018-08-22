@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.RunnableAction;
+import ru.ioleksiv.telegram.bot.core.model.responses.BooleanResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
-import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#deletestickerfromset>deleteStickerFromSet</a>
@@ -33,7 +33,7 @@ public class DeleteStickerFromSet extends RunnableAction<Boolean> {
 
     @Override
     protected Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
-        return ResponseCollection.BooleanResponse.class;
+        return BooleanResponse.class;
     }
 
     @Override

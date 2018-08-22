@@ -6,7 +6,7 @@ import ru.ioleksiv.telegram.bot.api.model.objects.std.files.File;
 import ru.ioleksiv.telegram.bot.core.controller.network.FileNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.UploadFile;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
-import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
+import ru.ioleksiv.telegram.bot.core.model.responses.FileResponse;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#uploadstickerfile>uploadStickerFile</a>
@@ -29,7 +29,7 @@ public class UploadStickerFile extends UploadFile<File> {
 
     @Override
     protected Class<? extends CommonResponse<File>> getResultWrapperClass() {
-        return ResponseCollection.FileResponse.class;
+        return FileResponse.class;
     }
 
     public UploadStickerFile setPngSticker(FileSystemResource pngSticker) {

@@ -5,8 +5,8 @@ import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.sticker.MaskPosition;
 import ru.ioleksiv.telegram.bot.core.controller.network.FileNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.UploadFile;
+import ru.ioleksiv.telegram.bot.core.model.responses.BooleanResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
-import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#addstickertoset>addStickerToSet</a>
@@ -48,7 +48,7 @@ public class AddStickerFileToSet extends UploadFile<Boolean> {
 
     @Override
     protected Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
-        return ResponseCollection.BooleanResponse.class;
+        return BooleanResponse.class;
     }
 
     public AddStickerFileToSet setUserId(Long userId) {

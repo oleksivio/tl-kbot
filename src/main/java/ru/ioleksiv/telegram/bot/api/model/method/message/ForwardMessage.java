@@ -6,7 +6,7 @@ import ru.ioleksiv.telegram.bot.api.model.objects.std.Message;
 import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
-import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
+import ru.ioleksiv.telegram.bot.core.model.responses.MessageResponse;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#forwardmessage">forwardMessage</a>
@@ -64,7 +64,7 @@ public class ForwardMessage extends ChatAction<Message> {
 
     @Override
     protected Class<? extends CommonResponse<Message>> getResultWrapperClass() {
-        return ResponseCollection.MessageResponse.class;
+        return MessageResponse.class;
     }
 
     @Override

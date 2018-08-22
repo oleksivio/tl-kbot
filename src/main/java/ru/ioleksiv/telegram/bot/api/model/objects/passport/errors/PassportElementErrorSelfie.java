@@ -7,10 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class PassportElementErrorSelfie extends PassportElementError {
     private static final String SOURCE = "selfie";
-    public static final String TYPE_PASSPORT = PASSPORT;
-    public static final String TYPE_DRIVER_LICENSE = DRIVER_LICENSE;
-    public static final String TYPE_IDENTITY_CARD = IDENTITY_CARD;
-    public static final String TYPE_INTERNAL_PASSPORT = INTERNAL_PASSPORT;
+
     /**
      * file_hash String Base64-encoded hash of the file with the front side of the document
      */
@@ -27,5 +24,26 @@ public class PassportElementErrorSelfie extends PassportElementError {
 
     public void setFileHash(String fileHash) {
         this.fileHash = fileHash;
+    }
+
+    public void setType(Type type) {
+        setType(type.stringName());
+    }
+
+    public enum Type {
+        PASSPORT(ErrorConstants.PASSPORT),
+        DRIVER_LICENSE(ErrorConstants.DRIVER_LICENSE),
+        IDENTITY_CARD(ErrorConstants.IDENTITY_CARD),
+        INTERNAL_PASSPORT(ErrorConstants.INTERNAL_PASSPORT);
+
+        private final String name;
+
+        Type(String name) {
+            this.name = name;
+        }
+
+        public String stringName() {
+            return name;
+        }
     }
 }

@@ -2,9 +2,9 @@ package ru.ioleksiv.telegram.bot.api.model.objects.std.game;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.AnimationFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.MessageEntityArrayFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.PhotoArrayFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.AnimationFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.MessageEntityArrayFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.PhotoArrayFilter;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.MessageEntity;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.files.PhotoSize;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;

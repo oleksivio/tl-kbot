@@ -6,7 +6,7 @@ import ru.ioleksiv.telegram.bot.api.model.objects.std.game.GameHighScore;
 import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
-import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
+import ru.ioleksiv.telegram.bot.core.model.responses.GameHighScoresResponse;
 
 import java.util.List;
 
@@ -65,7 +65,7 @@ public class GetGameHighScores extends ChatAction<List<GameHighScore>> {
 
     @Override
     protected Class<? extends CommonResponse<List<GameHighScore>>> getResultWrapperClass() {
-        return ResponseCollection.GameHightScoresResponse.class;
+        return GameHighScoresResponse.class;
     }
 
     @Override

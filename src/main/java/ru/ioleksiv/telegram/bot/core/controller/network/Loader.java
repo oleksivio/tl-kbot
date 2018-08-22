@@ -3,7 +3,7 @@ package ru.ioleksiv.telegram.bot.core.controller.network;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import ru.ioleksiv.telegram.bot.api.model.ActionBuilder;
+import ru.ioleksiv.telegram.bot.api.controller.ActionBuilder;
 import ru.ioleksiv.telegram.bot.api.model.objects.Update;
 
 import java.util.Collections;

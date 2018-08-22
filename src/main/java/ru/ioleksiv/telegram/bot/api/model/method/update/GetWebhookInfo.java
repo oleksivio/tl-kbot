@@ -5,7 +5,7 @@ import ru.ioleksiv.telegram.bot.api.model.objects.WebhookInfo;
 import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.RunnableAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
-import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
+import ru.ioleksiv.telegram.bot.core.model.responses.WebhookInfoResponse;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#getwebhookinfo">getWebhookInfo</a>
@@ -19,7 +19,7 @@ public class GetWebhookInfo extends RunnableAction<WebhookInfo> {
 
     @Override
     protected Class<? extends CommonResponse<WebhookInfo>> getResultWrapperClass() {
-        return ResponseCollection.WebhookInfoResponse.class;
+        return WebhookInfoResponse.class;
     }
 
     @Override

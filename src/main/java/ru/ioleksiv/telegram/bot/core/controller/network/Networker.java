@@ -1,8 +1,6 @@
 package ru.ioleksiv.telegram.bot.core.controller.network;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.client.HttpClientErrorException;
@@ -30,15 +28,15 @@ class Networker {
         this.template = template;
     }
 
-    <T extends CommonResponse> Optional<T> safelyRun(@NotNull SafelyWrapper<T> networker,
-                                                     @Nullable NetworkError networkError) {
+    <T extends CommonResponse> Optional<T> safelyRun(SafelyWrapper<T> networker,
+                                                     Optional<NetworkError> networkErrorOpt) {
         try {
             return Optional.of(networker.make(template, url));
         }
         catch (HttpClientErrorException httpException) {
-            if (networkError != null) {
-                networkError.onServerError(parseErrorResponse(httpException));
-            }
+            networkErrorOpt.ifPresent(networkError -> {
+                parseErrorResponse(httpException).ifPresent(networkError::onServerError);
+            });
         }
         catch (RestClientException e) {
             LOG.error("", e);
@@ -46,17 +44,17 @@ class Networker {
         return Optional.empty();
     }
 
-    @Nullable
-    private static ErrorResponse parseErrorResponse(HttpClientErrorException exception) {
+    private static Optional<ErrorResponse> parseErrorResponse(HttpClientErrorException exception) {
         String serverException = exception.getResponseBodyAsString();
         try {
-            return new ObjectMapper().readValue(serverException, ErrorResponse.class);
+            ErrorResponse errorResponse = new ObjectMapper().readValue(serverException, ErrorResponse.class);
+            return Optional.of(errorResponse);
         }
         catch (IOException ignored) {
 
         }
 
-        return null;
+        return Optional.empty();
 
     }
 

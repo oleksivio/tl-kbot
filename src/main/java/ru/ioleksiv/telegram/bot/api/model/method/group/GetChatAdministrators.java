@@ -4,8 +4,8 @@ import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.ChatMember;
 import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
+import ru.ioleksiv.telegram.bot.core.model.responses.ChatMembersResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
-import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ public class GetChatAdministrators extends ChatAction<List<ChatMember>> {
 
     @Override
     protected Class<? extends CommonResponse<List<ChatMember>>> getResultWrapperClass() {
-        return ResponseCollection.ChatMembersResponse.class;
+        return ChatMembersResponse.class;
     }
 
     @Override

@@ -1,12 +1,14 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.jetbrains.annotations.Contract;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.BooleanFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.ChatFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.ChatFilter;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.files.ChatPhoto;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
+import ru.ioleksiv.telegram.bot.core.model.type.TelegramType;
+
+import java.util.Objects;
 
 /**
  * To setup filter:
@@ -212,7 +214,7 @@ public class Chat implements ITelegram {
         this.id = id;
     }
 
-    public enum Type {
+    public enum Type implements TelegramType {
         PRIVATE("private"),
         GROUP("group"),
         SUPERGROUP("supergroup"),
@@ -226,13 +228,19 @@ public class Chat implements ITelegram {
         }
 
         @Override
-        public String toString() {
-            return name;
+
+        public boolean notAll() {
+            return this != ALL;
         }
 
-        @Contract(pure = true)
-        public boolean isActive(){
-            return this != ALL;
+        @Override
+        public boolean equal(String typeString) {
+            return Objects.equals(name, typeString);
+        }
+
+        @Override
+        public String stringName() {
+            return name;
         }
     }
 

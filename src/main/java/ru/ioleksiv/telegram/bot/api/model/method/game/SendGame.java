@@ -7,7 +7,7 @@ import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.InlineKeyboardMar
 import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
-import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
+import ru.ioleksiv.telegram.bot.core.model.responses.MessageResponse;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendgame>sendGame</a>
@@ -79,7 +79,7 @@ public class SendGame extends ChatAction<Message> {
 
     @Override
     protected Class<? extends CommonResponse<Message>> getResultWrapperClass() {
-        return ResponseCollection.MessageResponse.class;
+        return MessageResponse.class;
     }
 
     @Override

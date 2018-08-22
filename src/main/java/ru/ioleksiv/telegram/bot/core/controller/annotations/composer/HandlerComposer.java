@@ -1,14 +1,15 @@
 package ru.ioleksiv.telegram.bot.core.controller.annotations.composer;
 
-import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import ru.ioleksiv.telegram.bot.api.model.objects.Update;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.producer.ArgCheckerProducer;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.producer.ArgUnpackerProducer;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.producer.InvokerProducer;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
-import ru.ioleksiv.telegram.bot.core.controller.handler.check.Checker;
-import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.ExtractChecker;
+import ru.ioleksiv.telegram.bot.core.controller.handler.check.Validator;
+import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.ExtractValidator;
 import ru.ioleksiv.telegram.bot.core.controller.handler.invoke.Invoker;
 import ru.ioleksiv.telegram.bot.core.controller.handler.unpack.Unpacker;
 import ru.ioleksiv.telegram.bot.core.controller.handler.unpack.UpdateUnpacker;
@@ -19,52 +20,55 @@ import java.util.Optional;
 
 @Controller
 public final class HandlerComposer {
-    @NotNull
+    private static final Logger LOG = LoggerFactory.getLogger(HandlerComposer.class);
+
     private final ArgCheckerProducer argCheckerProducer;
-    @NotNull
+
     private final ArgUnpackerProducer argUnpackerProducer;
-    @NotNull
+
     private final InvokerProducer invokerProducer;
 
-    public HandlerComposer(@NotNull ArgCheckerProducer argCheckerProducer,
-                           @NotNull ArgUnpackerProducer argUnpackerProducer,
-                           @NotNull InvokerProducer invokerProducer) {
+    public HandlerComposer(ArgCheckerProducer argCheckerProducer,
+                           ArgUnpackerProducer argUnpackerProducer,
+                           InvokerProducer invokerProducer) {
         this.argCheckerProducer = argCheckerProducer;
         this.argUnpackerProducer = argUnpackerProducer;
         this.invokerProducer = invokerProducer;
     }
 
-    @NotNull
-    public <ARG extends ITelegram> Optional<Handler> create(@NotNull Object classInstance,
-                                                            @NotNull Method method) {
+    public <ARG extends ITelegram> Optional<Handler> create(Object classInstance,
+                                                            Method method) {
 
         Optional<UpdateUnpacker<ARG>> argUnpackerOptional = argUnpackerProducer.create(method);
+        Optional<Validator<ARG>> argCheckerOptional = argCheckerProducer.create(method);
 
-        if (!argUnpackerOptional.isPresent()) {
+        if (!argUnpackerOptional.isPresent() && !argCheckerOptional.isPresent()) {
             return Optional.empty();
         }
-        UpdateUnpacker<ARG> updateUnpacker = argUnpackerOptional.get();
-
-        Optional<Checker<ARG>> argCheckerOptional = argCheckerProducer.create(method);
 
         if (!argCheckerOptional.isPresent()) {
-            //todo log message with method
-            //todo may be not null checker
+            LOG.error(" Filter annotation was not found for method " + method);
             return Optional.empty();
         }
+
+        if (!argUnpackerOptional.isPresent()) {
+            LOG.error(" Receiver annotation was not found for method " + method);
+            return Optional.empty();
+        }
+
+        UpdateUnpacker<ARG> updateUnpacker = argUnpackerOptional.get();
 
         Optional<Invoker<ARG>> invokerOptional = invokerProducer.create(method,
                                                                         classInstance,
                                                                         updateUnpacker.getOutClass());
 
         if (!invokerOptional.isPresent()) {
-            //todo log message with method
             return Optional.empty();
         }
         Unpacker<Update, ARG> argUnpacker = updateUnpacker.get();
 
-        ExtractChecker<Update, ARG> updateChecker = new ExtractChecker<>(argUnpacker,
-                                                                         argCheckerOptional.get());
+        ExtractValidator<Update, ARG> updateChecker = new ExtractValidator<>(argUnpacker,
+                                                                             argCheckerOptional.get());
 
         return Optional.of(new Handler<>(invokerOptional.get(), updateChecker, argUnpacker));
 

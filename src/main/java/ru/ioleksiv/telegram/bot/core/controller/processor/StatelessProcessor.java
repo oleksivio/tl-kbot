@@ -1,52 +1,31 @@
 package ru.ioleksiv.telegram.bot.core.controller.processor;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import ru.ioleksiv.telegram.bot.api.model.objects.Update;
-import ru.ioleksiv.telegram.bot.api.result.HandlerResult;
+import ru.ioleksiv.telegram.bot.api.model.result.HandlerResult;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 public class StatelessProcessor {
-    @Nullable
-    private final Handler mBeforeMethod;
-    @Nullable
-    private final Handler mAfterMethod;
 
-    @NotNull
-    private final Handler mMainHandler;
+    private final Collection<Handler> handlers = new ArrayList<>();
 
-    public StatelessProcessor(@Nullable Handler beforeMethod, @Nullable Handler afterMethod,
-                              @NotNull Handler mainHandler) {
-        mBeforeMethod = beforeMethod;
-        mAfterMethod = afterMethod;
-        mMainHandler = mainHandler;
+    public void add(Handler handler) {
+        handlers.add(handler);
     }
 
-    @NotNull
-    HandlerResult receive(@Nullable Update update) {
-        if (!mMainHandler.hasSubscription(update)) {
-            return HandlerResult.pass();
-        }
+    HandlerResult receive(Update update) {
+        for (Handler handler : handlers) {
 
-        if (mBeforeMethod != null) {
-            HandlerResult beforeActions = mBeforeMethod.run(update);
-
-            if (!beforeActions.isPassed()) {
-                return beforeActions;
+            if (!handler.hasSubscription(update)) {
+                continue;
             }
-        }
 
-        HandlerResult resultActionList = mMainHandler.run(update);
+            HandlerResult resultActionList = handler.run(update);
 
-        if (!resultActionList.isPassed()) {
-            return resultActionList;
-        }
-
-        if (mAfterMethod != null) {
-            HandlerResult afterActions = mAfterMethod.run(update);
-
-            if (!afterActions.isPassed()) {
-                return afterActions;
+            if (!resultActionList.isPassed()) {
+                return resultActionList;
             }
         }
 

@@ -1,6 +1,5 @@
 package ru.ioleksiv.telegram.bot.core.controller.annotations;
 
-import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Controller;
 import ru.ioleksiv.telegram.bot.api.annotations.behavior.Session;
 import ru.ioleksiv.telegram.bot.api.annotations.behavior.Stateless;
@@ -15,22 +14,21 @@ import java.util.List;
 @Controller
 public class AnnotationProcessor {
 
-    @NotNull
     private final MainProcessor mainProcessor;
-    @NotNull
+
     private final StatelessComposer statelessComposer;
-    @NotNull
+
     private final SessionComposer sessionComposer;
 
-    public AnnotationProcessor(@NotNull MainProcessor mainProcessor,
-                               @NotNull StatelessComposer statelessComposer,
-                               @NotNull SessionComposer sessionComposer) {
+    public AnnotationProcessor(MainProcessor mainProcessor,
+                               StatelessComposer statelessComposer,
+                               SessionComposer sessionComposer) {
         this.mainProcessor = mainProcessor;
         this.statelessComposer = statelessComposer;
         this.sessionComposer = sessionComposer;
     }
 
-    public void add(@NotNull Object obj) {
+    public void add(Object obj) {
         Class<?> objClz = obj.getClass();
 
         if (objClz.isAnnotationPresent(Session.class)) {
@@ -38,7 +36,7 @@ public class AnnotationProcessor {
             mainProcessor.addSession(sessionProcessor);
         }
         else if (objClz.isAnnotationPresent(Stateless.class)) {
-            List<StatelessProcessor> statelessProcessor = statelessComposer.create(objClz, obj);
+            StatelessProcessor statelessProcessor = statelessComposer.create(objClz, obj);
             mainProcessor.addStateless(statelessProcessor);
         }
     }

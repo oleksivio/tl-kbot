@@ -3,45 +3,16 @@ package ru.ioleksiv.telegram.bot.api.model.objects.std;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.UserFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.UserFilter;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
+import ru.ioleksiv.telegram.bot.core.model.type.TelegramType;
+
+import java.util.Objects;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#messageentity">MessageEntity</a>
  */
 public class MessageEntity implements ITelegram {
-    public enum Type {
-        MENTION("mention"),
-        HASHTAG("hashtag"),
-        CASHTAG("cashtag"),
-        BOT_COMMAND("bot_command"),
-        URL("url"),
-        EMAIL("email"),
-        PHONE_NUMBER("phone_number"),
-        BOLD_TEXT("bold"),
-        ITALIC_TEXT("italic"),
-        CODE("code"),
-        PRE("pre"),
-        TEXT_LINK("text_link"),
-        TEXT_MENTION("text_mention"),
-        ALL("");
-
-        private final String name;
-
-        Type(String name) {
-            this.name = name;
-        }
-
-
-        @Override
-        public String toString() {
-            return name;
-        }
-
-        public boolean isActive(){
-           return this != ALL;
-        }
-    }
     /**
      * To setup filter:
      *
@@ -120,5 +91,44 @@ public class MessageEntity implements ITelegram {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public enum Type implements TelegramType {
+        MENTION("mention"),
+        HASHTAG("hashtag"),
+        CASHTAG("cashtag"),
+        BOT_COMMAND("bot_command"),
+        URL("url"),
+        EMAIL("email"),
+        PHONE_NUMBER("phone_number"),
+        BOLD_TEXT("bold"),
+        ITALIC_TEXT("italic"),
+        CODE("code"),
+        PRE("pre"),
+        TEXT_LINK("text_link"),
+        TEXT_MENTION("text_mention"),
+        ALL("");
+
+        private final String name;
+
+        Type(String name) {
+            this.name = name;
+        }
+
+        @Override
+
+        public boolean notAll() {
+            return this != ALL;
+        }
+
+        @Override
+        public boolean equal(String typeString) {
+            return Objects.equals(name, typeString);
+        }
+
+        @Override
+        public String stringName() {
+            return name;
+        }
     }
 }

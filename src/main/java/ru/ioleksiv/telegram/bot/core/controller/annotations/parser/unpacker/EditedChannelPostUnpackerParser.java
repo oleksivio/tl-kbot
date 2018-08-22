@@ -1,18 +1,18 @@
 package ru.ioleksiv.telegram.bot.core.controller.annotations.parser.unpacker;
 
 import org.springframework.stereotype.Component;
-import ru.ioleksiv.telegram.bot.api.annotations.handler.EditedChannelPostHandler;
+import ru.ioleksiv.telegram.bot.api.annotations.receiver.EditedChannelPostReceiver;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.Message;
 import ru.ioleksiv.telegram.bot.core.controller.handler.unpack.UpdateUnpacker;
 
 import java.util.Optional;
 
 @Component
-public class EditedChannelPostUnpackerParser extends UnpackerParser<EditedChannelPostHandler, Message> {
+public class EditedChannelPostUnpackerParser extends UnpackerParser<EditedChannelPostReceiver, Message> {
 
     @Override
-    public Class<EditedChannelPostHandler> getAnnotationClass() {
-        return EditedChannelPostHandler.class;
+    public Class<EditedChannelPostReceiver> getAnnotationClass() {
+        return EditedChannelPostReceiver.class;
     }
 
     @Override

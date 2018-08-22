@@ -4,8 +4,8 @@ import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.Chat;
 import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
+import ru.ioleksiv.telegram.bot.core.model.responses.ChatResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
-import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#getchat">getChat</a>
@@ -19,7 +19,7 @@ public class GetChat extends ChatAction<Chat> {
 
     @Override
     protected Class<? extends CommonResponse<Chat>> getResultWrapperClass() {
-        return ResponseCollection.ChatResponse.class;
+        return ChatResponse.class;
     }
 
     @Override

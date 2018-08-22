@@ -1,12 +1,10 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std.sticker;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.MaskPositionFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.PhotoFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.MaskPositionFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.PhotoFilter;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.files.PhotoSize;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
@@ -14,7 +12,6 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
  * @see <a href="https://core.telegram.org/bots/api#sticker">Sticker</a>
  */
 public class Sticker implements ITelegram {
-    private static final Logger LOG = LoggerFactory.getLogger(Sticker.class);
     /**
      * To setup filter:
      *

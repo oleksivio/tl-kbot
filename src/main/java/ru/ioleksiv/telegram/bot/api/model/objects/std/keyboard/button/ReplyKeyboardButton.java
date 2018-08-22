@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * @see <a href="https://core.telegram.org/bots/api#keyboardbutton">KeyboardButton</a>
  */
-public class ReplyKeyboardButton implements IButton {
+public class ReplyKeyboardButton {
     /**
      * text String Text of the button. If none of the optional fields are used, it will be sent as
      * a message when the button is pressed
@@ -25,30 +25,38 @@ public class ReplyKeyboardButton implements IButton {
     @JsonProperty("request_location")
     private Boolean requestLocation = null;
 
+    private ReplyKeyboardButton() {
+    }
+
+    public static ReplyKeyboardButton create() {
+        return new ReplyKeyboardButton();
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public ReplyKeyboardButton setText(String text) {
+        this.text = text;
+        return this;
+    }
+
     public Boolean getRequestContact() {
         return requestContact;
     }
 
-    public void setRequestContact(boolean requestContact) {
+    public ReplyKeyboardButton setRequestContact(Boolean requestContact) {
         this.requestContact = requestContact;
+        return this;
     }
 
     public Boolean getRequestLocation() {
         return requestLocation;
     }
 
-    public void setRequestLocation(boolean requestLocation) {
+    public ReplyKeyboardButton setRequestLocation(Boolean requestLocation) {
         this.requestLocation = requestLocation;
-    }
-
-    @Override
-    public String getText() {
-        return text;
-    }
-
-    @Override
-    public void setText(String text) {
-        this.text = text;
+        return this;
     }
 
 }

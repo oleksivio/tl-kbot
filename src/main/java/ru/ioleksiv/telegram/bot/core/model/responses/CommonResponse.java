@@ -28,8 +28,4 @@ public class CommonResponse<T> {
         status = ok;
     }
 
-    /**
-     *  {"ok":false,"error_code":400,"description":"Bad Request: message can't be edited"}
-     */
-
 }

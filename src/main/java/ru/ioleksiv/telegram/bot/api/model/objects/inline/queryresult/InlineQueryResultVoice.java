@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @see <a href="https://core.telegram.org/bots/api#inlinequeryresultvoice>InlineQueryResultVoice</a>
  */
 public class InlineQueryResultVoice extends TitledInlineResult {
-    public static final String TYPE = "voice";
+    private static final String TYPE = "voice";
     /**
      * voice_url String A valid URL for the voice recording
      */

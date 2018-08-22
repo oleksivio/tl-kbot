@@ -8,13 +8,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PassportElementErrorDataField extends PassportElementError {
     private static final String SOURCE = "data";
 
-    public static final String TYPE_PERSONAL_DETAILS = PERSONAL_DETAILS;
-    public static final String TYPE_PASSPORT = PASSPORT;
-    public static final String TYPE_DRIVER_LICENSE = DRIVER_LICENSE;
-    public static final String TYPE_IDENTITY_CARD = IDENTITY_CARD;
-    public static final String TYPE_INTERNAL_PASSPORT = INTERNAL_PASSPORT;
-    public static final String TYPE_ADDRESS = ADDRESS;
-
     /**
      * field_name String Name of the data field which has the error
      */
@@ -44,5 +37,28 @@ public class PassportElementErrorDataField extends PassportElementError {
 
     public void setDataHash(String dataHash) {
         this.dataHash = dataHash;
+    }
+
+    public void setType(Type type) {
+        setType(type.stringName());
+    }
+
+    public enum Type {
+        PERSONAL_DETAILS(ErrorConstants.PERSONAL_DETAILS),
+        PASSPORT(ErrorConstants.PASSPORT),
+        DRIVER_LICENSE(ErrorConstants.DRIVER_LICENSE),
+        IDENTITY_CARD(ErrorConstants.IDENTITY_CARD),
+        INTERNAL_PASSPORT(ErrorConstants.INTERNAL_PASSPORT),
+        ADDRESS(ErrorConstants.ADDRESS);
+
+        private final String name;
+
+        Type(String name) {
+            this.name = name;
+        }
+
+        public String stringName() {
+            return name;
+        }
     }
 }

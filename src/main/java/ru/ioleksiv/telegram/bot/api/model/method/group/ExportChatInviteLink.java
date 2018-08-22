@@ -4,7 +4,7 @@ import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
-import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
+import ru.ioleksiv.telegram.bot.core.model.responses.StringResponse;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#exportchatinvitelink">exportChatInviteLink</a>
@@ -18,7 +18,7 @@ public class ExportChatInviteLink extends ChatAction<String> {
 
     @Override
     protected Class<? extends CommonResponse<String>> getResultWrapperClass() {
-        return ResponseCollection.StringResponse.class;
+        return StringResponse.class;
     }
 
     @Override

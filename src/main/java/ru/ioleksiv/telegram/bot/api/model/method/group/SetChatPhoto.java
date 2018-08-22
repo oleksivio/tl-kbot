@@ -4,8 +4,8 @@ import org.springframework.core.io.FileSystemResource;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.core.controller.network.FileNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.UploadFile;
+import ru.ioleksiv.telegram.bot.core.model.responses.BooleanResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
-import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#setchatphoto">setChatPhoto</a>
@@ -29,7 +29,7 @@ public class SetChatPhoto extends UploadFile<Boolean> {
 
     @Override
     protected Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
-        return ResponseCollection.BooleanResponse.class;
+        return BooleanResponse.class;
     }
 
     public SetChatPhoto setPhoto(FileSystemResource photo) {

@@ -49,12 +49,25 @@ public class SessionComposer {
 
         }
 
+        check(initialHandler, cancelHandler);
+
         sessionProcessor.setInitialHandler(initialHandler);
         sessionProcessor.setCancelHandler(cancelHandler);
 
-        // throws exception if not valid
-        sessionProcessor.check();
-
         return sessionProcessor;
+    }
+
+    public static void check(Handler initialHandler, Handler cancelHandler) throws IllegalArgumentException {
+        if (initialHandler == null) {
+            throw new IllegalArgumentException("Invalid session unpacker state. " +
+                                                       "Can't be less than one" +
+                                                       " Session Initial method's");
+        }
+
+        if (cancelHandler == null) {
+            throw new IllegalArgumentException("Invalid session unpacker state. " +
+                                                       "Can't be less than one" +
+                                                       " Session Cancel method's");
+        }
     }
 }

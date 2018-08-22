@@ -4,10 +4,11 @@ import org.springframework.core.io.FileSystemResource;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.core.controller.network.FileNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.UploadFile;
+import ru.ioleksiv.telegram.bot.core.model.responses.BooleanResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
-import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#setwebhook">setWebhook</a>
@@ -20,7 +21,6 @@ public class SetWebhook extends UploadFile<Boolean> {
      */
     private static final String URL_KEY = "url";
     /**
-     * fixme
      * certificate InputFile Optional Upload your public key certificate so that the root
      * certificate in use can be checked. See our self-signed guide for details.
      */
@@ -42,15 +42,6 @@ public class SetWebhook extends UploadFile<Boolean> {
      * setWebhook, so unwanted updates may be received for a short period of time.
      */
     private static final String ALLOWED_UPDATES_KEY = "allowed_updates";
-    public static final String ALLOW_MESSAGE = "message";
-    public static final String ALLOW_EDITED_MESSAGE = "edited_message";
-    public static final String ALLOW_CHANNEL_POST = "channel_post";
-    public static final String ALLOW_EDITED_CHANNEL_POST = "edited_channel_post";
-    public static final String ALLOW_INLINE_QUERY = "inline_query";
-    public static final String ALLOW_CHOSEN_INLINE_RESULT = "chosen_inline_result";
-    public static final String ALLOW_CALLBACK_QUERY = "callback_query";
-    public static final String ALLOW_SHIPPING_QUERY = "shipping_query";
-    public static final String ALLOW_PRE_CHECKOUT_QUERY = "pre_checkout_query";
 
     public SetWebhook(FileNetworker fileNetworker) {
         super(METHOD, fileNetworker);
@@ -58,7 +49,7 @@ public class SetWebhook extends UploadFile<Boolean> {
 
     @Override
     protected Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
-        return ResponseCollection.BooleanResponse.class;
+        return BooleanResponse.class;
     }
 
     public SetWebhook setMaxConnections(Integer maxConnections) {
@@ -66,8 +57,14 @@ public class SetWebhook extends UploadFile<Boolean> {
         return this;
     }
 
-    public SetWebhook setAllowedUpdates(List<String> allowedUpdates) {
-        putObject(ALLOWED_UPDATES_KEY, ALLOWED_UPDATES_KEY);
+    public SetWebhook setAllowedUpdates(Type... allowedUpdates) {
+        Collection<String> allowedStringUpdates = new ArrayList<>();
+
+        for (Type type : allowedUpdates) {
+            allowedStringUpdates.add(type.stringName());
+        }
+
+        putObject(ALLOWED_UPDATES_KEY, allowedStringUpdates);
         return this;
     }
 
@@ -85,5 +82,28 @@ public class SetWebhook extends UploadFile<Boolean> {
     public SetWebhook setNetworkErrorListener(NetworkError onNetworkError) {
         pSetNetworkErrorListener(onNetworkError);
         return this;
+    }
+
+    public enum Type{
+        ALLOW_MESSAGE("message"),
+        ALLOW_EDITED_MESSAGE("edited_message"),
+        ALLOW_CHANNEL_POST("channel_post"),
+        ALLOW_EDITED_CHANNEL_POST("edited_channel_post"),
+        ALLOW_INLINE_QUERY("inline_query"),
+        ALLOW_CHOSEN_INLINE_RESULT("chosen_inline_result"),
+        ALLOW_CALLBACK_QUERY("callback_query"),
+        ALLOW_SHIPPING_QUERY("shipping_query"),
+        ALLOW_PRE_CHECKOUT_QUERY("pre_checkout_query");
+
+        private final String type;
+
+        Type(String type) {
+            this.type = type;
+        }
+
+
+        public String stringName() {
+            return type;
+        }
     }
 }

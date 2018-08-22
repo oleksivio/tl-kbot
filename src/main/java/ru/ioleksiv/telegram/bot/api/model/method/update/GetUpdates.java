@@ -6,7 +6,7 @@ import ru.ioleksiv.telegram.bot.api.model.objects.Update;
 import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.RunnableAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
-import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
+import ru.ioleksiv.telegram.bot.core.model.responses.UpdatesArrayResponse;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ import java.util.List;
 public class GetUpdates extends RunnableAction<List<Update>> {
     private static final String METHOD = "getUpdates";
     /**
-     * offset Integer Optional Identifier of the first update to be returned. Must be greater by one than the highest among the identifiers of previously received updates. By default, updates starting with the earliest unconfirmed update are returned. An update is considered confirmed as soon as getUpdates is called with an offset higher than its update_id. The negative offset can be specified to retrieve updates starting from -offset update from the end of the updates queue. All previous updates will forgotten.
+     * offset Integer Optional Identifier of the first update to be returned. Must be greater by one than the highest among the identifiers of previously received updates. By default, updates starting with the earliest unconfirmed update are returned. An update is considered confirmed as soon as getUpdates is called with an offset higher than its update_id. The negative offset can be specified to longPolling updates starting from -offset update from the end of the updates queue. All previous updates will forgotten.
      */
     @JsonProperty("offset")
     private Integer offset = null;
@@ -92,7 +92,7 @@ public class GetUpdates extends RunnableAction<List<Update>> {
 
     @Override
     protected Class<? extends CommonResponse<List<Update>>> getResultWrapperClass() {
-        return ResponseCollection.UpdatesArrayResponse.class;
+        return UpdatesArrayResponse.class;
     }
 
     @Override

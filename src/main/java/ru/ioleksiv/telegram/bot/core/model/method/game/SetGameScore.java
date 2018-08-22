@@ -39,7 +39,8 @@ public abstract class SetGameScore<RES> extends ChatAction<RES> {
     @JsonProperty("message_id")
     private Long messageId = null;
     /**
-     * inline_message_id String Optional Required if chat_id and message_id are not specified. Identifier of the inline message
+     * inline_message_id String Optional Required if chat_id and message_id are not specified. Identifier of the inline
+     * message
      */
     @JsonProperty("inline_message_id")
     private String inlineMessageId = null;

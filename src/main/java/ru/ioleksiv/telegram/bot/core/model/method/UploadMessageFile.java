@@ -4,7 +4,7 @@ import ru.ioleksiv.telegram.bot.api.model.objects.std.Message;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.IKeyboard;
 import ru.ioleksiv.telegram.bot.core.controller.network.FileNetworker;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
-import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
+import ru.ioleksiv.telegram.bot.core.model.responses.MessageResponse;
 
 public abstract class UploadMessageFile extends UploadFile<Message> {
     /**
@@ -39,6 +39,6 @@ public abstract class UploadMessageFile extends UploadFile<Message> {
 
     @Override
     protected Class<? extends CommonResponse<Message>> getResultWrapperClass() {
-        return ResponseCollection.MessageResponse.class;
+        return MessageResponse.class;
     }
 }

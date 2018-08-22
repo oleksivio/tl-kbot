@@ -1,8 +1,7 @@
 package ru.ioleksiv.telegram.bot.api.model.objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.jetbrains.annotations.NotNull;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.primary.MessageFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.MessageFilter;
 import ru.ioleksiv.telegram.bot.api.model.objects.inline.ChosenInlineResult;
 import ru.ioleksiv.telegram.bot.api.model.objects.inline.InlineQuery;
 import ru.ioleksiv.telegram.bot.api.model.objects.payments.PreCheckoutQuery;
@@ -200,7 +199,7 @@ public class Update implements ITelegram {
         return message;
     }
 
-    public void setMessage(@NotNull Message message) {
+    public void setMessage(Message message) {
         this.message = message;
     }
 

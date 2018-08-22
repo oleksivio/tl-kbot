@@ -1,7 +1,7 @@
 package ru.ioleksiv.telegram.bot.core.controller.builder;
 
 import org.springframework.stereotype.Component;
-import ru.ioleksiv.telegram.bot.api.model.ActionBuilder;
+import ru.ioleksiv.telegram.bot.api.controller.ActionBuilder;
 import ru.ioleksiv.telegram.bot.api.model.method.file.GetFile;
 import ru.ioleksiv.telegram.bot.api.model.method.file.SendAnimation;
 import ru.ioleksiv.telegram.bot.api.model.method.file.SendAnimationFile;

@@ -1,8 +1,9 @@
 package ru.ioleksiv.telegram.bot.core.model.method;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jdk.internal.jline.internal.Nullable;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
+
+import java.util.Optional;
 
 public abstract class NetworkErrorAction<RES> extends Action<RES> {
 
@@ -13,10 +14,9 @@ public abstract class NetworkErrorAction<RES> extends Action<RES> {
         networkError = onNetworkError;
     }
 
-    @Nullable
     @JsonIgnore
-    NetworkError getNetworkErrorListener() {
-        return networkError;
+    Optional<NetworkError> getNetworkErrorListener() {
+        return Optional.ofNullable(networkError);
     }
 
     @JsonIgnore

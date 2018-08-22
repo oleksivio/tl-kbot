@@ -6,7 +6,7 @@ import ru.ioleksiv.telegram.bot.api.model.objects.std.files.UserProfilePhotos;
 import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.RunnableAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
-import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
+import ru.ioleksiv.telegram.bot.core.model.responses.UserProfilePhotosResponse;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#getuserprofilephotos">getUserProfilePhotos</a>
@@ -64,7 +64,7 @@ public class GetUserProfilePhotos extends RunnableAction<UserProfilePhotos> {
 
     @Override
     protected Class<? extends CommonResponse<UserProfilePhotos>> getResultWrapperClass() {
-        return ResponseCollection.UserProfilePhotosResponse.class;
+        return UserProfilePhotosResponse.class;
     }
 
     @Override

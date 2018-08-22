@@ -1,15 +1,12 @@
 package ru.ioleksiv.telegram.bot.core.controller.annotations.composer;
 
 import org.springframework.stereotype.Controller;
-import ru.ioleksiv.telegram.bot.api.annotations.behavior.After;
-import ru.ioleksiv.telegram.bot.api.annotations.behavior.Before;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 import ru.ioleksiv.telegram.bot.core.controller.processor.StatelessProcessor;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -20,9 +17,7 @@ public class StatelessComposer {
         this.handlerComposer = handlerComposer;
     }
 
-    public List<StatelessProcessor> create(Class<?> objClz, Object obj) {
-        Handler beforeHandler = null;
-        Handler afterHandler = null;
+    public StatelessProcessor create(Class<?> objClz, Object obj) {
         Collection<Handler> simpleHandlerList = new ArrayList<>();
 
         for (Method method : objClz.getDeclaredMethods()) {
@@ -30,24 +25,13 @@ public class StatelessComposer {
             if (!optionalHandler.isPresent()) {
                 continue;
             }
-            Handler handler = optionalHandler.get();
-
-            if (method.isAnnotationPresent(Before.class)) {
-                beforeHandler = handler;
-            }
-            else if (method.isAnnotationPresent(After.class)) {
-                afterHandler = handler;
-            }
-            else {
-                simpleHandlerList.add(handler);
-            }
-
+            simpleHandlerList.add(optionalHandler.get());
         }
 
-        List<StatelessProcessor> processors = new ArrayList<>();
+        StatelessProcessor statelessProcessor = new StatelessProcessor();
         for (Handler handler : simpleHandlerList) {
-            processors.add(new StatelessProcessor(beforeHandler, afterHandler, handler));
+            statelessProcessor.add(handler);
         }
-        return processors;
+        return statelessProcessor;
     }
 }

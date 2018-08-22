@@ -12,7 +12,7 @@ public class ReplyKeyboardRemove implements IKeyboard {
      * use one_time_keyboard in ReplyKeyboardMarkup)
      */
     @JsonProperty("remove_keyboard")
-    private Boolean mRemoveKeyboard = null;
+    private Boolean removeKeyboard = null;
     /**
      * selective Boolean Optional. Use this parameter if you want to remove the keyboard for
      * specific users only.
@@ -21,22 +21,29 @@ public class ReplyKeyboardRemove implements IKeyboard {
      * 2) if the bot's message is a reply (has reply_to_message_id), sender of the original message.
      */
     @JsonProperty("selective")
-    private boolean mSelective = false;
+    private boolean selective = false;
 
-    public boolean isRemoveKeyboard() {
-        return mRemoveKeyboard;
+    private ReplyKeyboardRemove(){};
+    public static ReplyKeyboardRemove create(){
+        return new ReplyKeyboardRemove();
     }
 
-    public void setRemoveKeyboard(boolean resizeKeyboard) {
-        mRemoveKeyboard = resizeKeyboard;
+    public Boolean getRemoveKeyboard() {
+        return removeKeyboard;
+    }
+
+    public ReplyKeyboardRemove setRemoveKeyboard(Boolean removeKeyboard) {
+        this.removeKeyboard = removeKeyboard;
+        return this;
     }
 
     public boolean isSelective() {
-        return mSelective;
+        return selective;
     }
 
-    public void setSelective(Boolean selective) {
-        mSelective = selective;
+    public ReplyKeyboardRemove setSelective(boolean selective) {
+        this.selective = selective;
+        return this;
     }
 
 }

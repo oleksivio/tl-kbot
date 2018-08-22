@@ -1,6 +1,7 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.passport.errors;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.core.model.type.NamedType;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#passportelementerrorfrontside>PassportElementErrorFrontSide</a>
@@ -8,10 +9,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PassportElementErrorFrontSide extends PassportElementError {
     private static final String SOURCE = "front_side";
 
-    public static final String TYPE_PASSPORT = PASSPORT;
-    public static final String TYPE_DRIVER_LICENSE = DRIVER_LICENSE;
-    public static final String TYPE_IDENTITY_CARD = IDENTITY_CARD;
-    public static final String TYPE_INTERNAL_PASSPORT = INTERNAL_PASSPORT;
     /**
      * file_hash String Base64-encoded hash of the file with the front side of the document
      */
@@ -32,5 +29,27 @@ public class PassportElementErrorFrontSide extends PassportElementError {
 
     public void setFileHash(String fileHash) {
         this.fileHash = fileHash;
+    }
+
+    public void setType(Type type) {
+        setType(type.stringName());
+    }
+
+    public enum Type implements NamedType {
+        PASSPORT(ErrorConstants.PASSPORT),
+        DRIVER_LICENSE(ErrorConstants.DRIVER_LICENSE),
+        IDENTITY_CARD(ErrorConstants.IDENTITY_CARD),
+        INTERNAL_PASSPORT(ErrorConstants.INTERNAL_PASSPORT);
+
+        private final String name;
+
+        Type(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public String stringName() {
+            return name;
+        }
     }
 }

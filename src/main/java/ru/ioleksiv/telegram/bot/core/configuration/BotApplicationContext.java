@@ -1,6 +1,5 @@
 package ru.ioleksiv.telegram.bot.core.configuration;
 
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -17,7 +16,7 @@ public class BotApplicationContext implements ApplicationContextAware {
     }
 
     @Override
-    public void setApplicationContext(@NotNull ApplicationContext applicationContext)
+    public void setApplicationContext(ApplicationContext applicationContext)
             throws BeansException {
 
         for (String beanName : applicationContext.getBeanDefinitionNames()) {

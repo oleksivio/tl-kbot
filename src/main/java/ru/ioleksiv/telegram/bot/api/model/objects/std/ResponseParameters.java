@@ -1,15 +1,12 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#responseparameters">ResponseParameters</a>
  */
 public class ResponseParameters implements ITelegram {
-    private static final Logger LOG = LoggerFactory.getLogger(ResponseParameters.class);
     /**
      * migrate_to_chat_id Integer Optional. The group has been migrated to a supergroup with the
      * specified identifier. This number may be greater than 32 bits and some programming languages

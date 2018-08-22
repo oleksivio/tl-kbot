@@ -3,7 +3,7 @@ package ru.ioleksiv.telegram.bot.api.model.objects.std;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.NotNullFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.LocationFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.LocationFilter;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**

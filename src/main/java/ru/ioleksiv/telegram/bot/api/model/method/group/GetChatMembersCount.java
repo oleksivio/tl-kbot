@@ -4,7 +4,7 @@ import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
-import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
+import ru.ioleksiv.telegram.bot.core.model.responses.IntegerResponse;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#getchatmemberscount">getChatMembersCount</a>
@@ -18,7 +18,7 @@ public class GetChatMembersCount extends ChatAction<Integer> {
 
     @Override
     protected Class<? extends CommonResponse<Integer>> getResultWrapperClass() {
-        return ResponseCollection.IntegerResponse.class;
+        return IntegerResponse.class;
     }
 
     @Override

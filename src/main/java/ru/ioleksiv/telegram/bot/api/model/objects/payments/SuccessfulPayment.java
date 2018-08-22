@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.NotNullFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.OrderInfoFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.OrderInfoFilter;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 /**

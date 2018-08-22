@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @see <a href="https://core.telegram.org/bots/api#inlinequeryresultvideo>InlineQueryResultVideo</a>
  */
 public class InlineQueryResultVideo extends TitledInlineResult {
-    public static final String TYPE = "video";
+    private static final String TYPE = "video";
     /**
      * video_url String A valid URL for the embedded video player or video file
      */

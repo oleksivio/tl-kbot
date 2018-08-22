@@ -1,15 +1,12 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.button;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.game.CallbackGame;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#inlinekeyboardbutton">InlineKeyboardButtonb</a>
+ * @see <a href="https://core.telegram.org/bots/api#inlinekeyboardbutton">InlineKeyboardButton</a>
  */
-public class InlineKeyboardButton implements IButton {
-    private static final Logger LOGGER = LoggerFactory.getLogger(InlineKeyboardButton.class);
+public class InlineKeyboardButton {
     /**
      * text String Label text on the button
      */
@@ -25,7 +22,7 @@ public class InlineKeyboardButton implements IButton {
      * is pressed, 1-64 bytes
      */
     @JsonProperty("callback_data")
-    private String mCallbackData = null;
+    private String callbackData = null;
     /**
      * switch_inline_query String Optional. If set, pressing the button will prompt the user to
      * select one of their chats, open that chat and insert the bot‘s username and the specified
@@ -53,70 +50,74 @@ public class InlineKeyboardButton implements IButton {
     @JsonProperty("pay")
     private Boolean pay = null;
 
+    private InlineKeyboardButton() {
+    }
+
+    public static InlineKeyboardButton create() {
+        return new InlineKeyboardButton();
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public InlineKeyboardButton setText(String text) {
+        this.text = text;
+        return this;
+    }
+
     public String getUrl() {
         return url;
     }
 
-    public void setUrl(String url) {
+    public InlineKeyboardButton setUrl(String url) {
         this.url = url;
+        return this;
     }
 
-    public String getmCallbackData() {
-        return mCallbackData;
+    public String getCallbackData() {
+        return callbackData;
     }
 
-    public void setmCallbackData(String mCallbackData) {
-        this.mCallbackData = mCallbackData;
+    public InlineKeyboardButton setCallbackData(String callbackData) {
+        this.callbackData = callbackData;
+        return this;
     }
 
     public String getSwitchInlineQuery() {
         return switchInlineQuery;
     }
 
-    public void setSwitchInlineQuery(String switchInlineQuery) {
+    public InlineKeyboardButton setSwitchInlineQuery(String switchInlineQuery) {
         this.switchInlineQuery = switchInlineQuery;
+        return this;
     }
 
     public String getSwitchInlineQueryCurrentChat() {
         return switchInlineQueryCurrentChat;
     }
 
-    public void setSwitchInlineQueryCurrentChat(String switchInlineQueryCurrentChat) {
+    public InlineKeyboardButton setSwitchInlineQueryCurrentChat(String switchInlineQueryCurrentChat) {
         this.switchInlineQueryCurrentChat = switchInlineQueryCurrentChat;
+        return this;
     }
 
     public CallbackGame getCallbackGame() {
         return callbackGame;
     }
 
-    public void setCallbackGame(CallbackGame callbackGame) {
+    public InlineKeyboardButton setCallbackGame(CallbackGame callbackGame) {
         this.callbackGame = callbackGame;
+        return this;
     }
 
     public Boolean getPay() {
         return pay;
     }
 
-    public void setPay(Boolean pay) {
+    public InlineKeyboardButton setPay(Boolean pay) {
         this.pay = pay;
-    }
-
-    @Override
-    public String getText() {
-        return text;
-    }
-
-    @Override
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public String getCallbackData() {
-        return mCallbackData;
-    }
-
-    public void setCallbackData(String callbackData) {
-        mCallbackData = callbackData;
+        return this;
     }
 
 }

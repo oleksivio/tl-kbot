@@ -3,11 +3,13 @@ package ru.ioleksiv.telegram.bot.api.model.objects.passport;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.NotNullFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.PassportFileArrayFilter;
-import ru.ioleksiv.telegram.bot.api.annotations.filter.secondary.PassportFileFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.PassportFileArrayFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.PassportFileFilter;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
+import ru.ioleksiv.telegram.bot.core.model.type.TelegramType;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#encryptedpassportelement>EncryptedPassportElement</a>
@@ -151,7 +153,7 @@ public class EncryptedPassportElement implements ITelegram {
         this.selfie = selfie;
     }
 
-    public enum Type {
+    public enum Type implements TelegramType {
         PERSONAL_DETAILS("personal_details"),
         PASSPORT("passport"),
         DRIVER_LICENSE("driver_license"),
@@ -174,12 +176,19 @@ public class EncryptedPassportElement implements ITelegram {
         }
 
         @Override
-        public String toString() {
-            return name;
+
+        public boolean notAll() {
+            return this != ALL;
         }
 
-        public boolean isActive() {
-            return this != ALL;
+        @Override
+        public boolean equal(String typeString) {
+            return Objects.equals(name, typeString);
+        }
+
+        @Override
+        public String stringName() {
+            return name;
         }
     }
 }

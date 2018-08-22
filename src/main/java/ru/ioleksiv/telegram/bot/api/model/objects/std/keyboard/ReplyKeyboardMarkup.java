@@ -1,16 +1,21 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.button.ButtonRow;
-import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.button.ReplyKeyboardButton;
+import ru.ioleksiv.telegram.bot.api.model.objects.std.keyboard.row.ReplyButtonRow;
 
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#replykeyboardmarkup">ReplyKeyboardMarkup</a>
  */
-public class ReplyKeyboardMarkup extends AbstractKeyboardMarkup<ReplyKeyboardButton> {
+public class ReplyKeyboardMarkup implements IKeyboard {
+    /**
+     * keyboard Array of Array of KeyboardButton Array of button rows, each represented by an
+     * Array of KeyboardButton objects
+     */
+    @JsonProperty("keyboard")
+    private List<ReplyButtonRow> keyboard = new ArrayList<>(new ArrayList<>());
     /**
      * resize_keyboard Boolean Optional. Requests clients to resize the keyboard vertically for optimal fit (e.g.,
      * make the keyboard smaller if there are just two rows of buttons). Defaults to false, in which case the custom
@@ -34,43 +39,52 @@ public class ReplyKeyboardMarkup extends AbstractKeyboardMarkup<ReplyKeyboardBut
     @JsonProperty("selective")
     private Boolean selective = null;
 
-    public Boolean isResizeKeyboard() {
+    private ReplyKeyboardMarkup() {
+    }
+
+    public static ReplyKeyboardMarkup create() {
+        return new ReplyKeyboardMarkup();
+    }
+
+    public ReplyKeyboardMarkup addRow(ReplyButtonRow row) {
+        keyboard.add(row);
+        return this;
+    }
+
+    public Boolean getResizeKeyboard() {
         return resizeKeyboard;
     }
 
-    public Boolean isOneTimeKeyboard() {
+    public ReplyKeyboardMarkup setResizeKeyboard(Boolean resizeKeyboard) {
+        this.resizeKeyboard = resizeKeyboard;
+        return this;
+    }
+
+    public Boolean getOneTimeKeyboard() {
         return oneTimeKeyboard;
     }
 
-    public Boolean isSelective() {
+    public ReplyKeyboardMarkup setOneTimeKeyboard(Boolean oneTimeKeyboard) {
+        this.oneTimeKeyboard = oneTimeKeyboard;
+        return this;
+    }
+
+    public Boolean getSelective() {
         return selective;
     }
 
-    /**
-     * keyboard Array of Array of KeyboardButton Array of button rows, each represented by an
-     * Array of KeyboardButton objects
-     */
-    @Override
-    @JsonProperty("keyboard")
-    public List<ButtonRow<ReplyKeyboardButton>> getKeyboard() {
-        return super.getKeyboard();
-    }
-
-    @Override
-    @JsonProperty("keyboard")
-    public void setKeyboard(Collection<ButtonRow<ReplyKeyboardButton>> rows) {
-        super.setKeyboard(rows);
-    }
-
-    public void setResizeKeyboard(Boolean resizeKeyboard) {
-        this.resizeKeyboard = resizeKeyboard;
-    }
-
-    public void setOneTimeKeyboard(boolean oneTimeKeyboard) {
-        this.oneTimeKeyboard = oneTimeKeyboard;
-    }
-
-    public void setSelective(Boolean selective) {
+    public ReplyKeyboardMarkup setSelective(Boolean selective) {
         this.selective = selective;
+        return this;
     }
+
+    public List<ReplyButtonRow> getKeyboard() {
+        return keyboard;
+    }
+
+    public ReplyKeyboardMarkup setKeyboard(List<ReplyButtonRow> keyboard) {
+        this.keyboard = keyboard;
+        return this;
+    }
+
 }

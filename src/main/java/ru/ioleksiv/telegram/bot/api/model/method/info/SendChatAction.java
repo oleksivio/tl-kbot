@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.model.NetworkError;
 import ru.ioleksiv.telegram.bot.core.controller.network.ActionNetworker;
 import ru.ioleksiv.telegram.bot.core.model.method.ChatAction;
+import ru.ioleksiv.telegram.bot.core.model.responses.BooleanResponse;
 import ru.ioleksiv.telegram.bot.core.model.responses.CommonResponse;
-import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#sendchataction">sendChatAction</a>
@@ -13,14 +13,6 @@ import ru.ioleksiv.telegram.bot.core.model.responses.ResponseCollection;
 public class SendChatAction extends ChatAction<Boolean> {
     private static final String METHOD = "sendChatAction";
 
-    public static final String ACTION_TYPING = "typing";
-    public static final String ACTION_UPLOAD_PHOTO = "upload_photo";
-    public static final String ACTION_RECORD_VIDEO = "record_video";
-    public static final String ACTION_RECORD_AUDIO = "record_audio";
-    public static final String ACTION_UPLOAD_DOCUMENT = "upload_document";
-    public static final String ACTION_FIND_LOCATION = "find_location";
-    public static final String ACTION_RECORD_VIDEO_NOTE = "record_video_note";
-    public static final String ACTION_UPLOAD_VIDEO_NOTE = "upload_video_note";
     /**
      * action String Type of action to broadcast.
      * Choose one, depending on what the user is about to receive:
@@ -44,14 +36,14 @@ public class SendChatAction extends ChatAction<Boolean> {
         return action;
     }
 
-    public SendChatAction setAction(String action) {
-        this.action = action;
+    public SendChatAction setAction(Type action) {
+        this.action = action.stringName();
         return this;
     }
 
     @Override
     protected Class<? extends CommonResponse<Boolean>> getResultWrapperClass() {
-        return ResponseCollection.BooleanResponse.class;
+        return BooleanResponse.class;
     }
 
     @Override
@@ -64,5 +56,26 @@ public class SendChatAction extends ChatAction<Boolean> {
     public SendChatAction setNetworkErrorListener(NetworkError onNetworkError) {
         pSetNetworkErrorListener(onNetworkError);
         return this;
+    }
+
+    public enum Type  {
+        ACTION_TYPING("typing"),
+        ACTION_UPLOAD_PHOTO("upload_photo"),
+        ACTION_RECORD_VIDEO("record_video"),
+        ACTION_RECORD_AUDIO("record_audio"),
+        ACTION_UPLOAD_DOCUMENT("upload_document"),
+        ACTION_FIND_LOCATION("find_location"),
+        ACTION_RECORD_VIDEO_NOTE("record_video_note"),
+        ACTION_UPLOAD_VIDEO_NOTE("upload_video_note");
+
+        private final String name;
+
+        Type(String name) {
+            this.name = name;
+        }
+
+        public String stringName() {
+            return name;
+        }
     }
 }
