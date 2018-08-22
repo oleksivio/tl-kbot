@@ -9,8 +9,6 @@ import ru.ioleksiv.telegram.bot.core.controller.processor.MainProcessor;
 import ru.ioleksiv.telegram.bot.core.controller.processor.SessionProcessor;
 import ru.ioleksiv.telegram.bot.core.controller.processor.StatelessProcessor;
 
-import java.util.List;
-
 @Controller
 public class AnnotationProcessor {
 

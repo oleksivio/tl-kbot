@@ -1,7 +1,10 @@
 package ru.ioleksiv.telegram.bot.api.annotations.filter.telegram;
 
-import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.FloatFilter;
 import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
+import ru.ioleksiv.telegram.bot.api.model.annotation.CustomValidator;
+import ru.ioleksiv.telegram.bot.api.model.annotation.stub.StubMaskPositionValidator;
+import ru.ioleksiv.telegram.bot.api.model.objects.std.sticker.MaskPosition;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -14,8 +17,16 @@ import java.lang.annotation.Target;
 @Documented
 public @interface MaskPositionFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
-    StringFilter point() default @StringFilter(AnnotationState.OFF);
+    Class<? extends CustomValidator<MaskPosition>>[] validator() default StubMaskPositionValidator.class;
+
+    MaskPosition.Type point() default MaskPosition.Type.ALL;
+
+    FloatFilter xShift() default @FloatFilter(status = AnnotationState.OFF);
+
+    FloatFilter yShift() default @FloatFilter(status = AnnotationState.OFF);
+
+    FloatFilter scale() default @FloatFilter(status = AnnotationState.OFF);
 
 }

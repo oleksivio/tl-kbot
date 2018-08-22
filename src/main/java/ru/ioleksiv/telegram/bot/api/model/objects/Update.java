@@ -1,7 +1,19 @@
 package ru.ioleksiv.telegram.bot.api.model.objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.ChosenInlineResultFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.InlineQueryFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.MessageFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.PreCheckoutQueryFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.ShippingQueryFilter;
+import ru.ioleksiv.telegram.bot.api.annotations.receiver.ChannelPostReceiver;
+import ru.ioleksiv.telegram.bot.api.annotations.receiver.ChosenInlineResultReceiver;
+import ru.ioleksiv.telegram.bot.api.annotations.receiver.EditedChannelPostReceiver;
+import ru.ioleksiv.telegram.bot.api.annotations.receiver.EditedMessageReceiver;
+import ru.ioleksiv.telegram.bot.api.annotations.receiver.InlineQueryReceiver;
+import ru.ioleksiv.telegram.bot.api.annotations.receiver.MessageReceiver;
+import ru.ioleksiv.telegram.bot.api.annotations.receiver.PreCheckoutQueryReceiver;
+import ru.ioleksiv.telegram.bot.api.annotations.receiver.ShippingQueryReceiver;
 import ru.ioleksiv.telegram.bot.api.model.objects.inline.ChosenInlineResult;
 import ru.ioleksiv.telegram.bot.api.model.objects.inline.InlineQuery;
 import ru.ioleksiv.telegram.bot.api.model.objects.payments.PreCheckoutQuery;
@@ -13,7 +25,6 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 /**
  * @see <a href="https://core.telegram.org/bots/api#update">Update</a>
  */
-//todo javadoc handlers and filters
 public class Update implements ITelegram {
     /**
      * update_id
@@ -32,6 +43,8 @@ public class Update implements ITelegram {
     @JsonProperty("update_id")
     private Long updateId = null;
     /**
+     * @see MessageReceiver for create reciver
+     * @see MessageFilter for setup filter
      * message
      * <p>
      * Message
@@ -41,6 +54,8 @@ public class Update implements ITelegram {
     @JsonProperty("message")
     private Message message = null;
     /**
+     * @see EditedMessageReceiver for create reciver
+     * @see MessageFilter for setup filter
      * edited_message
      * <p>
      * Message
@@ -51,9 +66,8 @@ public class Update implements ITelegram {
     @JsonProperty("edited_message")
     private Message editedMessage = null;
     /**
-     * To setup filter:
-     *
-     * @see MessageFilter
+     * @see ChannelPostReceiver for create reciver
+     * @see MessageFilter for setup filter
      * channel_post
      * <p>
      * Message
@@ -64,9 +78,8 @@ public class Update implements ITelegram {
     @JsonProperty("channel_post")
     private Message channelPost = null;
     /**
-     * To setup filter:
-     *
-     * @see MessageFilter
+     * @see EditedChannelPostReceiver for create reciver
+     * @see MessageFilter for setup filter
      * edited_channel_post
      * <p>
      * Message
@@ -77,6 +90,8 @@ public class Update implements ITelegram {
     @JsonProperty("edited_channel_post")
     private Message editedChannelPost = null;
     /**
+     * @see InlineQueryReceiver for create reciver
+     * @see InlineQueryFilter for setup filter
      * inline_query
      * <p>
      * InlineQueryText
@@ -86,6 +101,8 @@ public class Update implements ITelegram {
     @JsonProperty("inline_query")
     private InlineQuery inlineQuery = null;
     /**
+     * @see ChosenInlineResultReceiver for create reciver
+     * @see ChosenInlineResultFilter for setup filter
      * chosen_inline_result
      * <p>
      * ChosenInlineResult
@@ -96,6 +113,8 @@ public class Update implements ITelegram {
     @JsonProperty("chosen_inline_result")
     private ChosenInlineResult chosenInlineResult = null;
     /**
+     * @see ShippingQueryReceiver for create reciver
+     * @see ShippingQueryFilter for setup filter
      * callback_query
      * <p>
      * CallbackQuery
@@ -105,6 +124,8 @@ public class Update implements ITelegram {
     @JsonProperty("callback_query")
     private CallbackQuery callbackQuery = null;
     /**
+     * @see ShippingQueryReceiver for create reciver
+     * @see ShippingQueryFilter for setup filter
      * shipping_query
      * <p>
      * ShippingQuery
@@ -114,6 +135,8 @@ public class Update implements ITelegram {
     @JsonProperty("shipping_query")
     private ShippingQuery shippingQuery = null;
     /**
+     * @see PreCheckoutQueryReceiver for create reciver
+     * @see PreCheckoutQueryFilter for setup filter
      * pre_checkout_query
      * <p>
      * PreCheckoutQuery

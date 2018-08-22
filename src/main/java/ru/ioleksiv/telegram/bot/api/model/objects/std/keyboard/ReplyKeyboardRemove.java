@@ -23,8 +23,12 @@ public class ReplyKeyboardRemove implements IKeyboard {
     @JsonProperty("selective")
     private boolean selective = false;
 
-    private ReplyKeyboardRemove(){};
-    public static ReplyKeyboardRemove create(){
+    private ReplyKeyboardRemove() {
+    }
+
+    ;
+
+    public static ReplyKeyboardRemove create() {
         return new ReplyKeyboardRemove();
     }
 

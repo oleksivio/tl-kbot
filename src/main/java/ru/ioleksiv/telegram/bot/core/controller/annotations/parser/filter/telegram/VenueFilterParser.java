@@ -21,23 +21,23 @@ public class VenueFilterParser implements FilterParser<VenueFilter, Venue> {
         UnionExtractValidator<Venue> unionExtractValidator = new UnionExtractValidator<>();
 
         LocationFilter location = annotation.location();
-        if (location.value().isActive()) {
+        if (location.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getLocation()), finder.find(location));
         }
         StringFilter title = annotation.title();
-        if (title.value().isActive()) {
+        if (title.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getTitle()), finder.find(title));
         }
         StringFilter address = annotation.address();
-        if (address.value().isActive()) {
+        if (address.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getAddress()), finder.find(address));
         }
         NotNullFilter foursquareId = annotation.foursquareId();
-        if (foursquareId.value().isActive()) {
+        if (foursquareId.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getFoursquareId()), finder.find(foursquareId));
         }
         StringFilter foursquareType = annotation.foursquareType();
-        if (foursquareType.value().isActive()) {
+        if (foursquareType.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getFoursquareType()), finder.find(foursquareType));
         }
 

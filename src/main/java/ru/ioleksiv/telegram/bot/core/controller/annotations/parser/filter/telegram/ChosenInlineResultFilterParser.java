@@ -21,19 +21,19 @@ public class ChosenInlineResultFilterParser implements FilterParser<ChosenInline
         UnionExtractValidator<ChosenInlineResult> unionExtractValidator = new UnionExtractValidator<>();
 
         UserFilter from = annotation.from();
-        if (from.value().isActive()) {
+        if (from.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getFrom()), finder.find(from));
         }
         LocationFilter location = annotation.location();
-        if (location.value().isActive()) {
+        if (location.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getLocation()), finder.find(location));
         }
         StringFilter inlineMessageId = annotation.inlineMessageId();
-        if (inlineMessageId.value().isActive()) {
+        if (inlineMessageId.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getInlineMessageId()), finder.find(inlineMessageId));
         }
         StringFilter query = annotation.query();
-        if (query.value().isActive()) {
+        if (query.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getQuery()), finder.find(query));
         }
 

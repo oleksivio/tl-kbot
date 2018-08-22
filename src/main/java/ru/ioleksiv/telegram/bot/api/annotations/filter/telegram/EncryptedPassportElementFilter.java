@@ -16,22 +16,22 @@ import java.lang.annotation.Target;
 @Documented
 public @interface EncryptedPassportElementFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
     EncryptedPassportElement.Type type() default EncryptedPassportElement.Type.ALL;
 
-    NotNullFilter data() default @NotNullFilter(AnnotationState.OFF);
+    NotNullFilter data() default @NotNullFilter(status = AnnotationState.OFF);
 
-    StringFilter phoneNumber() default @StringFilter(AnnotationState.OFF);
+    StringFilter phoneNumber() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter email() default @StringFilter(AnnotationState.OFF);
+    StringFilter email() default @StringFilter(status = AnnotationState.OFF);
 
-    PassportFileArrayFilter fileArray() default @PassportFileArrayFilter(AnnotationState.OFF);
+    PassportFileArrayFilter fileArray() default @PassportFileArrayFilter(status = AnnotationState.OFF);
 
-    PassportFileFilter frontSide() default @PassportFileFilter(AnnotationState.OFF);
+    PassportFileFilter frontSide() default @PassportFileFilter(status = AnnotationState.OFF);
 
-    PassportFileFilter reverseSide() default @PassportFileFilter(AnnotationState.OFF);
+    PassportFileFilter reverseSide() default @PassportFileFilter(status = AnnotationState.OFF);
 
-    PassportFileFilter selfie() default @PassportFileFilter(AnnotationState.OFF);
+    PassportFileFilter selfie() default @PassportFileFilter(status = AnnotationState.OFF);
 
 }

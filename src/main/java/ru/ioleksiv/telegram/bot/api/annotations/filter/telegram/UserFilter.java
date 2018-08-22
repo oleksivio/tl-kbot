@@ -18,18 +18,18 @@ import java.lang.annotation.Target;
 @Documented
 public @interface UserFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
     Class<? extends CustomValidator<User>>[] validator() default StubUserValidator.class;
 
-    StringFilter firstName() default @StringFilter(AnnotationState.OFF);
+    StringFilter firstName() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter lastName() default @StringFilter(AnnotationState.OFF);
+    StringFilter lastName() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter username() default @StringFilter(AnnotationState.OFF);
+    StringFilter username() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter languageCode() default @StringFilter(AnnotationState.OFF);
+    StringFilter languageCode() default @StringFilter(status = AnnotationState.OFF);
 
-    BooleanFilter bot() default @BooleanFilter(AnnotationState.OFF);
+    BooleanFilter bot() default @BooleanFilter(status = AnnotationState.OFF);
 
 }

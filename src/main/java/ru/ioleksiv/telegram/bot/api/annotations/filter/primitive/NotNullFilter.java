@@ -13,6 +13,6 @@ import java.lang.annotation.Target;
 @Documented
 public @interface NotNullFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
 }

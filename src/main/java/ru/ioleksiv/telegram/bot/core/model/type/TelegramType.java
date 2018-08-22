@@ -1,8 +1,12 @@
 package ru.ioleksiv.telegram.bot.core.model.type;
 
+import java.util.Objects;
+
 public interface TelegramType extends NamedType {
 
-    boolean notAll();
+    default boolean equalsWith(String typeString) {
+        return Objects.equals(stringName(), typeString);
+    }
 
-    boolean equal(String typeString);
+    boolean isChosen();
 }

@@ -3,6 +3,8 @@ package ru.ioleksiv.telegram.bot.api.annotations.filter.telegram;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.NotNullFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
+import ru.ioleksiv.telegram.bot.api.model.annotation.CustomValidator;
+import ru.ioleksiv.telegram.bot.api.model.annotation.stub.StubEncryptedPassportElementValidator;
 import ru.ioleksiv.telegram.bot.api.model.objects.passport.EncryptedPassportElement;
 
 import java.lang.annotation.Documented;
@@ -16,21 +18,24 @@ import java.lang.annotation.Target;
 @Documented
 public @interface EncryptedPassportElementArrayFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
     EncryptedPassportElement.Type type() default EncryptedPassportElement.Type.ALL;
 
-    NotNullFilter data() default @NotNullFilter(AnnotationState.OFF);
+    Class<? extends CustomValidator<EncryptedPassportElement>>[] validator()
+            default StubEncryptedPassportElementValidator.class;
 
-    StringFilter phoneNumber() default @StringFilter(AnnotationState.OFF);
+    NotNullFilter data() default @NotNullFilter(status = AnnotationState.OFF);
 
-    StringFilter email() default @StringFilter(AnnotationState.OFF);
+    StringFilter phoneNumber() default @StringFilter(status = AnnotationState.OFF);
 
-    PassportFileArrayFilter fileArray() default @PassportFileArrayFilter(AnnotationState.OFF);
+    StringFilter email() default @StringFilter(status = AnnotationState.OFF);
 
-    PassportFileFilter frontSide() default @PassportFileFilter(AnnotationState.OFF);
+    PassportFileArrayFilter fileArray() default @PassportFileArrayFilter(status = AnnotationState.OFF);
 
-    PassportFileFilter reverseSide() default @PassportFileFilter(AnnotationState.OFF);
+    PassportFileFilter frontSide() default @PassportFileFilter(status = AnnotationState.OFF);
 
-    PassportFileFilter selfie() default @PassportFileFilter(AnnotationState.OFF);
+    PassportFileFilter reverseSide() default @PassportFileFilter(status = AnnotationState.OFF);
+
+    PassportFileFilter selfie() default @PassportFileFilter(status = AnnotationState.OFF);
 }

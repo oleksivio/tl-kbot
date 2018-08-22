@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 @Documented
 public @interface LongFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
     long lessThan() default Long.MAX_VALUE;
 

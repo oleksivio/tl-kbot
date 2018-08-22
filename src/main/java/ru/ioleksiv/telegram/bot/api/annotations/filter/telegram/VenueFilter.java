@@ -14,16 +14,16 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Documented
 public @interface VenueFilter {
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
-    LocationFilter location() default @LocationFilter(AnnotationState.OFF);
+    LocationFilter location() default @LocationFilter(status = AnnotationState.OFF);
 
-    StringFilter title() default @StringFilter(AnnotationState.OFF);
+    StringFilter title() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter address() default @StringFilter(AnnotationState.OFF);
+    StringFilter address() default @StringFilter(status = AnnotationState.OFF);
 
-    NotNullFilter foursquareId() default @NotNullFilter(AnnotationState.OFF);
+    NotNullFilter foursquareId() default @NotNullFilter(status = AnnotationState.OFF);
 
-    StringFilter foursquareType() default @StringFilter(AnnotationState.OFF);
+    StringFilter foursquareType() default @StringFilter(status = AnnotationState.OFF);
 
 }

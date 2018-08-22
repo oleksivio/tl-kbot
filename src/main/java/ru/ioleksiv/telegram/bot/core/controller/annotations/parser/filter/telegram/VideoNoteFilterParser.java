@@ -20,19 +20,19 @@ public class VideoNoteFilterParser implements FilterParser<VideoNoteFilter, Vide
         UnionExtractValidator<VideoNote> unionExtractValidator = new UnionExtractValidator<>();
 
         IntegerFilter length = annotation.length();
-        if (length.value().isActive()) {
+        if (length.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getLength()), finder.find(length));
         }
         IntegerFilter duration = annotation.duration();
-        if (duration.value().isActive()) {
+        if (duration.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getDuration()), finder.find(duration));
         }
         PhotoFilter thumb = annotation.thumb();
-        if (thumb.value().isActive()) {
+        if (thumb.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getThumb()), finder.find(thumb));
         }
         IntegerFilter fileSize = annotation.fileSize();
-        if (fileSize.value().isActive()) {
+        if (fileSize.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getFileSize()), finder.find(fileSize));
         }
 

@@ -14,17 +14,17 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Documented
 public @interface VideoFilter {
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
-    IntegerFilter duration() default @IntegerFilter(AnnotationState.OFF);
+    IntegerFilter duration() default @IntegerFilter(status = AnnotationState.OFF);
 
-    IntegerFilter width() default @IntegerFilter(AnnotationState.OFF);
+    IntegerFilter width() default @IntegerFilter(status = AnnotationState.OFF);
 
-    IntegerFilter height() default @IntegerFilter(AnnotationState.OFF);
+    IntegerFilter height() default @IntegerFilter(status = AnnotationState.OFF);
 
-    PhotoFilter thumb() default @PhotoFilter(AnnotationState.OFF);
+    PhotoFilter thumb() default @PhotoFilter(status = AnnotationState.OFF);
 
-    StringFilter mimeType() default @StringFilter(AnnotationState.OFF);
+    StringFilter mimeType() default @StringFilter(status = AnnotationState.OFF);
 
-    IntegerFilter fileSize() default @IntegerFilter(AnnotationState.OFF);
+    IntegerFilter fileSize() default @IntegerFilter(status = AnnotationState.OFF);
 }

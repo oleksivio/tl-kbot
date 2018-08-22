@@ -3,9 +3,12 @@ package ru.ioleksiv.telegram.bot.core.controller.annotations.composer;
 import org.springframework.stereotype.Controller;
 import ru.ioleksiv.telegram.bot.api.annotations.behavior.Session;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
+import ru.ioleksiv.telegram.bot.core.controller.processor.SessionOrderManager;
 import ru.ioleksiv.telegram.bot.core.controller.processor.SessionProcessor;
 
 import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 @Controller
@@ -21,7 +24,7 @@ public class SessionComposer {
         Handler initialHandler = null;
         Handler cancelHandler = null;
 
-        SessionProcessor sessionProcessor = new SessionProcessor();
+        Map<Integer, Handler> orderMap = new HashMap<>();
 
         for (Method method : objClz.getDeclaredMethods()) {
 
@@ -40,32 +43,34 @@ public class SessionComposer {
             else if (method.isAnnotationPresent(Session.Order.class)) {
                 Session.Order orderAnnotation = method.getDeclaredAnnotation(Session.Order.class);
                 int order = orderAnnotation.value();
-                if (order <= 0) {
-                    throw new IllegalStateException("Order value can't be less than one");
-                }
-                sessionProcessor.addOrderHandler(order, handler);
-
+                orderMap.put(order, handler);
             }
 
         }
 
-        check(initialHandler, cancelHandler);
+        check(initialHandler, cancelHandler, orderMap);
 
-        sessionProcessor.setInitialHandler(initialHandler);
-        sessionProcessor.setCancelHandler(cancelHandler);
-
-        return sessionProcessor;
+        SessionOrderManager orderManager = new SessionOrderManager(orderMap);
+        return new SessionProcessor(orderManager, initialHandler, cancelHandler);
     }
 
-    public static void check(Handler initialHandler, Handler cancelHandler) throws IllegalArgumentException {
+    public static void check(Handler initialHandler,
+                             Handler cancelHandler,
+                             Map<Integer, Handler> orderMap) throws IllegalArgumentException {
+        if (orderMap == null || orderMap.isEmpty()) {
+            throw new IllegalArgumentException("Invalid session state. " +
+                                                       "Can't be less than one" +
+                                                       " Session Order method's");
+        }
+
         if (initialHandler == null) {
-            throw new IllegalArgumentException("Invalid session unpacker state. " +
+            throw new IllegalArgumentException("Invalid session state. " +
                                                        "Can't be less than one" +
                                                        " Session Initial method's");
         }
 
         if (cancelHandler == null) {
-            throw new IllegalArgumentException("Invalid session unpacker state. " +
+            throw new IllegalArgumentException("Invalid session state. " +
                                                        "Can't be less than one" +
                                                        " Session Cancel method's");
         }

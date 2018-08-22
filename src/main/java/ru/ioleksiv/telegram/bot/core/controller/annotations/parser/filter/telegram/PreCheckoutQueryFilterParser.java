@@ -21,27 +21,27 @@ public class PreCheckoutQueryFilterParser implements FilterParser<PreCheckoutQue
         UnionExtractValidator<PreCheckoutQuery> unionExtractValidator = new UnionExtractValidator<>();
 
         UserFilter from = annotation.from();
-        if (from.value().isActive()) {
+        if (from.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getFrom()), finder.find(from));
         }
         StringFilter currency = annotation.currency();
-        if (currency.value().isActive()) {
+        if (currency.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getCurrency()), finder.find(currency));
         }
         StringFilter totalAmount = annotation.totalAmount();
-        if (totalAmount.value().isActive()) {
+        if (totalAmount.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getTotalAmount()), finder.find(totalAmount));
         }
         StringFilter invoicePayload = annotation.invoicePayload();
-        if (invoicePayload.value().isActive()) {
+        if (invoicePayload.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getInvoicePayload()), finder.find(invoicePayload));
         }
         StringFilter shippingOptionId = annotation.shippingOptionId();
-        if (shippingOptionId.value().isActive()) {
+        if (shippingOptionId.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getShippingOptionId()), finder.find(shippingOptionId));
         }
         OrderInfoFilter orderInfo = annotation.orderInfo();
-        if (orderInfo.value().isActive()) {
+        if (orderInfo.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getOrderInfo()), finder.find(orderInfo));
         }
 

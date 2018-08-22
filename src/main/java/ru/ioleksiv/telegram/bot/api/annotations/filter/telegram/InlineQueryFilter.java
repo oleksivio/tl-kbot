@@ -14,12 +14,12 @@ import java.lang.annotation.Target;
 @Documented
 public @interface InlineQueryFilter {
 
-    UserFilter from() default @UserFilter(AnnotationState.OFF);
+    UserFilter from() default @UserFilter(status = AnnotationState.OFF);
 
-    LocationFilter location() default @LocationFilter(AnnotationState.OFF);
+    LocationFilter location() default @LocationFilter(status = AnnotationState.OFF);
 
-    StringFilter query() default @StringFilter(AnnotationState.OFF);
+    StringFilter query() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter offset() default @StringFilter(AnnotationState.OFF);
+    StringFilter offset() default @StringFilter(status = AnnotationState.OFF);
 
 }

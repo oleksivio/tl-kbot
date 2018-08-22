@@ -3,6 +3,9 @@ package ru.ioleksiv.telegram.bot.api.annotations.filter.telegram;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
+import ru.ioleksiv.telegram.bot.api.model.annotation.CustomValidator;
+import ru.ioleksiv.telegram.bot.api.model.annotation.stub.StubInvoiceValidator;
+import ru.ioleksiv.telegram.bot.api.model.objects.payments.Invoice;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -15,16 +18,18 @@ import java.lang.annotation.Target;
 @Documented
 public @interface InvoiceFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
-    StringFilter title() default @StringFilter(AnnotationState.OFF);
+    Class<? extends CustomValidator<Invoice>>[] validator() default StubInvoiceValidator.class;
 
-    StringFilter description() default @StringFilter(AnnotationState.OFF);
+    StringFilter title() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter startParameter() default @StringFilter(AnnotationState.OFF);
+    StringFilter description() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter currency() default @StringFilter(AnnotationState.OFF);
+    StringFilter startParameter() default @StringFilter(status = AnnotationState.OFF);
 
-    IntegerFilter totalAmount() default @IntegerFilter(AnnotationState.OFF);
+    StringFilter currency() default @StringFilter(status = AnnotationState.OFF);
+
+    IntegerFilter totalAmount() default @IntegerFilter(status = AnnotationState.OFF);
 
 }

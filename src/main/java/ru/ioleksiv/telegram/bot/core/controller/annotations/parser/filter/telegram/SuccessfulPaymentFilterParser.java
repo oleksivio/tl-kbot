@@ -7,11 +7,13 @@ import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.OrderInfoFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.SuccessfulPaymentFilter;
 import ru.ioleksiv.telegram.bot.api.model.objects.payments.SuccessfulPayment;
+import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.ParserUtils;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import ru.ioleksiv.telegram.bot.core.controller.handler.check.Validator;
 import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.UnionExtractValidator;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 @Component
@@ -21,33 +23,40 @@ public class SuccessfulPaymentFilterParser implements FilterParser<SuccessfulPay
     public Validator<SuccessfulPayment> createChecker(SuccessfulPaymentFilter annotation, Finder finder) {
         UnionExtractValidator<SuccessfulPayment> unionExtractValidator = new UnionExtractValidator<>();
 
+        Arrays.stream(annotation.validator())
+                .filter(ParserUtils::isNotStubValidator)
+                .map(finder::find)
+                .forEach(validator -> {
+                    unionExtractValidator.add(Optional::of, validator);
+                });
+
         StringFilter currency = annotation.currency();
-        if (currency.value().isActive()) {
+        if (currency.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getCurrency()), finder.find(currency));
         }
         IntegerFilter totalAmount = annotation.totalAmount();
-        if (totalAmount.value().isActive()) {
+        if (totalAmount.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getTotalAmount()), finder.find(totalAmount));
         }
         StringFilter invoicePayload = annotation.invoicePayload();
-        if (invoicePayload.value().isActive()) {
+        if (invoicePayload.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getInvoicePayload()), finder.find(invoicePayload));
         }
         NotNullFilter shippingOptionId = annotation.shippingOptionId();
-        if (shippingOptionId.value().isActive()) {
+        if (shippingOptionId.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getShippingOptionId()), finder.find(shippingOptionId));
         }
         OrderInfoFilter orderInfo = annotation.orderInfo();
-        if (orderInfo.value().isActive()) {
+        if (orderInfo.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getOrderInfo()), finder.find(orderInfo));
         }
         NotNullFilter telegramPaymentChargeId = annotation.telegramPaymentChargeId();
-        if (telegramPaymentChargeId.value().isActive()) {
+        if (telegramPaymentChargeId.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getTelegramPaymentChargeId()),
                                       finder.find(telegramPaymentChargeId));
         }
         NotNullFilter providerPaymentChargeId = annotation.providerPaymentChargeId();
-        if (providerPaymentChargeId.value().isActive()) {
+        if (providerPaymentChargeId.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getProviderPaymentChargeId()),
                                       finder.find(providerPaymentChargeId));
         }

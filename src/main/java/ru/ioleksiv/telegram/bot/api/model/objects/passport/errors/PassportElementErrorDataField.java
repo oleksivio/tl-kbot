@@ -1,6 +1,7 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.passport.errors;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.api.model.objects.passport.PassportConstants;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#passportelementerrordatafield>PassportElementErrorDataField</a>
@@ -44,12 +45,12 @@ public class PassportElementErrorDataField extends PassportElementError {
     }
 
     public enum Type {
-        PERSONAL_DETAILS(ErrorConstants.PERSONAL_DETAILS),
-        PASSPORT(ErrorConstants.PASSPORT),
-        DRIVER_LICENSE(ErrorConstants.DRIVER_LICENSE),
-        IDENTITY_CARD(ErrorConstants.IDENTITY_CARD),
-        INTERNAL_PASSPORT(ErrorConstants.INTERNAL_PASSPORT),
-        ADDRESS(ErrorConstants.ADDRESS);
+        PERSONAL_DETAILS(PassportConstants.PERSONAL_DETAILS),
+        PASSPORT(PassportConstants.PASSPORT),
+        DRIVER_LICENSE(PassportConstants.DRIVER_LICENSE),
+        IDENTITY_CARD(PassportConstants.IDENTITY_CARD),
+        INTERNAL_PASSPORT(PassportConstants.INTERNAL_PASSPORT),
+        ADDRESS(PassportConstants.ADDRESS);
 
         private final String name;
 

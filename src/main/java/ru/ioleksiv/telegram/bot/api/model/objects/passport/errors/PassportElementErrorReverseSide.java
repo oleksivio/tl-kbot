@@ -1,6 +1,7 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.passport.errors;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.api.model.objects.passport.PassportConstants;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#passportelementerrorreverseside>PassportElementErrorReverseSide</a>
@@ -31,8 +32,8 @@ public class PassportElementErrorReverseSide extends PassportElementError {
     }
 
     public enum Type {
-        DRIVER_LICENSE(ErrorConstants.DRIVER_LICENSE),
-        IDENTITY_CARD(ErrorConstants.IDENTITY_CARD);
+        DRIVER_LICENSE(PassportConstants.DRIVER_LICENSE),
+        IDENTITY_CARD(PassportConstants.IDENTITY_CARD);
         private final String name;
 
         Type(String name) {

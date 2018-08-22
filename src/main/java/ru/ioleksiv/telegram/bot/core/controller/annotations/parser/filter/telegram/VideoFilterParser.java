@@ -21,27 +21,27 @@ public class VideoFilterParser implements FilterParser<VideoFilter, Video> {
         UnionExtractValidator<Video> unionExtractValidator = new UnionExtractValidator<>();
 
         IntegerFilter duration = annotation.duration();
-        if (duration.value().isActive()) {
+        if (duration.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getDuration()), finder.find(duration));
         }
         IntegerFilter width = annotation.width();
-        if (width.value().isActive()) {
+        if (width.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getWidth()), finder.find(width));
         }
         IntegerFilter height = annotation.height();
-        if (height.value().isActive()) {
+        if (height.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getHeight()), finder.find(height));
         }
         PhotoFilter thumb = annotation.thumb();
-        if (thumb.value().isActive()) {
+        if (thumb.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getThumb()), finder.find(thumb));
         }
         StringFilter mimeType = annotation.mimeType();
-        if (mimeType.value().isActive()) {
+        if (mimeType.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getMimeType()), finder.find(mimeType));
         }
         IntegerFilter fileSize = annotation.fileSize();
-        if (fileSize.value().isActive()) {
+        if (fileSize.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getFileSize()), finder.find(fileSize));
         }
 

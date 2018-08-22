@@ -18,20 +18,20 @@ import java.lang.annotation.Target;
 @Documented
 public @interface ChatFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
     Chat.Type type() default Chat.Type.ALL;
 
     Class<? extends CustomValidator<Chat>>[] validator() default StubChatValidator.class;
 
-    StringFilter title() default @StringFilter(AnnotationState.OFF);
+    StringFilter title() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter username() default @StringFilter(AnnotationState.OFF);
+    StringFilter username() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter firstName() default @StringFilter(AnnotationState.OFF);
+    StringFilter firstName() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter lastName() default @StringFilter(AnnotationState.OFF);
+    StringFilter lastName() default @StringFilter(status = AnnotationState.OFF);
 
-    BooleanFilter allMembersAreAdministrators() default @BooleanFilter(AnnotationState.OFF);
+    BooleanFilter allMembersAreAdministrators() default @BooleanFilter(status = AnnotationState.OFF);
 
 }

@@ -2,6 +2,9 @@ package ru.ioleksiv.telegram.bot.api.annotations.filter.telegram;
 
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
+import ru.ioleksiv.telegram.bot.api.model.annotation.CustomValidator;
+import ru.ioleksiv.telegram.bot.api.model.annotation.stub.StubShippingAddressValidator;
+import ru.ioleksiv.telegram.bot.api.model.objects.payments.ShippingAddress;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -14,18 +17,20 @@ import java.lang.annotation.Target;
 @Documented
 public @interface ShippingAddressFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
-    StringFilter countryCode() default @StringFilter(AnnotationState.OFF);
+    Class<? extends CustomValidator<ShippingAddress>>[] validator() default StubShippingAddressValidator.class;
 
-    StringFilter state() default @StringFilter(AnnotationState.OFF);
+    StringFilter countryCode() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter city() default @StringFilter(AnnotationState.OFF);
+    StringFilter state() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter streetLine1() default @StringFilter(AnnotationState.OFF);
+    StringFilter city() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter streetLine2() default @StringFilter(AnnotationState.OFF);
+    StringFilter streetLine1() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter postCode() default @StringFilter(AnnotationState.OFF);
+    StringFilter streetLine2() default @StringFilter(status = AnnotationState.OFF);
+
+    StringFilter postCode() default @StringFilter(status = AnnotationState.OFF);
 
 }

@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 @Documented
 public @interface StringFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
     String regExp() default "";
 

@@ -14,7 +14,7 @@ import java.lang.annotation.Target;
 @Documented
 public @interface BooleanFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
     BooleanState state() default BooleanState.NON_NULL;
 

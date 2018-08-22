@@ -8,8 +8,6 @@ import ru.ioleksiv.telegram.bot.api.model.objects.std.files.ChatPhoto;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 import ru.ioleksiv.telegram.bot.core.model.type.TelegramType;
 
-import java.util.Objects;
-
 /**
  * To setup filter:
  *
@@ -28,7 +26,7 @@ public class Chat implements ITelegram {
     /**
      * To setup filter:
      *
-     * @see StringFilter type
+     * @see Type type
      * type String Type of chat, can be either “private”, “group”, “supergroup” or “channel”
      */
     @JsonProperty("type")
@@ -228,19 +226,14 @@ public class Chat implements ITelegram {
         }
 
         @Override
-
-        public boolean notAll() {
-            return this != ALL;
-        }
-
-        @Override
-        public boolean equal(String typeString) {
-            return Objects.equals(name, typeString);
-        }
-
-        @Override
         public String stringName() {
             return name;
+        }
+
+        @Override
+
+        public boolean isChosen() {
+            return this != ALL;
         }
     }
 

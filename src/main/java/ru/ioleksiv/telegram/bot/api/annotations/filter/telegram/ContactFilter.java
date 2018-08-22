@@ -18,18 +18,18 @@ import java.lang.annotation.Target;
 @Documented
 public @interface ContactFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
     Class<? extends CustomValidator<Contact>>[] validator() default StubContactValidator.class;
 
-    StringFilter phoneNumber() default @StringFilter(AnnotationState.OFF);
+    StringFilter phoneNumber() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter firstName() default @StringFilter(AnnotationState.OFF);
+    StringFilter firstName() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter lastName() default @StringFilter(AnnotationState.OFF);
+    StringFilter lastName() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter vCard() default @StringFilter(AnnotationState.OFF);
+    StringFilter vCard() default @StringFilter(status = AnnotationState.OFF);
 
-    NotNullFilter userId() default @NotNullFilter(AnnotationState.OFF);
+    NotNullFilter userId() default @NotNullFilter(status = AnnotationState.OFF);
 
 }

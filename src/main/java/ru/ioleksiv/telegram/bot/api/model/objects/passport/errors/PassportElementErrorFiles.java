@@ -1,6 +1,7 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.passport.errors;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.api.model.objects.passport.PassportConstants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,11 +35,11 @@ public class PassportElementErrorFiles extends PassportElementError {
     }
 
     public enum Type {
-        UTILITY_BILL(ErrorConstants.UTILITY_BILL),
-        BANK_STATEMENT(ErrorConstants.BANK_STATEMENT),
-        RENTAL_AGREENENT(ErrorConstants.RENTAL_AGREENENT),
-        PASSPORT_REGISTRATION(ErrorConstants.PASSPORT_REGISTRATION),
-        TEMPORARY_REGISTRATION(ErrorConstants.TEMPORARY_REGISTRATION);
+        UTILITY_BILL(PassportConstants.UTILITY_BILL),
+        BANK_STATEMENT(PassportConstants.BANK_STATEMENT),
+        RENTAL_AGREENENT(PassportConstants.RENTAL_AGREENENT),
+        PASSPORT_REGISTRATION(PassportConstants.PASSPORT_REGISTRATION),
+        TEMPORARY_REGISTRATION(PassportConstants.TEMPORARY_REGISTRATION);
 
         private final String name;
 

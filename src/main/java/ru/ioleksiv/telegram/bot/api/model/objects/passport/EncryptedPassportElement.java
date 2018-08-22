@@ -9,16 +9,16 @@ import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 import ru.ioleksiv.telegram.bot.core.model.type.TelegramType;
 
 import java.util.List;
-import java.util.Objects;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#encryptedpassportelement>EncryptedPassportElement</a>
  */
 public class EncryptedPassportElement implements ITelegram {
+
     /**
      * To setup filter:
      *
-     * @see StringFilter type
+     * @see Type type
      * type String Element type.
      * One of “personal_details”, “passport”, “driver_license”, “identity_card”, “internal_passport”, “address”,
      * “utility_bill”, “bank_statement”, “rental_agreement”, “passport_registration”, “temporary_registration”,
@@ -154,19 +154,19 @@ public class EncryptedPassportElement implements ITelegram {
     }
 
     public enum Type implements TelegramType {
-        PERSONAL_DETAILS("personal_details"),
-        PASSPORT("passport"),
-        DRIVER_LICENSE("driver_license"),
-        IDENTITY_CARD("identity_card"),
-        INTERNAL_PASSPORT("internal_passport"),
-        ADDRESS("address"),
-        UTILITY_BILL("utility_bill"),
-        BANK_STATEMENT("bank_statement"),
-        RENTAL_AGREEMENT("rental_agreement"),
-        PASSPORT_REGISTRATION("passport_registration"),
-        TEMPORARY_REGISTRATION("temporary_registration"),
-        PHONE_NUMBER("phone_number"),
-        EMAIL("email"),
+        PERSONAL_DETAILS(PassportConstants.PERSONAL_DETAILS),
+        PASSPORT(PassportConstants.PASSPORT),
+        DRIVER_LICENSE(PassportConstants.DRIVER_LICENSE),
+        IDENTITY_CARD(PassportConstants.IDENTITY_CARD),
+        INTERNAL_PASSPORT(PassportConstants.INTERNAL_PASSPORT),
+        ADDRESS(PassportConstants.ADDRESS),
+        UTILITY_BILL(PassportConstants.UTILITY_BILL),
+        BANK_STATEMENT(PassportConstants.BANK_STATEMENT),
+        RENTAL_AGREEMENT(PassportConstants.RENTAL_AGREENENT),
+        PASSPORT_REGISTRATION(PassportConstants.PASSPORT_REGISTRATION),
+        TEMPORARY_REGISTRATION(PassportConstants.TEMPORARY_REGISTRATION),
+        PHONE_NUMBER(PassportConstants.PHONE_NUMBER),
+        EMAIL(PassportConstants.EMAIL),
         ALL("");
 
         private final String name;
@@ -176,19 +176,15 @@ public class EncryptedPassportElement implements ITelegram {
         }
 
         @Override
-
-        public boolean notAll() {
-            return this != ALL;
-        }
-
-        @Override
-        public boolean equal(String typeString) {
-            return Objects.equals(name, typeString);
-        }
-
-        @Override
         public String stringName() {
             return name;
         }
+
+        @Override
+
+        public boolean isChosen() {
+            return this != ALL;
+        }
+
     }
 }

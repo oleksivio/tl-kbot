@@ -14,14 +14,14 @@ import java.lang.annotation.Target;
 @Documented
 public @interface CallbackQueryFilter {
 
-    MessageFilter message() default @MessageFilter(AnnotationState.OFF);
+    MessageFilter message() default @MessageFilter(status = AnnotationState.OFF);
 
-    StringFilter inlineMessageId() default @StringFilter(AnnotationState.OFF);
+    StringFilter inlineMessageId() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter chatInstance() default @StringFilter(AnnotationState.OFF);
+    StringFilter chatInstance() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter data() default @StringFilter(AnnotationState.OFF);
+    StringFilter data() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter gameShortName() default @StringFilter(AnnotationState.OFF);
+    StringFilter gameShortName() default @StringFilter(status = AnnotationState.OFF);
 
 }

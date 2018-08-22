@@ -14,10 +14,10 @@ import java.lang.annotation.Target;
 @Documented
 public @interface PassportFileFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
-    IntegerFilter fileSize() default @IntegerFilter(AnnotationState.OFF);
+    IntegerFilter fileSize() default @IntegerFilter(status = AnnotationState.OFF);
 
-    IntegerFilter fileDate() default @IntegerFilter(AnnotationState.OFF);
+    IntegerFilter fileDate() default @IntegerFilter(status = AnnotationState.OFF);
 
 }

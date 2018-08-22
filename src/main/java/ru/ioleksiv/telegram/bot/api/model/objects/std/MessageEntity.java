@@ -7,8 +7,6 @@ import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.UserFilter;
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 import ru.ioleksiv.telegram.bot.core.model.type.TelegramType;
 
-import java.util.Objects;
-
 /**
  * @see <a href="https://core.telegram.org/bots/api#messageentity">MessageEntity</a>
  */
@@ -16,7 +14,7 @@ public class MessageEntity implements ITelegram {
     /**
      * To setup filter:
      *
-     * @see StringFilter type
+     * @see Type type
      * type String Type of the entity. Can be mention (@username), hashtag, bot_command, url, email,
      * bold (bold text), italic (italic text), code (monowidth string), pre (monowidth block),
      * text_link (for clickable text URLs), text_mention (for users without usernames)
@@ -116,19 +114,14 @@ public class MessageEntity implements ITelegram {
         }
 
         @Override
-
-        public boolean notAll() {
-            return this != ALL;
-        }
-
-        @Override
-        public boolean equal(String typeString) {
-            return Objects.equals(name, typeString);
-        }
-
-        @Override
         public String stringName() {
             return name;
+        }
+
+        @Override
+
+        public boolean isChosen() {
+            return this != ALL;
         }
     }
 }

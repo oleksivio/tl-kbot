@@ -4,14 +4,14 @@ import org.springframework.stereotype.Component;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.BooleanFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.UserFilter;
-import ru.ioleksiv.telegram.bot.api.model.annotation.stub.StubCustomValidator;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.User;
+import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.ParserUtils;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import ru.ioleksiv.telegram.bot.core.controller.handler.check.Validator;
 import ru.ioleksiv.telegram.bot.core.controller.handler.check.impl.UnionExtractValidator;
 
-import java.util.Objects;
+import java.util.Arrays;
 import java.util.Optional;
 
 @Component
@@ -21,30 +21,31 @@ public class UserFilterParser implements FilterParser<UserFilter, User> {
     public Validator<User> createChecker(UserFilter annotation, Finder finder) {
         UnionExtractValidator<User> unionExtractValidator = new UnionExtractValidator<>();
 
-        Class<? extends Validator>[] validators = annotation.validator();
-        for(Class<? extends Validator> validator : validators) {
-            if (!Objects.equals(validator, StubCustomValidator.class)) {
-                unionExtractValidator.add(Optional::of, finder.find(validator));
-            }
-        }
+        Arrays.stream(annotation.validator())
+                .filter(ParserUtils::isNotStubValidator)
+                .map(finder::find)
+                .forEach(validator -> {
+                    unionExtractValidator.add(Optional::of, validator);
+                });
+
         StringFilter firstName = annotation.firstName();
-        if (firstName.value().isActive()) {
+        if (firstName.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getFirstName()), finder.find(firstName));
         }
         StringFilter lastName = annotation.lastName();
-        if (lastName.value().isActive()) {
+        if (lastName.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getLastName()), finder.find(lastName));
         }
         StringFilter username = annotation.username();
-        if (username.value().isActive()) {
+        if (username.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getUsername()), finder.find(username));
         }
         StringFilter languageCode = annotation.languageCode();
-        if (languageCode.value().isActive()) {
+        if (languageCode.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getLanguageCode()), finder.find(languageCode));
         }
         BooleanFilter bot = annotation.bot();
-        if (bot.value().isActive()) {
+        if (bot.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getBot()), finder.find(bot));
         }
 

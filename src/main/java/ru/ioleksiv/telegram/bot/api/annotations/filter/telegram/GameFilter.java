@@ -14,17 +14,17 @@ import java.lang.annotation.Target;
 @Documented
 public @interface GameFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
-    StringFilter title() default @StringFilter(AnnotationState.OFF);
+    StringFilter title() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter description() default @StringFilter(AnnotationState.OFF);
+    StringFilter description() default @StringFilter(status = AnnotationState.OFF);
 
-    PhotoArrayFilter photoArray() default @PhotoArrayFilter(AnnotationState.OFF);
+    PhotoArrayFilter photoArray() default @PhotoArrayFilter(status = AnnotationState.OFF);
 
-    StringFilter text() default @StringFilter(AnnotationState.OFF);
+    StringFilter text() default @StringFilter(status = AnnotationState.OFF);
 
-    MessageEntityFilter textEntities() default @MessageEntityFilter(AnnotationState.OFF);
+    MessageEntityFilter textEntities() default @MessageEntityFilter(status = AnnotationState.OFF);
 
-    AnimationFilter animation() default @AnimationFilter(AnnotationState.OFF);
+    AnimationFilter animation() default @AnimationFilter(status = AnnotationState.OFF);
 }

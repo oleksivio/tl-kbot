@@ -2,6 +2,9 @@ package ru.ioleksiv.telegram.bot.api.annotations.filter.telegram;
 
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.NotNullFilter;
 import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
+import ru.ioleksiv.telegram.bot.api.model.annotation.CustomValidator;
+import ru.ioleksiv.telegram.bot.api.model.annotation.stub.StubEncryptedCredentialsValidator;
+import ru.ioleksiv.telegram.bot.api.model.objects.passport.EncryptedCredentials;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -14,12 +17,15 @@ import java.lang.annotation.Target;
 @Documented
 public @interface EncryptedCredentialsFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
-    NotNullFilter data() default @NotNullFilter(AnnotationState.OFF);
+    Class<? extends CustomValidator<EncryptedCredentials>>[] validator()
+            default StubEncryptedCredentialsValidator.class;
 
-    NotNullFilter hash() default @NotNullFilter(AnnotationState.OFF);
+    NotNullFilter data() default @NotNullFilter(status = AnnotationState.OFF);
 
-    NotNullFilter secret() default @NotNullFilter(AnnotationState.OFF);
+    NotNullFilter hash() default @NotNullFilter(status = AnnotationState.OFF);
+
+    NotNullFilter secret() default @NotNullFilter(status = AnnotationState.OFF);
 
 }

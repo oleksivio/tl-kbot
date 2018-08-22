@@ -4,6 +4,9 @@ import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.NotNullFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
+import ru.ioleksiv.telegram.bot.api.model.annotation.CustomValidator;
+import ru.ioleksiv.telegram.bot.api.model.annotation.stub.StubSuccessfulPaymentValidator;
+import ru.ioleksiv.telegram.bot.api.model.objects.payments.SuccessfulPayment;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -16,20 +19,22 @@ import java.lang.annotation.Target;
 @Documented
 public @interface SuccessfulPaymentFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
-    StringFilter currency() default @StringFilter(AnnotationState.OFF);
+    Class<? extends CustomValidator<SuccessfulPayment>>[] validator() default StubSuccessfulPaymentValidator.class;
 
-    IntegerFilter totalAmount() default @IntegerFilter(AnnotationState.OFF);
+    StringFilter currency() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter invoicePayload() default @StringFilter(AnnotationState.OFF);
+    IntegerFilter totalAmount() default @IntegerFilter(status = AnnotationState.OFF);
 
-    NotNullFilter shippingOptionId() default @NotNullFilter(AnnotationState.OFF);
+    StringFilter invoicePayload() default @StringFilter(status = AnnotationState.OFF);
 
-    OrderInfoFilter orderInfo() default @OrderInfoFilter(AnnotationState.OFF);
+    NotNullFilter shippingOptionId() default @NotNullFilter(status = AnnotationState.OFF);
 
-    NotNullFilter telegramPaymentChargeId() default @NotNullFilter(AnnotationState.OFF);
+    OrderInfoFilter orderInfo() default @OrderInfoFilter(status = AnnotationState.OFF);
 
-    NotNullFilter providerPaymentChargeId() default @NotNullFilter(AnnotationState.OFF);
+    NotNullFilter telegramPaymentChargeId() default @NotNullFilter(status = AnnotationState.OFF);
+
+    NotNullFilter providerPaymentChargeId() default @NotNullFilter(status = AnnotationState.OFF);
 
 }

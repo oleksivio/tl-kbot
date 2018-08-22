@@ -15,14 +15,14 @@ import java.lang.annotation.Target;
 @Documented
 public @interface DocumentFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
-    PhotoFilter thumb() default @PhotoFilter(AnnotationState.OFF);
+    PhotoFilter thumb() default @PhotoFilter(status = AnnotationState.OFF);
 
-    StringFilter fileName() default @StringFilter(AnnotationState.OFF);
+    StringFilter fileName() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter mimeType() default @StringFilter(AnnotationState.OFF);
+    StringFilter mimeType() default @StringFilter(status = AnnotationState.OFF);
 
-    IntegerFilter fileSize() default @IntegerFilter(AnnotationState.OFF);
+    IntegerFilter fileSize() default @IntegerFilter(status = AnnotationState.OFF);
 
 }

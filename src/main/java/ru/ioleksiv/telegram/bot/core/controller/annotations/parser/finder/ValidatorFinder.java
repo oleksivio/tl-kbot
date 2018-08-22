@@ -46,7 +46,7 @@ public class ValidatorFinder implements Finder {
     }
 
     @Override
-    public <T> Validator<T> find(Class<? extends Validator> validatorClass) {
+    public <T> Validator<T> find(Class<? extends Validator<T>> validatorClass) {
         Validator<T> validator = (Validator<T>) validatorMap.get(validatorClass);
 
         if (Objects.isNull(validator)) {

@@ -17,16 +17,16 @@ import java.lang.annotation.Target;
 @Documented
 public @interface OrderInfoFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
     Class<? extends CustomValidator<OrderInfo>>[] validator() default StubOrderInfoValidator.class;
 
-    StringFilter name() default @StringFilter(AnnotationState.OFF);
+    StringFilter name() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter phoneNumber() default @StringFilter(AnnotationState.OFF);
+    StringFilter phoneNumber() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter email() default @StringFilter(AnnotationState.OFF);
+    StringFilter email() default @StringFilter(status = AnnotationState.OFF);
 
-    ShippingAddressFilter shippingAddress() default @ShippingAddressFilter(AnnotationState.OFF);
+    ShippingAddressFilter shippingAddress() default @ShippingAddressFilter(status = AnnotationState.OFF);
 
 }

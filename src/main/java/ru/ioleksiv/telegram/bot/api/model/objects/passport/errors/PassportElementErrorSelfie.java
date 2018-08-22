@@ -1,6 +1,7 @@
 package ru.ioleksiv.telegram.bot.api.model.objects.passport.errors;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ioleksiv.telegram.bot.api.model.objects.passport.PassportConstants;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#passportelementerrorselfie>PassportElementErrorSelfie</a>
@@ -31,10 +32,10 @@ public class PassportElementErrorSelfie extends PassportElementError {
     }
 
     public enum Type {
-        PASSPORT(ErrorConstants.PASSPORT),
-        DRIVER_LICENSE(ErrorConstants.DRIVER_LICENSE),
-        IDENTITY_CARD(ErrorConstants.IDENTITY_CARD),
-        INTERNAL_PASSPORT(ErrorConstants.INTERNAL_PASSPORT);
+        PASSPORT(PassportConstants.PASSPORT),
+        DRIVER_LICENSE(PassportConstants.DRIVER_LICENSE),
+        IDENTITY_CARD(PassportConstants.IDENTITY_CARD),
+        INTERNAL_PASSPORT(PassportConstants.INTERNAL_PASSPORT);
 
         private final String name;
 

@@ -14,14 +14,14 @@ import java.lang.annotation.Target;
 @Documented
 public @interface VideoNoteFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
-    IntegerFilter length() default @IntegerFilter(AnnotationState.OFF);
+    IntegerFilter length() default @IntegerFilter(status = AnnotationState.OFF);
 
-    IntegerFilter duration() default @IntegerFilter(AnnotationState.OFF);
+    IntegerFilter duration() default @IntegerFilter(status = AnnotationState.OFF);
 
-    PhotoFilter thumb() default @PhotoFilter(AnnotationState.OFF);
+    PhotoFilter thumb() default @PhotoFilter(status = AnnotationState.OFF);
 
-    IntegerFilter fileSize() default @IntegerFilter(AnnotationState.OFF);
+    IntegerFilter fileSize() default @IntegerFilter(status = AnnotationState.OFF);
 
 }

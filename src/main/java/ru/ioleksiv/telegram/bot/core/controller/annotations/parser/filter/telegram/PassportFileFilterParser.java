@@ -19,11 +19,11 @@ public class PassportFileFilterParser implements FilterParser<PassportFileFilter
         UnionExtractValidator<PassportFile> unionExtractValidator = new UnionExtractValidator<>();
 
         IntegerFilter fileSize = annotation.fileSize();
-        if (fileSize.value().isActive()) {
+        if (fileSize.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getFileSize()), finder.find(fileSize));
         }
         IntegerFilter fileDate = annotation.fileDate();
-        if (fileDate.value().isActive()) {
+        if (fileDate.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getFileDate()), finder.find(fileDate));
         }
 

@@ -22,7 +22,7 @@ public class $FPN extends FilterParser<${FN}Filter, ${FN}> {
          UnionExtractValidator<${FN}> unionExtractValidator = new UnionExtractValidator<>();
                  ">> $OUT
                  
-cat $IN | grep '  \* @see' | awk '{ print "         "$3" "$4" = annotation."$4"(); \n if("$4".value().isActive()) { \n unionExtractValidator.add(in -> Optional.ofNullable(in.get"toupper(substr($4,1,1)) substr($4,2)"()), finder.find("$4"));\n}" }' >> $OUT
+cat $IN | grep '  \* @see' | awk '{ print "         "$3" "$4" = annotation."$4"(); \n if("$4".status().isActive()) { \n unionExtractValidator.add(in -> Optional.ofNullable(in.get"toupper(substr($4,1,1)) substr($4,2)"()), finder.find("$4"));\n}" }' >> $OUT
 
 echo "
         return unionExtractValidator;

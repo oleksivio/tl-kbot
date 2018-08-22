@@ -22,19 +22,19 @@ public class MessageEntityArrayFilterParser implements FilterParser<MessageEntit
         UnionExtractValidatorList<MessageEntity> unionExtractValidatorList = new UnionExtractValidatorList<>();
 
         MessageEntity.Type type = annotation.type();
-        if (type.notAll()) {
+        if (type.isChosen()) {
             unionExtractValidatorList.add(in -> Optional.ofNullable(in.getType()), new TypeNameValidator(type));
         }
         IntegerFilter length = annotation.length();
-        if (length.value().isActive()) {
+        if (length.status().isActive()) {
             unionExtractValidatorList.add(in -> Optional.ofNullable(in.getLength()), finder.find(length));
         }
         StringFilter url = annotation.url();
-        if (url.value().isActive()) {
+        if (url.status().isActive()) {
             unionExtractValidatorList.add(in -> Optional.ofNullable(in.getUrl()), finder.find(url));
         }
         UserFilter user = annotation.user();
-        if (user.value().isActive()) {
+        if (user.status().isActive()) {
             unionExtractValidatorList.add(in -> Optional.ofNullable(in.getUser()), finder.find(user));
         }
 

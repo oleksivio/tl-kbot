@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 @Documented
 public @interface IntegerFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
     int lessThan() default Integer.MAX_VALUE;
 

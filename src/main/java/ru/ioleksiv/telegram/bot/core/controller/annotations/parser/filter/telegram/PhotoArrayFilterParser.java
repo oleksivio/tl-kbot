@@ -19,15 +19,15 @@ public class PhotoArrayFilterParser implements FilterParser<PhotoArrayFilter, Li
         UnionExtractValidatorList<PhotoSize> unionExtractValidatorList = new UnionExtractValidatorList<>();
 
         IntegerFilter width = annotation.width();
-        if (width.value().isActive()) {
+        if (width.status().isActive()) {
             unionExtractValidatorList.add(in -> Optional.ofNullable(in.getWidth()), finder.find(width));
         }
         IntegerFilter height = annotation.height();
-        if (height.value().isActive()) {
+        if (height.status().isActive()) {
             unionExtractValidatorList.add(in -> Optional.ofNullable(in.getHeight()), finder.find(height));
         }
         IntegerFilter fileSize = annotation.fileSize();
-        if (fileSize.value().isActive()) {
+        if (fileSize.status().isActive()) {
             unionExtractValidatorList.add(in -> Optional.ofNullable(in.getFileSize()), finder.find(fileSize));
         }
 

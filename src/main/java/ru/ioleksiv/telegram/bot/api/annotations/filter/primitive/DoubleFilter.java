@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 @Documented
 public @interface DoubleFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
     double lessThan() default Double.MAX_VALUE;
 

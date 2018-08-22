@@ -22,23 +22,23 @@ public class CallbackQueryFilterParser implements FilterParser<CallbackQueryFilt
         UnionExtractValidator<CallbackQuery> unionExtractValidator = new UnionExtractValidator<>();
 
         StringFilter data = annotation.data();
-        if (data.value().isActive()) {
+        if (data.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getData()), finder.find(data));
         }
         StringFilter chatInstance = annotation.chatInstance();
-        if (chatInstance.value().isActive()) {
+        if (chatInstance.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getChatInstance()), finder.find(chatInstance));
         }
         StringFilter gameShortName = annotation.gameShortName();
-        if (gameShortName.value().isActive()) {
+        if (gameShortName.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getGameShortName()), finder.find(gameShortName));
         }
         StringFilter inlineMessageId = annotation.inlineMessageId();
-        if (inlineMessageId.value().isActive()) {
+        if (inlineMessageId.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getInlineMessageId()), finder.find(inlineMessageId));
         }
         MessageFilter message = annotation.message();
-        if (message.value().isActive()) {
+        if (message.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getMessage()), finder.find(message));
         }
         return unionExtractValidator;

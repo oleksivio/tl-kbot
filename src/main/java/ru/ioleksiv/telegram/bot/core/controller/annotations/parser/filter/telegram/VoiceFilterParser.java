@@ -20,15 +20,15 @@ public class VoiceFilterParser implements FilterParser<VoiceFilter, Voice> {
         UnionExtractValidator<Voice> unionExtractValidator = new UnionExtractValidator<>();
 
         IntegerFilter duration = annotation.duration();
-        if (duration.value().isActive()) {
+        if (duration.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getDuration()), finder.find(duration));
         }
         StringFilter mimeType = annotation.mimeType();
-        if (mimeType.value().isActive()) {
+        if (mimeType.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getMimeType()), finder.find(mimeType));
         }
         IntegerFilter fileSize = annotation.fileSize();
-        if (fileSize.value().isActive()) {
+        if (fileSize.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getFileSize()), finder.find(fileSize));
         }
 

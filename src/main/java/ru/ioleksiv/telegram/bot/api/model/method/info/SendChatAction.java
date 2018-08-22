@@ -58,7 +58,7 @@ public class SendChatAction extends ChatAction<Boolean> {
         return this;
     }
 
-    public enum Type  {
+    public enum Type {
         ACTION_TYPING("typing"),
         ACTION_UPLOAD_PHOTO("upload_photo"),
         ACTION_RECORD_VIDEO("record_video"),

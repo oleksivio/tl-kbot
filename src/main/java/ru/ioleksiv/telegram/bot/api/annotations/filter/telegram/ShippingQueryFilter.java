@@ -2,6 +2,9 @@ package ru.ioleksiv.telegram.bot.api.annotations.filter.telegram;
 
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
+import ru.ioleksiv.telegram.bot.api.model.annotation.CustomValidator;
+import ru.ioleksiv.telegram.bot.api.model.annotation.stub.StubShippingQueryValidator;
+import ru.ioleksiv.telegram.bot.api.model.objects.payments.ShippingQuery;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -14,12 +17,14 @@ import java.lang.annotation.Target;
 @Documented
 public @interface ShippingQueryFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
-    UserFilter from() default @UserFilter(AnnotationState.OFF);
+    Class<? extends CustomValidator<ShippingQuery>>[] validator() default StubShippingQueryValidator.class;
 
-    StringFilter invoicePayload() default @StringFilter(AnnotationState.OFF);
+    UserFilter from() default @UserFilter(status = AnnotationState.OFF);
 
-    ShippingAddressFilter shippingAddress() default @ShippingAddressFilter(AnnotationState.OFF);
+    StringFilter invoicePayload() default @StringFilter(status = AnnotationState.OFF);
+
+    ShippingAddressFilter shippingAddress() default @ShippingAddressFilter(status = AnnotationState.OFF);
 
 }

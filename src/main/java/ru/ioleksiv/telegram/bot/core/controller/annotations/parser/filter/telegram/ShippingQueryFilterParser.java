@@ -21,15 +21,15 @@ public class ShippingQueryFilterParser implements FilterParser<ShippingQueryFilt
         UnionExtractValidator<ShippingQuery> unionExtractValidator = new UnionExtractValidator<>();
 
         UserFilter from = annotation.from();
-        if (from.value().isActive()) {
+        if (from.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getFrom()), finder.find(from));
         }
         StringFilter invoicePayload = annotation.invoicePayload();
-        if (invoicePayload.value().isActive()) {
+        if (invoicePayload.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getInvoicePayload()), finder.find(invoicePayload));
         }
         ShippingAddressFilter shippingAddress = annotation.shippingAddress();
-        if (shippingAddress.value().isActive()) {
+        if (shippingAddress.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getShippingAddress()), finder.find(shippingAddress));
         }
 

@@ -14,16 +14,16 @@ import java.lang.annotation.Target;
 @Documented
 public @interface PreCheckoutQueryFilter {
 
-    UserFilter from() default @UserFilter(AnnotationState.OFF);
+    UserFilter from() default @UserFilter(status = AnnotationState.OFF);
 
-    StringFilter currency() default @StringFilter(AnnotationState.OFF);
+    StringFilter currency() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter totalAmount() default @StringFilter(AnnotationState.OFF);
+    StringFilter totalAmount() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter invoicePayload() default @StringFilter(AnnotationState.OFF);
+    StringFilter invoicePayload() default @StringFilter(status = AnnotationState.OFF);
 
-    StringFilter shippingOptionId() default @StringFilter(AnnotationState.OFF);
+    StringFilter shippingOptionId() default @StringFilter(status = AnnotationState.OFF);
 
-    OrderInfoFilter orderInfo() default @OrderInfoFilter(AnnotationState.OFF);
+    OrderInfoFilter orderInfo() default @OrderInfoFilter(status = AnnotationState.OFF);
 
 }

@@ -16,14 +16,14 @@ import java.lang.annotation.Target;
 @Documented
 public @interface MessageEntityArrayFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
     MessageEntity.Type type() default MessageEntity.Type.ALL;
 
-    IntegerFilter length() default @IntegerFilter(AnnotationState.OFF);
+    IntegerFilter length() default @IntegerFilter(status = AnnotationState.OFF);
 
-    StringFilter url() default @StringFilter(AnnotationState.OFF);
+    StringFilter url() default @StringFilter(status = AnnotationState.OFF);
 
-    UserFilter user() default @UserFilter(AnnotationState.OFF);
+    UserFilter user() default @UserFilter(status = AnnotationState.OFF);
 
 }

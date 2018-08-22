@@ -15,12 +15,12 @@ import java.lang.annotation.Target;
 @Documented
 public @interface VoiceFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
-    IntegerFilter duration() default @IntegerFilter(AnnotationState.OFF);
+    IntegerFilter duration() default @IntegerFilter(status = AnnotationState.OFF);
 
-    StringFilter mimeType() default @StringFilter(AnnotationState.OFF);
+    StringFilter mimeType() default @StringFilter(status = AnnotationState.OFF);
 
-    IntegerFilter fileSize() default @IntegerFilter(AnnotationState.OFF);
+    IntegerFilter fileSize() default @IntegerFilter(status = AnnotationState.OFF);
 
 }

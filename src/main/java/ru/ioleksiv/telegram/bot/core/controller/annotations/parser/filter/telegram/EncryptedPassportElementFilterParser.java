@@ -24,35 +24,35 @@ public class EncryptedPassportElementFilterParser
         UnionExtractValidator<EncryptedPassportElement> unionExtractValidator = new UnionExtractValidator<>();
 
         EncryptedPassportElement.Type type = annotation.type();
-        if (type.notAll()) {
+        if (type.isChosen()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getType()), new TypeNameValidator(type));
         }
         NotNullFilter data = annotation.data();
-        if (data.value().isActive()) {
+        if (data.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getData()), finder.find(data));
         }
         StringFilter phoneNumber = annotation.phoneNumber();
-        if (phoneNumber.value().isActive()) {
+        if (phoneNumber.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getPhoneNumber()), finder.find(phoneNumber));
         }
         StringFilter email = annotation.email();
-        if (email.value().isActive()) {
+        if (email.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getEmail()), finder.find(email));
         }
         PassportFileArrayFilter fileArray = annotation.fileArray();
-        if (fileArray.value().isActive()) {
+        if (fileArray.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getFiles()), finder.find(fileArray));
         }
         PassportFileFilter frontSide = annotation.frontSide();
-        if (frontSide.value().isActive()) {
+        if (frontSide.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getFrontSide()), finder.find(frontSide));
         }
         PassportFileFilter reverseSide = annotation.reverseSide();
-        if (reverseSide.value().isActive()) {
+        if (reverseSide.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getReverseSide()), finder.find(reverseSide));
         }
         PassportFileFilter selfie = annotation.selfie();
-        if (selfie.value().isActive()) {
+        if (selfie.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getSelfie()), finder.find(selfie));
         }
 

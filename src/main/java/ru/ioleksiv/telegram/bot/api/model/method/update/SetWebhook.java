@@ -84,7 +84,7 @@ public class SetWebhook extends UploadFile<Boolean> {
         return this;
     }
 
-    public enum Type{
+    public enum Type {
         ALLOW_MESSAGE("message"),
         ALLOW_EDITED_MESSAGE("edited_message"),
         ALLOW_CHANNEL_POST("channel_post"),
@@ -100,7 +100,6 @@ public class SetWebhook extends UploadFile<Boolean> {
         Type(String type) {
             this.type = type;
         }
-
 
         public String stringName() {
             return type;

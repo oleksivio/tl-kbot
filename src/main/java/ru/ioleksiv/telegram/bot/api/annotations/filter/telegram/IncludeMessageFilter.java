@@ -5,6 +5,9 @@ import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.LongFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.NotNullFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
+import ru.ioleksiv.telegram.bot.api.model.annotation.CustomValidator;
+import ru.ioleksiv.telegram.bot.api.model.annotation.stub.StubMessageValidator;
+import ru.ioleksiv.telegram.bot.api.model.objects.std.Message;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -17,88 +20,90 @@ import java.lang.annotation.Target;
 @Documented
 public @interface IncludeMessageFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
-    UserFilter from() default @UserFilter(AnnotationState.OFF);
+    Class<? extends CustomValidator<Message>>[] validator() default StubMessageValidator.class;
 
-    LongFilter date() default @LongFilter(AnnotationState.OFF);
+    UserFilter from() default @UserFilter(status = AnnotationState.OFF);
 
-    ChatFilter chat() default @ChatFilter(AnnotationState.OFF);
+    LongFilter date() default @LongFilter(status = AnnotationState.OFF);
 
-    UserFilter forwardFrom() default @UserFilter(AnnotationState.OFF);
+    ChatFilter chat() default @ChatFilter(status = AnnotationState.OFF);
 
-    ChatFilter forwardChat() default @ChatFilter(AnnotationState.OFF);
+    UserFilter forwardFrom() default @UserFilter(status = AnnotationState.OFF);
 
-    NotNullFilter forwardFromMessageId() default @NotNullFilter(AnnotationState.OFF);
+    ChatFilter forwardChat() default @ChatFilter(status = AnnotationState.OFF);
 
-    StringFilter forwardSignature() default @StringFilter(AnnotationState.OFF);
+    NotNullFilter forwardFromMessageId() default @NotNullFilter(status = AnnotationState.OFF);
 
-    NotNullFilter forwardDate() default @NotNullFilter(AnnotationState.OFF);
+    StringFilter forwardSignature() default @StringFilter(status = AnnotationState.OFF);
 
-    NotNullFilter editDate() default @NotNullFilter(AnnotationState.OFF);
+    NotNullFilter forwardDate() default @NotNullFilter(status = AnnotationState.OFF);
 
-    NotNullFilter mediaGroupId() default @NotNullFilter(AnnotationState.OFF);
+    NotNullFilter editDate() default @NotNullFilter(status = AnnotationState.OFF);
 
-    StringFilter authorSignature() default @StringFilter(AnnotationState.OFF);
+    NotNullFilter mediaGroupId() default @NotNullFilter(status = AnnotationState.OFF);
 
-    StringFilter text() default @StringFilter(AnnotationState.OFF);
+    StringFilter authorSignature() default @StringFilter(status = AnnotationState.OFF);
 
-    AudioFilter audio() default @AudioFilter(AnnotationState.OFF);
+    StringFilter text() default @StringFilter(status = AnnotationState.OFF);
 
-    PhotoArrayFilter photoArray() default @PhotoArrayFilter(AnnotationState.OFF);
+    AudioFilter audio() default @AudioFilter(status = AnnotationState.OFF);
 
-    StringFilter caption() default @StringFilter(AnnotationState.OFF);
+    PhotoArrayFilter photoArray() default @PhotoArrayFilter(status = AnnotationState.OFF);
 
-    ContactFilter contact() default @ContactFilter(AnnotationState.OFF);
+    StringFilter caption() default @StringFilter(status = AnnotationState.OFF);
 
-    LocationFilter location() default @LocationFilter(AnnotationState.OFF);
+    ContactFilter contact() default @ContactFilter(status = AnnotationState.OFF);
 
-    UserArrayFilter newChatMembers() default @UserArrayFilter(AnnotationState.OFF);
+    LocationFilter location() default @LocationFilter(status = AnnotationState.OFF);
 
-    UserFilter leftChatMember() default @UserFilter(AnnotationState.OFF);
+    UserArrayFilter newChatMembers() default @UserArrayFilter(status = AnnotationState.OFF);
 
-    DocumentFilter document() default @DocumentFilter(AnnotationState.OFF);
+    UserFilter leftChatMember() default @UserFilter(status = AnnotationState.OFF);
 
-    AnimationFilter animation() default @AnimationFilter(AnnotationState.OFF);
+    DocumentFilter document() default @DocumentFilter(status = AnnotationState.OFF);
 
-    GameFilter game() default @GameFilter(AnnotationState.OFF);
+    AnimationFilter animation() default @AnimationFilter(status = AnnotationState.OFF);
 
-    StringFilter newChatTitle() default @StringFilter(AnnotationState.OFF);
+    GameFilter game() default @GameFilter(status = AnnotationState.OFF);
 
-    StickerFilter sticker() default @StickerFilter(AnnotationState.OFF);
+    StringFilter newChatTitle() default @StringFilter(status = AnnotationState.OFF);
 
-    VideoFilter video() default @VideoFilter(AnnotationState.OFF);
+    StickerFilter sticker() default @StickerFilter(status = AnnotationState.OFF);
 
-    VoiceFilter voice() default @VoiceFilter(AnnotationState.OFF);
+    VideoFilter video() default @VideoFilter(status = AnnotationState.OFF);
 
-    MessageEntityArrayFilter entityArray() default @MessageEntityArrayFilter(AnnotationState.OFF);
+    VoiceFilter voice() default @VoiceFilter(status = AnnotationState.OFF);
 
-    MessageEntityArrayFilter captionEntityArray() default @MessageEntityArrayFilter(AnnotationState.OFF);
+    MessageEntityArrayFilter entityArray() default @MessageEntityArrayFilter(status = AnnotationState.OFF);
 
-    VideoNoteFilter videoNote() default @VideoNoteFilter(AnnotationState.OFF);
+    MessageEntityArrayFilter captionEntityArray() default @MessageEntityArrayFilter(status = AnnotationState.OFF);
 
-    PhotoFilter newChatPhoto() default @PhotoFilter(AnnotationState.OFF);
+    VideoNoteFilter videoNote() default @VideoNoteFilter(status = AnnotationState.OFF);
 
-    BooleanFilter deleteChatPhoto() default @BooleanFilter(AnnotationState.OFF);
+    PhotoFilter newChatPhoto() default @PhotoFilter(status = AnnotationState.OFF);
 
-    BooleanFilter groupChatCreated() default @BooleanFilter(AnnotationState.OFF);
+    BooleanFilter deleteChatPhoto() default @BooleanFilter(status = AnnotationState.OFF);
 
-    VenueFilter venue() default @VenueFilter(AnnotationState.OFF);
+    BooleanFilter groupChatCreated() default @BooleanFilter(status = AnnotationState.OFF);
 
-    BooleanFilter supergroupChatCreated() default @BooleanFilter(AnnotationState.OFF);
+    VenueFilter venue() default @VenueFilter(status = AnnotationState.OFF);
 
-    BooleanFilter channelChatCreated() default @BooleanFilter(AnnotationState.OFF);
+    BooleanFilter supergroupChatCreated() default @BooleanFilter(status = AnnotationState.OFF);
 
-    NotNullFilter migrateToChatId() default @NotNullFilter(AnnotationState.OFF);
+    BooleanFilter channelChatCreated() default @BooleanFilter(status = AnnotationState.OFF);
 
-    NotNullFilter migrateFromChatId() default @NotNullFilter(AnnotationState.OFF);
+    NotNullFilter migrateToChatId() default @NotNullFilter(status = AnnotationState.OFF);
 
-    InvoiceFilter invoice() default @InvoiceFilter(AnnotationState.OFF);
+    NotNullFilter migrateFromChatId() default @NotNullFilter(status = AnnotationState.OFF);
 
-    SuccessfulPaymentFilter successfulPayment() default @SuccessfulPaymentFilter(AnnotationState.OFF);
+    InvoiceFilter invoice() default @InvoiceFilter(status = AnnotationState.OFF);
 
-    StringFilter connectedWebsite() default @StringFilter(AnnotationState.OFF);
+    SuccessfulPaymentFilter successfulPayment() default @SuccessfulPaymentFilter(status = AnnotationState.OFF);
 
-    PassportDataFilter passportData() default @PassportDataFilter(AnnotationState.OFF);
+    StringFilter connectedWebsite() default @StringFilter(status = AnnotationState.OFF);
+
+    PassportDataFilter passportData() default @PassportDataFilter(status = AnnotationState.OFF);
 
 }

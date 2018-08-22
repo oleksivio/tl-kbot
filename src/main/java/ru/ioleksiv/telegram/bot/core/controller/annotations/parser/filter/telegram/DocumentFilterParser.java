@@ -21,19 +21,19 @@ public class DocumentFilterParser implements FilterParser<DocumentFilter, Docume
         UnionExtractValidator<Document> unionExtractValidator = new UnionExtractValidator<>();
 
         PhotoFilter thumb = annotation.thumb();
-        if (thumb.value().isActive()) {
+        if (thumb.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getThumb()), finder.find(thumb));
         }
         StringFilter fileName = annotation.fileName();
-        if (fileName.value().isActive()) {
+        if (fileName.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getFileName()), finder.find(fileName));
         }
         StringFilter mimeType = annotation.mimeType();
-        if (mimeType.value().isActive()) {
+        if (mimeType.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getMimeType()), finder.find(mimeType));
         }
         IntegerFilter fileSize = annotation.fileSize();
-        if (fileSize.value().isActive()) {
+        if (fileSize.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getFileSize()), finder.find(fileSize));
         }
 

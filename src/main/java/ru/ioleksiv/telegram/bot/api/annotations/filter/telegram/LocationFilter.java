@@ -17,12 +17,12 @@ import java.lang.annotation.Target;
 @Documented
 public @interface LocationFilter {
 
-    AnnotationState value() default AnnotationState.ON;
+    AnnotationState status() default AnnotationState.ON;
 
     Class<? extends CustomValidator<Location>>[] validator() default StubLocationValidator.class;
 
-    DoubleFilter longitude() default @DoubleFilter(AnnotationState.OFF);
+    DoubleFilter longitude() default @DoubleFilter(status = AnnotationState.OFF);
 
-    DoubleFilter latitude() default @DoubleFilter(AnnotationState.OFF);
+    DoubleFilter latitude() default @DoubleFilter(status = AnnotationState.OFF);
 
 }
