@@ -52,7 +52,6 @@ public class IncludeMessageFilterParser implements FilterParser<IncludeMessageFi
         if (from.status().isActive()) {
             unionExtractValidator.add(msg -> Optional.ofNullable(msg.getAnimation()), finder.find(from));
         }
-
         LongFilter date = annotation.date();
         if (date.status().isActive()) {
             unionExtractValidator.add(msg -> Optional.ofNullable(msg.getDate()), finder.find(date));
