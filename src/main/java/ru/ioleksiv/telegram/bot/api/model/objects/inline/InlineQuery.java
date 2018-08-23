@@ -6,12 +6,12 @@ import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.LocationFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.UserFilter;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.Location;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.User;
-import ru.ioleksiv.telegram.bot.core.model.ITelegram;
+import ru.ioleksiv.telegram.bot.core.model.objects.IUserFrom;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#inlinequery>InlineQuery</a>
  */
-public class InlineQuery implements ITelegram {
+public class InlineQuery implements IUserFrom {
     /**
      * id String Unique identifier for this query
      */
@@ -58,10 +58,12 @@ public class InlineQuery implements ITelegram {
         this.id = id;
     }
 
+    @Override
     public User getFrom() {
         return from;
     }
 
+    @Override
     public void setFrom(User from) {
         this.from = from;
     }

@@ -4,12 +4,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.MessageFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.UserFilter;
-import ru.ioleksiv.telegram.bot.core.model.ITelegram;
+import ru.ioleksiv.telegram.bot.core.model.objects.IUserFrom;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#callbackquery">CallbackQuery</a>
  */
-public class CallbackQuery implements ITelegram {
+public class CallbackQuery implements IUserFrom {
     /**
      * id String Unique identifier for this query
      */
@@ -77,10 +77,12 @@ public class CallbackQuery implements ITelegram {
         this.id = id;
     }
 
+    @Override
     public User getFrom() {
         return from;
     }
 
+    @Override
     public void setFrom(User from) {
         this.from = from;
     }

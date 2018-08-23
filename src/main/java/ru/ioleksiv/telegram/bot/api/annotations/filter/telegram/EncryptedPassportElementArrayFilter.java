@@ -3,8 +3,6 @@ package ru.ioleksiv.telegram.bot.api.annotations.filter.telegram;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.NotNullFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
-import ru.ioleksiv.telegram.bot.api.model.annotation.CustomValidator;
-import ru.ioleksiv.telegram.bot.api.model.annotation.stub.StubEncryptedPassportElementValidator;
 import ru.ioleksiv.telegram.bot.api.model.objects.passport.EncryptedPassportElement;
 
 import java.lang.annotation.Documented;
@@ -22,8 +20,7 @@ public @interface EncryptedPassportElementArrayFilter {
 
     EncryptedPassportElement.Type type() default EncryptedPassportElement.Type.ALL;
 
-    Class<? extends CustomValidator<EncryptedPassportElement>>[] validator()
-            default StubEncryptedPassportElementValidator.class;
+    String[] validator() default {};
 
     NotNullFilter data() default @NotNullFilter(status = AnnotationState.OFF);
 

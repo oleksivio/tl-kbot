@@ -32,7 +32,6 @@ public class EncryptedPassportElemArrayFilterParser implements FilterParser<Encr
         }
 
         Arrays.stream(annotation.validator())
-                .filter(ParserUtils::isNotStubValidator)
                 .map(finder::find)
                 .forEach(validator -> {
                     unionExtractValidatorList.add(Optional::of, validator);

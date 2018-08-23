@@ -1,13 +1,14 @@
 package ru.ioleksiv.telegram.bot.core.controller.annotations;
 
 import org.springframework.stereotype.Controller;
-import ru.ioleksiv.telegram.bot.api.annotations.behavior.Session;
-import ru.ioleksiv.telegram.bot.api.annotations.behavior.Stateless;
+import ru.ioleksiv.telegram.bot.api.annotations.behavior.UserSession;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.composer.SessionComposer;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.composer.StatelessComposer;
 import ru.ioleksiv.telegram.bot.core.controller.processor.MainProcessor;
 import ru.ioleksiv.telegram.bot.core.controller.processor.SessionProcessor;
 import ru.ioleksiv.telegram.bot.core.controller.processor.StatelessProcessor;
+
+import java.util.Optional;
 
 @Controller
 public class AnnotationProcessor {
@@ -29,13 +30,13 @@ public class AnnotationProcessor {
     public void add(Object obj) {
         Class<?> objClz = obj.getClass();
 
-        if (objClz.isAnnotationPresent(Session.class)) {
+        if (objClz.isAnnotationPresent(UserSession.class)) {
             SessionProcessor sessionProcessor = sessionComposer.create(objClz, obj);
             mainProcessor.addSession(sessionProcessor);
         }
-        else if (objClz.isAnnotationPresent(Stateless.class)) {
-            StatelessProcessor statelessProcessor = statelessComposer.create(objClz, obj);
-            mainProcessor.addStateless(statelessProcessor);
+        else {
+            Optional<StatelessProcessor> statelessProcessorOpt = statelessComposer.create(objClz, obj);
+            statelessProcessorOpt.ifPresent(mainProcessor::addStateless);
         }
     }
 

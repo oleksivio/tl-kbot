@@ -7,6 +7,6 @@ import java.lang.annotation.Annotation;
 public interface Finder {
     <SA extends Annotation, T> Validator<T> find(SA annotation);
 
-    <T> Validator<T> find(Class<? extends Validator<T>> validatorClass);
+    <T> Validator<T> find(String validatorName);
 
 }

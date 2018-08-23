@@ -5,7 +5,6 @@ import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.BooleanFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.UserFilter;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.User;
-import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.ParserUtils;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import ru.ioleksiv.telegram.bot.core.controller.handler.check.Validator;
@@ -22,11 +21,8 @@ public class UserFilterParser implements FilterParser<UserFilter, User> {
         UnionExtractValidator<User> unionExtractValidator = new UnionExtractValidator<>();
 
         Arrays.stream(annotation.validator())
-                .filter(ParserUtils::isNotStubValidator)
                 .map(finder::find)
-                .forEach(validator -> {
-                    unionExtractValidator.add(Optional::of, validator);
-                });
+                .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         StringFilter firstName = annotation.firstName();
         if (firstName.status().isActive()) {

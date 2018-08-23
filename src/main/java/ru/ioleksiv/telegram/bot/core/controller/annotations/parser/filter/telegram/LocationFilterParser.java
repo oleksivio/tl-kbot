@@ -4,7 +4,6 @@ import org.springframework.stereotype.Component;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.DoubleFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.LocationFilter;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.Location;
-import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.ParserUtils;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import ru.ioleksiv.telegram.bot.core.controller.handler.check.Validator;
@@ -21,11 +20,8 @@ public class LocationFilterParser implements FilterParser<LocationFilter, Locati
         UnionExtractValidator<Location> unionExtractValidator = new UnionExtractValidator<>();
 
         Arrays.stream(annotation.validator())
-                .filter(ParserUtils::isNotStubValidator)
                 .map(finder::find)
-                .forEach(validator -> {
-                    unionExtractValidator.add(Optional::of, validator);
-                });
+                .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         DoubleFilter longitude = annotation.longitude();
         if (longitude.status().isActive()) {

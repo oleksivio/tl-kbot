@@ -20,7 +20,7 @@ public @interface ContactFilter {
 
     AnnotationState status() default AnnotationState.ON;
 
-    Class<? extends CustomValidator<Contact>>[] validator() default StubContactValidator.class;
+    String[] validator() default {};
 
     StringFilter phoneNumber() default @StringFilter(status = AnnotationState.OFF);
 

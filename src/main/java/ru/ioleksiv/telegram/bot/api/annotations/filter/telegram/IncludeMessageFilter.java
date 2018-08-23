@@ -22,7 +22,7 @@ public @interface IncludeMessageFilter {
 
     AnnotationState status() default AnnotationState.ON;
 
-    Class<? extends CustomValidator<Message>>[] validator() default StubMessageValidator.class;
+    String[] validator() default {};
 
     UserFilter from() default @UserFilter(status = AnnotationState.OFF);
 

@@ -11,8 +11,8 @@ public class StatelessProcessor {
 
     private final Collection<Handler> handlers = new ArrayList<>();
 
-    public void add(Handler handler) {
-        handlers.add(handler);
+    public StatelessProcessor(Collection<Handler> handlers) {
+        this.handlers.addAll(handlers);
     }
 
     HandlerResult receive(Update update) {

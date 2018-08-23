@@ -5,12 +5,12 @@ import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.ShippingAddressFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.UserFilter;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.User;
-import ru.ioleksiv.telegram.bot.core.model.ITelegram;
+import ru.ioleksiv.telegram.bot.core.model.objects.IUserFrom;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#shippingquery>ShippingQuery</a>
  */
-public class ShippingQuery implements ITelegram {
+public class ShippingQuery implements IUserFrom {
     /**
      * id String Unique query identifier
      */
@@ -49,10 +49,12 @@ public class ShippingQuery implements ITelegram {
         this.id = id;
     }
 
+    @Override
     public User getFrom() {
         return from;
     }
 
+    @Override
     public void setFrom(User from) {
         this.from = from;
     }

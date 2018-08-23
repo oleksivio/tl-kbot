@@ -19,7 +19,7 @@ public @interface LocationFilter {
 
     AnnotationState status() default AnnotationState.ON;
 
-    Class<? extends CustomValidator<Location>>[] validator() default StubLocationValidator.class;
+    String[] validator() default {};
 
     DoubleFilter longitude() default @DoubleFilter(status = AnnotationState.OFF);
 

@@ -20,7 +20,7 @@ public @interface UserFilter {
 
     AnnotationState status() default AnnotationState.ON;
 
-    Class<? extends CustomValidator<User>>[] validator() default StubUserValidator.class;
+    String[] validator() default {};
 
     StringFilter firstName() default @StringFilter(status = AnnotationState.OFF);
 

@@ -37,14 +37,14 @@ import ru.ioleksiv.telegram.bot.api.model.objects.std.files.Voice;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.game.Animation;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.game.Game;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.sticker.Sticker;
-import ru.ioleksiv.telegram.bot.core.model.ITelegram;
+import ru.ioleksiv.telegram.bot.core.model.objects.IUserFrom;
 
 import java.util.List;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#message">Message</a>
  */
-public class Message implements ITelegram {
+public class Message implements IUserFrom {
     /**
      * message_id Integer Unique message identifier inside this chat
      */
@@ -548,10 +548,12 @@ public class Message implements ITelegram {
         this.messageId = messageId;
     }
 
+    @Override
     public User getFrom() {
         return from;
     }
 
+    @Override
     public void setFrom(User from) {
         this.from = from;
     }

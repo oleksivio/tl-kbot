@@ -6,12 +6,12 @@ import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.LocationFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.UserFilter;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.Location;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.User;
-import ru.ioleksiv.telegram.bot.core.model.ITelegram;
+import ru.ioleksiv.telegram.bot.core.model.objects.IUserFrom;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#choseninlineresult>ChosenInlineResult</a>
  */
-public class ChosenInlineResult implements ITelegram {
+public class ChosenInlineResult implements IUserFrom {
     /**
      * result_id String The unique identifier for the result that was chosen
      */
@@ -60,11 +60,13 @@ public class ChosenInlineResult implements ITelegram {
         this.resultId = resultId;
     }
 
-    public ru.ioleksiv.telegram.bot.api.model.objects.std.User getFrom() {
+    @Override
+    public User getFrom() {
         return from;
     }
 
-    public void setFrom(ru.ioleksiv.telegram.bot.api.model.objects.std.User from) {
+    @Override
+    public void setFrom(User from) {
         this.from = from;
     }
 

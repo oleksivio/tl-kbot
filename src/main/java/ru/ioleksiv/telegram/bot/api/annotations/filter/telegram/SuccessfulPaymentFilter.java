@@ -21,7 +21,7 @@ public @interface SuccessfulPaymentFilter {
 
     AnnotationState status() default AnnotationState.ON;
 
-    Class<? extends CustomValidator<SuccessfulPayment>>[] validator() default StubSuccessfulPaymentValidator.class;
+    String[] validator() default {};
 
     StringFilter currency() default @StringFilter(status = AnnotationState.OFF);
 

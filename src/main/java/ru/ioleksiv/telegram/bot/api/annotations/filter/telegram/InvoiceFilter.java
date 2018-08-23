@@ -20,7 +20,7 @@ public @interface InvoiceFilter {
 
     AnnotationState status() default AnnotationState.ON;
 
-    Class<? extends CustomValidator<Invoice>>[] validator() default StubInvoiceValidator.class;
+    String[] validator() default {};
 
     StringFilter title() default @StringFilter(status = AnnotationState.OFF);
 

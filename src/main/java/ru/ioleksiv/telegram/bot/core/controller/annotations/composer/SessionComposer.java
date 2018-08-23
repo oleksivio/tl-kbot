@@ -1,7 +1,7 @@
 package ru.ioleksiv.telegram.bot.core.controller.annotations.composer;
 
 import org.springframework.stereotype.Controller;
-import ru.ioleksiv.telegram.bot.api.annotations.behavior.Session;
+import ru.ioleksiv.telegram.bot.api.annotations.behavior.UserSession;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 import ru.ioleksiv.telegram.bot.core.controller.processor.SessionOrderManager;
 import ru.ioleksiv.telegram.bot.core.controller.processor.SessionProcessor;
@@ -34,14 +34,14 @@ public class SessionComposer {
             }
             Handler handler = optionalHandler.get();
 
-            if (method.isAnnotationPresent(Session.Initial.class)) {
+            if (method.isAnnotationPresent(UserSession.Initial.class)) {
                 initialHandler = handler;
             }
-            else if (method.isAnnotationPresent(Session.Cancel.class)) {
+            else if (method.isAnnotationPresent(UserSession.Cancel.class)) {
                 cancelHandler = handler;
             }
-            else if (method.isAnnotationPresent(Session.Order.class)) {
-                Session.Order orderAnnotation = method.getDeclaredAnnotation(Session.Order.class);
+            else if (method.isAnnotationPresent(UserSession.Order.class)) {
+                UserSession.Order orderAnnotation = method.getDeclaredAnnotation(UserSession.Order.class);
                 int order = orderAnnotation.value();
                 orderMap.put(order, handler);
             }
@@ -60,19 +60,19 @@ public class SessionComposer {
         if (orderMap == null || orderMap.isEmpty()) {
             throw new IllegalArgumentException("Invalid session state. " +
                                                        "Can't be less than one" +
-                                                       " Session Order method's");
+                                                       " UserSession Order method's");
         }
 
         if (initialHandler == null) {
             throw new IllegalArgumentException("Invalid session state. " +
                                                        "Can't be less than one" +
-                                                       " Session Initial method's");
+                                                       " UserSession Initial method's");
         }
 
         if (cancelHandler == null) {
             throw new IllegalArgumentException("Invalid session state. " +
                                                        "Can't be less than one" +
-                                                       " Session Cancel method's");
+                                                       " UserSession Cancel method's");
         }
     }
 }

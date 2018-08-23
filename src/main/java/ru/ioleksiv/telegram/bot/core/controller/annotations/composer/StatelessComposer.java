@@ -17,7 +17,7 @@ public class StatelessComposer {
         this.handlerComposer = handlerComposer;
     }
 
-    public StatelessProcessor create(Class<?> objClz, Object obj) {
+    public Optional<StatelessProcessor> create(Class<?> objClz, Object obj) {
         Collection<Handler> simpleHandlerList = new ArrayList<>();
 
         for (Method method : objClz.getDeclaredMethods()) {
@@ -28,10 +28,10 @@ public class StatelessComposer {
             simpleHandlerList.add(optionalHandler.get());
         }
 
-        StatelessProcessor statelessProcessor = new StatelessProcessor();
-        for (Handler handler : simpleHandlerList) {
-            statelessProcessor.add(handler);
+        if (simpleHandlerList.isEmpty()) {
+            return Optional.empty();
         }
-        return statelessProcessor;
+
+        return Optional.of(new StatelessProcessor(simpleHandlerList));
     }
 }

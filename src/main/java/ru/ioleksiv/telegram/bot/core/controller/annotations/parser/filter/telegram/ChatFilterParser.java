@@ -5,7 +5,6 @@ import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.BooleanFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.ChatFilter;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.Chat;
-import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.ParserUtils;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import ru.ioleksiv.telegram.bot.core.controller.handler.check.Validator;
@@ -28,11 +27,8 @@ public class ChatFilterParser implements FilterParser<ChatFilter, Chat> {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getType()), new TypeNameValidator(type));
         }
         Arrays.stream(annotation.validator())
-                .filter(ParserUtils::isNotStubValidator)
                 .map(finder::find)
-                .forEach(validator -> {
-                    unionExtractValidator.add(Optional::of, validator);
-                });
+                .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         StringFilter title = annotation.
                 title();

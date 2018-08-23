@@ -19,7 +19,7 @@ public @interface MaskPositionFilter {
 
     AnnotationState status() default AnnotationState.ON;
 
-    Class<? extends CustomValidator<MaskPosition>>[] validator() default StubMaskPositionValidator.class;
+    String[] validator() default {};
 
     MaskPosition.Type point() default MaskPosition.Type.ALL;
 

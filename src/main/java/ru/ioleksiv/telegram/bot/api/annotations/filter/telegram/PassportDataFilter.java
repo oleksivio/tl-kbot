@@ -18,7 +18,7 @@ public @interface PassportDataFilter {
 
     AnnotationState status() default AnnotationState.ON;
 
-    Class<? extends CustomValidator<PassportData>>[] validator() default StubPassportDataValidator.class;
+    String[] validator() default {};
 
     EncryptedPassportElementArrayFilter encryptedPassportElements() default @EncryptedPassportElementArrayFilter(status = AnnotationState.OFF);
 

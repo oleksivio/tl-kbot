@@ -22,7 +22,7 @@ public @interface ChatFilter {
 
     Chat.Type type() default Chat.Type.ALL;
 
-    Class<? extends CustomValidator<Chat>>[] validator() default StubChatValidator.class;
+    String[] validator() default {};
 
     StringFilter title() default @StringFilter(status = AnnotationState.OFF);
 

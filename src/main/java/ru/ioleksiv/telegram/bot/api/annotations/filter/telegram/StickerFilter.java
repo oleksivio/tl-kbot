@@ -20,7 +20,7 @@ public @interface StickerFilter {
 
     AnnotationState status() default AnnotationState.ON;
 
-    Class<? extends CustomValidator<Sticker>>[] validator() default StubStickerValidator.class;
+    String[] validator() default {};
 
     MaskPositionFilter maskPosition() default @MaskPositionFilter(status = AnnotationState.OFF);
 

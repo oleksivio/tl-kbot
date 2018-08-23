@@ -19,7 +19,7 @@ public @interface ShippingAddressFilter {
 
     AnnotationState status() default AnnotationState.ON;
 
-    Class<? extends CustomValidator<ShippingAddress>>[] validator() default StubShippingAddressValidator.class;
+    String[] validator() default {};
 
     StringFilter countryCode() default @StringFilter(status = AnnotationState.OFF);
 

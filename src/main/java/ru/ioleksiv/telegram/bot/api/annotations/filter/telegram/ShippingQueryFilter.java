@@ -19,7 +19,7 @@ public @interface ShippingQueryFilter {
 
     AnnotationState status() default AnnotationState.ON;
 
-    Class<? extends CustomValidator<ShippingQuery>>[] validator() default StubShippingQueryValidator.class;
+    String[] validator() default {};
 
     UserFilter from() default @UserFilter(status = AnnotationState.OFF);
 

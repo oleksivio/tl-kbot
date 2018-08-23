@@ -19,7 +19,7 @@ public @interface OrderInfoFilter {
 
     AnnotationState status() default AnnotationState.ON;
 
-    Class<? extends CustomValidator<OrderInfo>>[] validator() default StubOrderInfoValidator.class;
+    String[] validator() default {};
 
     StringFilter name() default @StringFilter(status = AnnotationState.OFF);
 

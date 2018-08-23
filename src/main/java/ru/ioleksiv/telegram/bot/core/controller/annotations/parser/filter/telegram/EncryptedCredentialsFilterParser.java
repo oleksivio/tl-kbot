@@ -22,11 +22,8 @@ public class EncryptedCredentialsFilterParser implements
         UnionExtractValidator<EncryptedCredentials> unionExtractValidator = new UnionExtractValidator<>();
 
         Arrays.stream(annotation.validator())
-                .filter(ParserUtils::isNotStubValidator)
                 .map(finder::find)
-                .forEach(validator -> {
-                    unionExtractValidator.add(Optional::of, validator);
-                });
+                .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         NotNullFilter data = annotation.data();
         if (data.status().isActive()) {

@@ -5,7 +5,6 @@ import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.EncryptedCredent
 import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.EncryptedPassportElementArrayFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.PassportDataFilter;
 import ru.ioleksiv.telegram.bot.api.model.objects.passport.PassportData;
-import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.ParserUtils;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import ru.ioleksiv.telegram.bot.core.controller.handler.check.Validator;
@@ -22,11 +21,8 @@ public class PassportDataFilterParser implements FilterParser<PassportDataFilter
         UnionExtractValidator<PassportData> unionExtractValidator = new UnionExtractValidator<>();
 
         Arrays.stream(annotation.validator())
-                .filter(ParserUtils::isNotStubValidator)
                 .map(finder::find)
-                .forEach(validator -> {
-                    unionExtractValidator.add(Optional::of, validator);
-                });
+                .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         EncryptedPassportElementArrayFilter encryptedPassportElements = annotation.encryptedPassportElements();
         if (encryptedPassportElements.status().isActive()) {
