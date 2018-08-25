@@ -2,7 +2,7 @@ package ru.ioleksiv.telegram.bot.api.model.annotation.validator;
 
 import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
-public class FilterValidator<T extends ITelegram> {
+public abstract class FilterValidator<T extends ITelegram>  {
     private final Class<T> targetClass;
     private final CustomValidator<T> validator;
 

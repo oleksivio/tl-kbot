@@ -8,9 +8,9 @@ import ru.ioleksiv.telegram.bot.api.model.annotation.validator.FilterValidator;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.AnnotationProcessor;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.holder.CustomValidatorHolder;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Configuration
 public class BotApplicationContext implements ApplicationContextAware {
@@ -62,15 +62,7 @@ public class BotApplicationContext implements ApplicationContextAware {
         }
 
         private boolean isFilterValidator() {
-            Type[] genericInterfaces = instance.getClass().getGenericInterfaces();
-            for (Type type : genericInterfaces) {
-                if (type.getTypeName().startsWith(FilterValidator.class.getName())) {
-                    return true;
-                }
-            }
-
-            return false;
-
+            return Objects.equals(instance.getClass().getSuperclass(), FilterValidator.class);
         }
     }
 }
