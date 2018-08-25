@@ -1,7 +1,6 @@
 package ru.ioleksiv.telegram.bot.core.controller.processor;
 
 import ru.ioleksiv.telegram.bot.api.model.objects.Update;
-import ru.ioleksiv.telegram.bot.api.model.result.HandlerResult;
 import ru.ioleksiv.telegram.bot.core.controller.handler.Handler;
 
 import java.util.ArrayList;
@@ -15,21 +14,11 @@ public class StatelessProcessor {
         this.handlers.addAll(handlers);
     }
 
-    HandlerResult receive(Update update) {
-        for (Handler handler : handlers) {
+    void receive(Update update) {
+        handlers.stream()
+                .filter(handler -> handler.hasSubscription(update))
+                .forEach(handler -> handler.run(update));
 
-            if (!handler.hasSubscription(update)) {
-                continue;
-            }
-
-            HandlerResult resultActionList = handler.run(update);
-
-            if (!resultActionList.isPassed()) {
-                return resultActionList;
-            }
-        }
-
-        return HandlerResult.pass();
     }
 
 }

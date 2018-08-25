@@ -29,10 +29,7 @@ public class MainProcessor implements TelegramProcessor {
         }
 
         for (StatelessProcessor processor : statelessProcessors) {
-            HandlerResult handlerResult = processor.receive(update);
-            if (!handlerResult.isPassed()) {
-                return;
-            }
+            processor.receive(update);
         }
 
     }
