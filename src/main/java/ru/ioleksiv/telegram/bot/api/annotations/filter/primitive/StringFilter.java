@@ -25,4 +25,10 @@ public @interface StringFilter {
 
     String[] contain() default {};
 
+    String[] notContain() default {};
+
+    String[] notStartWith() default {};
+
+    String[] notEndWith() default {};
+
 }

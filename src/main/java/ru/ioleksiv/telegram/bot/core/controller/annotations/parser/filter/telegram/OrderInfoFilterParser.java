@@ -21,7 +21,7 @@ public class OrderInfoFilterParser implements FilterParser<OrderInfoFilter, Orde
         UnionExtractValidator<OrderInfo> unionExtractValidator = new UnionExtractValidator<>();
 
         Arrays.stream(annotation.validator())
-                .map(finder::find)
+                .map(validatorName -> finder.find(validatorName, OrderInfo.class))
                 .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         StringFilter name = annotation.name();

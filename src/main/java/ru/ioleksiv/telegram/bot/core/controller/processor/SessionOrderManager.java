@@ -29,8 +29,9 @@ public class SessionOrderManager {
         order++;
         if (order >= keyList.size()) {
             reset(id);
-        } else {
-            orderMap.put(id,order);
+        }
+        else {
+            orderMap.put(id, order);
         }
     }
 

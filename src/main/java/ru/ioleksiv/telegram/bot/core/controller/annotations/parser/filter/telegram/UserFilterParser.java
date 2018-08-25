@@ -21,7 +21,7 @@ public class UserFilterParser implements FilterParser<UserFilter, User> {
         UnionExtractValidator<User> unionExtractValidator = new UnionExtractValidator<>();
 
         Arrays.stream(annotation.validator())
-                .map(finder::find)
+                .map(validatorName -> finder.find(validatorName,User.class))
                 .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         StringFilter firstName = annotation.firstName();

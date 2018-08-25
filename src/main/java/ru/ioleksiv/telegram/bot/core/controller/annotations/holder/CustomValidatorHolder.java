@@ -1,22 +1,39 @@
 package ru.ioleksiv.telegram.bot.core.controller.annotations.holder;
 
 import org.springframework.stereotype.Component;
-import ru.ioleksiv.telegram.bot.api.model.annotation.CustomValidator;
+import ru.ioleksiv.telegram.bot.api.model.annotation.validator.CustomValidator;
+import ru.ioleksiv.telegram.bot.api.model.annotation.validator.FilterValidator;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
+import java.util.Objects;
 
 @Component
 public class CustomValidatorHolder {
 
-    private final Map<String, CustomValidator> customValidatorMap = new HashMap<>();
+    private final Map<String, FilterValidator> filterValidatorMap = new HashMap<>();
 
-    public void add(String beanName, CustomValidator customValidator) {
-        customValidatorMap.put(beanName, customValidator);
+    public void add(String beanName, FilterValidator filterValidator) {
+        filterValidatorMap.put(beanName, filterValidator);
     }
 
-    public <T> Optional<CustomValidator<T>> getByName(String name) {
-        return Optional.ofNullable((CustomValidator<T>) customValidatorMap.get(name));
+    public <T extends ITelegram> CustomValidator<T> get(String name, Class<T> targetClass) {
+        FilterValidator filterValidator = filterValidatorMap.get(name);
+        if (filterValidator == null) {
+            throw new RuntimeException("Can't find Filter Validator with '" + name + '\'');
+        }
+
+        Class foundClass = filterValidator.getFilterTarget();
+        if (!Objects.equals(foundClass, targetClass)) {
+            throw new RuntimeException("Filter Validator with '" + name + "' have invalid validation type. " +
+                                               "Expected validation type is '"
+                                               + targetClass.getSimpleName() + ".class' found  '"
+                                               + foundClass.getSimpleName() + ".class' ");
+        }
+
+        return ((FilterValidator<T>) filterValidator).getValidator();
+
     }
+
 }

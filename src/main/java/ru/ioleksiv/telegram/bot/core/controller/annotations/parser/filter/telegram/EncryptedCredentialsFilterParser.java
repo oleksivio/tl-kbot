@@ -4,7 +4,6 @@ import org.springframework.stereotype.Component;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.NotNullFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.EncryptedCredentialsFilter;
 import ru.ioleksiv.telegram.bot.api.model.objects.passport.EncryptedCredentials;
-import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.ParserUtils;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import ru.ioleksiv.telegram.bot.core.controller.handler.check.Validator;
@@ -22,7 +21,7 @@ public class EncryptedCredentialsFilterParser implements
         UnionExtractValidator<EncryptedCredentials> unionExtractValidator = new UnionExtractValidator<>();
 
         Arrays.stream(annotation.validator())
-                .map(finder::find)
+                .map(validatorName -> finder.find(validatorName,EncryptedCredentials.class))
                 .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         NotNullFilter data = annotation.data();

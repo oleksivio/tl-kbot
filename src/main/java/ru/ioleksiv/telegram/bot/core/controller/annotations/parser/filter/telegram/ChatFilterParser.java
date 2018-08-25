@@ -27,7 +27,7 @@ public class ChatFilterParser implements FilterParser<ChatFilter, Chat> {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getType()), new TypeNameValidator(type));
         }
         Arrays.stream(annotation.validator())
-                .map(finder::find)
+                .map(validatorName -> finder.find(validatorName,Chat.class))
                 .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         StringFilter title = annotation.

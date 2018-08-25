@@ -20,7 +20,7 @@ public class ShippingAddressFilterParser implements FilterParser<ShippingAddress
         UnionExtractValidator<ShippingAddress> unionExtractValidator = new UnionExtractValidator<>();
 
         Arrays.stream(annotation.validator())
-                .map(finder::find)
+                .map(validatorName -> finder.find(validatorName,ShippingAddress.class))
                 .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         StringFilter countryCode = annotation.countryCode();

@@ -21,7 +21,7 @@ public class MaskPositionFilterParser implements FilterParser<MaskPositionFilter
         UnionExtractValidator<MaskPosition> unionExtractValidator = new UnionExtractValidator<>();
 
         Arrays.stream(annotation.validator())
-                .map(finder::find)
+                .map(validatorName -> finder.find(validatorName,MaskPosition.class))
                 .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         MaskPosition.Type type = annotation.point();

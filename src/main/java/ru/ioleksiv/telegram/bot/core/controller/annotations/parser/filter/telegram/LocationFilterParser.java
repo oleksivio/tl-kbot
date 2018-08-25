@@ -20,7 +20,7 @@ public class LocationFilterParser implements FilterParser<LocationFilter, Locati
         UnionExtractValidator<Location> unionExtractValidator = new UnionExtractValidator<>();
 
         Arrays.stream(annotation.validator())
-                .map(finder::find)
+                .map(validatorName -> finder.find(validatorName, Location.class))
                 .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         DoubleFilter longitude = annotation.longitude();

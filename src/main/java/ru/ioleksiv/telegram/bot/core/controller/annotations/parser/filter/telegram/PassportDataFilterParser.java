@@ -21,7 +21,7 @@ public class PassportDataFilterParser implements FilterParser<PassportDataFilter
         UnionExtractValidator<PassportData> unionExtractValidator = new UnionExtractValidator<>();
 
         Arrays.stream(annotation.validator())
-                .map(finder::find)
+                .map(validatorName -> finder.find(validatorName,PassportData.class))
                 .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         EncryptedPassportElementArrayFilter encryptedPassportElements = annotation.encryptedPassportElements();

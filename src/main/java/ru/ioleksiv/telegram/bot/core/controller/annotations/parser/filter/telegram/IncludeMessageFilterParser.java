@@ -43,7 +43,7 @@ public class IncludeMessageFilterParser implements FilterParser<IncludeMessageFi
         UnionExtractValidator<Message> unionExtractValidator = new UnionExtractValidator<>();
 
         Arrays.stream(annotation.validator())
-                .map(finder::find)
+                .map(validatorName -> finder.find(validatorName,Message.class))
                 .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         UserFilter from = annotation.from();

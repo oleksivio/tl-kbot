@@ -1,16 +1,15 @@
 package ru.ioleksiv.telegram.bot.core.controller.annotations.parser.finder;
 
 import org.springframework.stereotype.Controller;
-import ru.ioleksiv.telegram.bot.api.model.annotation.CustomValidator;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.holder.CustomValidatorHolder;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import ru.ioleksiv.telegram.bot.core.controller.handler.check.Validator;
+import ru.ioleksiv.telegram.bot.core.model.ITelegram;
 
 import java.lang.annotation.Annotation;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 @Controller
 public class ValidatorFinder implements Finder {
@@ -42,13 +41,7 @@ public class ValidatorFinder implements Finder {
     }
 
     @Override
-    public <T> Validator<T> find(String validatorName) {
-        Optional<CustomValidator<T>> validatorOptional = customValidatorHolder.getByName(validatorName);
-
-        if (!validatorOptional.isPresent()) {
-            throw new RuntimeException("Can't find  CustomValidator with " + validatorName + " name");
-        }
-
-        return validatorOptional.get();
+    public <T extends ITelegram> Validator<T> find(String validatorName, Class<T> targetClass) {
+        return customValidatorHolder.get(validatorName, targetClass);
     }
 }

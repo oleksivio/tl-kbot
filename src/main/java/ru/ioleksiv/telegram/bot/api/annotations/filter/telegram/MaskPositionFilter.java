@@ -2,8 +2,6 @@ package ru.ioleksiv.telegram.bot.api.annotations.filter.telegram;
 
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.FloatFilter;
 import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
-import ru.ioleksiv.telegram.bot.api.model.annotation.CustomValidator;
-import ru.ioleksiv.telegram.bot.api.model.annotation.stub.StubMaskPositionValidator;
 import ru.ioleksiv.telegram.bot.api.model.objects.std.sticker.MaskPosition;
 
 import java.lang.annotation.Documented;

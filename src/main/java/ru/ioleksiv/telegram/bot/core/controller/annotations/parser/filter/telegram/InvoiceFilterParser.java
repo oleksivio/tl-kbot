@@ -21,7 +21,7 @@ public class InvoiceFilterParser implements FilterParser<InvoiceFilter, Invoice>
         UnionExtractValidator<Invoice> unionExtractValidator = new UnionExtractValidator<>();
 
         Arrays.stream(annotation.validator())
-                .map(finder::find)
+                .map(validatorName -> finder.find(validatorName,Invoice.class))
                 .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         StringFilter title = annotation.title();

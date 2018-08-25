@@ -23,7 +23,7 @@ public class SuccessfulPaymentFilterParser implements FilterParser<SuccessfulPay
         UnionExtractValidator<SuccessfulPayment> unionExtractValidator = new UnionExtractValidator<>();
 
         Arrays.stream(annotation.validator())
-                .map(finder::find)
+                .map(validatorName -> finder.find(validatorName, SuccessfulPayment.class))
                 .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         StringFilter currency = annotation.currency();

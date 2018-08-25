@@ -7,7 +7,6 @@ import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.EncryptedPasspor
 import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.PassportFileArrayFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.telegram.PassportFileFilter;
 import ru.ioleksiv.telegram.bot.api.model.objects.passport.EncryptedPassportElement;
-import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.ParserUtils;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import ru.ioleksiv.telegram.bot.core.controller.handler.check.Validator;
@@ -32,7 +31,7 @@ public class EncryptedPassportElemArrayFilterParser implements FilterParser<Encr
         }
 
         Arrays.stream(annotation.validator())
-                .map(finder::find)
+                .map(validatorName -> finder.find(validatorName,EncryptedPassportElement.class))
                 .forEach(validator -> {
                     unionExtractValidatorList.add(Optional::of, validator);
                 });

@@ -5,9 +5,6 @@ import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.LongFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.NotNullFilter;
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
-import ru.ioleksiv.telegram.bot.api.model.annotation.CustomValidator;
-import ru.ioleksiv.telegram.bot.api.model.annotation.stub.StubMessageValidator;
-import ru.ioleksiv.telegram.bot.api.model.objects.std.Message;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

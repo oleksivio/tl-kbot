@@ -4,11 +4,13 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Configuration;
-import ru.ioleksiv.telegram.bot.api.model.annotation.CustomValidator;
+import ru.ioleksiv.telegram.bot.api.model.annotation.validator.FilterValidator;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.AnnotationProcessor;
 import ru.ioleksiv.telegram.bot.core.controller.annotations.holder.CustomValidatorHolder;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 @Configuration
 public class BotApplicationContext implements ApplicationContextAware {
@@ -25,24 +27,50 @@ public class BotApplicationContext implements ApplicationContextAware {
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 
+        List<SimpleBean> simpleBeans = new ArrayList<>();
         for (String beanName : applicationContext.getBeanDefinitionNames()) {
-            Object obj = applicationContext.getBean(beanName);
-            if (isCustomValidator(obj)) {
-                customValidatorHolder.add(beanName, (CustomValidator) obj);
+            Object instance = applicationContext.getBean(beanName);
+            simpleBeans.add(new SimpleBean(beanName, instance));
+        }
+
+        for (SimpleBean simpleBean : simpleBeans) {
+            if (simpleBean.isFilterValidator()) {
+                customValidatorHolder.add(simpleBean.getName(), (FilterValidator) simpleBean.getInstance());
             }
-            annotationProcessor.add(obj);
+        }
+
+        for (SimpleBean simpleBean : simpleBeans) {
+            annotationProcessor.add(simpleBean.getInstance());
         }
     }
 
-    private static boolean isCustomValidator(Object obj) {
-        Type[] genericInterfaces = obj.getClass().getGenericInterfaces();
-        for (Type type : genericInterfaces) {
-            if (type.getTypeName().startsWith(CustomValidator.class.getName())) {
-                return true;
-            }
+    private static class SimpleBean {
+        private final String name;
+        private final Object instance;
+
+        SimpleBean(String name, Object instance) {
+            this.name = name;
+            this.instance = instance;
         }
 
-        return false;
+        public String getName() {
+            return name;
+        }
 
+        Object getInstance() {
+            return instance;
+        }
+
+        private boolean isFilterValidator() {
+            Type[] genericInterfaces = instance.getClass().getGenericInterfaces();
+            for (Type type : genericInterfaces) {
+                if (type.getTypeName().startsWith(FilterValidator.class.getName())) {
+                    return true;
+                }
+            }
+
+            return false;
+
+        }
     }
 }

@@ -23,7 +23,7 @@ public class StickerFilterParser implements FilterParser<StickerFilter, Sticker>
         UnionExtractValidator<Sticker> unionExtractValidator = new UnionExtractValidator<>();
 
         Arrays.stream(annotation.validator())
-                .map(finder::find)
+                .map(validatorName -> finder.find(validatorName,Sticker.class))
                 .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         MaskPositionFilter maskPosition = annotation.maskPosition();

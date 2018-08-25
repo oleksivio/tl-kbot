@@ -10,4 +10,5 @@ public interface FilterParser<A extends Annotation, IN> extends Parser<A> {
 
     Validator<IN> createChecker(A annotation,
                                 Finder finder);
+
 }

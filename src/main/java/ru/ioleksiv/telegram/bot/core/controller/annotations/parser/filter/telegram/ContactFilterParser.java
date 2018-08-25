@@ -21,7 +21,7 @@ public class ContactFilterParser implements FilterParser<ContactFilter, Contact>
         UnionExtractValidator<Contact> unionExtractValidator = new UnionExtractValidator<>();
 
         Arrays.stream(annotation.validator())
-                .map(finder::find)
+                .map(validatorName -> finder.find(validatorName, Contact.class))
                 .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         StringFilter phoneNumber = annotation.phoneNumber();

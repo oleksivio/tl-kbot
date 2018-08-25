@@ -2,9 +2,6 @@ package ru.ioleksiv.telegram.bot.api.annotations.filter.telegram;
 
 import ru.ioleksiv.telegram.bot.api.annotations.filter.primitive.DoubleFilter;
 import ru.ioleksiv.telegram.bot.api.model.annotation.AnnotationState;
-import ru.ioleksiv.telegram.bot.api.model.annotation.CustomValidator;
-import ru.ioleksiv.telegram.bot.api.model.annotation.stub.StubLocationValidator;
-import ru.ioleksiv.telegram.bot.api.model.objects.std.Location;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

@@ -16,7 +16,11 @@ public class StringFilterParser implements FilterParser<StringFilter, String> {
                                    annotation.equalWith(),
                                    annotation.endWith(),
                                    annotation.contain(),
-                                   annotation.regExp());
+                                   annotation.regExp(),
+                                   annotation.notStartWith(),
+                                   annotation.notEndWith(),
+                                   annotation.notContain()
+        );
     }
 
     @Override
