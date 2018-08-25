@@ -43,12 +43,12 @@ public class IncludeMessageFilterParser implements FilterParser<IncludeMessageFi
         UnionExtractValidator<Message> unionExtractValidator = new UnionExtractValidator<>();
 
         Arrays.stream(annotation.validator())
-                .map(validatorName -> finder.find(validatorName,Message.class))
+                .map(validatorName -> finder.find(validatorName, Message.class))
                 .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         UserFilter from = annotation.from();
         if (from.status().isActive()) {
-            unionExtractValidator.add(msg -> Optional.ofNullable(msg.getAnimation()), finder.find(from));
+            unionExtractValidator.add(msg -> Optional.ofNullable(msg.getFrom()), finder.find(from));
         }
         LongFilter date = annotation.date();
         if (date.status().isActive()) {

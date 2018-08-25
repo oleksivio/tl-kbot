@@ -49,7 +49,7 @@ public class MessageFilterParser implements FilterParser<MessageFilter, Message>
 
         UserFilter from = annotation.from();
         if (from.status().isActive()) {
-            unionExtractValidator.add(msg -> Optional.ofNullable(msg.getAnimation()), finder.find(from));
+            unionExtractValidator.add(msg -> Optional.ofNullable(msg.getFrom()), finder.find(from));
         }
 
         LongFilter date = annotation.date();
