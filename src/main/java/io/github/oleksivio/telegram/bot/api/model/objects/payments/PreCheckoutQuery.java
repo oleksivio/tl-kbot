@@ -8,7 +8,7 @@ import io.github.oleksivio.telegram.bot.api.model.objects.std.User;
 import io.github.oleksivio.telegram.bot.core.model.objects.IUserFrom;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#precheckoutquery>PreCheckoutQuery</a>
+ * @see <a href="https://core.telegram.org/bots/api#precheckoutquery">PreCheckoutQuery</a>
  */
 public class PreCheckoutQuery implements IUserFrom {
     /**

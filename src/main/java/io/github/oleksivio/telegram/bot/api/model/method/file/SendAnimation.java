@@ -7,7 +7,7 @@ import io.github.oleksivio.telegram.bot.core.controller.network.ActionNetworker;
 import io.github.oleksivio.telegram.bot.core.model.method.file.ThumbAction;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#sendanimation>sendAnimation</a>
+ * @see <a href="https://core.telegram.org/bots/api#sendanimation">sendAnimation</a>
  */
 public class SendAnimation extends ThumbAction {
     private static final String METHOD = "sendAnimation";

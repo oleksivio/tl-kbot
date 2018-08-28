@@ -11,7 +11,7 @@ import io.github.oleksivio.telegram.bot.api.model.objects.std.game.GameHighScore
 import java.util.List;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#getgamehighscores>getGameHighScores</a>
+ * @see <a href="https://core.telegram.org/bots/api#getgamehighscores">getGameHighScores</a>
  */
 public class GetGameHighScores extends ChatAction<List<GameHighScore>> {
     private static final String METHOD = "getGameHighScores";

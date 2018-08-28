@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#sendinvoice>sendInvoice</a>
+ * @see <a href="https://core.telegram.org/bots/api#sendinvoice">sendInvoice</a>
  */
 public class SendInvoice extends ChatAction<Message> {
     private static final String METHOD = "sendInvoice";

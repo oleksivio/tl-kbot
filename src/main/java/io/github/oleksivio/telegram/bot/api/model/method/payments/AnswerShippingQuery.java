@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#answershippingquery>answerShippingQuery</a>
+ * @see <a href="https://core.telegram.org/bots/api#answershippingquery">answerShippingQuery</a>
  */
 public class AnswerShippingQuery extends RunnableAction<Boolean> {
     private static final String METHOD = "answerShippingQuery";

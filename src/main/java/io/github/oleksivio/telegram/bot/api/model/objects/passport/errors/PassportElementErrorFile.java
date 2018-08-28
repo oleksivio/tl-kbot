@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.oleksivio.telegram.bot.api.model.objects.passport.PassportConstants;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#passportelementerrorfile>PassportElementErrorFile</a>
+ * @see <a href="https://core.telegram.org/bots/api#passportelementerrorfile">PassportElementErrorFile</a>
  */
 public class PassportElementErrorFile extends PassportElementError {
     private static final String SOURCE = "file";

@@ -8,7 +8,7 @@ import io.github.oleksivio.telegram.bot.core.controller.network.ActionNetworker;
 import io.github.oleksivio.telegram.bot.core.model.method.EditAction;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#editmessagemedia>editMessageMedia</a>
+ * @see <a href="https://core.telegram.org/bots/api#editmessagemedia">editMessageMedia</a>
  */
 public abstract class EditMessageMedia<RES> extends EditAction<RES> {
     private static final String METHOD = "editMessageMedia";

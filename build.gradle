@@ -9,11 +9,15 @@ buildscript {
 
 plugins {
     id 'java'
+    id 'maven-publish'
+    id 'signing'
     id 'io.spring.dependency-management' version '1.0.6.RELEASE'
 }
 
 group 'io.github.oleksivio'
-version '0.8.0'
+version '0.8.0-SNAPSHOT'
+
+ext.isReleaseVersion = !version.endsWith("SNAPSHOT")
 
 repositories {
     mavenCentral()
@@ -24,31 +28,95 @@ repositories {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+if (isReleaseVersion) {
+    ext.sonatypeRepo = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+} else {
+    ext.sonatypeRepo = "https://oss.sonatype.org/content/repositories/snapshots/"
+}
+
+tasks.withType(Sign) {
+    onlyIf { isReleaseVersion }
+}
+test {
+    // show standard out and standard error of the test JVM(s) on the console
+    testLogging.showStandardStreams = true
+}
+
+task sourceJar(type: Jar) {
+    classifier "sources"
+    from sourceSets.main.allJava
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier "javadoc"
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives jar
+    archives sourceJar
+    archives javadocJar
+}
+signing {
+    required { isReleaseVersion }
+    sign configurations.archives
+}
+
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+            artifact(sourceJar) {
+                classifier = 'sources'
+            }
+            artifact(javadocJar) {
+                classifier = 'javadoc'
+            }
+            pom {
+                name = 'Telegram Bot API'
+                description = 'Spring telegram bot api library'
+                url = 'https://github.com/oleksivio/telegram-bot-api'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'oleksivio'
+                        name = 'Ilia Oleksiv'
+                        email = 'oleksivio@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/oleksivio/telegram-bot-api.git'
+                    developerConnection = 'scm:git:ssh://github.com/oleksivio/telegram-bot-api.git'
+                    url = 'http://github.com/oleksivio/telegram-bot-api/'
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            url sonatypeRepo
+            credentials {
+                username sonatypeUsername
+                password sonatypePassword
+            }
+        }
+    }
+}
+
+
 
 dependencyManagement {
     imports {
         mavenBom 'io.spring.platform:platform-bom:1.1.1.RELEASE'
     }
     dependencies {
-        dependencySet(group:'org.springframework', version: '5.0.6.RELEASE') {
-
-        }
-    }
-}
-
-task sourceJar(type: Jar) {
-    from sourceSets.main.allJava
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-
-            artifact sourceJar {
-                classifier "sources"
-            }
-        }
+        dependencySet(group: 'org.springframework', version: '5.0.6.RELEASE') {}
     }
 }
 
@@ -66,6 +134,4 @@ dependencies {
     compile 'org.slf4j:jcl-over-slf4j:1.7.12'
 
     compile 'ch.qos.logback:logback-classic:1.2.3'
-
-
 }

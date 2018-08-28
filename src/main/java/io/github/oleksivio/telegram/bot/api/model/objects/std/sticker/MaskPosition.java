@@ -6,7 +6,7 @@ import io.github.oleksivio.telegram.bot.core.model.ITelegram;
 import io.github.oleksivio.telegram.bot.core.model.type.TelegramType;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#maskposition>MaskPosition</a>
+ * @see <a href="https://core.telegram.org/bots/api#maskposition">MaskPosition</a>
  */
 public class MaskPosition implements ITelegram {
     /**

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.oleksivio.telegram.bot.api.model.objects.passport.PassportConstants;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#passportelementerrorreverseside>PassportElementErrorReverseSide</a>
+ * @see <a href="https://core.telegram.org/bots/api#passportelementerrorreverseside">PassportElementErrorReverseSide</a>
  */
 public class PassportElementErrorReverseSide extends PassportElementError {
     private static final String SOURCE = "reverse_side";

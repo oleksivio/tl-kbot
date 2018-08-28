@@ -9,7 +9,7 @@ import io.github.oleksivio.telegram.bot.api.model.objects.std.User;
 import io.github.oleksivio.telegram.bot.core.model.objects.IUserFrom;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#choseninlineresult>ChosenInlineResult</a>
+ * @see <a href="https://core.telegram.org/bots/api#choseninlineresult">ChosenInlineResult</a>
  */
 public class ChosenInlineResult implements IUserFrom {
     /**

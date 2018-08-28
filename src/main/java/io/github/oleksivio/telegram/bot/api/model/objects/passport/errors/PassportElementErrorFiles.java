@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#passportelementerrorfiles>PassportElementErrorFiles</a>
+ * @see <a href="https://core.telegram.org/bots/api#passportelementerrorfiles">PassportElementErrorFiles</a>
  */
 public class PassportElementErrorFiles extends PassportElementError {
     private static final String FILES = "files";

@@ -7,7 +7,7 @@ import org.springframework.core.io.FileSystemResource;
 import io.github.oleksivio.telegram.bot.core.model.method.UploadMessageFile;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#sendsticker>sendSticker</a>
+ * @see <a href="https://core.telegram.org/bots/api#sendsticker">sendSticker</a>
  */
 public class SendStickerFile extends UploadMessageFile {
     private static final String METHOD = "sendSticker";

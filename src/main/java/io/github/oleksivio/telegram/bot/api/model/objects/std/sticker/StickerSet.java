@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#stickerset>StickerSetResponse</a>
+ * @see <a href="https://core.telegram.org/bots/api#stickerset">StickerSetResponse</a>
  */
 public class StickerSet implements ITelegram {
     /**

@@ -7,7 +7,7 @@ import org.springframework.core.io.FileSystemResource;
 import io.github.oleksivio.telegram.bot.core.model.method.file.UploadMediaFile;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#sendanimation>sendAnimation</a>
+ * @see <a href="https://core.telegram.org/bots/api#sendanimation">sendAnimation</a>
  */
 public class SendAnimationFile extends UploadMediaFile {
     private static final String METHOD = "sendAnimation";

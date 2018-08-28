@@ -11,7 +11,7 @@ import io.github.oleksivio.telegram.bot.core.model.type.TelegramType;
 import java.util.List;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#encryptedpassportelement>EncryptedPassportElement</a>
+ * @see <a href="https://core.telegram.org/bots/api#encryptedpassportelement">EncryptedPassportElement</a>
  */
 public class EncryptedPassportElement implements ITelegram {
 

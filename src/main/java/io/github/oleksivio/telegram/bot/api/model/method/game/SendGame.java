@@ -10,7 +10,7 @@ import io.github.oleksivio.telegram.bot.core.model.responses.MessageResponse;
 import io.github.oleksivio.telegram.bot.api.model.objects.std.Message;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#sendgame>sendGame</a>
+ * @see <a href="https://core.telegram.org/bots/api#sendgame">sendGame</a>
  */
 public class SendGame extends ChatAction<Message> {
     private static final String METHOD = "sendGame";

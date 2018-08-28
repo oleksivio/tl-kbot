@@ -6,7 +6,7 @@ import io.github.oleksivio.telegram.bot.core.controller.network.ActionNetworker;
 import io.github.oleksivio.telegram.bot.core.model.method.ChatAction;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#setgamescore>setGameScore</a>
+ * @see <a href="https://core.telegram.org/bots/api#setgamescore">setGameScore</a>
  */
 public abstract class SetGameScore<RES> extends ChatAction<RES> {
     private static final String METHOD = "setGameScore";

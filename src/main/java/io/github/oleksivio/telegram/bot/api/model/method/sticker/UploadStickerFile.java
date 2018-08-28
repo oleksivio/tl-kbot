@@ -9,7 +9,7 @@ import org.springframework.core.io.FileSystemResource;
 import io.github.oleksivio.telegram.bot.api.model.objects.std.files.File;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#uploadstickerfile>uploadStickerFile</a>
+ * @see <a href="https://core.telegram.org/bots/api#uploadstickerfile">uploadStickerFile</a>
  */
 public class UploadStickerFile extends UploadFile<File> {
     private static final String METHOD = "uploadStickerFile";

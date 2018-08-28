@@ -8,7 +8,7 @@ import io.github.oleksivio.telegram.bot.core.model.responses.BooleanResponse;
 import io.github.oleksivio.telegram.bot.core.model.responses.CommonResponse;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#deletestickerfromset>deleteStickerFromSet</a>
+ * @see <a href="https://core.telegram.org/bots/api#deletestickerfromset">deleteStickerFromSet</a>
  */
 public class DeleteStickerFromSet extends RunnableAction<Boolean> {
     private static final String METHOD = "deleteStickerFromSet";

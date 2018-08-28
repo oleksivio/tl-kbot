@@ -9,7 +9,7 @@ import io.github.oleksivio.telegram.bot.core.model.responses.BooleanResponse;
 import io.github.oleksivio.telegram.bot.core.model.responses.CommonResponse;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#createnewstickerset>createNewStickerSet</a>
+ * @see <a href="https://core.telegram.org/bots/api#createnewstickerset">createNewStickerSet</a>
  */
 public class CreateNewStickerSet extends RunnableAction<Boolean> {
     private static final String METHOD = "createNewStickerSet";

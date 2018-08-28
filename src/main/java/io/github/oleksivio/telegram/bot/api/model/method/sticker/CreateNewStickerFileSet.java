@@ -9,7 +9,7 @@ import io.github.oleksivio.telegram.bot.core.model.responses.CommonResponse;
 import org.springframework.core.io.FileSystemResource;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#createnewstickerset>createNewStickerSet</a>
+ * @see <a href="https://core.telegram.org/bots/api#createnewstickerset">createNewStickerSet</a>
  */
 public class CreateNewStickerFileSet extends UploadFile<Boolean> {
     private static final String METHOD = "createNewStickerSet";

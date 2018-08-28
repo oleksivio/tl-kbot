@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#shippingoption>ShippingOption</a>
+ * @see <a href="https://core.telegram.org/bots/api#shippingoption">ShippingOption</a>
  */
 public class ShippingOption implements ITelegram {
     /**

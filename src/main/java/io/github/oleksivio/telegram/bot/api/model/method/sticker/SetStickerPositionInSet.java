@@ -8,7 +8,7 @@ import io.github.oleksivio.telegram.bot.core.model.responses.BooleanResponse;
 import io.github.oleksivio.telegram.bot.core.model.responses.CommonResponse;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#setstickerpositioninset>setStickerPositionInSet</a>
+ * @see <a href="https://core.telegram.org/bots/api#setstickerpositioninset">setStickerPositionInSet</a>
  */
 public class SetStickerPositionInSet extends RunnableAction<Boolean> {
     private static final String METHOD = "setStickerPositionInSet";

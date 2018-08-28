@@ -3,7 +3,7 @@ package io.github.oleksivio.telegram.bot.api.model.objects.inline.queryresult;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#inlinequeryresultcachedvideo>InlineQueryResultCachedVideo</a>
+ * @see <a href="https://core.telegram.org/bots/api#inlinequeryresultcachedvideo">InlineQueryResultCachedVideo</a>
  */
 public class InlineQueryResultCachedVideo extends TitledInlineResult {
     private static final String TYPE = "video";

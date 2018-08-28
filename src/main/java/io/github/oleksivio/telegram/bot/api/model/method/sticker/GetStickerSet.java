@@ -9,7 +9,7 @@ import io.github.oleksivio.telegram.bot.core.model.responses.StickerSetResponse;
 import io.github.oleksivio.telegram.bot.api.model.objects.std.sticker.StickerSet;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#getstickerset>getStickerSet</a>
+ * @see <a href="https://core.telegram.org/bots/api#getstickerset">getStickerSet</a>
  */
 public class GetStickerSet extends RunnableAction<StickerSet> {
     private static final String METHOD = "getStickerSet";

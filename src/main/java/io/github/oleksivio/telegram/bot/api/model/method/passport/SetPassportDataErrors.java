@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#setpassportdataerrors>setPassportDataErrors</a>
+ * @see <a href="https://core.telegram.org/bots/api#setpassportdataerrors">setPassportDataErrors</a>
  */
 public class SetPassportDataErrors extends RunnableAction<Boolean> {
     private static final String METHOD = "setPassportDataErrors";

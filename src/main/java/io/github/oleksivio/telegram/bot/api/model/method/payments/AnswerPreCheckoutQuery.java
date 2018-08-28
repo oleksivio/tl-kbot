@@ -8,7 +8,7 @@ import io.github.oleksivio.telegram.bot.core.model.method.RunnableAction;
 import io.github.oleksivio.telegram.bot.core.model.responses.CommonResponse;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#answerprecheckoutquery>answerPreCheckoutQuery</a>
+ * @see <a href="https://core.telegram.org/bots/api#answerprecheckoutquery">answerPreCheckoutQuery</a>
  */
 public class AnswerPreCheckoutQuery extends RunnableAction<Boolean> {
     private static final String METHOD = "answerPreCheckoutQuery";

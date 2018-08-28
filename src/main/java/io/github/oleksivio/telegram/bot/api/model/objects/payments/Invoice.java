@@ -6,7 +6,7 @@ import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringF
 import io.github.oleksivio.telegram.bot.core.model.ITelegram;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#invoice>Invoice</a>
+ * @see <a href="https://core.telegram.org/bots/api#invoice">Invoice</a>
  */
 public class Invoice implements ITelegram {
     /**

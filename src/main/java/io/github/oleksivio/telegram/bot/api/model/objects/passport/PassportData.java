@@ -8,7 +8,7 @@ import io.github.oleksivio.telegram.bot.core.model.ITelegram;
 import java.util.List;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#passportdata>PassportData</a>
+ * @see <a href="https://core.telegram.org/bots/api#passportdata">PassportData</a>
  */
 public class PassportData implements ITelegram {
     /**

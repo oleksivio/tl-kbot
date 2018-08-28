@@ -3,7 +3,7 @@ package io.github.oleksivio.telegram.bot.api.model.objects.inline.queryresult;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#inlinequeryresultcachedsticker>InlineQueryResultCachedSticker</a>
+ * @see <a href="https://core.telegram.org/bots/api#inlinequeryresultcachedsticker">InlineQueryResultCachedSticker</a>
  */
 public class InlineQueryResultCachedSticker extends ContentInlineResult {
     private static final String TYPE = "sticker";

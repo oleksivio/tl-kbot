@@ -3,7 +3,7 @@ package io.github.oleksivio.telegram.bot.api.model.objects.inline.messagecontent
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#inputvenuemessagecontent>InputVenueMessageContent</a>
+ * @see <a href="https://core.telegram.org/bots/api#inputvenuemessagecontent">InputVenueMessageContent</a>
  */
 public class InputVenueMessageContent implements InputMessageContent {
     /**

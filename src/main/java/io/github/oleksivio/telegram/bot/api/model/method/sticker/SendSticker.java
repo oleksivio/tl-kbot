@@ -7,7 +7,7 @@ import io.github.oleksivio.telegram.bot.core.controller.network.ActionNetworker;
 import io.github.oleksivio.telegram.bot.core.model.method.MessageAction;
 
 /**
- * @see <a href="https://core.telegram.org/bots/api#sendsticker>sendSticker</a>
+ * @see <a href="https://core.telegram.org/bots/api#sendsticker">sendSticker</a>
  */
 public class SendSticker extends MessageAction {
     private static final String METHOD = "sendSticker";

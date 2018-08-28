@@ -20,8 +20,8 @@ public class ForceReply implements ITelegram {
     /**
      * force_reply True Shows reply interface to the user, as if they manually selected the bot‘s
      * message and tapped ’Reply'
+     * @return true always
      */
-
     @JsonProperty("force_reply")
     public boolean isForceReply() {
         return true;
