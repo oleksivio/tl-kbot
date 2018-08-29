@@ -14,8 +14,9 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.6.RELEASE'
 }
 
+archivesBaseName = "telegram-bot-api"
 group 'io.github.oleksivio'
-version '0.8.0-SNAPSHOT'
+version '0.8.4'
 
 ext.isReleaseVersion = !version.endsWith("SNAPSHOT")
 
@@ -29,7 +30,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 if (isReleaseVersion) {
-    ext.sonatypeRepo = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+    ext.sonatypeRepo = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
 } else {
     ext.sonatypeRepo = "https://oss.sonatype.org/content/repositories/snapshots/"
 }
@@ -102,8 +103,8 @@ publishing {
         maven {
             url sonatypeRepo
             credentials {
-                username sonatypeUsername
-                password sonatypePassword
+                username ossrhUsername
+                password ossrhPassword
             }
         }
     }

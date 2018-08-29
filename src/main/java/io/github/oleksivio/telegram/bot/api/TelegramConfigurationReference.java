@@ -5,8 +5,8 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan({
-        "ru.ioleksiv.telegram.bot.core.controller",
-        "ru.ioleksiv.telegram.bot.core.configuration",
+        "io.github.oleksivio.telegram.bot.core.controller",
+        "io.github.oleksivio.telegram.bot.core.configuration",
 })
 public class TelegramConfigurationReference {
 }
