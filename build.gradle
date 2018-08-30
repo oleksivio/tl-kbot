@@ -9,7 +9,7 @@ buildscript {
 
 plugins {
     id 'java'
-    id 'maven-publish'
+    id 'maven'
     id 'signing'
     id 'io.spring.dependency-management' version '1.0.6.RELEASE'
 }
@@ -43,6 +43,8 @@ test {
     testLogging.showStandardStreams = true
 }
 
+
+
 task sourceJar(type: Jar) {
     classifier "sources"
     from sourceSets.main.allJava
@@ -63,19 +65,22 @@ signing {
     sign configurations.archives
 }
 
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            from components.java
-            artifact(sourceJar) {
-                classifier = 'sources'
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
             }
-            artifact(javadocJar) {
-                classifier = 'javadoc'
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
             }
-            pom {
+
+            pom.project {
                 name = 'Telegram Bot API'
+                packaging 'jar'
                 description = 'Spring telegram bot api library'
                 url = 'https://github.com/oleksivio/telegram-bot-api'
                 licenses {
@@ -99,18 +104,7 @@ publishing {
             }
         }
     }
-    repositories {
-        maven {
-            url sonatypeRepo
-            credentials {
-                username ossrhUsername
-                password ossrhPassword
-            }
-        }
-    }
 }
-
-
 
 dependencyManagement {
     imports {

@@ -27,8 +27,7 @@ public abstract class Invoker<ARG extends ITelegram> {
         }
         catch (IllegalAccessException | InvocationTargetException e) {
             RuntimeException invalidBehaviorException =
-                    new IllegalStateException("Can't run ErrorResponse method " + method);
-            LOG.error("", invalidBehaviorException);
+                    new IllegalStateException("Can't run method " + method);
             LOG.error("", e);
             throw invalidBehaviorException;
 
