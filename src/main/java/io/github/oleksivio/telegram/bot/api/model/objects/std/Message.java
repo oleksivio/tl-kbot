@@ -37,6 +37,7 @@ import io.github.oleksivio.telegram.bot.api.model.objects.passport.PassportData;
 import io.github.oleksivio.telegram.bot.api.model.objects.payments.Invoice;
 import io.github.oleksivio.telegram.bot.api.model.objects.payments.SuccessfulPayment;
 import io.github.oleksivio.telegram.bot.api.model.objects.std.sticker.Sticker;
+import io.github.oleksivio.telegram.bot.core.model.objects.IChat;
 import io.github.oleksivio.telegram.bot.core.model.objects.IUserFrom;
 
 import java.util.List;
@@ -44,7 +45,7 @@ import java.util.List;
 /**
  * @see <a href="https://core.telegram.org/bots/api#message">Message</a>
  */
-public class Message implements IUserFrom {
+public class Message implements IUserFrom, IChat {
     /**
      * message_id Integer Unique message identifier inside this chat
      */
@@ -566,10 +567,12 @@ public class Message implements IUserFrom {
         this.date = date;
     }
 
+    @Override
     public Chat getChat() {
         return chat;
     }
 
+    @Override
     public void setChat(Chat chat) {
         this.chat = chat;
     }

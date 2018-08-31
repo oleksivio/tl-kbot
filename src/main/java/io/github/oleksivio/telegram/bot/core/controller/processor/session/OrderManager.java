@@ -1,4 +1,4 @@
-package io.github.oleksivio.telegram.bot.core.controller.processor;
+package io.github.oleksivio.telegram.bot.core.controller.processor.session;
 
 import io.github.oleksivio.telegram.bot.core.controller.handler.Handler;
 
@@ -8,13 +8,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class SessionOrderManager {
+public class OrderManager {
     private static final Integer INACTIVE_VALUE = -1;
-    private final Map<Integer, Handler> handlerMap = new HashMap<>();
+    private final Map<Integer, List<Handler>> handlerMap = new HashMap<>();
     private final Map<Long, Integer> orderMap = new ConcurrentHashMap<>();
     private final List<Integer> keyList = new ArrayList<>();
 
-    public SessionOrderManager(Map<Integer, Handler> handlerMap) {
+    public OrderManager(Map<Integer, List<Handler>> handlerMap) {
         this.handlerMap.putAll(handlerMap);
         keyList.addAll(handlerMap.keySet());
         keyList.sort(Integer::compareTo);
@@ -39,7 +39,7 @@ public class SessionOrderManager {
         orderMap.remove(id);
     }
 
-    Handler getCurrent(long id) {
+    List<Handler> getCurrent(long id) {
         int order = orderMap.get(id);
         int key = keyList.get(order);
         return handlerMap.get(key);

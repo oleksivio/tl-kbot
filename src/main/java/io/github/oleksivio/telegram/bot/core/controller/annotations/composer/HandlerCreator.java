@@ -19,8 +19,8 @@ import java.lang.reflect.Method;
 import java.util.Optional;
 
 @Controller
-public final class HandlerComposer {
-    private static final Logger LOG = LoggerFactory.getLogger(HandlerComposer.class);
+public final class HandlerCreator {
+    private static final Logger LOG = LoggerFactory.getLogger(HandlerCreator.class);
 
     private final ArgCheckerProducer argCheckerProducer;
 
@@ -28,9 +28,9 @@ public final class HandlerComposer {
 
     private final InvokerProducer invokerProducer;
 
-    public HandlerComposer(ArgCheckerProducer argCheckerProducer,
-                           ArgUnpackerProducer argUnpackerProducer,
-                           InvokerProducer invokerProducer) {
+    public HandlerCreator(ArgCheckerProducer argCheckerProducer,
+                          ArgUnpackerProducer argUnpackerProducer,
+                          InvokerProducer invokerProducer) {
         this.argCheckerProducer = argCheckerProducer;
         this.argUnpackerProducer = argUnpackerProducer;
         this.invokerProducer = invokerProducer;

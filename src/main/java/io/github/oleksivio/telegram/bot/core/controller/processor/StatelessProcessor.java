@@ -1,17 +1,19 @@
 package io.github.oleksivio.telegram.bot.core.controller.processor;
 
-import io.github.oleksivio.telegram.bot.core.controller.handler.Handler;
 import io.github.oleksivio.telegram.bot.api.model.objects.Update;
+import io.github.oleksivio.telegram.bot.core.controller.handler.Handler;
+import org.springframework.stereotype.Controller;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
+@Controller
 public class StatelessProcessor {
 
     private final Collection<Handler> handlers = new ArrayList<>();
 
-    public StatelessProcessor(Collection<Handler> handlers) {
-        this.handlers.addAll(handlers);
+    public void add(Handler handler) {
+        handlers.add(handler);
     }
 
     void receive(Update update) {

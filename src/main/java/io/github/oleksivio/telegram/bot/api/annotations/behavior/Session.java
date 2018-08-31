@@ -1,5 +1,7 @@
 package io.github.oleksivio.telegram.bot.api.annotations.behavior;
 
+import io.github.oleksivio.telegram.bot.api.model.annotation.SessionType;
+
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -9,7 +11,9 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})
 @Documented
-public @interface UserSession {
+public @interface Session {
+
+    SessionType type();
 
     @Retention(RetentionPolicy.RUNTIME)
     @Target({ElementType.METHOD})
@@ -26,5 +30,6 @@ public @interface UserSession {
     @interface Order {
         int value();
     }
+
 
 }
