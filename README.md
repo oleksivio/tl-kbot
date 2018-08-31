@@ -4,7 +4,20 @@ Spring library for easy creating telegram bot's
 
 ## Getting Started
 
-You should build jar for use this lib. 
+Add to you dependencies: 
+
+Gradle:
+```
+compile 'io.github.oleksivio:telegram-bot-api:0.9.0'
+```
+Maven: 
+```
+<dependency>
+  <groupId>io.github.oleksivio</groupId>
+  <artifactId>telegram-bot-api</artifactId>
+  <version>0.9.0</version>
+</dependency>
+```
 
 ## Versioning
 
