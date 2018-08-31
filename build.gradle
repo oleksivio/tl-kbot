@@ -16,7 +16,7 @@ plugins {
 
 archivesBaseName = "telegram-bot-api"
 group 'io.github.oleksivio'
-version '0.8.4'
+version '0.9.0'
 
 ext.isReleaseVersion = !version.endsWith("SNAPSHOT")
 
