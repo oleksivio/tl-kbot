@@ -16,6 +16,8 @@ public @interface InlineQueryFilter {
 
     UserFilter from() default @UserFilter(status = AnnotationState.OFF);
 
+    String[] validator() default {};
+
     LocationFilter location() default @LocationFilter(status = AnnotationState.OFF);
 
     StringFilter query() default @StringFilter(status = AnnotationState.OFF);

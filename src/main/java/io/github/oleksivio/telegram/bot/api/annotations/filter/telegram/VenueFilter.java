@@ -16,6 +16,8 @@ import java.lang.annotation.Target;
 public @interface VenueFilter {
     AnnotationState status() default AnnotationState.ON;
 
+    String[] validator() default {};
+
     LocationFilter location() default @LocationFilter(status = AnnotationState.OFF);
 
     StringFilter title() default @StringFilter(status = AnnotationState.OFF);

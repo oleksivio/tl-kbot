@@ -2,13 +2,13 @@ package io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filt
 
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.FloatFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.MaskPositionFilter;
+import io.github.oleksivio.telegram.bot.api.model.objects.std.sticker.MaskPosition;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator;
+import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.TypeNameValidator;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.UnionExtractValidator;
 import org.springframework.stereotype.Component;
-import io.github.oleksivio.telegram.bot.api.model.objects.std.sticker.MaskPosition;
-import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.TypeNameValidator;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -21,7 +21,7 @@ public class MaskPositionFilterParser implements FilterParser<MaskPositionFilter
         UnionExtractValidator<MaskPosition> unionExtractValidator = new UnionExtractValidator<>();
 
         Arrays.stream(annotation.validator())
-                .map(validatorName -> finder.find(validatorName,MaskPosition.class))
+                .map(validatorName -> finder.find(validatorName, MaskPosition.class))
                 .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         MaskPosition.Type type = annotation.point();

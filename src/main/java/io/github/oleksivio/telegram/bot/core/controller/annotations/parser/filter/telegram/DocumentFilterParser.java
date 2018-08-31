@@ -4,13 +4,14 @@ import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.Integer
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.DocumentFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.PhotoFilter;
+import io.github.oleksivio.telegram.bot.api.model.objects.std.files.Document;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.UnionExtractValidator;
 import org.springframework.stereotype.Component;
-import io.github.oleksivio.telegram.bot.api.model.objects.std.files.Document;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 @Component
@@ -19,6 +20,10 @@ public class DocumentFilterParser implements FilterParser<DocumentFilter, Docume
     @Override
     public Validator<Document> createChecker(DocumentFilter annotation, Finder finder) {
         UnionExtractValidator<Document> unionExtractValidator = new UnionExtractValidator<>();
+
+        Arrays.stream(annotation.validator())
+                .map(validatorName -> finder.find(validatorName, Document.class))
+                .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         PhotoFilter thumb = annotation.thumb();
         if (thumb.status().isActive()) {

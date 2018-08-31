@@ -16,6 +16,8 @@ public @interface CallbackQueryFilter {
 
     MessageFilter message() default @MessageFilter(status = AnnotationState.OFF);
 
+    String[] validator() default {};
+
     StringFilter inlineMessageId() default @StringFilter(status = AnnotationState.OFF);
 
     StringFilter chatInstance() default @StringFilter(status = AnnotationState.OFF);

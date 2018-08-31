@@ -2,13 +2,14 @@ package io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filt
 
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.PassportFileArrayFilter;
-import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder;
-import org.springframework.stereotype.Component;
 import io.github.oleksivio.telegram.bot.api.model.objects.passport.PassportFile;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
+import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.UnionExtractValidatorList;
+import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +19,10 @@ public class PassportFileArrayFilterParser implements FilterParser<PassportFileA
     @Override
     public Validator<List<PassportFile>> createChecker(PassportFileArrayFilter annotation, Finder finder) {
         UnionExtractValidatorList<PassportFile> unionExtractValidatorList = new UnionExtractValidatorList<>();
+
+        Arrays.stream(annotation.validator())
+                .map(validatorName -> finder.find(validatorName, PassportFile.class))
+                .forEach(validator -> unionExtractValidatorList.add(Optional::of, validator));
 
         IntegerFilter fileSize = annotation.fileSize();
         if (fileSize.status().isActive()) {

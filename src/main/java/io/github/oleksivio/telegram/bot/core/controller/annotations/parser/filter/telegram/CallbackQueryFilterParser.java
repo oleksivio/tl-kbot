@@ -1,15 +1,16 @@
 package io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.telegram;
 
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringFilter;
+import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.CallbackQueryFilter;
+import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.MessageFilter;
+import io.github.oleksivio.telegram.bot.api.model.objects.std.CallbackQuery;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.UnionExtractValidator;
 import org.springframework.stereotype.Component;
-import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.CallbackQueryFilter;
-import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.MessageFilter;
-import io.github.oleksivio.telegram.bot.api.model.objects.std.CallbackQuery;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 @Component
@@ -20,6 +21,10 @@ public class CallbackQueryFilterParser implements FilterParser<CallbackQueryFilt
                                                   Finder finder) {
 
         UnionExtractValidator<CallbackQuery> unionExtractValidator = new UnionExtractValidator<>();
+
+        Arrays.stream(annotation.validator())
+                .map(validatorName -> finder.find(validatorName, CallbackQuery.class))
+                .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         StringFilter data = annotation.data();
         if (data.status().isActive()) {

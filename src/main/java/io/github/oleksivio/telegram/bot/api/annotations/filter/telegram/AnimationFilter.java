@@ -17,6 +17,8 @@ public @interface AnimationFilter {
 
     AnnotationState status() default AnnotationState.ON;
 
+    String[] validator() default {};
+
     PhotoFilter thumb() default @PhotoFilter(status = AnnotationState.OFF);
 
     StringFilter fileName() default @StringFilter(status = AnnotationState.OFF);
@@ -30,5 +32,6 @@ public @interface AnimationFilter {
     IntegerFilter height() default @IntegerFilter(status = AnnotationState.OFF);
 
     IntegerFilter duration() default @IntegerFilter(status = AnnotationState.OFF);
+
 
 }

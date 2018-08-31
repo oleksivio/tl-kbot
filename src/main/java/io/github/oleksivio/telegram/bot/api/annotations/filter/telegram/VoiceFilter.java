@@ -17,6 +17,8 @@ public @interface VoiceFilter {
 
     AnnotationState status() default AnnotationState.ON;
 
+    String[] validator() default {};
+
     IntegerFilter duration() default @IntegerFilter(status = AnnotationState.OFF);
 
     StringFilter mimeType() default @StringFilter(status = AnnotationState.OFF);

@@ -16,6 +16,8 @@ public @interface PassportFileArrayFilter {
 
     AnnotationState status() default AnnotationState.ON;
 
+    String[] validator() default {};
+
     IntegerFilter fileSize() default @IntegerFilter(status = AnnotationState.OFF);
 
     IntegerFilter fileDate() default @IntegerFilter(status = AnnotationState.OFF);

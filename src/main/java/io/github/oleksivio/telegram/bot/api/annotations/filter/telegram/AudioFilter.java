@@ -17,6 +17,8 @@ public @interface AudioFilter {
 
     AnnotationState status() default AnnotationState.ON;
 
+    String[] validator() default {};
+
     IntegerFilter duration() default @IntegerFilter(status = AnnotationState.OFF);
 
     StringFilter performer() default @StringFilter(status = AnnotationState.OFF);

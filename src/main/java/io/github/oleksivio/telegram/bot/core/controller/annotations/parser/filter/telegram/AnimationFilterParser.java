@@ -2,15 +2,16 @@ package io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filt
 
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringFilter;
+import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.AnimationFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.PhotoFilter;
+import io.github.oleksivio.telegram.bot.api.model.objects.std.game.Animation;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.UnionExtractValidator;
 import org.springframework.stereotype.Component;
-import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.AnimationFilter;
-import io.github.oleksivio.telegram.bot.api.model.objects.std.game.Animation;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 @Component
@@ -19,6 +20,10 @@ public class AnimationFilterParser implements FilterParser<AnimationFilter, Anim
     @Override
     public Validator<Animation> createChecker(AnimationFilter annotation, Finder finder) {
         UnionExtractValidator<Animation> unionExtractValidator = new UnionExtractValidator<>();
+
+        Arrays.stream(annotation.validator())
+                .map(validatorName -> finder.find(validatorName, Animation.class))
+                .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         PhotoFilter thumb = annotation.thumb();
         if (thumb.status().isActive()) {

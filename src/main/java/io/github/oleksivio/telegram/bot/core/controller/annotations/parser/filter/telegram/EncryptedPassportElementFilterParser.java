@@ -1,6 +1,5 @@
 package io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.telegram;
 
-import org.springframework.stereotype.Component;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.NotNullFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.EncryptedPassportElementFilter;
@@ -12,7 +11,9 @@ import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finde
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.TypeNameValidator;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.UnionExtractValidator;
+import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 @Component
@@ -27,6 +28,11 @@ public class EncryptedPassportElementFilterParser
         if (type.isChosen()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getType()), new TypeNameValidator(type));
         }
+
+        Arrays.stream(annotation.validator())
+                .map(validatorName -> finder.find(validatorName, EncryptedPassportElement.class))
+                .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
+
         NotNullFilter data = annotation.data();
         if (data.status().isActive()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getData()), finder.find(data));

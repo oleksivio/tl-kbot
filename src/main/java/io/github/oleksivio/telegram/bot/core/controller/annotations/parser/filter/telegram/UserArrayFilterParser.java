@@ -3,12 +3,12 @@ package io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filt
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.BooleanFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.UserArrayFilter;
+import io.github.oleksivio.telegram.bot.api.model.objects.std.User;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.UnionExtractValidatorList;
 import org.springframework.stereotype.Component;
-import io.github.oleksivio.telegram.bot.api.model.objects.std.User;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,7 +22,7 @@ public class UserArrayFilterParser implements FilterParser<UserArrayFilter, List
         UnionExtractValidatorList<User> unionExtractValidatorList = new UnionExtractValidatorList<>();
 
         Arrays.stream(annotation.validator())
-                .map(validatorName -> finder.find(validatorName,User.class))
+                .map(validatorName -> finder.find(validatorName, User.class))
                 .forEach(validator -> unionExtractValidatorList.add(Optional::of, validator));
 
         StringFilter firstName = annotation.firstName();

@@ -4,13 +4,13 @@ import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.Integer
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.MaskPositionFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.PhotoFilter;
+import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.StickerFilter;
+import io.github.oleksivio.telegram.bot.api.model.objects.std.sticker.Sticker;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.UnionExtractValidator;
 import org.springframework.stereotype.Component;
-import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.StickerFilter;
-import io.github.oleksivio.telegram.bot.api.model.objects.std.sticker.Sticker;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -23,7 +23,7 @@ public class StickerFilterParser implements FilterParser<StickerFilter, Sticker>
         UnionExtractValidator<Sticker> unionExtractValidator = new UnionExtractValidator<>();
 
         Arrays.stream(annotation.validator())
-                .map(validatorName -> finder.find(validatorName,Sticker.class))
+                .map(validatorName -> finder.find(validatorName, Sticker.class))
                 .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         MaskPositionFilter maskPosition = annotation.maskPosition();

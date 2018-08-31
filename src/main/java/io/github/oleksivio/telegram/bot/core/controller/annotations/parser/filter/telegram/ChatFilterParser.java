@@ -1,15 +1,15 @@
 package io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.telegram;
 
+import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.BooleanFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.ChatFilter;
+import io.github.oleksivio.telegram.bot.api.model.objects.std.Chat;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator;
+import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.TypeNameValidator;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.UnionExtractValidator;
 import org.springframework.stereotype.Component;
-import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.BooleanFilter;
-import io.github.oleksivio.telegram.bot.api.model.objects.std.Chat;
-import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.TypeNameValidator;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -22,13 +22,14 @@ public class ChatFilterParser implements FilterParser<ChatFilter, Chat> {
                                          Finder finder) {
         UnionExtractValidator<Chat> unionExtractValidator = new UnionExtractValidator<>();
 
+        Arrays.stream(annotation.validator())
+                .map(validatorName -> finder.find(validatorName, Chat.class))
+                .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
+
         Chat.Type type = annotation.type();
         if (type.isChosen()) {
             unionExtractValidator.add(in -> Optional.ofNullable(in.getType()), new TypeNameValidator(type));
         }
-        Arrays.stream(annotation.validator())
-                .map(validatorName -> finder.find(validatorName,Chat.class))
-                .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         StringFilter title = annotation.
                 title();

@@ -1,6 +1,5 @@
 package io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.telegram;
 
-import org.springframework.stereotype.Controller;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.BooleanFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.LongFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.NotNullFilter;
@@ -32,6 +31,7 @@ import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filte
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.UnionExtractValidator;
+import org.springframework.stereotype.Controller;
 
 import java.util.Arrays;
 import java.util.Optional;

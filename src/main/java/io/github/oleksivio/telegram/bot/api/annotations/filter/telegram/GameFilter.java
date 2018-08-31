@@ -16,6 +16,8 @@ public @interface GameFilter {
 
     AnnotationState status() default AnnotationState.ON;
 
+    String[] validator() default {};
+
     StringFilter title() default @StringFilter(status = AnnotationState.OFF);
 
     StringFilter description() default @StringFilter(status = AnnotationState.OFF);

@@ -1,16 +1,17 @@
 package io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.telegram;
 
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringFilter;
+import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.OrderInfoFilter;
+import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.PreCheckoutQueryFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.UserFilter;
+import io.github.oleksivio.telegram.bot.api.model.objects.payments.PreCheckoutQuery;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.UnionExtractValidator;
 import org.springframework.stereotype.Component;
-import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.OrderInfoFilter;
-import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.PreCheckoutQueryFilter;
-import io.github.oleksivio.telegram.bot.api.model.objects.payments.PreCheckoutQuery;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 @Component
@@ -19,6 +20,10 @@ public class PreCheckoutQueryFilterParser implements FilterParser<PreCheckoutQue
     @Override
     public Validator<PreCheckoutQuery> createChecker(PreCheckoutQueryFilter annotation, Finder finder) {
         UnionExtractValidator<PreCheckoutQuery> unionExtractValidator = new UnionExtractValidator<>();
+
+        Arrays.stream(annotation.validator())
+                .map(validatorName -> finder.find(validatorName, PreCheckoutQuery.class))
+                .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         UserFilter from = annotation.from();
         if (from.status().isActive()) {

@@ -1,8 +1,8 @@
 package io.github.oleksivio.telegram.bot.api.annotations.filter.telegram;
 
+import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.NotNullFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import io.github.oleksivio.telegram.bot.api.model.annotation.AnnotationState;
-import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.NotNullFilter;
 import io.github.oleksivio.telegram.bot.api.model.objects.passport.EncryptedPassportElement;
 
 import java.lang.annotation.Documented;
@@ -19,6 +19,8 @@ public @interface EncryptedPassportElementFilter {
     AnnotationState status() default AnnotationState.ON;
 
     EncryptedPassportElement.Type type() default EncryptedPassportElement.Type.ALL;
+
+    String[] validator() default {};
 
     NotNullFilter data() default @NotNullFilter(status = AnnotationState.OFF);
 

@@ -16,6 +16,8 @@ import java.lang.annotation.Target;
 public @interface VideoFilter {
     AnnotationState status() default AnnotationState.ON;
 
+    String[] validator() default {};
+
     IntegerFilter duration() default @IntegerFilter(status = AnnotationState.OFF);
 
     IntegerFilter width() default @IntegerFilter(status = AnnotationState.OFF);

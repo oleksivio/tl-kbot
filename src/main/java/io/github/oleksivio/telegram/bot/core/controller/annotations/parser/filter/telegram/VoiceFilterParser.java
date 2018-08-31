@@ -2,14 +2,15 @@ package io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filt
 
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringFilter;
+import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.VoiceFilter;
+import io.github.oleksivio.telegram.bot.api.model.objects.std.files.Voice;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.UnionExtractValidator;
 import org.springframework.stereotype.Component;
-import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.VoiceFilter;
-import io.github.oleksivio.telegram.bot.api.model.objects.std.files.Voice;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 @Component
@@ -18,6 +19,10 @@ public class VoiceFilterParser implements FilterParser<VoiceFilter, Voice> {
     @Override
     public Validator<Voice> createChecker(VoiceFilter annotation, Finder finder) {
         UnionExtractValidator<Voice> unionExtractValidator = new UnionExtractValidator<>();
+
+        Arrays.stream(annotation.validator())
+                .map(validatorName -> finder.find(validatorName, Voice.class))
+                .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         IntegerFilter duration = annotation.duration();
         if (duration.status().isActive()) {

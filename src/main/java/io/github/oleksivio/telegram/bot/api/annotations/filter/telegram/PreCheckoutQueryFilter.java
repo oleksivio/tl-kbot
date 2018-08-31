@@ -16,6 +16,8 @@ public @interface PreCheckoutQueryFilter {
 
     UserFilter from() default @UserFilter(status = AnnotationState.OFF);
 
+    String[] validator() default {};
+
     StringFilter currency() default @StringFilter(status = AnnotationState.OFF);
 
     StringFilter totalAmount() default @StringFilter(status = AnnotationState.OFF);

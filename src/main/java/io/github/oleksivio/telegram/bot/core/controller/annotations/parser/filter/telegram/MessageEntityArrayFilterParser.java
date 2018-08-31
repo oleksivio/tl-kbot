@@ -8,10 +8,11 @@ import io.github.oleksivio.telegram.bot.api.model.objects.std.MessageEntity;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator;
-import org.springframework.stereotype.Component;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.TypeNameValidator;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.UnionExtractValidatorList;
+import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +21,10 @@ public class MessageEntityArrayFilterParser implements FilterParser<MessageEntit
     @Override
     public Validator<List<MessageEntity>> createChecker(MessageEntityArrayFilter annotation, Finder finder) {
         UnionExtractValidatorList<MessageEntity> unionExtractValidatorList = new UnionExtractValidatorList<>();
+
+        Arrays.stream(annotation.validator())
+                .map(validatorName -> finder.find(validatorName, MessageEntity.class))
+                .forEach(validator -> unionExtractValidatorList.add(Optional::of, validator));
 
         MessageEntity.Type type = annotation.type();
         if (type.isChosen()) {

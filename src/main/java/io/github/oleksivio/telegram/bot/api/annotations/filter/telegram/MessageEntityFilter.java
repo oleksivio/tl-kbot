@@ -20,6 +20,8 @@ public @interface MessageEntityFilter {
 
     MessageEntity.Type type() default MessageEntity.Type.ALL;
 
+    String[] validator() default {};
+
     IntegerFilter length() default @IntegerFilter(status = AnnotationState.OFF);
 
     StringFilter url() default @StringFilter(status = AnnotationState.OFF);

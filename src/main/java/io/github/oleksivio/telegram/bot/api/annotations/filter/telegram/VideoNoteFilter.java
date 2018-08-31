@@ -16,6 +16,8 @@ public @interface VideoNoteFilter {
 
     AnnotationState status() default AnnotationState.ON;
 
+    String[] validator() default {};
+
     IntegerFilter length() default @IntegerFilter(status = AnnotationState.OFF);
 
     IntegerFilter duration() default @IntegerFilter(status = AnnotationState.OFF);

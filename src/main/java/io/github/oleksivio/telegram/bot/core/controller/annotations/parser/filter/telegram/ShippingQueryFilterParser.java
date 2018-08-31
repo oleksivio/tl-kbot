@@ -2,15 +2,16 @@ package io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filt
 
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.ShippingAddressFilter;
+import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.ShippingQueryFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.UserFilter;
+import io.github.oleksivio.telegram.bot.api.model.objects.payments.ShippingQuery;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.UnionExtractValidator;
 import org.springframework.stereotype.Component;
-import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.ShippingQueryFilter;
-import io.github.oleksivio.telegram.bot.api.model.objects.payments.ShippingQuery;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 @Component
@@ -19,6 +20,10 @@ public class ShippingQueryFilterParser implements FilterParser<ShippingQueryFilt
     @Override
     public Validator<ShippingQuery> createChecker(ShippingQueryFilter annotation, Finder finder) {
         UnionExtractValidator<ShippingQuery> unionExtractValidator = new UnionExtractValidator<>();
+
+        Arrays.stream(annotation.validator())
+                .map(validatorName -> finder.find(validatorName, ShippingQuery.class))
+                .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         UserFilter from = annotation.from();
         if (from.status().isActive()) {

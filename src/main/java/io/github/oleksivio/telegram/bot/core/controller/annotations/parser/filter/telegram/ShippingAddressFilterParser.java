@@ -1,13 +1,13 @@
 package io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.telegram;
 
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringFilter;
-import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder;
-import org.springframework.stereotype.Component;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.ShippingAddressFilter;
 import io.github.oleksivio.telegram.bot.api.model.objects.payments.ShippingAddress;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
+import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.UnionExtractValidator;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -20,7 +20,7 @@ public class ShippingAddressFilterParser implements FilterParser<ShippingAddress
         UnionExtractValidator<ShippingAddress> unionExtractValidator = new UnionExtractValidator<>();
 
         Arrays.stream(annotation.validator())
-                .map(validatorName -> finder.find(validatorName,ShippingAddress.class))
+                .map(validatorName -> finder.find(validatorName, ShippingAddress.class))
                 .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         StringFilter countryCode = annotation.countryCode();

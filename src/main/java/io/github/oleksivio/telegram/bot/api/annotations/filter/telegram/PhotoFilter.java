@@ -16,6 +16,8 @@ public @interface PhotoFilter {
 
     AnnotationState status() default AnnotationState.ON;
 
+    String[] validator() default {};
+
     IntegerFilter width() default @IntegerFilter(status = AnnotationState.OFF);
 
     IntegerFilter height() default @IntegerFilter(status = AnnotationState.OFF);

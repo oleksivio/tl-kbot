@@ -2,14 +2,15 @@ package io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filt
 
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.IntegerFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.PhotoFilter;
+import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.VideoNoteFilter;
+import io.github.oleksivio.telegram.bot.api.model.objects.std.files.VideoNote;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.UnionExtractValidator;
 import org.springframework.stereotype.Component;
-import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.VideoNoteFilter;
-import io.github.oleksivio.telegram.bot.api.model.objects.std.files.VideoNote;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 @Component
@@ -18,6 +19,10 @@ public class VideoNoteFilterParser implements FilterParser<VideoNoteFilter, Vide
     @Override
     public Validator<VideoNote> createChecker(VideoNoteFilter annotation, Finder finder) {
         UnionExtractValidator<VideoNote> unionExtractValidator = new UnionExtractValidator<>();
+
+        Arrays.stream(annotation.validator())
+                .map(validatorName -> finder.find(validatorName, VideoNote.class))
+                .forEach(validator -> unionExtractValidator.add(Optional::of, validator));
 
         IntegerFilter length = annotation.length();
         if (length.status().isActive()) {

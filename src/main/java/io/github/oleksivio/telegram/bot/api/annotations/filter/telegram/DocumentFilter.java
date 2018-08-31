@@ -17,6 +17,8 @@ public @interface DocumentFilter {
 
     AnnotationState status() default AnnotationState.ON;
 
+    String[] validator() default {};
+
     PhotoFilter thumb() default @PhotoFilter(status = AnnotationState.OFF);
 
     StringFilter fileName() default @StringFilter(status = AnnotationState.OFF);

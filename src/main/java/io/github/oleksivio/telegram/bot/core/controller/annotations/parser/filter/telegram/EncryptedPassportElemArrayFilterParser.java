@@ -5,13 +5,13 @@ import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringF
 import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.EncryptedPassportElementArrayFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.PassportFileArrayFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.PassportFileFilter;
+import io.github.oleksivio.telegram.bot.api.model.objects.passport.EncryptedPassportElement;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator;
+import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.TypeNameValidator;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.UnionExtractValidatorList;
 import org.springframework.stereotype.Component;
-import io.github.oleksivio.telegram.bot.api.model.objects.passport.EncryptedPassportElement;
-import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.TypeNameValidator;
 
 import java.util.Arrays;
 import java.util.List;
@@ -31,10 +31,8 @@ public class EncryptedPassportElemArrayFilterParser implements FilterParser<Encr
         }
 
         Arrays.stream(annotation.validator())
-                .map(validatorName -> finder.find(validatorName,EncryptedPassportElement.class))
-                .forEach(validator -> {
-                    unionExtractValidatorList.add(Optional::of, validator);
-                });
+                .map(validatorName -> finder.find(validatorName, EncryptedPassportElement.class))
+                .forEach(validator -> unionExtractValidatorList.add(Optional::of, validator));
 
         NotNullFilter data = annotation.data();
         if (data.status().isActive()) {

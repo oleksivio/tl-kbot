@@ -1,14 +1,14 @@
 package io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.telegram;
 
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringFilter;
+import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.OrderInfoFilter;
 import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.ShippingAddressFilter;
+import io.github.oleksivio.telegram.bot.api.model.objects.payments.OrderInfo;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.FilterParser;
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator;
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.UnionExtractValidator;
 import org.springframework.stereotype.Component;
-import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.OrderInfoFilter;
-import io.github.oleksivio.telegram.bot.api.model.objects.payments.OrderInfo;
 
 import java.util.Arrays;
 import java.util.Optional;
