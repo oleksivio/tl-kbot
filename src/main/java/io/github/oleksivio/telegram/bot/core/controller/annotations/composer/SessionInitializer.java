@@ -20,6 +20,8 @@ import java.util.Optional;
 @Controller
 public class SessionInitializer {
 
+    private static final Class<Session.Order> SESSION_ORDER_CLASS = Session.Order.class;
+    private static final Class<Session.Error> SESSION_ERROR_CLASS = Session.Error.class;
     private final HandlerCreator handlerCreator;
     private final SessionProcessor sessionProcessor;
 
@@ -32,9 +34,10 @@ public class SessionInitializer {
         Handler initialHandler = null;
         Handler cancelHandler = null;
 
-        Map<Integer, List<Handler>> orderMap = new HashMap<>();
+        Map<Integer, List<Handler>> handlerMap = new HashMap<>();
+        Map<Integer, Handler> errorMap = new HashMap<>();
 
-        SessionType sessionType = objClz.getDeclaredAnnotation(Session.class).type();
+        SessionType sessionType = objClz.getDeclaredAnnotation(Session.class).value();
 
         for (Method method : objClz.getDeclaredMethods()) {
 
@@ -50,18 +53,24 @@ public class SessionInitializer {
             else if (method.isAnnotationPresent(Session.Cancel.class)) {
                 cancelHandler = handler;
             }
-            else if (method.isAnnotationPresent(Session.Order.class)) {
-                Session.Order orderAnnotation = method.getDeclaredAnnotation(Session.Order.class);
-                int order = orderAnnotation.value();
-                List<Handler> handlers = orderMap.computeIfAbsent(order, i -> new ArrayList<>());
+            else if (method.isAnnotationPresent(SESSION_ORDER_CLASS)) {
+                int order = method.getDeclaredAnnotation(SESSION_ORDER_CLASS).value();
+                List<Handler> handlers = handlerMap.computeIfAbsent(order, i -> new ArrayList<>());
                 handlers.add(handler);
+            }
+            else if (method.isAnnotationPresent(SESSION_ERROR_CLASS)) {
+                int errorOrder = method.getDeclaredAnnotation(SESSION_ERROR_CLASS).value();
+
+                check(errorMap, errorOrder);
+
+                errorMap.put(errorOrder, handler);
             }
 
         }
 
-        check(initialHandler, cancelHandler, orderMap);
+        check(initialHandler, cancelHandler, handlerMap, errorMap);
 
-        OrderManager orderManager = new OrderManager(orderMap);
+        OrderManager orderManager = new OrderManager(handlerMap, errorMap);
 
         SessionManager sessionManager = createSession(sessionType,
                                                       orderManager,
@@ -70,13 +79,28 @@ public class SessionInitializer {
         sessionProcessor.add(sessionManager);
     }
 
+    private static void check(Map<Integer, Handler> errorMap, int errorOrder) {
+        if (errorMap.containsKey(errorOrder)) {
+            throw new IllegalArgumentException("Can't be more than one error receivers");
+        }
+    }
+
     private static void check(Handler initialHandler,
                               Handler cancelHandler,
-                              Map<Integer, List<Handler>> orderMap) throws IllegalArgumentException {
+                              Map<Integer, List<Handler>> orderMap,
+                              Map<Integer, Handler> errorMap) throws IllegalArgumentException {
         if (orderMap == null || orderMap.isEmpty()) {
             throw new IllegalArgumentException("Invalid session state. " +
                                                        "Can't be less than one" +
                                                        " Session Order method's");
+        }
+
+        for (Integer index : errorMap.keySet()) {
+            if (!orderMap.keySet().contains(index)) {
+                throw new IllegalArgumentException("Invalid session error state. " +
+                                                           "Can't be Session Error and Session Order" +
+                                                           " must have same index");
+            }
         }
 
         if (initialHandler == null) {

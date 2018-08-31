@@ -52,11 +52,7 @@ public abstract class SessionManager {
             return cancelHandler.run(update);
         }
 
-        List<Handler> handlerList = orderManager.getCurrent(id);
-        if (handlerList.isEmpty()) {
-            orderManager.reset(id);
-            return HandlerResult.pass();
-        }
+        List<Handler> handlerList = orderManager.getOrderHandlerList(id);
 
         for (Handler handler : handlerList) {
             if (handler.hasSubscription(update)) {
@@ -75,7 +71,11 @@ public abstract class SessionManager {
             }
         }
 
-        return HandlerResult.pass();
+        return Optional.ofNullable(orderManager.getErrorHandler(id))
+                .filter(Optional::isPresent)
+                .map(Optional::get)
+                .map(handler -> handler.run(update))
+                .orElse(HandlerResult.pass());
     }
 
     public boolean isActive(Update update) {

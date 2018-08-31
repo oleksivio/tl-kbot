@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 @Documented
 public @interface Session {
 
-    SessionType type();
+    SessionType value();
 
     @Retention(RetentionPolicy.RUNTIME)
     @Target({ElementType.METHOD})
@@ -31,5 +31,10 @@ public @interface Session {
         int value();
     }
 
+    @Retention(RetentionPolicy.RUNTIME)
+    @Target(ElementType.METHOD)
+    @interface Error {
+        int value();
+    }
 
 }
