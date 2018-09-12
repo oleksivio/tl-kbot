@@ -1,11 +1,12 @@
 package io.github.oleksivio.telegram.bot.api.model.objects.std.keyboard.button;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.github.oleksivio.telegram.bot.core.model.ITelegram;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#keyboardbutton">KeyboardButton</a>
  */
-public class ReplyKeyboardButton {
+public class ReplyKeyboardButton implements ITelegram {
     /**
      * text String Text of the button. If none of the optional fields are used, it will be sent as
      * a message when the button is pressed

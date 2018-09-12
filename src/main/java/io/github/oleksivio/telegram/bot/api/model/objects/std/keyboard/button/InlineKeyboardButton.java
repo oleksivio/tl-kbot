@@ -2,11 +2,12 @@ package io.github.oleksivio.telegram.bot.api.model.objects.std.keyboard.button;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.oleksivio.telegram.bot.api.model.objects.std.game.CallbackGame;
+import io.github.oleksivio.telegram.bot.core.model.ITelegram;
 
 /**
  * @see <a href="https://core.telegram.org/bots/api#inlinekeyboardbutton">InlineKeyboardButton</a>
  */
-public class InlineKeyboardButton {
+public class InlineKeyboardButton  implements ITelegram {
     /**
      * text String Label text on the button
      */
