@@ -8,7 +8,7 @@ Add to you dependencies:
 
 Gradle:
 ```
-compile 'io.github.oleksivio:telegram-bot-api:0.9.1'
+compile 'io.github.oleksivio:telegram-bot-api:0.9.2'
 ```
 Maven: 
 ```
@@ -23,13 +23,8 @@ Add to spring `application.properties`
 ```
 telegram.bot.token=<TELEGRAM_BOT_TOKEN>
 ```
-## Documentation
 
-* [[Server requests|Requests]]
-* [[Receivers|Receivers]]
-* [[Filters|Filters]]
-* [[Session|Session]]
-
+[Documentation](https://github.com/oleksivio/telegram-bot-api/wiki)
 
 ## Versioning
 
