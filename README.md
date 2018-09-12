@@ -19,6 +19,18 @@ Maven:
 </dependency>
 ```
 
+Add to spring `application.properties`
+```
+telegram.bot.token=<TELEGRAM_BOT_TOKEN>
+```
+## Documentation
+
+* [[Server requests|Requests]]
+* [[Receivers|Receivers]]
+* [[Filters|Filters]]
+* [[Session|Session]]
+
+
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/oleksivio/telegram-bot-api/tags). 
