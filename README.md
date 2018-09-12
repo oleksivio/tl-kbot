@@ -8,14 +8,14 @@ Add to you dependencies:
 
 Gradle:
 ```
-compile 'io.github.oleksivio:telegram-bot-api:0.9.0'
+compile 'io.github.oleksivio:telegram-bot-api:0.9.1'
 ```
 Maven: 
 ```
 <dependency>
   <groupId>io.github.oleksivio</groupId>
   <artifactId>telegram-bot-api</artifactId>
-  <version>0.9.0</version>
+  <version>0.9.1</version>
 </dependency>
 ```
 
