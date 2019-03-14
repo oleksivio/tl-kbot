@@ -1,0 +1,35 @@
+package io.github.oleksivio.telegram.bot.core.controller.network
+
+import io.github.oleksivio.telegram.bot.api.model.NetworkError
+import io.github.oleksivio.telegram.bot.core.model.CommonResponse
+import org.springframework.beans.factory.annotation.Value
+import org.springframework.http.HttpEntity
+import org.springframework.http.HttpHeaders
+import org.springframework.http.MediaType
+import org.springframework.stereotype.Controller
+import org.springframework.util.MultiValueMap
+import org.springframework.web.client.RestOperations
+
+/**
+ * Created by oleksivio on 14.03.19 at 8:19
+ * Project: telegram-bot-api
+ */
+@Controller
+class FileNetworker(template: RestOperations,
+                    @Value("\${telegram.bot.token}") token: String) : Networker(template, token) {
+
+    fun <T : CommonResponse<*>> run(requestMap: MultiValueMap<String, Any>,
+                                    clazz: Class<T>,
+                                    networkError: NetworkError?): T? {
+
+        return safelyRun(networkError) { template, url ->
+            val headers = HttpHeaders()
+            headers.contentType = MediaType.MULTIPART_FORM_DATA
+
+            val requestEntity = HttpEntity(requestMap, headers)
+
+            template.postForObject(url, requestEntity, clazz)
+        }
+    }
+
+}
