@@ -31,6 +31,7 @@ dependencies {
     // jackson kotlin 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.7")
     implementation(kotlin("stdlib-jdk8"))
+    implementation(kotlin("reflect"))
     // Spring dependencies
 
     implementation("org.springframework:spring-core:5.1.5.RELEASE")
@@ -47,7 +48,7 @@ dependencies {
 
 tasks.register<Jar>("sourcesJar") {
     archiveClassifier.set("sources")
-    from(sourceSets.main.get().allJava)
+    from(sourceSets.main.get().allSource)
 }
 
 tasks.register<Jar>("javadocJar") {
