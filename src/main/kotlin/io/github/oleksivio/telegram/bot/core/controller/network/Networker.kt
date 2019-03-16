@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory
 import org.springframework.web.client.HttpClientErrorException
 import org.springframework.web.client.RestClientException
 import org.springframework.web.client.RestOperations
+import org.springframework.web.client.RestTemplate
 import java.io.IOException
 
 /**
@@ -17,10 +18,10 @@ import java.io.IOException
 private const val TELEGRAM_SERVER_URL = "https://api.telegram.org/bot"
 private const val URL_SEPARATOR = '/'
 
-open class Networker(private val template: RestOperations,
-                     token: String) {
+open class Networker(token: String) {
     private val LOG = LoggerFactory.getLogger(Networker::class.java)
 
+    private val template = RestTemplate()
     private val url: String = TELEGRAM_SERVER_URL + token + URL_SEPARATOR
 
     fun <T : CommonResponse<*>> safelyRun(networkError: NetworkError?,

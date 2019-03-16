@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Controller
 import kotlin.reflect.KClass
 import kotlin.reflect.KFunction
+import kotlin.reflect.jvm.javaMethod
 
 @Controller
 class InvokerProducer {
@@ -17,14 +18,16 @@ class InvokerProducer {
                                  classInstance: Any,
                                  argClass: KClass<ARG>): Invoker<ARG>? {
 
-        val funcArgsTypes = func.typeParameters
+        val funcArgsTypes = func.javaMethod?.parameterTypes ?: return null
+
+
 
         if (funcArgsTypes.size != 1) {
             LOG.error(" Invalid parameter count for method $func")
             return null
         }
 
-        if (funcArgsTypes[0] != argClass) {
+        if (funcArgsTypes[0].kotlin != argClass) {
             LOG.error(" Invalid parameter type for method $func")
             return null
         }

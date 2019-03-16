@@ -8,8 +8,7 @@ import org.springframework.stereotype.Controller
 import org.springframework.web.client.RestOperations
 
 @Controller
-class ActionNetworker(template: RestOperations,
-                      @Value("\${telegram.bot.token}") token: String) : Networker(template, token) {
+class ActionNetworker(@Value("\${telegram.bot.token}") token: String) : Networker( token) {
 
     fun <T : CommonResponse<*>> run(action: Action<*>,
                                     clazz: Class<T>,

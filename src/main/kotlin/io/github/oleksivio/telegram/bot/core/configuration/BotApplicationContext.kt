@@ -22,6 +22,9 @@ class BotApplicationContext(private val annotationProcessor: AnnotationProcessor
     override fun setApplicationContext(applicationContext: ApplicationContext) {
 
         applicationContext.beanDefinitionNames
+                .filter { !it.contains("loggingCodecCustomizer") }
+                .filter { !it.contains("jacksonCodecCustomizer") }
+                .filter { !it.startsWith("org.springframework") }
                 .map { SimpleBean(it, applicationContext.getBean(it)) }
                 .forEach {
                     if (it.isFilterValidator) {
@@ -35,8 +38,9 @@ class BotApplicationContext(private val annotationProcessor: AnnotationProcessor
     }
 
     private class SimpleBean constructor(val name: String, val instance: Any) {
-        val isFilterValidator: Boolean
-            get() = instance::class.superclasses.any { it.java == FilterValidator::class }
+        val isFilterValidator: Boolean = instance::class.superclasses.any {
+            it == FilterValidator::class
+        }
     }
 
 }
