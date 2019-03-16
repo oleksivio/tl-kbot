@@ -4,8 +4,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 val uploadUsernameProp: String? by project
 val uploadPasswordProp: String? by project
 
-// get properties from env
-val uploadUsernameEnv: String? = System.getenv("CI_NEXUS_USERNAME")
 
 repositories {
     mavenCentral()
@@ -20,11 +18,9 @@ repositories {
 
 plugins {
     val kotlinVersion = "1.3.21"
-    id("org.springframework.boot") version "2.1.2.RELEASE"
     kotlin("jvm") version (kotlinVersion)
     id("org.jetbrains.kotlin.plugin.spring") version kotlinVersion
     id("org.jetbrains.kotlin.plugin.jpa") version kotlinVersion
-    id("io.spring.dependency-management") version "1.0.7.RELEASE"
     `maven-publish`
     signing
 }
@@ -37,10 +33,10 @@ dependencies {
     implementation(kotlin("stdlib-jdk8"))
     // Spring dependencies
 
-    implementation("org.springframework:spring-core")
-    implementation("org.springframework:spring-context")
-    implementation("org.springframework:spring-beans")
-    implementation("org.springframework:spring-web")
+    implementation("org.springframework:spring-core:5.1.5.RELEASE")
+    implementation("org.springframework:spring-context:5.1.5.RELEASE")
+    implementation("org.springframework:spring-beans:5.1.5.RELEASE")
+    implementation("org.springframework:spring-web:5.1.5.RELEASE")
 
 
     implementation("org.slf4j:jcl-over-slf4j:1.7.12")
@@ -62,7 +58,7 @@ tasks.register<Jar>("javadocJar") {
 publishing {
     publications {
         create<MavenPublication>("mavenJava") {
-            artifact(tasks["bootJar"])
+            artifact(tasks["jar"])
             artifact(tasks["sourcesJar"])
             artifact(tasks["javadocJar"])
         }
@@ -86,7 +82,7 @@ publishing {
 
 val archivesBaseName = "telegram-bot-api"
 group = "io.github.oleksivio"
-version = "0.9.2"
+version = "1.0.0"
 
 signing {
     sign(publishing.publications["mavenJava"])
@@ -99,6 +95,7 @@ java {
 
 tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
+
 }
 
 val compileKotlin: KotlinCompile by tasks
