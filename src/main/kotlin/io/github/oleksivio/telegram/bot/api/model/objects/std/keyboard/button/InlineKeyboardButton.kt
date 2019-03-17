@@ -5,7 +5,7 @@ import io.github.oleksivio.telegram.bot.api.model.objects.std.game.CallbackGame
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [InlineKeyboardButton](https://core.telegram.org/bots/api.inlinekeyboardbutton)
+ * @see [InlineKeyboardButton](https://core.telegram.org/bots/api/#inlinekeyboardbutton)
  */
 class InlineKeyboardButton : ITelegram {
     /**

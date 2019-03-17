@@ -6,7 +6,7 @@ import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringF
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [Contact](https://core.telegram.org/bots/api.contact)
+ * @see [Contact](https://core.telegram.org/bots/api/#contact)
  */
 data class Contact(
         /**

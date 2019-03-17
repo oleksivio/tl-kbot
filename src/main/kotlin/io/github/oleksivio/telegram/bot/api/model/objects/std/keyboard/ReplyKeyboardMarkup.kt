@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.oleksivio.telegram.bot.api.model.objects.std.keyboard.row.ReplyButtonRow
 
 /**
- * @see [ReplyKeyboardMarkup](https://core.telegram.org/bots/api.replykeyboardmarkup)
+ * @see [ReplyKeyboardMarkup](https://core.telegram.org/bots/api/#replykeyboardmarkup)
  */
 data class ReplyKeyboardMarkup(
         /**
@@ -33,7 +33,7 @@ data class ReplyKeyboardMarkup(
          * reply_to_message_id), sender of the original message.
          */
         @JsonProperty("selective")
-         var selective: Boolean? = null
+        var selective: Boolean? = null
 
 ) : IKeyboard {
 

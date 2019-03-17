@@ -1,6 +1,5 @@
 package io.github.oleksivio.telegram.bot.core.model.method
 
-import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import io.github.oleksivio.telegram.bot.core.model.CommonResponse
@@ -10,9 +9,8 @@ import kotlin.reflect.KClass
 @JsonInclude(JsonInclude.Include.NON_NULL)
 abstract class Action<RES> {
 
-    @get:JsonIgnore
-    protected abstract val resultWrapperClass: KClass<out CommonResponse<RES>>
+    abstract val method: String
 
-    @JsonIgnore
-    abstract fun send(): RES?
+    abstract val resultWrapperClass: KClass<out CommonResponse<RES>>
+
 }

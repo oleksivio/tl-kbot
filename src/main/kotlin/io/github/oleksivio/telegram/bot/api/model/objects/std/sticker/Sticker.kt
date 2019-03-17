@@ -9,7 +9,7 @@ import io.github.oleksivio.telegram.bot.api.model.objects.std.files.PhotoSize
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [Sticker](https://core.telegram.org/bots/api.sticker)
+ * @see [Sticker](https://core.telegram.org/bots/api/#sticker)
  */
 data class Sticker(
         /**

@@ -1,25 +1,29 @@
 package io.github.oleksivio.telegram.bot.api.model.method.message
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.github.oleksivio.telegram.bot.core.controller.network.ActionNetworker
+import io.github.oleksivio.telegram.bot.core.model.ApiDict
 import io.github.oleksivio.telegram.bot.core.model.BooleanResponse
-import io.github.oleksivio.telegram.bot.core.model.method.ChatAction
+import io.github.oleksivio.telegram.bot.core.model.method.common.ChatAction
 
 /**
- * @see [deleteMessage](https://core.telegram.org/bots/api.deletemessage)
+ * @see [deleteMessage](https://core.telegram.org/bots/api/#deletemessage)
  */
-class DeleteMessage(actionNetworker: ActionNetworker) : ChatAction<Boolean>(METHOD, actionNetworker) {
+data class DeleteMessage(
+        /**
+         * message_id Integer Yes Identifier of the message to delete
+         */
+        @JsonProperty(ApiDict.MESSAGE_ID_KEY)
+        val messageId: Long,
+        /**
+         * chat_id Integer or String Yes Unique identifier for the target chat or username of the target channel (in the format @channelusername)
+         */
+        @JsonProperty(ApiDict.CHAT_ID_KEY)
+        override val chatId: Long
+) : ChatAction<Boolean>() {
+    @JsonProperty(ApiDict.METHOD_KEY)
+    override val method: String = "deleteMessage"
 
-    /**
-     * message_id Integer Identifier of the message to delete
-     */
-    @JsonProperty("message_id")
-    var messageId: Long? = null
-
+    @JsonIgnore
     override val resultWrapperClass = BooleanResponse::class
-
-    companion object {
-        private const val METHOD = "deleteMessage"
-    }
-
 }

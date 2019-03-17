@@ -8,7 +8,7 @@ import io.github.oleksivio.telegram.bot.api.model.objects.std.User
 import io.github.oleksivio.telegram.bot.core.model.objects.IUserFrom
 
 /**
- * @see [ShippingQuery](https://core.telegram.org/bots/api.shippingquery)
+ * @see [ShippingQuery](https://core.telegram.org/bots/api/#shippingquery)
  */
 data class ShippingQuery(
         /**

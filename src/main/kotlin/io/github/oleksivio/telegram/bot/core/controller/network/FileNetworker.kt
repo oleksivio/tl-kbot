@@ -18,7 +18,7 @@ class FileNetworker(@Value("\${telegram.bot.token}") token: String) : Networker(
 
     fun <T : CommonResponse<*>> run(requestMap: MultiValueMap<String, Any>,
                                     clazz: Class<T>,
-                                    networkError: NetworkError?): T? {
+                                    networkError: NetworkError): T? {
 
         return safelyRun(networkError) { template, url ->
             val headers = HttpHeaders()

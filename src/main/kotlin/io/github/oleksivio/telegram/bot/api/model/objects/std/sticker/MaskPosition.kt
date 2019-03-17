@@ -7,7 +7,7 @@ import io.github.oleksivio.telegram.bot.core.model.ITelegram
 import io.github.oleksivio.telegram.bot.core.model.type.TelegramType
 
 /**
- * @see [MaskPosition](https://core.telegram.org/bots/api.maskposition)
+ * @see [MaskPosition](https://core.telegram.org/bots/api/#maskposition)
  */
 data class MaskPosition(
         /**

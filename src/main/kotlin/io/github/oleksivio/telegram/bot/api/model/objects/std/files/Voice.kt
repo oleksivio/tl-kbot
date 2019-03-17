@@ -6,7 +6,7 @@ import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringF
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [Voice](https://core.telegram.org/bots/api.voice)
+ * @see [Voice](https://core.telegram.org/bots/api/#voice)
  */
 data class Voice(
         /**

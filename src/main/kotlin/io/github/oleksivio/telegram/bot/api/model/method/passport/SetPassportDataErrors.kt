@@ -1,31 +1,30 @@
 package io.github.oleksivio.telegram.bot.api.model.method.passport
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.oleksivio.telegram.bot.api.model.objects.passport.errors.PassportElementError
-import io.github.oleksivio.telegram.bot.core.controller.network.ActionNetworker
+import io.github.oleksivio.telegram.bot.core.model.ApiDict
 import io.github.oleksivio.telegram.bot.core.model.BooleanResponse
-import io.github.oleksivio.telegram.bot.core.model.method.RunnableAction
-import java.util.*
+import io.github.oleksivio.telegram.bot.core.model.method.Action
 
 /**
- * @see [setPassportDataErrors](https://core.telegram.org/bots/api.setpassportdataerrors)
+ * @see [setPassportDataErrors](https://core.telegram.org/bots/api/#setpassportdataerrors)
  */
-class SetPassportDataErrors(actionNetworker: ActionNetworker) : RunnableAction<Boolean>(METHOD, actionNetworker) {
-    /**
-     * user_id Integer Yes User identifier
-     */
-    @JsonProperty("user_id")
-    var userId: Int? = null
-    /**
-     * errors Array of PassportElementError Yes A JSON-serialized array describing the errors
-     */
-    @JsonProperty("errors")
-    val errors = ArrayList<PassportElementError>()
+data class SetPassportDataErrors(
+        /**
+         * user_id Integer Yes User identifier
+         */
+        @JsonProperty(ApiDict.USER_ID_KEY)
+        val userId: Int,
+        /**
+         * errors Array of PassportElementError Yes A JSON-serialized array describing the errors
+         */
+        @JsonProperty(ApiDict.ERRORS_KEY)
+        val errors: List<PassportElementError>
 
+) : Action<Boolean>() {
+    @JsonProperty(ApiDict.METHOD_KEY)
+    override val method = "setPassportDataErrors"
+    @JsonIgnore
     override val resultWrapperClass = BooleanResponse::class
-
-    companion object {
-        private const val METHOD = "setPassportDataErrors"
-    }
-
 }

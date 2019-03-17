@@ -6,7 +6,7 @@ import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.Encrypte
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [PassportData](https://core.telegram.org/bots/api.passportdata)
+ * @see [PassportData](https://core.telegram.org/bots/api/#passportdata)
  */
 data class PassportData(
         /**

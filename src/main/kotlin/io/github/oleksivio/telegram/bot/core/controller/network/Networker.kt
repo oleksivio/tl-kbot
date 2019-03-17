@@ -24,13 +24,13 @@ open class Networker(token: String) {
     private val template = RestTemplate()
     private val url: String = TELEGRAM_SERVER_URL + token + URL_SEPARATOR
 
-    fun <T : CommonResponse<*>> safelyRun(networkError: NetworkError?,
+    fun <T : CommonResponse<*>> safelyRun(networkError: NetworkError,
                                           networker: (template: RestOperations, url: String) -> T?): T? {
         return try {
             return networker(template, url)
         } catch (httpException: HttpClientErrorException) {
             parseErrorResponse(httpException)?.let { exception ->
-                networkError?.onServerError(exception)
+                networkError(exception)
             }
             null
         } catch (e: RestClientException) {

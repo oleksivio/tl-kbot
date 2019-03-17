@@ -3,7 +3,7 @@ package io.github.oleksivio.telegram.bot.api.model.objects.std.files.inputmedia
 import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
- * @see [InputMediaVideo](https://core.telegram.org/bots/api.inputmediavideo)
+ * @see [InputMediaVideo](https://core.telegram.org/bots/api/#inputmediavideo)
  */
 data class InputMediaVideo(
         /**

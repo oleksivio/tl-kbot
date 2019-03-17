@@ -1,80 +1,94 @@
 package io.github.oleksivio.telegram.bot.api.model.method.file
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.oleksivio.telegram.bot.api.model.objects.std.keyboard.IKeyboard
-import io.github.oleksivio.telegram.bot.core.controller.network.FileNetworker
-import io.github.oleksivio.telegram.bot.core.model.method.UploadMessageFile
+import io.github.oleksivio.telegram.bot.core.model.ApiDict
+import io.github.oleksivio.telegram.bot.core.model.method.ActionMap
 import io.github.oleksivio.telegram.bot.core.model.method.file.UploadMediaFile
 import org.springframework.core.io.FileSystemResource
 
 /**
- * @see [sendVideoNote](https://core.telegram.org/bots/api.sendvideonote)
+ * @see [sendVideoNote](https://core.telegram.org/bots/api/#sendvideonote)
  */
-class SendVideoNoteFile(fileNetworker: FileNetworker) : UploadMediaFile(METHOD, fileNetworker) {
-
-    fun setThumb(thumb: FileSystemResource) {
-        putFile(THUMB_KEY, thumb)
-    }
-
-    fun setLength(length: Int?) {
-        putInt(LENGTH_KEY, length)
-    }
-
-    fun setVideoNote(videoNote: FileSystemResource) {
-        putFile(VIDEO_NOTE_KEY, videoNote)
-    }
-
-    fun setDuration(duration: Int?) {
-        putInt(DURATION_KEY, duration)
-    }
-
-    fun setReplyMarkup(replyMarkup: IKeyboard) {
-        putReplyMarkup(replyMarkup)
-    }
-
-    fun setDisableNotification(disableNotification: Boolean?) {
-        putBool(UploadMessageFile.DISABLE_NOTIFICATION_KEY, disableNotification)
-    }
-
-    fun setReplyToMessageId(replyToMessageId: Long?) {
-        putLong(UploadMessageFile.REPLY_TO_MESSAGE_ID, replyToMessageId)
-    }
-
-    fun setChatId(chatId: Long?) {
-        putLong(UploadMessageFile.CHAT_ID_KEY, chatId)
-    }
-
-    fun setParseMode(parseMode: String) {
-        putString(UploadMediaFile.PARSE_MODE_KEY, parseMode)
-    }
-
-    fun setCaption(caption: String) {
-        putString(UploadMediaFile.CAPTION_KEY, caption)
-    }
-
-    companion object {
-        private const val METHOD = "sendVideoNote"
+data class SendVideoNoteFile(
         /**
-         * video_note InputFile or String Video note to send. Pass a file_id as String to send a
-         * video note that exists on the Telegram servers (recommended) or upload a new video using
-         * multipart/form-data. More info on Sending Files ». Sending video notes by a URL is currently
-         * unsupported
+         * chat_id Integer Yes Unique identifier for the target chat
          */
-        private const val VIDEO_NOTE_KEY = "video_note"
+        @JsonProperty(ApiDict.CHAT_ID_KEY)
+        val chatId: Long,
+        /**
+         * video_note String Video note to send. Pass a file_id as String to send a
+         * video note that exists on the Telegram servers (recommended).
+         * Sending video notes by a URL is currently unsupported
+         */
+        @JsonProperty("video_note")
+        val videoNote: FileSystemResource,
         /**
          * duration Integer Optional Duration of sent video in seconds
          */
-        private const val DURATION_KEY = "duration"
+        @JsonProperty("duration")
+        val duration: Int? = null,
         /**
          * length Integer Optional Video width and height
          */
-        private const val LENGTH_KEY = "length"
+        @JsonProperty("length")
+        val length: Int? = null,
         /**
-         * thumb InputFile or String Optional Thumbnail of the file sent. The thumbnail should be
-         * in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed
-         * 90. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can’t be reused
-         * and can be only uploaded as a new file, so you can pass “attach://<file_attach_name>” if the
-         * thumbnail was uploaded using multipart/form-data under <file_attach_name>.
-        </file_attach_name></file_attach_name> */
-        private const val THUMB_KEY = "thumb"
+         * thumb  String Optional Thumbnail of the file sent;
+         * can be ignored if thumbnail generation for the file is supported server-side.
+         * The thumbnail should be in JPEG format and less than 200 kB in size.
+         * A thumbnail‘s width and height should not exceed 90.
+         * Ignored if the file is not uploaded using multipart/form-data.
+         * Thumbnails can’t be reused and can be only uploaded as a new file,
+         * so you can pass “attach://<file_attach_name>” if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More info on Sending Files »
+         */
+        @JsonProperty(ApiDict.THUMB_KEY)
+        val thumb: FileSystemResource? = null,
+        /**
+         * caption String Optional Animation caption (may also be used when resending animation by file_id), 0-1024 characters
+         */
+        @JsonProperty(ApiDict.CAPTION_KEY)
+        override val caption: String? = null,
+        /**
+         * parse_mode String Optional Send Markdown or HTML, if you want Telegram apps to show bold, italic,
+         * fixed-width text or inline URLs in the media caption.
+         */
+        @JsonProperty(ApiDict.PARSE_MODE_KEY)
+        override val parseMode: String? = null,
+        /**
+         * reply_markup InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply Optional
+         * Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard,
+         * instructions to remove reply keyboard or to force a reply from the user.
+         */
+        @JsonProperty(ApiDict.REPLY_MARKUP_KEY)
+        override val replyMarkup: IKeyboard? = null,
+        /**
+         * disable_notification Boolean Optional Sends the message silently.
+         * Users will receive a notification with no sound.
+         */
+        @JsonProperty(ApiDict.DISABLE_NOTIFICATION_KEY)
+        override val disableNotification: Boolean? = null,
+        /**
+         * reply_to_message_id Integer Optional If the message is a reply, ID of the original message
+         */
+        @JsonProperty(ApiDict.REPLY_TO_MESSAGE_ID_KEY)
+        override val replyToMessageId: Long? = null
+) : UploadMediaFile() {
+    override fun ActionMap.fill() {
+        thumb?.let { putFile(ApiDict.THUMB_KEY, it) }
+        length?.let { putInt(ApiDict.LENGTH_KEY, it) }
+        putFile(ApiDict.VIDEO_NOTE_KEY, videoNote)
+        duration?.let { putInt(ApiDict.DURATION_KEY, it) }
+        
+        replyMarkup?.let { putObject(ApiDict.REPLY_MARKUP_KEY, it) }
+        disableNotification?.let { putBool(ApiDict.DISABLE_NOTIFICATION_KEY, it) }
+        replyToMessageId?.let { putLong(ApiDict.REPLY_TO_MESSAGE_ID_KEY, it) }
+        putLong(ApiDict.CHAT_ID_KEY, chatId)
+        parseMode?.let { putString(ApiDict.PARSE_MODE_KEY, it) }
+        caption?.let { putString(ApiDict.CAPTION_KEY, it) }
     }
+
+    @JsonProperty(ApiDict.METHOD_KEY)
+    override val method = "sendVideoNote"
+
 }

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [ChatPhoto](https://core.telegram.org/bots/api.chatphoto)
+ * @see [ChatPhoto](https://core.telegram.org/bots/api/#chatphoto)
  */
 data class ChatPhoto(
         /**

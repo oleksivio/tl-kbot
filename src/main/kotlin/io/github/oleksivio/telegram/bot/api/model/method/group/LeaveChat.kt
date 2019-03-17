@@ -1,18 +1,25 @@
 package io.github.oleksivio.telegram.bot.api.model.method.group
 
-import io.github.oleksivio.telegram.bot.core.controller.network.ActionNetworker
+import com.fasterxml.jackson.annotation.JsonIgnore
+import com.fasterxml.jackson.annotation.JsonProperty
+import io.github.oleksivio.telegram.bot.core.model.ApiDict
 import io.github.oleksivio.telegram.bot.core.model.BooleanResponse
-import io.github.oleksivio.telegram.bot.core.model.method.ChatAction
+import io.github.oleksivio.telegram.bot.core.model.method.common.ChatAction
 
 /**
- * @see [leaveChat](https://core.telegram.org/bots/api.leavechat)
+ * @see [leaveChat](https://core.telegram.org/bots/api/#leavechat)
  */
-class LeaveChat(actionNetworker: ActionNetworker) : ChatAction<Boolean>(METHOD, actionNetworker) {
+data class LeaveChat(
+        /**
+         * chat_id Integer or String Yes Unique identifier for the target chat or username of the target channel
+         */
+        @JsonProperty(ApiDict.CHAT_ID_KEY)
+        override val chatId: Long
+) : ChatAction<Boolean>() {
 
+    @JsonIgnore
     override val resultWrapperClass = BooleanResponse::class
 
-    companion object {
-        private const val METHOD = "leaveChat"
-    }
-
+    @JsonProperty(ApiDict.METHOD_KEY)
+    override val method = "leaveChat"
 }

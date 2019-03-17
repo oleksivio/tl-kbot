@@ -8,7 +8,7 @@ import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.OrderInf
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [SuccessfulPayment](https://core.telegram.org/bots/api.successfulpayment)
+ * @see [SuccessfulPayment](https://core.telegram.org/bots/api/#successfulpayment)
  */
 data class SuccessfulPayment(
         /**

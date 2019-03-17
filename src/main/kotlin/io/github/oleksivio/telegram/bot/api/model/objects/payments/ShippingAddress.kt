@@ -5,7 +5,7 @@ import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringF
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [ShippingAddress](https://core.telegram.org/bots/api.shippingaddress)
+ * @see [ShippingAddress](https://core.telegram.org/bots/api/#shippingaddress)
  */
 data class ShippingAddress(
         /**

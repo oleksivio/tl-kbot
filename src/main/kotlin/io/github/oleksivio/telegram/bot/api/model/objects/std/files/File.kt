@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [File](https://core.telegram.org/bots/api.files)
+ * @see [File](https://core.telegram.org/bots/api/#files)
  */
 data class File(
         /**

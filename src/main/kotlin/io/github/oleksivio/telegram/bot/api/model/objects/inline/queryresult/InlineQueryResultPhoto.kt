@@ -3,7 +3,7 @@ package io.github.oleksivio.telegram.bot.api.model.objects.inline.queryresult
 import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
- * @see [InlineQueryResultPhoto](https://core.telegram.org/bots/api.inlinequeryresultphoto)
+ * @see [InlineQueryResultPhoto](https://core.telegram.org/bots/api/#inlinequeryresultphoto)
  */
 class InlineQueryResultPhoto(
         /**

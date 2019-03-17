@@ -3,7 +3,7 @@ package io.github.oleksivio.telegram.bot.api.model.objects.inline.messagecontent
 import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
- * @see [InputLocationMessageContent](https://core.telegram.org/bots/api.inputlocationmessagecontent)
+ * @see [InputLocationMessageContent](https://core.telegram.org/bots/api/#inputlocationmessagecontent)
  */
 data class InputLocationMessageContent(
         /**

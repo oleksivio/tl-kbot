@@ -1,38 +1,37 @@
 package io.github.oleksivio.telegram.bot.api.model.method.sticker
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.oleksivio.telegram.bot.api.model.objects.std.files.File
-import io.github.oleksivio.telegram.bot.core.controller.network.FileNetworker
+import io.github.oleksivio.telegram.bot.core.model.ApiDict
 import io.github.oleksivio.telegram.bot.core.model.FileResponse
-import io.github.oleksivio.telegram.bot.core.model.method.UploadFile
+import io.github.oleksivio.telegram.bot.core.model.method.ActionMap
+import io.github.oleksivio.telegram.bot.core.model.method.file.UploadFile
 import org.springframework.core.io.FileSystemResource
 
 /**
- * @see [uploadStickerFile](https://core.telegram.org/bots/api.uploadstickerfile)
+ * @see [uploadStickerFile](https://core.telegram.org/bots/api/#uploadstickerfile)
  */
-class UploadStickerFile(fileNetworker: FileNetworker) : UploadFile<File>(METHOD, fileNetworker) {
-
-    override val resultWrapperClass
-        get() = FileResponse::class
-
-    fun setPngSticker(pngSticker: FileSystemResource) {
-        putFile(PNG_STICKER_KEY, pngSticker)
-    }
-
-    fun setUserId(userId: Long?) {
-        putLong(USER_ID_KEY, userId)
-    }
-
-    companion object {
-        private const val METHOD = "uploadStickerFile"
+data class UploadStickerFile(
         /**
          * user_id Integer Yes User identifier of sticker file owner
          */
-        private const val USER_ID_KEY = "user_id"
+        val userId: Long,
         /**
          * png_sticker InputFile Yes Png image with the sticker, must be up to 512 kilobytes in size,
          * dimensions must not exceed 512px, and either width or height must be exactly 512px.
          */
-        private const val PNG_STICKER_KEY = "png_sticker"
+        val pngSticker: FileSystemResource
+
+) : UploadFile<File>() {
+
+    override fun ActionMap.fill() {
+        putObject(ApiDict.PNG_STICKER_KEY, pngSticker)
+        putLong(ApiDict.USER_ID_KEY, userId)
     }
+
+    override val resultWrapperClass = FileResponse::class
+
+    @JsonProperty(ApiDict.METHOD_KEY)
+    override val method = "uploadStickerFile"
 
 }

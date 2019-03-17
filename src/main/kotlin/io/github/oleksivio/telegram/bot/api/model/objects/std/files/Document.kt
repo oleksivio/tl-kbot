@@ -7,7 +7,7 @@ import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.PhotoFil
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [Document](https://core.telegram.org/bots/api.document)
+ * @see [Document](https://core.telegram.org/bots/api/#document)
  */
 data class Document(
 

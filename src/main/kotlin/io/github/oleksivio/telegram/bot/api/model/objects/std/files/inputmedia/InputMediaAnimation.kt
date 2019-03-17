@@ -3,7 +3,7 @@ package io.github.oleksivio.telegram.bot.api.model.objects.std.files.inputmedia
 import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
- * @see [InputMediaAnimation](https://core.telegram.org/bots/api.inputmediaanimation)
+ * @see [InputMediaAnimation](https://core.telegram.org/bots/api/#inputmediaanimation)
  */
 data class InputMediaAnimation(
         /**

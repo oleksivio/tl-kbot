@@ -7,7 +7,7 @@ import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.UserFilt
 import io.github.oleksivio.telegram.bot.core.model.objects.IUserFrom
 
 /**
- * @see [CallbackQuery](https://core.telegram.org/bots/api.callbackquery)
+ * @see [CallbackQuery](https://core.telegram.org/bots/api/#callbackquery)
  */
 data class CallbackQuery(
         /**

@@ -5,7 +5,7 @@ import io.github.oleksivio.telegram.bot.core.model.ITelegram
 import java.util.*
 
 /**
- * @see [WebhookInfo](https://core.telegram.org/bots/api.webhookinfo)
+ * @see [WebhookInfo](https://core.telegram.org/bots/api/#webhookinfo)
  */
 data class WebhookInfo(
         /**

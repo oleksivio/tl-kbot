@@ -5,7 +5,7 @@ import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.Integer
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [PassportFile](https://core.telegram.org/bots/api.passportfile)
+ * @see [PassportFile](https://core.telegram.org/bots/api/#passportfile)
  */
 data class PassportFile(
         /**

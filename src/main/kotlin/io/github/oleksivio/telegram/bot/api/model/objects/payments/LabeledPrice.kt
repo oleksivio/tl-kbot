@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [LabeledPrice](https://core.telegram.org/bots/api.labeledprice)
+ * @see [LabeledPrice](https://core.telegram.org/bots/api/#labeledprice)
  */
 data class LabeledPrice(
         /**

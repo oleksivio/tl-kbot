@@ -3,7 +3,7 @@ package io.github.oleksivio.telegram.bot.api.model.objects.inline.queryresult
 import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
- * @see [InlineQueryResultCachedMpeg4Gif](https://core.telegram.org/bots/api.inlinequeryresultcachedmpeg4gif)
+ * @see [InlineQueryResultCachedMpeg4Gif](https://core.telegram.org/bots/api/#inlinequeryresultcachedmpeg4gif)
  */
 class InlineQueryResultCachedMpeg4Gif(
         /**

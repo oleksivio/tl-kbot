@@ -9,7 +9,7 @@ import io.github.oleksivio.telegram.bot.api.model.objects.std.User
 import io.github.oleksivio.telegram.bot.core.model.objects.IUserFrom
 
 /**
- * @see [InlineQuery](https://core.telegram.org/bots/api.inlinequery)
+ * @see [InlineQuery](https://core.telegram.org/bots/api/#inlinequery)
  */
 data class InlineQuery(
         /**

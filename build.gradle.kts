@@ -38,8 +38,7 @@ dependencies {
     implementation("org.springframework:spring-context:5.1.5.RELEASE")
     implementation("org.springframework:spring-beans:5.1.5.RELEASE")
     implementation("org.springframework:spring-web:5.1.5.RELEASE")
-
-
+    
     implementation("org.slf4j:jcl-over-slf4j:1.7.12")
 
     implementation("ch.qos.logback:logback-classic:1.2.3")
@@ -96,7 +95,6 @@ java {
 
 tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
-
 }
 
 val compileKotlin: KotlinCompile by tasks
