@@ -3,7 +3,7 @@ package io.github.oleksivio.telegram.bot.api.model.objects.inline.queryresult
 import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
- * @see [InlineQueryResultVideo](https://core.telegram.org/bots/api.inlinequeryresultvideo)
+ * @see [InlineQueryResultVideo](https://core.telegram.org/bots/api/#inlinequeryresultvideo)
  */
 data class InlineQueryResultVideo(
         /**
@@ -46,6 +46,6 @@ data class InlineQueryResultVideo(
          * type String Type of the result
          */
         @JsonProperty("type")
-         val type: String  = "video"
+        val type: String = "video"
 
-): TitledInlineResult()
+) : TitledInlineResult()

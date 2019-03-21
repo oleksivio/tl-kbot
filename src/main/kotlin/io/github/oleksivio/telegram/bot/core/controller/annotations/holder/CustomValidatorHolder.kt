@@ -3,10 +3,9 @@ package io.github.oleksivio.telegram.bot.core.controller.annotations.holder
 import io.github.oleksivio.telegram.bot.api.model.annotation.validator.CustomValidator
 import io.github.oleksivio.telegram.bot.api.model.annotation.validator.FilterValidator
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
-import java.util.HashMap
-import java.util.Objects
-import kotlin.reflect.KClass
 import org.springframework.stereotype.Component
+import java.util.*
+import kotlin.reflect.KClass
 
 @Component
 class CustomValidatorHolder {

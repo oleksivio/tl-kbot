@@ -10,7 +10,7 @@ import io.github.oleksivio.telegram.bot.core.model.ITelegram
 import io.github.oleksivio.telegram.bot.core.model.type.TelegramType
 
 /**
- * @see [EncryptedPassportElement](https://core.telegram.org/bots/api.encryptedpassportelement)
+ * @see [EncryptedPassportElement](https://core.telegram.org/bots/api/#encryptedpassportelement)
  */
 data class EncryptedPassportElement(
         /**

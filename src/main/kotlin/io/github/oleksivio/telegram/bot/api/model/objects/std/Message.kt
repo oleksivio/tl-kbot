@@ -17,7 +17,7 @@ import io.github.oleksivio.telegram.bot.core.model.objects.IChat
 import io.github.oleksivio.telegram.bot.core.model.objects.IUserFrom
 
 /**
- * @see [Message](https://core.telegram.org/bots/api.message)
+ * @see [Message](https://core.telegram.org/bots/api/#message)
  */
 data class Message(
         /**

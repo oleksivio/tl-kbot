@@ -7,7 +7,7 @@ import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.PhotoFil
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [Audio](https://core.telegram.org/bots/api.audio)
+ * @see [Audio](https://core.telegram.org/bots/api/#audio)
  */
 data class Audio(
 

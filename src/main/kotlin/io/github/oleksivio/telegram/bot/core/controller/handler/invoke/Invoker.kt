@@ -6,7 +6,6 @@ import org.slf4j.LoggerFactory
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.Method
 import kotlin.reflect.KFunction
-import kotlin.reflect.full.instanceParameter
 import kotlin.reflect.jvm.javaMethod
 
 abstract class Invoker<ARG : ITelegram> internal constructor(private val classInstance: Any,

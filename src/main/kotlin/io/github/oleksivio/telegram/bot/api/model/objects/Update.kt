@@ -12,7 +12,7 @@ import io.github.oleksivio.telegram.bot.api.model.objects.std.Message
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [Update](https://core.telegram.org/bots/api.update)
+ * @see [Update](https://core.telegram.org/bots/api/#update)
  */
 data class Update(
         /**

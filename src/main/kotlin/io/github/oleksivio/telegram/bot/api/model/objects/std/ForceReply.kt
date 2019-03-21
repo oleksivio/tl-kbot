@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [ForceReply](https://core.telegram.org/bots/api.forcereply)
+ * @see [ForceReply](https://core.telegram.org/bots/api/#forcereply)
  */
 data class ForceReply(
 

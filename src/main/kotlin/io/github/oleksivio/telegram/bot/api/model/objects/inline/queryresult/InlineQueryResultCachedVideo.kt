@@ -3,7 +3,7 @@ package io.github.oleksivio.telegram.bot.api.model.objects.inline.queryresult
 import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
- * @see [InlineQueryResultCachedVideo](https://core.telegram.org/bots/api.inlinequeryresultcachedvideo)
+ * @see [InlineQueryResultCachedVideo](https://core.telegram.org/bots/api/#inlinequeryresultcachedvideo)
  */
 data class InlineQueryResultCachedVideo(
         /**

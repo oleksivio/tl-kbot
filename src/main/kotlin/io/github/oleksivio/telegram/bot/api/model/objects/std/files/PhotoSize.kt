@@ -5,7 +5,7 @@ import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.Integer
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [PhotoSize](https://core.telegram.org/bots/api.photosize)
+ * @see [PhotoSize](https://core.telegram.org/bots/api/#photosize)
  */
 data class PhotoSize(
         /**

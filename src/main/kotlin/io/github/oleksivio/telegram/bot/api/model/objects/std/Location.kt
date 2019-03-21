@@ -5,20 +5,20 @@ import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.DoubleF
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [Location](https://core.telegram.org/bots/api.location)
+ * @see [Location](https://core.telegram.org/bots/api/#location)
  */
 data class Location(
         /**
          * To setup filter:
          *
-         * @see DoubleFilter longitude longitude	Float	Longitude as defined by sender
+         * @see DoubleFilter longitude longitude Float Longitude as defined by sender
          */
         @JsonProperty("longitude")
         var longitude: Double? = null,
         /**
          * To setup filter:
          *
-         * @see DoubleFilter latitude latitude	Float	Latitude as defined by sender
+         * @see DoubleFilter latitude latitude Float Latitude as defined by sender
          */
         @JsonProperty("latitude")
         var latitude: Double? = null

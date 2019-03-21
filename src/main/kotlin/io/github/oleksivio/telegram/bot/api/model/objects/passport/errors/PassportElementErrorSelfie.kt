@@ -5,7 +5,7 @@ import io.github.oleksivio.telegram.bot.api.model.objects.passport.PassportConst
 import io.github.oleksivio.telegram.bot.core.model.type.NamedType
 
 /**
- * @see [PassportElementErrorSelfie](https://core.telegram.org/bots/api.passportelementerrorselfie)
+ * @see [PassportElementErrorSelfie](https://core.telegram.org/bots/api/#passportelementerrorselfie)
  */
 data class PassportElementErrorSelfie(
         @JsonProperty("source")

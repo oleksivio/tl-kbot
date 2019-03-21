@@ -5,7 +5,7 @@ import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.NotNull
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [EncryptedCredentials](https://core.telegram.org/bots/api.encryptedcredentials)
+ * @see [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials)
  */
 class EncryptedCredentials(
         /**

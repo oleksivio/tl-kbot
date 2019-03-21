@@ -6,7 +6,7 @@ import io.github.oleksivio.telegram.bot.core.model.ITelegram
 import io.github.oleksivio.telegram.bot.core.model.type.TelegramType
 
 /**
- * @see [MessageEntity](https://core.telegram.org/bots/api.messageentity)
+ * @see [MessageEntity](https://core.telegram.org/bots/api/#messageentity)
  */
 data class MessageEntity(
         /**

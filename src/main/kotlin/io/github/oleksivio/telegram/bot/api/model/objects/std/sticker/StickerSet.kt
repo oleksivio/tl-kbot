@@ -5,7 +5,7 @@ import io.github.oleksivio.telegram.bot.core.model.ITelegram
 import java.util.*
 
 /**
- * @see [StickerSetResponse](https://core.telegram.org/bots/api.stickerset)
+ * @see [StickerSetResponse](https://core.telegram.org/bots/api/#stickerset)
  */
 data class StickerSet(
         /**

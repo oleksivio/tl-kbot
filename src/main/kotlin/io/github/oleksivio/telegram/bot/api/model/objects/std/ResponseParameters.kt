@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [ResponseParameters](https://core.telegram.org/bots/api.responseparameters)
+ * @see [ResponseParameters](https://core.telegram.org/bots/api/#responseparameters)
  */
 data class ResponseParameters(
         /**

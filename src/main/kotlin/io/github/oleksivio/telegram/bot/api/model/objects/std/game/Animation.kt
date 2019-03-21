@@ -8,7 +8,7 @@ import io.github.oleksivio.telegram.bot.api.model.objects.std.files.PhotoSize
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [Animation](https://core.telegram.org/bots/api.animation)
+ * @see [Animation](https://core.telegram.org/bots/api/#animation)
  */
 data class Animation(
         /**
@@ -47,21 +47,21 @@ data class Animation(
         /**
          * To setup filter:
          *
-         * @see IntegerFilter width width	Integer	Video width as defined by sender
+         * @see IntegerFilter width width Integer Video width as defined by sender
          */
         @JsonProperty("width")
         var width: Int? = null,
         /**
          * To setup filter:
          *
-         * @see IntegerFilter height height	Integer	Video height as defined by sender
+         * @see IntegerFilter height height Integer Video height as defined by sender
          */
         @JsonProperty("height")
         var height: Int? = null,
         /**
          * To setup filter:
          *
-         * @see IntegerFilter duration duration	Integer	Duration of the video in seconds as defined by sender
+         * @see IntegerFilter duration duration Integer Duration of the video in seconds as defined by sender
          */
         @JsonProperty("duration")
         var duration: Int? = null

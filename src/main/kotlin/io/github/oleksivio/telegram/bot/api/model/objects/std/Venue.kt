@@ -7,7 +7,7 @@ import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.Location
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [Venue](https://core.telegram.org/bots/api.venue)
+ * @see [Venue](https://core.telegram.org/bots/api/#venue)
  */
 data class Venue(
         /**

@@ -14,7 +14,7 @@ import io.github.oleksivio.telegram.bot.core.model.type.TelegramType
  *
  * @see ChatFilter chat
  *
- * @see [Chat](https://core.telegram.org/bots/api.chat)
+ * @see [Chat](https://core.telegram.org/bots/api/#chat)
  */
 data class Chat(
         /**

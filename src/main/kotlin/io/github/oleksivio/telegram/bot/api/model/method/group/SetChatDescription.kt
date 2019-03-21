@@ -1,24 +1,30 @@
 package io.github.oleksivio.telegram.bot.api.model.method.group
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.github.oleksivio.telegram.bot.core.controller.network.ActionNetworker
+import io.github.oleksivio.telegram.bot.core.model.ApiDict
 import io.github.oleksivio.telegram.bot.core.model.BooleanResponse
-import io.github.oleksivio.telegram.bot.core.model.method.ChatAction
+import io.github.oleksivio.telegram.bot.core.model.method.common.ChatAction
 
 /**
- * @see [setChatDescription](https://core.telegram.org/bots/api.setchatdescription)
+ * @see [setChatDescription](https://core.telegram.org/bots/api/#setchatdescription)
  */
-class SetChatDescription(actionNetworker: ActionNetworker) : ChatAction<Boolean>(METHOD, actionNetworker) {
-    /**
-     * description String Optional New chat description, 0-255 characters
-     */
-    @JsonProperty("description")
-    var description: String? = null
-
+data class SetChatDescription(
+        /**
+         * chat_id Integer or String Yes Unique identifier for the target chat or username of the target channel
+         */
+        @JsonProperty(ApiDict.CHAT_ID_KEY)
+        override val chatId: Long,
+        /**
+         * description String Optional New chat description, 0-255 characters
+         */
+        @JsonProperty(ApiDict.DESCRIPTION_KEY)
+        val description: String? = null
+) : ChatAction<Boolean>() {
+    @JsonIgnore
     override val resultWrapperClass = BooleanResponse::class
 
-    companion object {
-        private const val METHOD = "setChatDescription"
-    }
-
+    @JsonProperty(ApiDict.METHOD_KEY)
+    override val method = "setChatDescription"
 }
+

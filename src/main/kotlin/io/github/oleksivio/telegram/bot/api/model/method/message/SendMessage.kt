@@ -1,26 +1,54 @@
 package io.github.oleksivio.telegram.bot.api.model.method.message
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.github.oleksivio.telegram.bot.core.controller.network.ActionNetworker
-import io.github.oleksivio.telegram.bot.core.model.method.FormattedMessageAction
+import io.github.oleksivio.telegram.bot.api.model.objects.std.keyboard.IKeyboard
+import io.github.oleksivio.telegram.bot.core.model.ApiDict
+import io.github.oleksivio.telegram.bot.core.model.method.common.FormattedMessageAction
 
 /**
- * @see [sendMessage](https://core.telegram.org/bots/api.sendmessage)
+ * @see [sendMessage](https://core.telegram.org/bots/api/#sendmessage)
  */
-class SendMessage(actionNetworker: ActionNetworker) : FormattedMessageAction(METHOD, actionNetworker) {
-    /**
-     * text String Text of the message to be sent
-     */
-    @JsonProperty("text")
-    var text: String? = null
-    /**
-     * disable_web_page_preview Boolean Optional Disables link previews for links in this message
-     */
-    @JsonProperty("disable_web_page_preview")
-    var disableWebPagePreview: Boolean? = null
-
-    companion object {
-        private const val METHOD = "sendMessage"
-    }
-
+data class SendMessage(
+        @JsonProperty(ApiDict.CHAT_ID_KEY)
+        override val chatId: Long,
+        /**
+         * text String Text of the message to be sent
+         */
+        @JsonProperty(ApiDict.TEXT_KEY)
+        val text: String,
+        /**
+         * parse_mode String Optional Send Markdown or HTML,
+         * if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message.
+         */
+        @JsonProperty(ApiDict.PARSE_MODE_KEY)
+        override val parseMode: String? = null,
+        /**
+         * disable_web_page_preview Boolean Optional Disables link previews for links in this message
+         */
+        @JsonProperty(ApiDict.DISABLE_WEB_PAGE_PREVIEW_KEY)
+        val disableWebPagePreview: Boolean? = null,
+        /**
+         * disable_notification Boolean Optional Sends the message silently.
+         * Users will receive a notification with no sound.
+         */
+        @JsonProperty(ApiDict.DISABLE_NOTIFICATION_KEY)
+        override val disableNotification: Boolean? = null,
+        /**
+         * reply_to_message_id Integer Optional If the message is a reply, ID of the original message
+         */
+        @JsonProperty(ApiDict.REPLY_TO_MESSAGE_ID_KEY)
+        override val replyToMessageId: Long? = null,
+        /**
+         * reply_markup
+         * InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply
+         * Optional
+         * Additional interface options.
+         * A JSON-serialized object for an inline keyboard, custom reply keyboard,
+         * instructions to remove reply keyboard or to force a reply from the user.
+         */
+        @JsonProperty(ApiDict.REPLY_MARKUP_KEY)
+        override val replyMarkup: IKeyboard? = null
+) : FormattedMessageAction() {
+    @JsonProperty(ApiDict.METHOD_KEY)
+    override val method = "sendMessage"
 }

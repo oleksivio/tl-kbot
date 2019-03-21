@@ -10,7 +10,7 @@ import io.github.oleksivio.telegram.bot.api.model.objects.std.files.PhotoSize
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [Game](https://core.telegram.org/bots/api.game)
+ * @see [Game](https://core.telegram.org/bots/api/#game)
  */
 data class Game(
         /**

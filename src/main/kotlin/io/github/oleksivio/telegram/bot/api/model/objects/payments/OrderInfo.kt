@@ -6,7 +6,7 @@ import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.Shipping
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [OrderInfo](https://core.telegram.org/bots/api.orderinfo)
+ * @see [OrderInfo](https://core.telegram.org/bots/api/#orderinfo)
  */
 data class OrderInfo(
         /**
