@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 // get properties from 'gradle.properties' file
 val uploadUsernameProp: String? by project
 val uploadPasswordProp: String? by project
+val releaseBuild: Boolean? by project
 
 
 repositories {
@@ -85,7 +86,9 @@ group = "io.github.oleksivio"
 version = "1.0.0"
 
 signing {
-    sign(publishing.publications["mavenJava"])
+    releaseBuild?.let {
+        sign(publishing.publications["mavenJava"])
+    }
 }
 
 java {
