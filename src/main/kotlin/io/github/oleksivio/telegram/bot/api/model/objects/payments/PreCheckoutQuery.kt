@@ -22,7 +22,7 @@ data class PreCheckoutQuery(
          * @see UserFilter from from User User who sent the query
          */
         @JsonProperty("from")
-        override var from: User = User(),
+        override var from: User?,
         /**
          * To setup filter:
          *
