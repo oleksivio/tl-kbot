@@ -1,5 +1,6 @@
 package io.github.oleksivio.telegram.bot.api.model.method.message
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.oleksivio.telegram.bot.api.model.objects.std.Message
 import io.github.oleksivio.telegram.bot.core.model.ApiDict
@@ -34,6 +35,8 @@ data class ForwardMessage(
 
 ) : ChatAction<Message>() {
 
+    @JsonProperty(ApiDict.METHOD_KEY)
     override val method = "forwardMessage"
+    @JsonIgnore
     override val resultWrapperClass = MessageResponse::class
 }

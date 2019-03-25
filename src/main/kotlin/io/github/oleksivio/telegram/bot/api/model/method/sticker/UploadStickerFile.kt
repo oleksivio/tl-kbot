@@ -1,5 +1,6 @@
 package io.github.oleksivio.telegram.bot.api.model.method.sticker
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.oleksivio.telegram.bot.api.model.objects.std.files.File
 import io.github.oleksivio.telegram.bot.core.model.ApiDict
@@ -29,6 +30,7 @@ data class UploadStickerFile(
         putLong(ApiDict.USER_ID_KEY, userId)
     }
 
+    @JsonIgnore
     override val resultWrapperClass = FileResponse::class
 
     @JsonProperty(ApiDict.METHOD_KEY)

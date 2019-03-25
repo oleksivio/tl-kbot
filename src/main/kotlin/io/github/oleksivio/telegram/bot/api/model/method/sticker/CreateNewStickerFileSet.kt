@@ -1,5 +1,6 @@
 package io.github.oleksivio.telegram.bot.api.model.method.sticker
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.oleksivio.telegram.bot.api.model.objects.std.sticker.MaskPosition
 import io.github.oleksivio.telegram.bot.core.model.ApiDict
@@ -54,6 +55,7 @@ data class CreateNewStickerFileSet(
         putFile(ApiDict.PNG_STICKER_KEY, pngSticker)
     }
 
+    @JsonIgnore
     override val resultWrapperClass = BooleanResponse::class
 
     @JsonProperty(ApiDict.METHOD_KEY)
