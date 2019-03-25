@@ -18,7 +18,7 @@ class UserSession(orderManager: OrderManager,
                 update.chosenInlineResult,
                 update.inlineQuery,
                 update.callbackQuery)
-                .map { it.from }
+                .mapNotNull { it.from }
                 .map { it.id }
                 .firstOrNull()
 
