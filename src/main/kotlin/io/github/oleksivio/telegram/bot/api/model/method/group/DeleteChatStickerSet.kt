@@ -1,5 +1,6 @@
 package io.github.oleksivio.telegram.bot.api.model.method.group
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.oleksivio.telegram.bot.core.model.ApiDict
 import io.github.oleksivio.telegram.bot.core.model.BooleanResponse
@@ -15,6 +16,7 @@ data class DeleteChatStickerSet(
         @JsonProperty(ApiDict.CHAT_ID_KEY)
         override val chatId: Long
 ) : ChatAction<Boolean>() {
+    @JsonIgnore
     override val resultWrapperClass = BooleanResponse::class
 
     @JsonProperty(ApiDict.METHOD_KEY)

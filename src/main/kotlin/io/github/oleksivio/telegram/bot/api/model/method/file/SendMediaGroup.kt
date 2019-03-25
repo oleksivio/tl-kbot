@@ -1,5 +1,6 @@
 package io.github.oleksivio.telegram.bot.api.model.method.file
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.oleksivio.telegram.bot.api.model.objects.std.Message
 import io.github.oleksivio.telegram.bot.api.model.objects.std.files.inputmedia.InputMedia
@@ -36,6 +37,7 @@ data class SendMediaGroup(
 
 ) : ChatAction<Message>() {
 
+    @JsonIgnore
     override val resultWrapperClass = MessageResponse::class
 
     @JsonProperty(ApiDict.METHOD_KEY)
