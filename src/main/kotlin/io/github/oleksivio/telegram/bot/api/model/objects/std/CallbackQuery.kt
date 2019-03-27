@@ -21,7 +21,7 @@ data class CallbackQuery(
          * @see UserFilter from from User Sender
          */
         @JsonProperty("from")
-        override var from: User = User(),
+        override var from: User?,
         /**
          * To setup filter:
          *

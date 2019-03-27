@@ -1,5 +1,6 @@
 package io.github.oleksivio.telegram.bot.api.model.method.group
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.oleksivio.telegram.bot.api.model.objects.std.Chat
 import io.github.oleksivio.telegram.bot.core.model.ApiDict
@@ -17,6 +18,7 @@ data class GetChat(
         override val chatId: Long
 ) : ChatAction<Chat>() {
 
+    @JsonIgnore
     override val resultWrapperClass = ChatResponse::class
 
     @JsonProperty(ApiDict.METHOD_KEY)

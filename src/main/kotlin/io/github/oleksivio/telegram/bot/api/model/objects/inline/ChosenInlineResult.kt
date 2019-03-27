@@ -23,7 +23,7 @@ data class ChosenInlineResult(
          * @see UserFilter from from User The user that chose the result
          */
         @JsonProperty("from")
-        override var from: User = User(),
+        override var from: User?,
         /**
          * To setup filter:
          *

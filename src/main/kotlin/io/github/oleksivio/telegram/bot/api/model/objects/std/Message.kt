@@ -31,7 +31,7 @@ data class Message(
          * @see UserFilter from from User Optional. Sender, empty for messages sent to channels
          */
         @JsonProperty("from")
-        override var from: User = User(),
+        override var from: User?,
         /**
          * To setup filter:
          *
