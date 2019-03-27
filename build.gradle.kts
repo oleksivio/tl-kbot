@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 // get properties from 'gradle.properties' file
 val uploadUsernameProp: String? by project
 val uploadPasswordProp: String? by project
-val releaseBuild: Boolean? by project
+val releaseBuild: String? by project
 
 
 repositories {
@@ -62,6 +62,32 @@ publishing {
             artifact(tasks["jar"])
             artifact(tasks["sourcesJar"])
             artifact(tasks["javadocJar"])
+
+            pom {
+                name.set("Kotlin Telegram Bot Api")
+                description.set("Kotlin spring telegram bot api library")
+                url.set("https://github.com/oleksivio/telegram-bot-api")
+
+                licenses {
+                    license {
+                        name.set("The Apache License, Version 2.0")
+                        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                    }
+                }
+                scm {
+                    connection.set("scm:git:git://github.com/oleksivio/telegram-bot-api.git")
+                    developerConnection.set("scm:git:ssh://github.com/oleksivio/telegram-bot-api.git")
+                    url.set("http://github.com/oleksivio/telegram-bot-api/")
+                }
+                developers {
+                    developer {
+                        id.set("oleksivio")
+                        name.set("Ilia Oleksiv")
+                        email.set("oleksivio@gmail.com")
+                    }
+                }
+
+            }
         }
     }
     repositories {
@@ -73,7 +99,8 @@ publishing {
                 username ?: println("Upload USERNAME not set")
                 password ?: println("Upload PASSWORD not set")
             }
-            description = "Spring telegram bot api library"
+
+
             val releasesRepoUrl = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2")
             val snapshotsRepoUrl = uri("https://oss.sonatype.org/content/repositories/snapshots/")
             url = if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl
@@ -83,11 +110,13 @@ publishing {
 
 val archivesBaseName = "telegram-bot-api"
 group = "io.github.oleksivio"
-version = "1.0.0"
+version = "1.0.4"
 
 signing {
-    releaseBuild?.let {
-        sign(publishing.publications["mavenJava"])
+    releaseBuild?.toBoolean()?.let {
+        if (it) {
+            sign(publishing.publications["mavenJava"])
+        }
     }
 }
 
