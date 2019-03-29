@@ -8,13 +8,14 @@ class FloatValidator(private val lessThan: Float,
                      private val moreOrEqual: Float,
                      private val equal: Float) : Validator<Float> {
 
-    override fun check(argument: Float): Boolean {
-        return if (!java.lang.Float.isNaN(equal) && java.lang.Double.compare(argument.toDouble(), equal.toDouble()) != 0) {
+    override fun invoke(checkedValue: Float): Boolean {
+        return if (!java.lang.Float.isNaN(equal)
+                && java.lang.Double.compare(checkedValue.toDouble(), equal.toDouble()) != 0) {
             false
-        } else argument < lessThan
-                && argument <= lessOrEqual
-                && argument > moreThan
-                && argument >= moreOrEqual
+        } else checkedValue < lessThan
+                && checkedValue <= lessOrEqual
+                && checkedValue > moreThan
+                && checkedValue >= moreOrEqual
 
     }
 }

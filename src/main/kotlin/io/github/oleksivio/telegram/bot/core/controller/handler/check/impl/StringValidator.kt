@@ -42,17 +42,17 @@ class StringValidator(startWith: Array<String>,
         }
     }
 
-    override fun check(argument: String): Boolean {
+    override fun invoke(checkedValue: String): Boolean {
 
-        if (!matchItems.isEmpty() && matchItems.none { it.isMatch(argument) }) {
+        if (!matchItems.isEmpty() && matchItems.none { it.isMatch(checkedValue) }) {
             return false
         }
 
-        if (!nonMatchItems.isEmpty() && nonMatchItems.any { it.isMatch(argument) }) {
+        if (!nonMatchItems.isEmpty() && nonMatchItems.any { it.isMatch(checkedValue) }) {
             return false
         }
 
-        return regExp.isEmpty() || Pattern.matches(regExp, argument)
+        return regExp.isEmpty() || Pattern.matches(regExp, checkedValue)
 
     }
 

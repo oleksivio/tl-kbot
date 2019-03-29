@@ -6,16 +6,17 @@ import java.util.*
 
 class UnionExtractValidatorList<ELEM> : Validator<List<ELEM>> {
 
+    override fun invoke(checkedValue: List<ELEM>): Boolean {
+        return checkedValue
+                .any { elem -> validatorCollection.all { it.invoke(elem) } }
+    }
+
     private val validatorCollection = ArrayList<Validator<ELEM>>()
 
     fun <OUT> add(unpacker: UnpackerFunction<ELEM, OUT>, validator: Validator<OUT>) {
         validatorCollection.add(ExtractValidator(unpacker, validator))
     }
 
-    override fun check(argument: List<ELEM>): Boolean {
-        return argument
-                .any { elem -> validatorCollection.all { it.check(elem) } }
 
-    }
 
 }

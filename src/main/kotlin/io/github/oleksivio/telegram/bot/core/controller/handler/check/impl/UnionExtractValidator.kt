@@ -5,6 +5,9 @@ import io.github.oleksivio.telegram.bot.core.controller.handler.unpack.UnpackerF
 import java.util.*
 
 class UnionExtractValidator<T> : Validator<T> {
+    override fun invoke(checkedValue: T): Boolean {
+        return validatorCollection.stream().allMatch { checker -> checker.invoke(checkedValue) }
+    }
 
     private val validatorCollection = ArrayList<Validator<T>>()
 
@@ -12,7 +15,5 @@ class UnionExtractValidator<T> : Validator<T> {
         validatorCollection.add(ExtractValidator(unpacker, validator))
     }
 
-    override fun check(argument: T): Boolean {
-        return validatorCollection.stream().allMatch { checker -> checker.check(argument) }
-    }
+
 }

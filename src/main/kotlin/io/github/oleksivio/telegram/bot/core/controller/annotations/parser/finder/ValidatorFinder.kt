@@ -27,11 +27,7 @@ class ValidatorFinder(filterParsers: Collection<FilterParser<*, *>>,
         val keyClass = annotation.annotationClass
 
         if (!annotationParserMap.containsKey(keyClass)) {
-            return object : Validator<T> {
-                override fun check(argument: T): Boolean {
-                    return true
-                }
-            }
+            return { true }
         }
 
         val secondaryFilterParser = annotationParserMap[keyClass] as FilterParser<SA, T>
