@@ -5,18 +5,18 @@ import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator
 
 class BooleanValidator(private val booleanState: BooleanState) : Validator<Boolean> {
 
-    override fun check(argument: Boolean): Boolean {
+    override fun invoke(checkedValue: Boolean): Boolean {
 
         if (booleanState === BooleanState.NON_NULL) {
             return true
         }
 
         if (booleanState === BooleanState.TRUE) {
-            return argument
+            return checkedValue
         }
 
         if (booleanState === BooleanState.FALSE) {
-            return (!argument)
+            return (!checkedValue)
         }
 
         throw UnsupportedOperationException("Unexpected boolean state")
