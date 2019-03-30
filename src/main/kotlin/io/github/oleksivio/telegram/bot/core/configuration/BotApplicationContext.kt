@@ -29,11 +29,13 @@ class BotApplicationContext(private val annotationProcessor: AnnotationProcessor
                 }.toList()
 
 
+        // on first step we add all validators
         simpleBeans.filter { it.isFilterValidator }
                 .forEach {
                         customValidatorHolder.add(it.name, it.instance as FilterValidator<*>)
                 }
 
+        // on second step we add all instances
         simpleBeans.forEach {
             annotationProcessor.add(it.instance)
         }
@@ -41,6 +43,7 @@ class BotApplicationContext(private val annotationProcessor: AnnotationProcessor
     }
 
     private class SimpleBean constructor(val name: String, val instance: Any) {
+        // use java because if we try to get superclasses from java lambda class kotlin reflect throw exception
         val isFilterValidator: Boolean = instance::class.java.superclass == FilterValidator::class.java
 
     }
