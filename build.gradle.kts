@@ -22,6 +22,7 @@ plugins {
     kotlin("jvm") version (kotlinVersion)
     id("org.jetbrains.kotlin.plugin.spring") version kotlinVersion
     id("org.jetbrains.kotlin.plugin.jpa") version kotlinVersion
+    `java-library`
     `maven-publish`
     signing
 }
@@ -30,19 +31,18 @@ plugins {
 dependencies {
 
     // jackson kotlin 
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.7")
+    api("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.7")
     implementation(kotlin("stdlib-jdk8"))
     implementation(kotlin("reflect"))
     // Spring dependencies
 
-    implementation("org.springframework:spring-core:5.1.5.RELEASE")
-    implementation("org.springframework:spring-context:5.1.5.RELEASE")
-    implementation("org.springframework:spring-beans:5.1.5.RELEASE")
-    implementation("org.springframework:spring-web:5.1.5.RELEASE")
+    compileOnly("org.springframework:spring-core:5.1.5.RELEASE")
+    compileOnly("org.springframework:spring-context:5.1.5.RELEASE")
+    compileOnly("org.springframework:spring-beans:5.1.5.RELEASE")
+    compileOnly("org.springframework:spring-web:5.1.5.RELEASE")
     
     implementation("org.slf4j:jcl-over-slf4j:1.7.12")
 
-    implementation("ch.qos.logback:logback-classic:1.2.3")
 }
 
 
@@ -59,7 +59,7 @@ tasks.register<Jar>("javadocJar") {
 publishing {
     publications {
         create<MavenPublication>("mavenJava") {
-            artifact(tasks["jar"])
+            from(components["java"])
             artifact(tasks["sourcesJar"])
             artifact(tasks["javadocJar"])
 
