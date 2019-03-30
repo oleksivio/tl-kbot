@@ -12,15 +12,10 @@ rises error with [HandlerResult.error](error.md) you can invoke error handler
 
 | Name | Summary |
 |---|---|
+| [isCancelSession](is-cancel-session.md) | `val isCancelSession: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>Internal |
+| [isError](is-error.md) | `val isError: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>Internal |
 | [isPassed](is-passed.md) | `val isPassed: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>Internal |
-
-### Functions
-
-| Name | Summary |
-|---|---|
-| [hasCancelSession](has-cancel-session.md) | `fun hasCancelSession(): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>Internal |
-| [hasError](has-error.md) | `fun hasError(): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>Internal |
-| [hasSuccess](has-success.md) | `fun hasSuccess(): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>Internal |
+| [isSucess](is-sucess.md) | `val isSucess: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>Internal |
 
 ### Companion Object Functions
 
