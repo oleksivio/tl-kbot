@@ -22,12 +22,12 @@ data class GetGameHighScores(
         @JsonProperty(ApiDict.USER_ID_KEY)
         val userId: Long,
         /**
-         * message_id Integer Optional Required if inline_message_id is not specified. Identifier of the sent message
+         * message_id [Integer] OptionalRequired if inline_message_id is not specified. Identifier of the sent message
          */
         @JsonProperty(ApiDict.MESSAGE_ID_KEY)
         val messageId: Long? = null,
         /**
-         * inline_message_id String Optional Required if chat_id and message_id are not specified. Identifier of the inline message
+         * inline_message_id [String] Optional Required if chat_id and message_id are not specified. Identifier of the inline message
          */
         @JsonProperty(ApiDict.INLINE_MESSAGE_ID_KEY)
         val inlineMessageId: String? = null

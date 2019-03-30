@@ -17,13 +17,13 @@ data class GetUserProfilePhotos(
         @JsonProperty(ApiDict.USER_ID_KEY)
         val userId: Long,
         /**
-         * offset Integer Optional Sequential number of the first photo to be returned. By default,
+         * offset [Integer] OptionalSequential number of the first photo to be returned. By default,
          * all photos are returned.
          */
         @JsonProperty(ApiDict.OFFSET_KEY)
         val offset: Int? = null,
         /**
-         * limit Integer Optional Limits the number of photos to be retrieved. Values between 1—100
+         * limit [Integer] OptionalLimits the number of photos to be retrieved. Values between 1—100
          * are accepted. Defaults to 100.
          */
         @JsonProperty(ApiDict.LIMIT_KEY)

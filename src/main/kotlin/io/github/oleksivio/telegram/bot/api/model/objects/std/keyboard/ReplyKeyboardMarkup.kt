@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.oleksivio.telegram.bot.api.model.objects.std.keyboard.row.ReplyButtonRow
 
 /**
- * @see [ReplyKeyboardMarkup](https://core.telegram.org/bots/api/#replykeyboardmarkup)
+ *  [ReplyKeyboardMarkup](https://core.telegram.org/bots/api/#replykeyboardmarkup)
  */
 data class ReplyKeyboardMarkup(
         /**

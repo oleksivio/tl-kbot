@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [KeyboardButton](https://core.telegram.org/bots/api/#keyboardbutton)
+ *  [KeyboardButton](https://core.telegram.org/bots/api/#keyboardbutton)
  */
 data class ReplyKeyboardButton(
         /**

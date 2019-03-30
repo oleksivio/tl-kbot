@@ -1,6 +1,6 @@
 package io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.telegram
 
-import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.PassportFileFilter
+import io.github.oleksivio.telegram.bot.api.annotations.filter.composite.PassportFileFilter
 import io.github.oleksivio.telegram.bot.api.model.objects.passport.PassportFile
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.FilterParser
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder

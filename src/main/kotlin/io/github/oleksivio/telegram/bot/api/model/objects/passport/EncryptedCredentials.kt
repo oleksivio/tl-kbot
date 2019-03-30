@@ -5,13 +5,13 @@ import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.NotNull
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials)
+ *  [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials)
  */
 class EncryptedCredentials(
         /**
          * To setup filter:
          *
-         * @see NotNullFilter data data String Base64-encoded encrypted JSON-serialized data with unique user's payload, data
+         *  NotNullFilter data data String Base64-encoded encrypted JSON-serialized data with unique user's payload, data
          * hashes and secrets required for EncryptedPassportElement decryption and authentication
          */
         @JsonProperty("data")
@@ -19,14 +19,14 @@ class EncryptedCredentials(
         /**
          * To setup filter:
          *
-         * @see NotNullFilter hash hash String Base64-encoded data hash for data authentication
+         *  NotNullFilter hash hash String Base64-encoded data hash for data authentication
          */
         @JsonProperty("hash")
         var hash: String? = null,
         /**
          * To setup filter:
          *
-         * @see NotNullFilter secret secret String Base64-encoded secret, encrypted with the bot's public RSA key, required
+         *  NotNullFilter secret secret String Base64-encoded secret, encrypted with the bot's public RSA key, required
          * for data decryption
          */
         @JsonProperty("secret")

@@ -1,6 +1,6 @@
 package io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.telegram
 
-import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.PhotoArrayFilter
+import io.github.oleksivio.telegram.bot.api.annotations.filter.composite.PhotoArrayFilter
 import io.github.oleksivio.telegram.bot.api.model.objects.std.files.PhotoSize
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.FilterParser
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder

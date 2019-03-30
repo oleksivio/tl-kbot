@@ -1,8 +1,7 @@
 package io.github.oleksivio.telegram.bot.api.model.objects
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.*
-import io.github.oleksivio.telegram.bot.api.annotations.receiver.*
+import io.github.oleksivio.telegram.bot.api.annotations.filter.composite.MessageFilter
 import io.github.oleksivio.telegram.bot.api.model.objects.inline.ChosenInlineResult
 import io.github.oleksivio.telegram.bot.api.model.objects.inline.InlineQuery
 import io.github.oleksivio.telegram.bot.api.model.objects.payments.PreCheckoutQuery
@@ -12,15 +11,13 @@ import io.github.oleksivio.telegram.bot.api.model.objects.std.Message
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [Update](https://core.telegram.org/bots/api/#update)
+ *  [Update](https://core.telegram.org/bots/api/#update)
  */
 data class Update(
         /**
          * update_id
          *
-         *
-         * Integer
-         *
+         * [Long]
          *
          * The update's unique identifier. Update identifiers start from a certain positive number and increase sequentially.
          * This ID becomes especially handy if you’re using Webhooks, since it allows you to ignore repeated updates or to
@@ -30,101 +27,88 @@ data class Update(
         @JsonProperty("update_id")
         var updateId: Long = 0,
         /**
-         * @see MessageReceiver for create reciver
+         *  [io.github.oleksivio.telegram.bot.api.annotations.receiver.MessageReceiver] for create receiver
          *
-         * @see MessageFilter for setup filter message
+         *  Use [MessageFilter] for setup filter message
          *
-         *
-         * Message
-         *
+         * [Message]
          *
          * Optional. New incoming message of any kind — text, photo, sticker, etc.
          */
         @JsonProperty("message")
         var message: Message? = null,
         /**
-         * @see EditedMessageReceiver for create reciver
+         *  [io.github.oleksivio.telegram.bot.api.annotations.receiver.EditedMessageReceiver] for create receiver
          *
-         * @see MessageFilter for setup filter edited_message
+         *  [MessageFilter] for setup filter edited_message
          *
-         *
-         * Message
-         *
+         * [Message]
          *
          * Optional. New version of a message that is known to the bot and was edited
          */
         @JsonProperty("edited_message")
         var editedMessage: Message? = null,
         /**
-         * @see ChannelPostReceiver for create reciver
+         *  [io.github.oleksivio.telegram.bot.api.annotations.receiver.ChannelPostReceiver] for create receiver
          *
-         * @see MessageFilter for setup filter channel_post
+         * Use [MessageFilter] for setup filter channel_post
          *
-         *
-         * Message
-         *
+         * [Message]
          *
          * Optional. New incoming channel post of any kind — text, photo, sticker, etc.
          */
         @JsonProperty("channel_post")
         var channelPost: Message? = null,
         /**
-         * @see EditedChannelPostReceiver for create reciver
+         *  [io.github.oleksivio.telegram.bot.api.annotations.receiver.EditedChannelPostReceiver] for create receiver
          *
-         * @see MessageFilter for setup filter edited_channel_post
+         *  Use [MessageFilter] for setup filter edited_channel_post
          *
-         *
-         * Message
-         *
+         * [Message]
          *
          * Optional. New version of a channel post that is known to the bot and was edited
          */
         @JsonProperty("edited_channel_post")
         var editedChannelPost: Message? = null,
         /**
-         * @see InlineQueryReceiver for create reciver
+         *  [io.github.oleksivio.telegram.bot.api.annotations.receiver.InlineQueryReceiver] for create receiver
          *
-         * @see InlineQueryFilter for setup filter inline_query
-         *
+         * [io.github.oleksivio.telegram.bot.api.annotations.filter.composite.InlineQueryFilter] for setup filter inline_query
          *
          * InlineQueryText
-         *
          *
          * Optional. New incoming inline query
          */
         @JsonProperty("inline_query")
         var inlineQuery: InlineQuery? = null,
         /**
-         * @see ChosenInlineResultReceiver for create reciver
+         *  [io.github.oleksivio.telegram.bot.api.annotations.receiver.ChosenInlineResultReceiver] for create receiver
          *
-         * @see ChosenInlineResultFilter for setup filter chosen_inline_result
+         *  [io.github.oleksivio.telegram.bot.api.annotations.filter.composite.ChosenInlineResultFilter] for setup filter chosen_inline_result
          *
-         *
-         * ChosenInlineResult
-         *
+         * [ChosenInlineResult]
          *
          * Optional. The result of an inline query that was chosen by a user and sent to their chat partner.
          */
         @JsonProperty("chosen_inline_result")
         var chosenInlineResult: ChosenInlineResult? = null,
         /**
-         * @see ShippingQueryReceiver for create reciver
+         *  [io.github.oleksivio.telegram.bot.api.annotations.receiver.ShippingQueryReceiver] for create receiver
          *
-         * @see ShippingQueryFilter for setup filter callback_query
-         *
+         *  [io.github.oleksivio.telegram.bot.api.annotations.filter.composite.ShippingQueryFilter] for setup filter callback_query
          *
          * CallbackQuery
-         *
          *
          * Optional. New incoming callback query
          */
         @JsonProperty("callback_query")
         var callbackQuery: CallbackQuery? = null,
         /**
-         * @see ShippingQueryReceiver for create reciver
+         *  [io.github.oleksivio.telegram.bot.api.annotations.receiver.ShippingQueryReceiver]
+         *  for create receiver
          *
-         * @see ShippingQueryFilter for setup filter shipping_query
-         *
+         *  [io.github.oleksivio.telegram.bot.api.annotations.filter.composite.ShippingQueryFilter]
+         *  for setup filter shipping_query
          *
          * ShippingQuery
          *
@@ -134,9 +118,10 @@ data class Update(
         @JsonProperty("shipping_query")
         var shippingQuery: ShippingQuery? = null,
         /**
-         * @see PreCheckoutQueryReceiver for create reciver
+         *  [io.github.oleksivio.telegram.bot.api.annotations.receiver.PreCheckoutQueryReceiver] for create receiver
          *
-         * @see PreCheckoutQueryFilter for setup filter pre_checkout_query
+         *  [io.github.oleksivio.telegram.bot.api.annotations.filter.composite.PreCheckoutQueryFilter]
+         *  for setup filter pre_checkout_query
          *
          *
          * PreCheckoutQuery

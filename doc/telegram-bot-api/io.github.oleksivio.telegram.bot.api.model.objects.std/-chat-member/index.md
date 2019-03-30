@@ -1,0 +1,34 @@
+[telegram-bot-api](../../index.md) / [io.github.oleksivio.telegram.bot.api.model.objects.std](../index.md) / [ChatMember](./index.md)
+
+# ChatMember
+
+`data class ChatMember : ITelegram`
+
+[ChatMember](https://core.telegram.org/bots/api/#chatmember)
+
+### Constructors
+
+| Name | Summary |
+|---|---|
+| [&lt;init&gt;](-init-.md) | `ChatMember(user: `[`User`](../-user/index.md)`? = null, status: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, untilDate: `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)`? = null, canBeEdited: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`? = null, canChangeInfo: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`? = null, canPostMessages: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`? = null, canEditMessages: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`? = null, canDeleteMessages: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`? = null, canInviteUsers: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`? = null, canRestrictMembers: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`? = null, canPinMessages: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`? = null, canPromoteMembers: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`? = null, canSendMessages: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`? = null, canSendMediaMessages: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`? = null, canSendOtherMessages: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`? = null, canAddWebPagePreviews: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`? = null)`<br>[ChatMember](https://core.telegram.org/bots/api/#chatmember) |
+
+### Properties
+
+| Name | Summary |
+|---|---|
+| [canAddWebPagePreviews](can-add-web-page-previews.md) | `var canAddWebPagePreviews: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`?`<br>can_add_web_page_previews Boolean Optional. Restricted only. True, if user may add web page previews to his messages, implies can_send_media_messages |
+| [canBeEdited](can-be-edited.md) | `var canBeEdited: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`?`<br>can_be_edited Boolean Optional. Administrators only. True, if the bot is allowed to message administrator privileges of that user |
+| [canChangeInfo](can-change-info.md) | `var canChangeInfo: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`?`<br>can_change_info Boolean Optional. Administrators only. True, if the administrator can change the chat title, photo and other settings |
+| [canDeleteMessages](can-delete-messages.md) | `var canDeleteMessages: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`?`<br>can_delete_messages Boolean Optional. Administrators only. True, if the administrator can delete messages of other users |
+| [canEditMessages](can-edit-messages.md) | `var canEditMessages: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`?`<br>can_edit_messages Boolean Optional. Administrators only. True, if the administrator can message messages of other users and can pin messages, channels only |
+| [canInviteUsers](can-invite-users.md) | `var canInviteUsers: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`?`<br>can_invite_users Boolean Optional. Administrators only. True, if the administrator can invite new users to the chat |
+| [canPinMessages](can-pin-messages.md) | `var canPinMessages: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`?`<br>can_pin_messages Boolean Optional. Administrators only. True, if the administrator can pin messages, supergroups only |
+| [canPostMessages](can-post-messages.md) | `var canPostMessages: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`?`<br>can_post_messages Boolean Optional. Administrators only. True, if the administrator can post in the channel, channels only |
+| [canPromoteMembers](can-promote-members.md) | `var canPromoteMembers: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`?`<br>can_promote_members Boolean Optional. Administrators only. True, if the administrator can add new administrators with a subset of his own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by the user) |
+| [canRestrictMembers](can-restrict-members.md) | `var canRestrictMembers: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`?`<br>can_restrict_members Boolean Optional. Administrators only. True, if the administrator can restrict, ban or unban chat members |
+| [canSendMediaMessages](can-send-media-messages.md) | `var canSendMediaMessages: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`?`<br>can_send_media_messages Boolean Optional. Restricted only. True, if the user can send audios, documents, photos, videos, video notes and voice notes, implies can_send_messages |
+| [canSendMessages](can-send-messages.md) | `var canSendMessages: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`?`<br>can_send_messages Boolean Optional. Restricted only. True, if the user can send text messages, contacts, locations and venues |
+| [canSendOtherMessages](can-send-other-messages.md) | `var canSendOtherMessages: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`?`<br>can_send_other_messages Boolean Optional. Restricted only. True, if the user can send animations, games, stickers and use inline bots, implies can_send_media_messages |
+| [status](status.md) | `var status: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?`<br>status String The member's status in the chat. Can be “creator”, “administrator”, “member”, “restricted”, “left” or “kicked” |
+| [untilDate](until-date.md) | `var untilDate: `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)`?`<br>until_date Integer Optional. Restricted and kicked only. Date when restrictions will be lifted for this user, unix time |
+| [user](user.md) | `var user: `[`User`](../-user/index.md)`?`<br>user User Information about the user |

@@ -24,7 +24,7 @@ data class SendVoiceFile(
          */
         val voice: FileSystemResource,
         /**
-         * duration Integer Optional Duration of the voice message in seconds
+         * duration [Integer] OptionalDuration of the voice message in seconds
          */
         val duration: Int? = null,
         /**

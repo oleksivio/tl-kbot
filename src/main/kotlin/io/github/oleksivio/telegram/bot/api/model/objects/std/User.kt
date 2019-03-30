@@ -6,7 +6,7 @@ import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringF
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [User](https://core.telegram.org/bots/api/#user)
+ *  [User](https://core.telegram.org/bots/api/#user)
  */
 data class User(
         /**
@@ -17,35 +17,35 @@ data class User(
         /**
          * To setup filter:
          *
-         * @see StringFilter firstName first_name String User‘s or bot’s first name
+         *  StringFilter firstName first_name String User‘s or bot’s first name
          */
         @JsonProperty("first_name")
         var firstName: String? = null,
         /**
          * To setup filter:
          *
-         * @see StringFilter lastName last_name String Optional. User‘s or bot’s last name
+         *  StringFilter lastName last_name [String] Optional. User‘s or bot’s last name
          */
         @JsonProperty("last_name")
         var lastName: String? = null,
         /**
          * To setup filter:
          *
-         * @see StringFilter username username String Optional. User‘s or bot’s username
+         *  StringFilter username username [String] Optional. User‘s or bot’s username
          */
         @JsonProperty("username")
         var username: String? = null,
         /**
          * To setup filter:
          *
-         * @see StringFilter languageCode language_code String Optional. IETF language tag of the user's language
+         *  StringFilter languageCode language_code [String] Optional. IETF language tag of the user's language
          */
         @JsonProperty("language_code")
         var languageCode: String? = null,
         /**
          * To setup filter:
          *
-         * @see BooleanFilter bot is_bot Boolean True, if this user is a bot
+         *  BooleanFilter bot is_bot Boolean True, if this user is a bot
          */
         @JsonProperty("is_bot")
         var bot: Boolean? = null

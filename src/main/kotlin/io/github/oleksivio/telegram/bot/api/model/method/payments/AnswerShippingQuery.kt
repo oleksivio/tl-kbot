@@ -29,7 +29,7 @@ class AnswerShippingQuery(
         @JsonProperty("shipping_options")
         val shippingOptions: List<ShippingOption>? = null,
         /**
-         * error_message String Optional Required if ok is False. Error message in human readable form that explains
+         * error_message [String] Optional Required if ok is False. Error message in human readable form that explains
          * why it is impossible to complete the order (e.g. "Sorry, delivery to your desired address is unavailable').
          * Telegram will display this message to the user.
          */

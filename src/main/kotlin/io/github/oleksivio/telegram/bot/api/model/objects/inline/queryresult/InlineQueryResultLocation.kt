@@ -3,7 +3,7 @@ package io.github.oleksivio.telegram.bot.api.model.objects.inline.queryresult
 import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
- * @see [InlineQueryResultLocation](https://core.telegram.org/bots/api/#inlinequeryresultlocation)
+ *  [InlineQueryResultLocation](https://core.telegram.org/bots/api/#inlinequeryresultlocation)
  */
 data class InlineQueryResultLocation(
         /**
@@ -17,13 +17,13 @@ data class InlineQueryResultLocation(
         @JsonProperty("longitude")
         val longitude: Double,
         /**
-         * live_period Integer Optional Period in seconds for which the location will be updated (see Live Locations, should
+         * live_period [Int] OptionalPeriod in seconds for which the location will be updated (see Live Locations, should
          * be between 60 and 86400
          */
         @JsonProperty("live_period")
         val livePeriod: Int? = null,
         /**
-         * thumb_url String Optional. URL of the thumbnail (jpeg only) for the file
+         * thumb_url [String] Optional. URL of the thumbnail (jpeg only) for the file
          */
         @JsonProperty("thumb_url")
         val thumbUrl: String? = null,

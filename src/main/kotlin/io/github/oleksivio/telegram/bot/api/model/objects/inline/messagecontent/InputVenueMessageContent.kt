@@ -3,7 +3,7 @@ package io.github.oleksivio.telegram.bot.api.model.objects.inline.messagecontent
 import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
- * @see [InputVenueMessageContent](https://core.telegram.org/bots/api/#inputvenuemessagecontent)
+ *  [InputVenueMessageContent](https://core.telegram.org/bots/api/#inputvenuemessagecontent)
  */
 data class InputVenueMessageContent(
         /**
@@ -27,12 +27,12 @@ data class InputVenueMessageContent(
         @JsonProperty("address")
         var address: String? = null,
         /**
-         * foursquare_id String Optional Foursquare identifier of the venue
+         * foursquare_id [String] Optional Foursquare identifier of the venue
          */
         @JsonProperty("foursquare_id")
         var foursquareId: String? = null,
         /**
-         * foursquare_type String Optional. Foursquare type of the venue. (For example, “arts_entertainment/default”,
+         * foursquare_type [String] Optional. Foursquare type of the venue. (For example, “arts_entertainment/default”,
          * “arts_entertainment/aquarium” or “food/icecream”.)
          */
         @JsonProperty("foursquare_type")

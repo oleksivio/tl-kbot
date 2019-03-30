@@ -1,0 +1,5 @@
+[telegram-bot-api](../../index.md) / [io.github.oleksivio.telegram.bot.api.annotations.filter.composite](../index.md) / [ShippingAddressFilter](index.md) / [&lt;init&gt;](./-init-.md)
+
+# &lt;init&gt;
+
+`ShippingAddressFilter(status: `[`AnnotationState`](../../io.github.oleksivio.telegram.bot.api.model.annotation/-annotation-state/index.md)` = AnnotationState.ON, validator: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`> = [], countryCode: <ERROR CLASS> = StringFilter(status = AnnotationState.OFF), state: <ERROR CLASS> = StringFilter(status = AnnotationState.OFF), city: <ERROR CLASS> = StringFilter(status = AnnotationState.OFF), streetLine1: <ERROR CLASS> = StringFilter(status = AnnotationState.OFF), streetLine2: <ERROR CLASS> = StringFilter(status = AnnotationState.OFF), postCode: <ERROR CLASS> = StringFilter(status = AnnotationState.OFF))`

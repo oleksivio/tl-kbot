@@ -2,7 +2,7 @@ package io.github.oleksivio.telegram.bot.core.controller.network
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import io.github.oleksivio.telegram.bot.api.model.ErrorResponse
-import io.github.oleksivio.telegram.bot.api.model.NetworkError
+import io.github.oleksivio.telegram.bot.api.model.ServerErrorListener
 import io.github.oleksivio.telegram.bot.core.model.CommonResponse
 import org.slf4j.LoggerFactory
 import org.springframework.web.client.HttpClientErrorException
@@ -24,13 +24,13 @@ open class Networker(token: String) {
     private val template = RestTemplate()
     private val url: String = TELEGRAM_SERVER_URL + token + URL_SEPARATOR
 
-    fun <T : CommonResponse<*>> safelyRun(networkError: NetworkError,
+    fun <T : CommonResponse<*>> safelyRun(serverErrorListener: ServerErrorListener,
                                           networker: (template: RestOperations, url: String) -> T?): T? {
         return try {
             return networker(template, url)
         } catch (httpException: HttpClientErrorException) {
             parseErrorResponse(httpException)?.let { exception ->
-                networkError(exception)
+                serverErrorListener(exception)
             }
             null
         } catch (e: RestClientException) {

@@ -1,0 +1,5 @@
+[telegram-bot-api](../../index.md) / [io.github.oleksivio.telegram.bot.api.annotations.filter.composite](../index.md) / [MaskPositionFilter](index.md) / [&lt;init&gt;](./-init-.md)
+
+# &lt;init&gt;
+
+`MaskPositionFilter(status: `[`AnnotationState`](../../io.github.oleksivio.telegram.bot.api.model.annotation/-annotation-state/index.md)` = AnnotationState.ON, validator: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`> = [], point: `[`MaskPosition.Type`](../../io.github.oleksivio.telegram.bot.api.model.objects.std.sticker/-mask-position/-type/index.md)` = MaskPosition.Type.ALL, xShift: <ERROR CLASS> = FloatFilter(status = AnnotationState.OFF), yShift: <ERROR CLASS> = FloatFilter(status = AnnotationState.OFF), scale: <ERROR CLASS> = FloatFilter(status = AnnotationState.OFF))`

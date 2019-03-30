@@ -25,12 +25,12 @@ class SendContact(
         @JsonProperty(ApiDict.FIRST_NAME_KEY)
         val firstName: String,
         /**
-         * last_name String Optional Contact's last name
+         * last_name [String] Optional Contact's last name
          */
         @JsonProperty(ApiDict.LAST_NAME_KEY)
         val lastName: String? = null,
         /**
-         * vcard String Optional Additional data about the contact in the form of a vCard, 0-2048 bytes
+         * vcard [String] Optional Additional data about the contact in the form of a vCard, 0-2048 bytes
          */
         @JsonProperty(ApiDict.VCARD_KEY)
         val vcard: String? = null,
@@ -39,11 +39,11 @@ class SendContact(
          */
         override val replyMarkup: IKeyboard? = null,
         /**
-         * disable_notification Boolean Optional Sends the message silently. Users will receive a notification with no sound.
+         * disable_notification [Boolean] OptionalSends the message silently. Users will receive a notification with no sound.
          */
         override val disableNotification: Boolean? = null,
         /**
-         * reply_to_message_id Integer Optional If the message is a reply, ID of the original message
+         * reply_to_message_id [Integer] OptionalIf the message is a reply, ID of the original message
          */
         override val replyToMessageId: Long? = null
 ) : MessageAction() {

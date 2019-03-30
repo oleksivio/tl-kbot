@@ -1,0 +1,5 @@
+[telegram-bot-api](../../index.md) / [io.github.oleksivio.telegram.bot.api.annotations.filter.composite](../index.md) / [CallbackQueryFilter](index.md) / [&lt;init&gt;](./-init-.md)
+
+# &lt;init&gt;
+
+`CallbackQueryFilter(message: `[`MessageFilter`](../-message-filter/index.md)` = MessageFilter(status = AnnotationState.OFF), validator: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`> = [], inlineMessageId: <ERROR CLASS> = StringFilter(status = AnnotationState.OFF), chatInstance: <ERROR CLASS> = StringFilter(status = AnnotationState.OFF), data: <ERROR CLASS> = StringFilter(status = AnnotationState.OFF), gameShortName: <ERROR CLASS> = StringFilter(status = AnnotationState.OFF))`

@@ -5,5 +5,4 @@ internal enum class ResultState {
     SUCCESS,
     ERROR,
     CANCEL_SESSION
-
 }

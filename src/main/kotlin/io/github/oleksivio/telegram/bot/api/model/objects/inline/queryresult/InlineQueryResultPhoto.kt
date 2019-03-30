@@ -3,7 +3,7 @@ package io.github.oleksivio.telegram.bot.api.model.objects.inline.queryresult
 import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
- * @see [InlineQueryResultPhoto](https://core.telegram.org/bots/api/#inlinequeryresultphoto)
+ *  [InlineQueryResultPhoto](https://core.telegram.org/bots/api/#inlinequeryresultphoto)
  */
 class InlineQueryResultPhoto(
         /**
@@ -28,7 +28,7 @@ class InlineQueryResultPhoto(
         @JsonProperty("photo_height")
         var photoHeight: Int? = null,
         /**
-         * description String Optional. Short description of the result
+         * description [String] Optional. Short description of the result
          */
         @JsonProperty("description")
         var description: String? = null,

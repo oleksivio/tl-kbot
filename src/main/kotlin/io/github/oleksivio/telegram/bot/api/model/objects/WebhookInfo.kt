@@ -5,7 +5,7 @@ import io.github.oleksivio.telegram.bot.core.model.ITelegram
 import java.util.*
 
 /**
- * @see [WebhookInfo](https://core.telegram.org/bots/api/#webhookinfo)
+ * https://core.telegram.org/bots/api/#webhookinfo
  */
 data class WebhookInfo(
         /**
@@ -26,7 +26,7 @@ data class WebhookInfo(
         @JsonProperty("last_error_date")
         var lastErrorDate: Long? = null,
         /**
-         * last_error_message String Optional. Error message in human-readable format for the most recent error that happened
+         * last_error_message [String] Optional. Error message in human-readable format for the most recent error that happened
          * when trying to deliver an update via webhook
          */
         @JsonProperty("last_error_message")

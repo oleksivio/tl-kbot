@@ -3,7 +3,7 @@ package io.github.oleksivio.telegram.bot.api.model.objects.inline.queryresult
 import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
- * @see [InlineQueryResultContact](https://core.telegram.org/bots/api/#inlinequeryresultcontact)
+ *  [InlineQueryResultContact](https://core.telegram.org/bots/api/#inlinequeryresultcontact)
  */
 data class InlineQueryResultContact(
         /**
@@ -17,17 +17,17 @@ data class InlineQueryResultContact(
         @JsonProperty("firstName")
         var firstName: String,
         /**
-         * last_name String Optional Contact's last name
+         * last_name [String] Optional Contact's last name
          */
         @JsonProperty("last_name")
         var lastName: String? = null,
         /**
-         * vcard String Optional Additional data about the contact in the form of a vCard, 0-2048 bytes
+         * vcard [String] Optional Additional data about the contact in the form of a vCard, 0-2048 bytes
          */
         @JsonProperty("vcard")
         var vcard: String? = null,
         /**
-         * thumb_url String Optional. URL of the thumbnail (jpeg only) for the file
+         * thumb_url [String] Optional. URL of the thumbnail (jpeg only) for the file
          */
         @JsonProperty("thumb_url")
         var thumbUrl: String? = null,

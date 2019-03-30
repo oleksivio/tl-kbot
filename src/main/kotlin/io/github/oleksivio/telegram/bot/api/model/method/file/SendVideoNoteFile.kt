@@ -24,17 +24,17 @@ data class SendVideoNoteFile(
         @JsonProperty("video_note")
         val videoNote: FileSystemResource,
         /**
-         * duration Integer Optional Duration of sent video in seconds
+         * duration [Integer] OptionalDuration of sent video in seconds
          */
         @JsonProperty("duration")
         val duration: Int? = null,
         /**
-         * length Integer Optional Video width and height
+         * length [Integer] OptionalVideo width and height
          */
         @JsonProperty("length")
         val length: Int? = null,
         /**
-         * thumb  String Optional Thumbnail of the file sent;
+         * thumb  [String] Optional Thumbnail of the file sent;
          * can be ignored if thumbnail generation for the file is supported server-side.
          * The thumbnail should be in JPEG format and less than 200 kB in size.
          * A thumbnail‘s width and height should not exceed 90.
@@ -45,12 +45,12 @@ data class SendVideoNoteFile(
         @JsonProperty(ApiDict.THUMB_KEY)
         val thumb: FileSystemResource? = null,
         /**
-         * caption String Optional Animation caption (may also be used when resending animation by file_id), 0-1024 characters
+         * caption [String] Optional Animation caption (may also be used when resending animation by file_id), 0-1024 characters
          */
         @JsonProperty(ApiDict.CAPTION_KEY)
         override val caption: String? = null,
         /**
-         * parse_mode String Optional Send Markdown or HTML, if you want Telegram apps to show bold, italic,
+         * parse_mode [String] Optional Send Markdown or HTML, if you want Telegram apps to show bold, italic,
          * fixed-width text or inline URLs in the media caption.
          */
         @JsonProperty(ApiDict.PARSE_MODE_KEY)
@@ -63,13 +63,13 @@ data class SendVideoNoteFile(
         @JsonProperty(ApiDict.REPLY_MARKUP_KEY)
         override val replyMarkup: IKeyboard? = null,
         /**
-         * disable_notification Boolean Optional Sends the message silently.
+         * disable_notification [Boolean] OptionalSends the message silently.
          * Users will receive a notification with no sound.
          */
         @JsonProperty(ApiDict.DISABLE_NOTIFICATION_KEY)
         override val disableNotification: Boolean? = null,
         /**
-         * reply_to_message_id Integer Optional If the message is a reply, ID of the original message
+         * reply_to_message_id [Integer] OptionalIf the message is a reply, ID of the original message
          */
         @JsonProperty(ApiDict.REPLY_TO_MESSAGE_ID_KEY)
         override val replyToMessageId: Long? = null
