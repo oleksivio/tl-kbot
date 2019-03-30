@@ -17,7 +17,7 @@ class Handler<ARG : ITelegram>(private val methodInvoker: Invoker<ARG>,
     }
 
     fun hasSubscription(update: Update): Boolean {
-        return updateValidator.check(update)
+        return updateValidator.invoke(update)
     }
 
 }

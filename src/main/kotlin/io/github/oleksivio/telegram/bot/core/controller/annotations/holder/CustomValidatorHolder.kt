@@ -1,7 +1,7 @@
 package io.github.oleksivio.telegram.bot.core.controller.annotations.holder
 
-import io.github.oleksivio.telegram.bot.api.model.annotation.validator.CustomValidator
 import io.github.oleksivio.telegram.bot.api.model.annotation.validator.FilterValidator
+import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 import org.springframework.stereotype.Component
 import java.util.*
@@ -16,7 +16,7 @@ class CustomValidatorHolder {
         filterValidatorMap[beanName] = filterValidator
     }
 
-    operator fun <T : ITelegram> get(name: String, targetClass: KClass<T>): CustomValidator<T> {
+    operator fun <T : ITelegram> get(name: String, targetClass: KClass<T>): Validator<T> {
         val filterValidator = filterValidatorMap[name]
                 ?: throw RuntimeException("Can't find Filter Validator with '$name'")
 

@@ -7,7 +7,7 @@ class TypeNameValidator(type: NamedType) : Validator<String> {
 
     private val type: String = type.stringName
 
-    override fun check(argument: String): Boolean {
-        return type == argument
+    override fun invoke(checkedValue: String): Boolean {
+        return type == checkedValue
     }
 }
