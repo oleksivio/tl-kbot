@@ -4,7 +4,8 @@
 
 `fun error(): `[`HandlerResult`](index.md)
 
-Receiver function result to invoke [io.github.oleksivio.telegram.bot.api.annotations.behavior.Session.Error](../../io.github.oleksivio.telegram.bot.api.annotations.behavior/-session/-error/index.md)
-in [io.github.oleksivio.telegram.bot.api.annotations.behavior.Session](../../io.github.oleksivio.telegram.bot.api.annotations.behavior/-session/index.md)
+Receiver function result to invoke
+[Session.Error](../../io.github.oleksivio.telegram.bot.api.annotations.behavior/-session/-error/index.md)
+in [Session](../../io.github.oleksivio.telegram.bot.api.annotations.behavior/-session/index.md)
 annotated class
 

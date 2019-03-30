@@ -61,8 +61,9 @@ class HandlerResult private constructor(private val state: ResultState) {
         }
 
         /**
-         * Receiver function result to invoke [io.github.oleksivio.telegram.bot.api.annotations.behavior.Session.Error]
-         * in [io.github.oleksivio.telegram.bot.api.annotations.behavior.Session]
+         * Receiver function result to invoke
+         * [Session.Error][io.github.oleksivio.telegram.bot.api.annotations.behavior.Session.Error]
+         * in [Session][io.github.oleksivio.telegram.bot.api.annotations.behavior.Session]
          * annotated class
          */
         fun error(): HandlerResult {
@@ -71,7 +72,8 @@ class HandlerResult private constructor(private val state: ResultState) {
         }
 
         /**
-         * Receiver function result to deactivate [io.github.oleksivio.telegram.bot.api.annotations.behavior.Session]
+         * Receiver function result to deactivate
+         * [Session][io.github.oleksivio.telegram.bot.api.annotations.behavior.Session]
          * annotated class
          */
         fun cancelSession(): HandlerResult {

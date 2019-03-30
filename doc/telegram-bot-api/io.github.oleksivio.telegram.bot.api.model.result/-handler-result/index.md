@@ -26,7 +26,7 @@ rises error with [HandlerResult.error](error.md) you can invoke error handler
 
 | Name | Summary |
 |---|---|
-| [cancelSession](cancel-session.md) | `fun cancelSession(): `[`HandlerResult`](./index.md)<br>Receiver function result to deactivate [io.github.oleksivio.telegram.bot.api.annotations.behavior.Session](../../io.github.oleksivio.telegram.bot.api.annotations.behavior/-session/index.md) annotated class |
-| [error](error.md) | `fun error(): `[`HandlerResult`](./index.md)<br>Receiver function result to invoke [io.github.oleksivio.telegram.bot.api.annotations.behavior.Session.Error](../../io.github.oleksivio.telegram.bot.api.annotations.behavior/-session/-error/index.md) in [io.github.oleksivio.telegram.bot.api.annotations.behavior.Session](../../io.github.oleksivio.telegram.bot.api.annotations.behavior/-session/index.md) annotated class |
+| [cancelSession](cancel-session.md) | `fun cancelSession(): `[`HandlerResult`](./index.md)<br>Receiver function result to deactivate [Session](../../io.github.oleksivio.telegram.bot.api.annotations.behavior/-session/index.md) annotated class |
+| [error](error.md) | `fun error(): `[`HandlerResult`](./index.md)<br>Receiver function result to invoke [Session.Error](../../io.github.oleksivio.telegram.bot.api.annotations.behavior/-session/-error/index.md) in [Session](../../io.github.oleksivio.telegram.bot.api.annotations.behavior/-session/index.md) annotated class |
 | [pass](pass.md) | `fun pass(): `[`HandlerResult`](./index.md)<br>Internal |
 | [success](success.md) | `fun success(): `[`HandlerResult`](./index.md)<br>Receiver function result when function was successfully finished. |

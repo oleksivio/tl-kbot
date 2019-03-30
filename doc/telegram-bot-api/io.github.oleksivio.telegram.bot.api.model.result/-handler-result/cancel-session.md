@@ -4,6 +4,7 @@
 
 `fun cancelSession(): `[`HandlerResult`](index.md)
 
-Receiver function result to deactivate [io.github.oleksivio.telegram.bot.api.annotations.behavior.Session](../../io.github.oleksivio.telegram.bot.api.annotations.behavior/-session/index.md)
+Receiver function result to deactivate
+[Session](../../io.github.oleksivio.telegram.bot.api.annotations.behavior/-session/index.md)
 annotated class
 
