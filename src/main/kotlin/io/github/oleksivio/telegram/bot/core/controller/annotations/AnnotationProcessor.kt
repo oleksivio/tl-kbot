@@ -11,7 +11,12 @@ class AnnotationProcessor(private val statelessInitializer: StatelessInitializer
                           private val sessionInitializer: SessionInitializer) {
 
     fun add(obj: Any) {
+
         val objClz = obj::class
+
+        if(objClz.java.annotations.isEmpty()){
+            return
+        }
 
         if (objClz.findAnnotation<Session>() != null) {
             sessionInitializer.init(objClz, obj)
