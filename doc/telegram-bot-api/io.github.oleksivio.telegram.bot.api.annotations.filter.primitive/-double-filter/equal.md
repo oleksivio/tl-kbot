@@ -3,3 +3,4 @@
 # equal
 
 `val equal: `[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)
+* passes only equal values

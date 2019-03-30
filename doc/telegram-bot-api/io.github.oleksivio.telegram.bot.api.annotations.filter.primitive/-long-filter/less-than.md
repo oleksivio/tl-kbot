@@ -3,3 +3,4 @@
 # lessThan
 
 `val lessThan: `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)
+* passes only less values

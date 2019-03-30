@@ -3,3 +3,4 @@
 # equalWith
 
 `val equalWith: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`
+* pass string which equal with one of input string

@@ -15,8 +15,8 @@ class IntegerFilterParser : FilterParser<IntegerFilter, Int> {
     override fun createChecker(annotation: IntegerFilter, finder: Finder): Validator<Int> {
         return IntegerValidator(annotation.lessThan,
                 annotation.lessOrEqual,
-                annotation.moreThan,
-                annotation.moreOrEqual)
+                annotation.greatThan,
+                annotation.greatOrEqual)
     }
 
 }

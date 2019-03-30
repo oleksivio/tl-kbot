@@ -15,8 +15,8 @@ class FloatFilterParser : FilterParser<FloatFilter, Float> {
     override fun createChecker(annotation: FloatFilter, finder: Finder): Validator<Float> {
         return FloatValidator(annotation.lessThan,
                 annotation.lessOrEqual,
-                annotation.moreThan,
-                annotation.moreOrEqual,
+                annotation.greatThan,
+                annotation.greatOrEqual,
                 annotation.equal)
     }
 

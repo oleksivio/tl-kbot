@@ -3,3 +3,8 @@
 # &lt;init&gt;
 
 `NotNullFilter(status: `[`AnnotationState`](../../io.github.oleksivio.telegram.bot.api.model.annotation/-annotation-state/index.md)` = AnnotationState.ON)`
+
+[NotNullFilter](index.md) annotation is used to filter incoming value
+
+Pass only not null values
+

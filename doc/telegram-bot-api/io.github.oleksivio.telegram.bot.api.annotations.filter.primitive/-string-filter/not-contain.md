@@ -3,3 +3,4 @@
 # notContain
 
 `val notContain: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`
+* pass string which not contain any of input string
