@@ -4,6 +4,8 @@
 
 `enum class BooleanState`
 
+Enum to set filtering condition
+
 ### Enum Values
 
 | Name | Summary |

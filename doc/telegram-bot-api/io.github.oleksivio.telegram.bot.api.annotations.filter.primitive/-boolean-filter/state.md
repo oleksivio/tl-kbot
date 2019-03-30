@@ -3,3 +3,7 @@
 # state
 
 `val state: `[`BooleanState`](../../io.github.oleksivio.telegram.bot.api.model.annotation/-boolean-state/index.md)
+
+[BooleanState](../../io.github.oleksivio.telegram.bot.api.model.annotation/-boolean-state/index.md) is enum filtering condition
+it could be TRUE, FALSE and NON_NULL
+

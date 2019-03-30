@@ -14,13 +14,13 @@ Example:
 @Service
 class UpdaterSchedule(private val updater: TelegramUpdater) {
 
-@Scheduled(fixedDelay = 1_500L)
-fun upd() = updater.longPolling()
+    @Scheduled(fixedDelay = 1_500L)
+    fun upd() = updater.longPolling()
 
 }
 ```
 
-Also you could add [UpdateErrorListener](../-update-error-listener.md) callback to receive errors when getting updates
+Also you could add [UpdateErrorListener](../-update-error-listener.md) callback to handle errors when getting updates
 
 Example:
 
@@ -28,7 +28,7 @@ Example:
 @Component
 class ErrorListener : UpdateErrorListener {
 
-override fun invoke(update: Update, onProcessException: Exception) = println(onProcessException.message)
+    override fun invoke(update: Update, onProcessException: Exception) = println(onProcessException.message)
 
 }
 ```

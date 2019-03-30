@@ -3,3 +3,4 @@
 # lessOrEqual
 
 `val lessOrEqual: `[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)
+* passes  less and equal values
