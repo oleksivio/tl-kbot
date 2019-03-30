@@ -42,8 +42,8 @@ class SessionInitializer(private val handlerCreator: HandlerCreator, private val
                     }
 
                 }
-                func.findAnnotation<Session.Order>() != null -> {
-                    val errorOrder = func.findAnnotation<Session.Order>()?.value
+                func.findAnnotation<Session.Error>() != null -> {
+                    val errorOrder = func.findAnnotation<Session.Error>()?.value
 
                     check(errorMap, errorOrder!!)
 
