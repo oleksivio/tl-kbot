@@ -20,27 +20,21 @@ class HandlerResult private constructor(private val state: ResultState) {
      *
      * @return true if result is error
      */
-    fun hasError(): Boolean {
-        return state === ResultState.ERROR
-    }
+    val isError = state === ResultState.ERROR
 
     /**
      * Internal
      *
      * @return true if result is cancel session
      */
-    fun hasCancelSession(): Boolean {
-        return state === ResultState.CANCEL_SESSION
-    }
+    val isCancelSession = state === ResultState.CANCEL_SESSION
 
     /**
      * Internal
      *
      * @return true if result is success
      */
-    fun hasSuccess(): Boolean {
-        return state === ResultState.SUCCESS
-    }
+    val isSucess =  state === ResultState.SUCCESS
 
     companion object {
 
