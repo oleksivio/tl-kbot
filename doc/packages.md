@@ -14,4 +14,4 @@ mark function to receive incoming telegram object.
 For example [@MessageReceiver][io.github.oleksivio.telegram.bot.api.annotations.receiver.MessageReceiver]
 is used for receive [Message][io.github.oleksivio.telegram.bot.api.model.objects.std.Message] by annotated function
 
-Function annotated with receiver must return [HandleResult][io.github.oleksivio.telegram.bot.api.model.result] or [Unit]
+Function annotated with receiver must return [HandleResult][io.github.oleksivio.telegram.bot.api.model.result.HandlerResult] or [Unit]

@@ -8,7 +8,7 @@ mark function to receive incoming telegram object.
 For example [@MessageReceiver](-message-receiver/index.md)
 is used for receive [Message](../io.github.oleksivio.telegram.bot.api.model.objects.std/-message/index.md) by annotated function
 
-Function annotated with receiver must return [HandleResult](../io.github.oleksivio.telegram.bot.api.model.result/index.md) or [Unit](#)
+Function annotated with receiver must return [HandleResult](../io.github.oleksivio.telegram.bot.api.model.result/-handler-result/index.md) or [Unit](#)
 
 ### Annotations
 
