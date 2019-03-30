@@ -8,4 +8,15 @@ import io.github.oleksivio.telegram.bot.api.model.objects.passport.EncryptedPass
 @Retention
 @Target(AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY_GETTER, AnnotationTarget.PROPERTY_SETTER)
 @MustBeDocumented
-annotation class EncryptedPassportElementArrayFilter(val status: AnnotationState = AnnotationState.ON, val type: EncryptedPassportElement.Type = EncryptedPassportElement.Type.ALL, val validator: Array<String> = [], val data: NotNullFilter = NotNullFilter(status = AnnotationState.OFF), val phoneNumber: StringFilter = StringFilter(status = AnnotationState.OFF), val email: StringFilter = StringFilter(status = AnnotationState.OFF), val fileArray: PassportFileArrayFilter = PassportFileArrayFilter(status = AnnotationState.OFF), val frontSide: PassportFileFilter = PassportFileFilter(status = AnnotationState.OFF), val reverseSide: PassportFileFilter = PassportFileFilter(status = AnnotationState.OFF), val selfie: PassportFileFilter = PassportFileFilter(status = AnnotationState.OFF))
+annotation class EncryptedPassportElementArrayFilter(
+        val status: AnnotationState = AnnotationState.ON,
+        val type: EncryptedPassportElement.Type = EncryptedPassportElement.Type.ALL,
+        val validator: Array<String> = [],
+        val data: NotNullFilter = NotNullFilter(status = AnnotationState.OFF),
+        val phoneNumber: StringFilter = StringFilter(status = AnnotationState.OFF),
+        val email: StringFilter = StringFilter(status = AnnotationState.OFF),
+        val fileArray: PassportFileArrayFilter = PassportFileArrayFilter(status = AnnotationState.OFF),
+        val frontSide: PassportFileFilter = PassportFileFilter(status = AnnotationState.OFF),
+        val reverseSide: PassportFileFilter = PassportFileFilter(status = AnnotationState.OFF),
+        val selfie: PassportFileFilter = PassportFileFilter(status = AnnotationState.OFF)
+)
