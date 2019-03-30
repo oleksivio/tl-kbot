@@ -3,7 +3,7 @@ package io.github.oleksivio.telegram.bot.api.model.objects.std.keyboard
 import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
- * @see [ReplyKeyboardRemove](https://core.telegram.org/bots/api/#replykeyboardremove)
+ *  [ReplyKeyboardRemove](https://core.telegram.org/bots/api/#replykeyboardremove)
  */
 data class ReplyKeyboardRemove(
         /**

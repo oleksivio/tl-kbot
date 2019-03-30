@@ -1,0 +1,5 @@
+[telegram-bot-api](../../index.md) / [io.github.oleksivio.telegram.bot.api.annotations.filter.composite](../index.md) / [ChatFilter](index.md) / [&lt;init&gt;](./-init-.md)
+
+# &lt;init&gt;
+
+`ChatFilter(status: `[`AnnotationState`](../../io.github.oleksivio.telegram.bot.api.model.annotation/-annotation-state/index.md)` = AnnotationState.ON, type: `[`Chat.Type`](../../io.github.oleksivio.telegram.bot.api.model.objects.std/-chat/-type/index.md)` = Chat.Type.ALL, validator: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`> = [], title: <ERROR CLASS> = StringFilter(status = AnnotationState.OFF), username: <ERROR CLASS> = StringFilter(status = AnnotationState.OFF), firstName: <ERROR CLASS> = StringFilter(status = AnnotationState.OFF), lastName: <ERROR CLASS> = StringFilter(status = AnnotationState.OFF), allMembersAreAdministrators: <ERROR CLASS> = BooleanFilter(status = AnnotationState.OFF))`

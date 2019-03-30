@@ -17,24 +17,24 @@ data class SendMessage(
         @JsonProperty(ApiDict.TEXT_KEY)
         val text: String,
         /**
-         * parse_mode String Optional Send Markdown or HTML,
+         * parse_mode [String] Optional Send Markdown or HTML,
          * if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message.
          */
         @JsonProperty(ApiDict.PARSE_MODE_KEY)
         override val parseMode: String? = null,
         /**
-         * disable_web_page_preview Boolean Optional Disables link previews for links in this message
+         * disable_web_page_preview [Boolean] OptionalDisables link previews for links in this message
          */
         @JsonProperty(ApiDict.DISABLE_WEB_PAGE_PREVIEW_KEY)
         val disableWebPagePreview: Boolean? = null,
         /**
-         * disable_notification Boolean Optional Sends the message silently.
+         * disable_notification [Boolean] OptionalSends the message silently.
          * Users will receive a notification with no sound.
          */
         @JsonProperty(ApiDict.DISABLE_NOTIFICATION_KEY)
         override val disableNotification: Boolean? = null,
         /**
-         * reply_to_message_id Integer Optional If the message is a reply, ID of the original message
+         * reply_to_message_id [Integer] OptionalIf the message is a reply, ID of the original message
          */
         @JsonProperty(ApiDict.REPLY_TO_MESSAGE_ID_KEY)
         override val replyToMessageId: Long? = null,

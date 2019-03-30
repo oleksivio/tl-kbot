@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [File](https://core.telegram.org/bots/api/#files)
+ *  [File](https://core.telegram.org/bots/api/#files)
  */
 data class File(
         /**
@@ -18,7 +18,7 @@ data class File(
         @JsonProperty("file_size")
         var fileSize: Int? = null,
         /**
-         * file_path String Optional. File path.
+         * file_path [String] Optional. File path.
          * Use https://api.telegram.org/file/bot<token>/<file_path> to get the file.
          */
         @JsonProperty("file_path")

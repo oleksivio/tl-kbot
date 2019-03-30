@@ -1,3 +1,4 @@
+import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 // get properties from 'gradle.properties' file
@@ -25,7 +26,9 @@ plugins {
     `java-library`
     `maven-publish`
     signing
+    id("org.jetbrains.dokka") version "0.9.18"
 }
+
 
 
 dependencies {
@@ -127,6 +130,19 @@ java {
 
 tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
+}
+
+
+tasks.withType<DokkaTask>{
+    outputFormat = "gfm"
+    outputDirectory = "$buildDir/../doc"
+
+    includes = listOf("doc/packages.md","doc/home.md")
+
+    packageOptions {
+        prefix = "io.github.oleksivio.telegram.bot.core"
+        suppress = true
+    }
 }
 
 val compileKotlin: KotlinCompile by tasks

@@ -24,7 +24,13 @@ Add to spring `application.properties`
 telegram.bot.token=<TELEGRAM_BOT_TOKEN>
 ```
 
-[Documentation](https://github.com/oleksivio/telegram-bot-api/wiki)
+Added to Spring `@SpringBootApplication` class:
+
+```kotlin
+@Import(TelegramConfigurationReference::class)
+```
+
+[Documentation](doc/telegram-bot-api/index.md)
 
 ## Versioning
 

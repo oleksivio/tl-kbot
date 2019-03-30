@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [UserProfilePhotos](https://core.telegram.org/bots/api/#userprofilephotos)
+ *  [UserProfilePhotos](https://core.telegram.org/bots/api/#userprofilephotos)
  */
 data class UserProfilePhotos(
         /**

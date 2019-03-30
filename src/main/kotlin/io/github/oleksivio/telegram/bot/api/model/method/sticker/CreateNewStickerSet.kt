@@ -37,7 +37,7 @@ data class CreateNewStickerSet(
         @JsonProperty(ApiDict.EMOJIS_KEY)
         val emojis: String,
         /**
-         * contains_masks Boolean Optional Pass True, if a set of mask stickers should be created
+         * contains_masks [Boolean] OptionalPass True, if a set of mask stickers should be created
          */
         @JsonProperty(ApiDict.CONTAINS_MASKS_KEY)
         val containsMasks: Boolean? = null,

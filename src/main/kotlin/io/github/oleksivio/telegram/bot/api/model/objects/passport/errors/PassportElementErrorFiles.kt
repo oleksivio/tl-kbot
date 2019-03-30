@@ -6,7 +6,7 @@ import io.github.oleksivio.telegram.bot.core.model.type.NamedType
 import java.util.*
 
 /**
- * @see [PassportElementErrorFiles](https://core.telegram.org/bots/api/#passportelementerrorfiles)
+ *  [PassportElementErrorFiles](https://core.telegram.org/bots/api/#passportelementerrorfiles)
  */
 class PassportElementErrorFiles : PassportElementError() {
     @JsonProperty("source")

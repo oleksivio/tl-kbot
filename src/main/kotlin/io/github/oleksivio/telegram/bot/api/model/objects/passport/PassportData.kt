@@ -1,18 +1,18 @@
 package io.github.oleksivio.telegram.bot.api.model.objects.passport
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.EncryptedCredentialsFilter
-import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.EncryptedPassportElementArrayFilter
+import io.github.oleksivio.telegram.bot.api.annotations.filter.composite.EncryptedCredentialsFilter
+import io.github.oleksivio.telegram.bot.api.annotations.filter.composite.EncryptedPassportElementArrayFilter
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [PassportData](https://core.telegram.org/bots/api/#passportdata)
+ *  [PassportData](https://core.telegram.org/bots/api/#passportdata)
  */
 data class PassportData(
         /**
          * To setup filter:
          *
-         * @see EncryptedPassportElementArrayFilter encryptedPassportElements data Array of EncryptedPassportElement Array
+         *  EncryptedPassportElementArrayFilter encryptedPassportElements data Array of EncryptedPassportElement Array
          * with information about documents and other Telegram Passport elements that was shared with the bot
          */
         @JsonProperty("data")
@@ -20,7 +20,7 @@ data class PassportData(
         /**
          * To setup filter:
          *
-         * @see EncryptedCredentialsFilter encryptedCredentials credentials EncryptedCredentials Encrypted credentials
+         *  EncryptedCredentialsFilter encryptedCredentials credentials EncryptedCredentials Encrypted credentials
          * required to decrypt the data
          */
         @JsonProperty("credentials")

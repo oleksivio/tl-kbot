@@ -6,7 +6,7 @@ import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringF
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [Voice](https://core.telegram.org/bots/api/#voice)
+ *  [Voice](https://core.telegram.org/bots/api/#voice)
  */
 data class Voice(
         /**
@@ -17,21 +17,21 @@ data class Voice(
         /**
          * To setup filter:
          *
-         * @see IntegerFilter duration duration Integer Duration of the audio in seconds as defined by sender
+         *  IntegerFilter duration duration Integer Duration of the audio in seconds as defined by sender
          */
         @JsonProperty("duration")
         var duration: Int? = null,
         /**
          * To setup filter:
          *
-         * @see StringFilter mimeType mime_type String Optional. MIME type of the files as defined by sender
+         *  StringFilter mimeType mime_type [String] Optional. MIME type of the files as defined by sender
          */
         @JsonProperty("mime_type")
         var mimeType: String? = null,
         /**
          * To setup filter:
          *
-         * @see IntegerFilter fileSize file_size Integer Optional. File size
+         *  IntegerFilter fileSize file_size Integer Optional. File size
          */
         @JsonProperty("file_size")
         var fileSize: Int? = null

@@ -22,13 +22,13 @@ data class SetGameScore(
         @JsonProperty(ApiDict.SCORE_KEY)
         val score: Int,
         /**
-         * force Boolean Optional Pass True, if the high score is allowed to decrease. This can be useful when fixing
+         * force [Boolean] OptionalPass True, if the high score is allowed to decrease. This can be useful when fixing
          * mistakes or banning cheaters
          */
         @JsonProperty(ApiDict.FORCE_KEY)
         val force: Boolean? = null,
         /**
-         * disable_edit_message Boolean Optional Pass True, if the game message should not be automatically edited to
+         * disable_edit_message [Boolean] OptionalPass True, if the game message should not be automatically edited to
          * include the current scoreboard
          */
         @JsonProperty(ApiDict.DISABLE_EDIT_MESSAGE_KEY)
@@ -40,12 +40,12 @@ data class SetGameScore(
         override val chatId: Long? = null,
 
         /**
-         * message_id Integer Optional Required if inline_message_id is not specified. Identifier of the sent message
+         * message_id [Integer] OptionalRequired if inline_message_id is not specified. Identifier of the sent message
          */
         @JsonProperty(ApiDict.MESSAGE_ID_KEY)
         val messageId: Long? = null,
         /**
-         * inline_message_id String Optional Required if chat_id and message_id are not specified. Identifier of the inline
+         * inline_message_id [String] Optional Required if chat_id and message_id are not specified. Identifier of the inline
          * message
          */
         @JsonProperty(ApiDict.INLINE_MESSAGE_ID_KEY)

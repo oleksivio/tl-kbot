@@ -1,0 +1,5 @@
+[telegram-bot-api](../../index.md) / [io.github.oleksivio.telegram.bot.api.annotations.filter.primitive](../index.md) / [FloatFilter](index.md) / [&lt;init&gt;](./-init-.md)
+
+# &lt;init&gt;
+
+`FloatFilter(status: `[`AnnotationState`](../../io.github.oleksivio.telegram.bot.api.model.annotation/-annotation-state/index.md)` = AnnotationState.ON, lessThan: `[`Float`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html)` = java.lang.Float.MAX_VALUE, lessOrEqual: `[`Float`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html)` = java.lang.Float.MAX_VALUE, moreThan: `[`Float`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html)` = java.lang.Float.MIN_VALUE, moreOrEqual: `[`Float`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html)` = java.lang.Float.MIN_VALUE, equal: `[`Float`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html)` = java.lang.Float.NaN)`

@@ -29,13 +29,13 @@ data class SendGame(
         @JsonProperty(ApiDict.REPLY_MARKUP_KEY)
         val replyMarkup: InlineKeyboardMarkup? = null,
         /**
-         * disable_notification Boolean Optional Sends the message silently. Users will receive a notification with
+         * disable_notification [Boolean] OptionalSends the message silently. Users will receive a notification with
          * no sound.
          */
         @JsonProperty(ApiDict.DISABLE_NOTIFICATION_KEY)
         val disableNotification: Boolean? = null,
         /**
-         * reply_to_message_id Integer Optional If the message is a reply, ID of the original message
+         * reply_to_message_id [Integer] OptionalIf the message is a reply, ID of the original message
          */
         @JsonProperty(ApiDict.REPLY_TO_MESSAGE_ID_KEY)
         val replyToMessageId: Long? = null

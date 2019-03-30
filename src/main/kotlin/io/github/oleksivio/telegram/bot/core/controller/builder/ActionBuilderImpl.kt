@@ -4,7 +4,7 @@ import io.github.oleksivio.telegram.bot.api.controller.ActionBuilder
 import io.github.oleksivio.telegram.bot.api.controller.ActionCreate
 import io.github.oleksivio.telegram.bot.api.controller.ActionErrorListener
 import io.github.oleksivio.telegram.bot.api.controller.ActionSend
-import io.github.oleksivio.telegram.bot.api.model.NetworkError
+import io.github.oleksivio.telegram.bot.api.model.ServerErrorListener
 import io.github.oleksivio.telegram.bot.core.controller.network.NetworkRequester
 import io.github.oleksivio.telegram.bot.core.model.method.Action
 import org.springframework.stereotype.Component
@@ -13,15 +13,15 @@ data class ActionHolder<RES>(val networkRequester: NetworkRequester, val action:
     : ActionErrorListener<RES>, ActionSend<RES> {
 
     override fun send(): RES? {
-        return networkRequester.send(action, networkErrorListener)
+        return networkRequester.send(action, serverErrorListenerListener)
     }
 
-    override fun errorListener(networkError: NetworkError): ActionSend<RES> {
-        networkErrorListener = networkError
+    override fun errorListener(serverErrorListener: ServerErrorListener): ActionSend<RES> {
+        serverErrorListenerListener = serverErrorListener
         return this
     }
 
-    var networkErrorListener: NetworkError = {}
+    var serverErrorListenerListener: ServerErrorListener = {}
 
 }
 

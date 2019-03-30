@@ -3,20 +3,20 @@ package io.github.oleksivio.telegram.bot.api.model.objects.passport
 import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.NotNullFilter
 import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringFilter
-import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.PassportFileArrayFilter
-import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.PassportFileFilter
+import io.github.oleksivio.telegram.bot.api.annotations.filter.composite.PassportFileArrayFilter
+import io.github.oleksivio.telegram.bot.api.annotations.filter.composite.PassportFileFilter
 import io.github.oleksivio.telegram.bot.api.model.objects.passport.EncryptedPassportElement.Type
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 import io.github.oleksivio.telegram.bot.core.model.type.TelegramType
 
 /**
- * @see [EncryptedPassportElement](https://core.telegram.org/bots/api/#encryptedpassportelement)
+ *  [EncryptedPassportElement](https://core.telegram.org/bots/api/#encryptedpassportelement)
  */
 data class EncryptedPassportElement(
         /**
          * To setup filter:
          *
-         * @see Type type type String Element type. One of “personal_details”, “passport”, “driver_license”, “identity_card”,
+         *  Type type type String Element type. One of “personal_details”, “passport”, “driver_license”, “identity_card”,
          * “internal_passport”, “address”, “utility_bill”, “bank_statement”, “rental_agreement”, “passport_registration”,
          * “temporary_registration”, “phone_number”, “email”.
          */
@@ -25,7 +25,7 @@ data class EncryptedPassportElement(
         /**
          * To setup filter:
          *
-         * @see NotNullFilter data data String Optional. Base64-encoded encrypted Telegram Passport element data provided by
+         *  NotNullFilter data data [String] Optional. Base64-encoded encrypted Telegram Passport element data provided by
          * the user, available for “personal_details”, “passport”, “driver_license”, “identity_card”, “identity_passport” and
          * “address” types. Can be decrypted and verified using the accompanying EncryptedCredentials.
          */
@@ -34,7 +34,7 @@ data class EncryptedPassportElement(
         /**
          * To setup filter:
          *
-         * @see StringFilter phoneNumber phone_number String Optional. User's verified phone number, available only for
+         *  StringFilter phoneNumber phone_number [String] Optional. User's verified phone number, available only for
          * “phone_number” type
          */
         @JsonProperty("phone_number")
@@ -42,14 +42,14 @@ data class EncryptedPassportElement(
         /**
          * To setup filter:
          *
-         * @see StringFilter email email String Optional. User's verified email address, available only for “email” type
+         *  StringFilter email email [String] Optional. User's verified email address, available only for “email” type
          */
         @JsonProperty("email")
         var email: String? = null,
         /**
          * To setup filter:
          *
-         * @see PassportFileArrayFilter fileArray files Array of PassportFile Optional. Array of encrypted files with
+         *  PassportFileArrayFilter fileArray files Array of PassportFile Optional. Array of encrypted files with
          * documents provided by the user, available for “utility_bill”, “bank_statement”, “rental_agreement”,
          * “passport_registration” and “temporary_registration” types. Files can be decrypted and verified using the
          * accompanying EncryptedCredentials.
@@ -59,7 +59,7 @@ data class EncryptedPassportElement(
         /**
          * To setup filter:
          *
-         * @see PassportFileFilter frontSide front_side PassportFile Optional. Encrypted file with the front side of the
+         *  PassportFileFilter frontSide front_side PassportFile Optional. Encrypted file with the front side of the
          * document, provided by the user. Available for “passport”, “driver_license”, “identity_card” and
          * “internal_passport”. The file can be decrypted and verified using the accompanying EncryptedCredentials.
          */
@@ -68,7 +68,7 @@ data class EncryptedPassportElement(
         /**
          * To setup filter:
          *
-         * @see PassportFileFilter reverseSide reverse_side PassportFile Optional. Encrypted file with the reverse side of the
+         *  PassportFileFilter reverseSide reverse_side PassportFile Optional. Encrypted file with the reverse side of the
          * document, provided by the user. Available for “driver_license” and “identity_card”. The file can be decrypted and
          * verified using the accompanying EncryptedCredentials.
          */
@@ -77,7 +77,7 @@ data class EncryptedPassportElement(
         /**
          * To setup filter:
          *
-         * @see PassportFileFilter selfie selfie PassportFile Optional. Encrypted file with the selfie of the user holding a
+         *  PassportFileFilter selfie selfie PassportFile Optional. Encrypted file with the selfie of the user holding a
          * document, provided by the user; available for “passport”, “driver_license”, “identity_card” and
          * “internal_passport”. The file can be decrypted and verified using the accompanying EncryptedCredentials.
          */

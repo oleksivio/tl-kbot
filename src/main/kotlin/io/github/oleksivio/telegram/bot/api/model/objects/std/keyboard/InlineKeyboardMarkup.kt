@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.oleksivio.telegram.bot.api.model.objects.std.keyboard.row.InlineButtonRow
 
 /**
- * @see [InlineKeyboardMarkup](https://core.telegram.org/bots/api/#inlinekeyboardmarkup)
+ *  [InlineKeyboardMarkup](https://core.telegram.org/bots/api/#inlinekeyboardmarkup)
  */
 data class InlineKeyboardMarkup(
         /**

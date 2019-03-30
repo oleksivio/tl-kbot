@@ -22,7 +22,7 @@ data class ForwardMessage(
         @JsonProperty(ApiDict.FROM_CHAT_ID_KEY)
         val fromChatId: Long,
         /**
-         * disable_notification Boolean Optional Sends the message silently.
+         * disable_notification [Boolean] OptionalSends the message silently.
          * Users will receive a notification with no sound.
          */
         @JsonProperty(ApiDict.DISABLE_NOTIFICATION_KEY)

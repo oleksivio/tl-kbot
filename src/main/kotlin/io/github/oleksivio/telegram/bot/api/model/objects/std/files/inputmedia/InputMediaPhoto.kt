@@ -3,7 +3,7 @@ package io.github.oleksivio.telegram.bot.api.model.objects.std.files.inputmedia
 import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
- * @see [InputMediaPhoto](https://core.telegram.org/bots/api/#inputmediaphoto)
+ *  [InputMediaPhoto](https://core.telegram.org/bots/api/#inputmediaphoto)
  */
 data class InputMediaPhoto(
         /**
@@ -19,12 +19,12 @@ data class InputMediaPhoto(
         @JsonProperty("media")
         override var media: String? = null,
         /**
-         * caption String Optional. Caption of the photo to be sent, 0-200 characters
+         * caption [String] Optional. Caption of the photo to be sent, 0-200 characters
          */
         @JsonProperty("caption")
         override var caption: String? = null,
         /**
-         * parse_mode String Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text
+         * parse_mode [String] Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text
          * or inline URLs in the media caption.
          */
         @JsonProperty("parse_mode")

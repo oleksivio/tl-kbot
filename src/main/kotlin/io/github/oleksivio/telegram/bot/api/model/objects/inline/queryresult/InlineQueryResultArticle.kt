@@ -3,7 +3,7 @@ package io.github.oleksivio.telegram.bot.api.model.objects.inline.queryresult
 import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
- * @see [InlineQueryResultArticle](https://core.telegram.org/bots/api/#inlinequeryresultarticle)
+ *  [InlineQueryResultArticle](https://core.telegram.org/bots/api/#inlinequeryresultarticle)
  */
 class InlineQueryResultArticle(
         /**
@@ -12,7 +12,7 @@ class InlineQueryResultArticle(
         @JsonProperty("title")
         var title: String,
         /**
-         * url String Optional. URL of the result
+         * url [String] Optional. URL of the result
          */
         @JsonProperty("url")
         var url: String? = null,
@@ -22,12 +22,12 @@ class InlineQueryResultArticle(
         @JsonProperty("hide_url")
         var hideUrl: Boolean? = null,
         /**
-         * description String Optional. Short description of the result
+         * description [String] Optional. Short description of the result
          */
         @JsonProperty("description")
         var description: String? = null,
         /**
-         * thumb_url String Optional. Url of the thumbnail for the result
+         * thumb_url [String] Optional. Url of the thumbnail for the result
          */
         @JsonProperty("thumb_url")
         var thumbUrl: String? = null,

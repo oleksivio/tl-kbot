@@ -10,7 +10,7 @@ import io.github.oleksivio.telegram.bot.core.model.method.common.MessageAction
  */
 data class SendVenue(
         /**
-         *  chat_id Integer or String Optional Required if inline_message_id is not specified.
+         *  chat_id Integer or [String] Optional Required if inline_message_id is not specified.
          * Unique identifier for the target chat
          */
         @JsonProperty(ApiDict.CHAT_ID_KEY)
@@ -36,24 +36,24 @@ data class SendVenue(
         @JsonProperty("address")
         val address: String,
         /**
-         * foursquare_id String Optional Foursquare identifier of the venue
+         * foursquare_id [String] Optional Foursquare identifier of the venue
          */
         @JsonProperty("foursquare_id")
         val foursquareId: String? = null,
         /**
-         * foursquare_type String Optional. Foursquare type of the venue. (For example,
+         * foursquare_type [String] Optional. Foursquare type of the venue. (For example,
          * “arts_entertainment/default”, “arts_entertainment/aquarium” or “food/icecream”.)
          */
         @JsonProperty("foursquare_type")
         val foursquareType: String? = null,
         /**
-         * disable_notification Boolean Optional Sends the message silently.
+         * disable_notification [Boolean] OptionalSends the message silently.
          * Users will receive a notification with no sound.
          */
         @JsonProperty(ApiDict.DISABLE_NOTIFICATION_KEY)
         override val disableNotification: Boolean? = null,
         /**
-         * reply_to_message_id Integer Optional If the message is a reply, ID of the original message
+         * reply_to_message_id [Integer] OptionalIf the message is a reply, ID of the original message
          */
         @JsonProperty(ApiDict.REPLY_TO_MESSAGE_ID_KEY)
         override val replyToMessageId: Long? = null,

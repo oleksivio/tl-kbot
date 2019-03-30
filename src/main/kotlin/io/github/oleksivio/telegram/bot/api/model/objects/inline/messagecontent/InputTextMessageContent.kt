@@ -3,7 +3,7 @@ package io.github.oleksivio.telegram.bot.api.model.objects.inline.messagecontent
 import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
- * @see [InputTextMessageContent](https://core.telegram.org/bots/api/#inputtextmessagecontent)
+ *  [InputTextMessageContent](https://core.telegram.org/bots/api/#inputtextmessagecontent)
  */
 class InputTextMessageContent(
         /**
@@ -12,7 +12,7 @@ class InputTextMessageContent(
         @JsonProperty("message_text")
         var messageText: String? = null,
         /**
-         * parse_mode String Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text
+         * parse_mode [String] Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text
          * or inline URLs in your bot's message.
          */
         @JsonProperty("parse_mode")

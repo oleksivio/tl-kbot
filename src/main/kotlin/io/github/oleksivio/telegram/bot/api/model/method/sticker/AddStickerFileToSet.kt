@@ -37,7 +37,7 @@ data class AddStickerFileToSet(
          */
         val emojis: String,
         /**
-         * contains_masks Boolean Optional Pass True, if a set of mask stickers should be created
+         * contains_masks [Boolean] OptionalPass True, if a set of mask stickers should be created
          */
         val containsMasks: Boolean? = null,
         /**

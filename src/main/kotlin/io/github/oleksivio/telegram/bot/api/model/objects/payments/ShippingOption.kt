@@ -5,7 +5,7 @@ import io.github.oleksivio.telegram.bot.core.model.ITelegram
 import java.util.*
 
 /**
- * @see [ShippingOption](https://core.telegram.org/bots/api/#shippingoption)
+ *  [ShippingOption](https://core.telegram.org/bots/api/#shippingoption)
  */
 data class ShippingOption(
         /**
