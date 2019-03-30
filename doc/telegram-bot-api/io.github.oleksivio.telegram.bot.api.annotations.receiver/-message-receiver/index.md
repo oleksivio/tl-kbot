@@ -4,8 +4,21 @@
 
 `@Target([AnnotationTarget.FUNCTION]) annotation class MessageReceiver`
 
+All functions annotated by [MessageReceiver](./index.md) must have one input parameter
+[Message](../../io.github.oleksivio.telegram.bot.api.model.objects.std/-message/index.md) type
+
+Example:
+
+``` kotlin
+@MessageReceiver
+fun init(message: Message) {
+   println(message.text)
+}
+
+```
+
 ### Constructors
 
 | Name | Summary |
 |---|---|
-| [&lt;init&gt;](-init-.md) | `MessageReceiver()` |
+| [&lt;init&gt;](-init-.md) | `MessageReceiver()`<br>All functions annotated by [MessageReceiver](./index.md) must have one input parameter [Message](../../io.github.oleksivio.telegram.bot.api.model.objects.std/-message/index.md) type |

@@ -20,27 +20,21 @@ class HandlerResult private constructor(private val state: ResultState) {
      *
      * @return true if result is error
      */
-    fun hasError(): Boolean {
-        return state === ResultState.ERROR
-    }
+    val isError = state === ResultState.ERROR
 
     /**
      * Internal
      *
      * @return true if result is cancel session
      */
-    fun hasCancelSession(): Boolean {
-        return state === ResultState.CANCEL_SESSION
-    }
+    val isCancelSession = state === ResultState.CANCEL_SESSION
 
     /**
      * Internal
      *
      * @return true if result is success
      */
-    fun hasSuccess(): Boolean {
-        return state === ResultState.SUCCESS
-    }
+    val isSucess =  state === ResultState.SUCCESS
 
     companion object {
 
@@ -61,8 +55,9 @@ class HandlerResult private constructor(private val state: ResultState) {
         }
 
         /**
-         * Receiver function result to invoke [io.github.oleksivio.telegram.bot.api.annotations.behavior.Session.Error]
-         * in [io.github.oleksivio.telegram.bot.api.annotations.behavior.Session]
+         * Receiver function result to invoke
+         * [Session.Error][io.github.oleksivio.telegram.bot.api.annotations.behavior.Session.Error]
+         * in [Session][io.github.oleksivio.telegram.bot.api.annotations.behavior.Session]
          * annotated class
          */
         fun error(): HandlerResult {
@@ -71,7 +66,8 @@ class HandlerResult private constructor(private val state: ResultState) {
         }
 
         /**
-         * Receiver function result to deactivate [io.github.oleksivio.telegram.bot.api.annotations.behavior.Session]
+         * Receiver function result to deactivate
+         * [Session][io.github.oleksivio.telegram.bot.api.annotations.behavior.Session]
          * annotated class
          */
         fun cancelSession(): HandlerResult {
