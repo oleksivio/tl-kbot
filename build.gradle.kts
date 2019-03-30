@@ -110,7 +110,7 @@ publishing {
 
 val archivesBaseName = "telegram-bot-api"
 group = "io.github.oleksivio"
-version = "1.0.4"
+version = "1.1.4"
 
 signing {
     releaseBuild?.toBoolean()?.let {
