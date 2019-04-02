@@ -26,7 +26,7 @@ class BotApplicationContext(private val annotationProcessor: AnnotationProcessor
                 .map {
                     val instance = applicationContext.getBean(it)
                     SimpleBean(it, instance)
-                }.toList()
+                }
 
 
         // on first step we add all validators
