@@ -4,6 +4,9 @@
 
 `MessageReceiver()`
 
+Annotation to mark function as receiver of
+[Message](../../io.github.oleksivio.telegram.bot.api.model.objects.std/-message/index.md)
+
 All functions annotated by [MessageReceiver](index.md) must have one input parameter
 [Message](../../io.github.oleksivio.telegram.bot.api.model.objects.std/-message/index.md) type
 

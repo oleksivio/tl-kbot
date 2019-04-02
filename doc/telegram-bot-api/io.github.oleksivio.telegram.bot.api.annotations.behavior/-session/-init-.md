@@ -35,3 +35,5 @@ Class that marked by this annotation must include:
 For every [Session.Order](-order/index.md) method must be only one method
 with [Session.Error](-error/index.md) with same order value
 
+[Example](https://github.com/oleksivio/example-bot/blob/master/src/main/kotlin/telegram/bot/example/UserSessionExample.kt)
+
