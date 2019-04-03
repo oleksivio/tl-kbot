@@ -14,7 +14,7 @@ import org.springframework.util.MultiValueMap
  * Project: telegram-bot-api
  */
 @Controller
-class FileNetworker(@Value("\${composite.bot.token}") token: String) : Networker(token) {
+class FileNetworker(@Value("\${telegram.bot.token}") token: String) : Networker(token) {
 
     fun <T : CommonResponse<*>> run(requestMap: MultiValueMap<String, Any>,
                                     clazz: Class<T>,

@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Controller
 
 @Controller
-class ActionNetworker(@Value("\${composite.bot.token}") token: String) : Networker(token) {
+class ActionNetworker(@Value("\${telegram.bot.token}") token: String) : Networker(token) {
 
     fun <T : CommonResponse<*>> run(action: Action<*>,
                                     clazz: Class<T>,
