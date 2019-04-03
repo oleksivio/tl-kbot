@@ -1,7 +1,6 @@
 package io.github.oleksivio.telegram.bot.api.model.objects.std
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.github.oleksivio.telegram.bot.api.model.objects.std.MessageEntity.Type
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 import io.github.oleksivio.telegram.bot.core.model.type.TelegramType
 
@@ -20,7 +19,7 @@ data class MessageEntity(
          * offset Integer Offset in UTF-16 code units to the start of the entity
          */
         @JsonProperty("offset")
-        var offset: String? = null,
+        var offset: Int? = null,
         /**
          * To setup filter:
          *
