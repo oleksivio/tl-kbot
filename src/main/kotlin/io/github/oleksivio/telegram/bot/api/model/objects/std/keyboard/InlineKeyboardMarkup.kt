@@ -12,7 +12,7 @@ data class InlineKeyboardMarkup(
          * InlineKeyboardButton objects
          */
         @JsonProperty("inline_keyboard")
-        var inlineKeyboard: MutableList<InlineButtonRow> = mutableListOf(InlineButtonRow())
+        var inlineKeyboard: ArrayList<InlineButtonRow> = ArrayList()
 
 ) : IKeyboard {
     fun add(row: InlineButtonRow) {
