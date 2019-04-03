@@ -12,7 +12,7 @@ data class ReplyKeyboardButton(
          * button is pressed
          */
         @JsonProperty("text")
-        var text: String? = null,
+        var text: String,
         /**
          * request_contact Boolean Optional. If True, the user's phone number will be sent as a contact when the button is
          * pressed. Available in private chats only
