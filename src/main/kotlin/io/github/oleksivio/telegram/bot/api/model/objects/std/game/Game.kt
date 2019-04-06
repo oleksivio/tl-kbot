@@ -1,10 +1,6 @@
 package io.github.oleksivio.telegram.bot.api.model.objects.std.game
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringFilter
-import io.github.oleksivio.telegram.bot.api.annotations.filter.composite.AnimationFilter
-import io.github.oleksivio.telegram.bot.api.annotations.filter.composite.MessageEntityArrayFilter
-import io.github.oleksivio.telegram.bot.api.annotations.filter.composite.PhotoArrayFilter
 import io.github.oleksivio.telegram.bot.api.model.objects.std.MessageEntity
 import io.github.oleksivio.telegram.bot.api.model.objects.std.files.PhotoSize
 import io.github.oleksivio.telegram.bot.core.model.ITelegram

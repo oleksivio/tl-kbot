@@ -1,8 +1,6 @@
 package io.github.oleksivio.telegram.bot.api.model.objects.passport
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.github.oleksivio.telegram.bot.api.annotations.filter.composite.EncryptedCredentialsFilter
-import io.github.oleksivio.telegram.bot.api.annotations.filter.composite.EncryptedPassportElementArrayFilter
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**

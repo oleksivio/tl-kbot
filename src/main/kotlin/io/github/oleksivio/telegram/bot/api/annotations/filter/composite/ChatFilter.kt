@@ -10,7 +10,7 @@ import io.github.oleksivio.telegram.bot.api.model.objects.std.Chat
 @MustBeDocumented
 annotation class ChatFilter(
         val status: AnnotationState = AnnotationState.ON,
-        val type: Chat.Type = Chat.Type.ALL,
+        val type: Chat.Type = Chat.Type.UNKNOWN,
         val validator: Array<String> = [],
         val title: StringFilter = StringFilter(status = AnnotationState.OFF),
         val username: StringFilter = StringFilter(status = AnnotationState.OFF),

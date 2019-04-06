@@ -22,10 +22,10 @@ data class PassportElementErrorDataField(
         @JsonProperty("data_hash")
         var dataHash: String? = null) : PassportElementError() {
     fun setType(type: Type) {
-        this.type = type.stringName
+        this.type = type.typeName
     }
 
-    enum class Type(override val stringName: String) : NamedType {
+    enum class Type(override val typeName: String) : NamedType {
         PERSONAL_DETAILS(PassportConstants.PERSONAL_DETAILS),
         PASSPORT(PassportConstants.PASSPORT),
         DRIVER_LICENSE(PassportConstants.DRIVER_LICENSE),

@@ -24,15 +24,14 @@ data class PassportElementErrorFrontSide(
 ) : PassportElementError() {
 
     fun setType(type: Type) {
-        this.type = type.stringName
+        this.type = type.typeName
     }
 
-    enum class Type constructor(override val stringName: String) : NamedType {
+    enum class Type constructor(override val typeName: String) : NamedType {
         PASSPORT(PassportConstants.PASSPORT),
         DRIVER_LICENSE(PassportConstants.DRIVER_LICENSE),
         IDENTITY_CARD(PassportConstants.IDENTITY_CARD),
         INTERNAL_PASSPORT(PassportConstants.INTERNAL_PASSPORT);
-
     }
 
 }

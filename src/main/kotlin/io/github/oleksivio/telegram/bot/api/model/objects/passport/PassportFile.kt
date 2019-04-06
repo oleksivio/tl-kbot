@@ -1,7 +1,6 @@
 package io.github.oleksivio.telegram.bot.api.model.objects.passport
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.IntegerFilter
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**

@@ -2,7 +2,7 @@
 
 # InlineKeyboardButton
 
-`class InlineKeyboardButton : ITelegram`
+`data class InlineKeyboardButton : ITelegram`
 
 [InlineKeyboardButton](https://core.telegram.org/bots/api/#inlinekeyboardbutton)
 
@@ -10,7 +10,7 @@
 
 | Name | Summary |
 |---|---|
-| [&lt;init&gt;](-init-.md) | `InlineKeyboardButton()`<br>[InlineKeyboardButton](https://core.telegram.org/bots/api/#inlinekeyboardbutton) |
+| [&lt;init&gt;](-init-.md) | `InlineKeyboardButton(text: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, url: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, callbackData: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, switchInlineQuery: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, switchInlineQueryCurrentChat: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, callbackGame: `[`CallbackGame`](../../io.github.oleksivio.telegram.bot.api.model.objects.std.game/-callback-game/index.md)`? = null, pay: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`? = null)`<br>[InlineKeyboardButton](https://core.telegram.org/bots/api/#inlinekeyboardbutton) |
 
 ### Properties
 
@@ -21,5 +21,5 @@
 | [pay](pay.md) | `var pay: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`?`<br>pay Boolean Optional. Specify True, to send a Pay button. |
 | [switchInlineQuery](switch-inline-query.md) | `var switchInlineQuery: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?`<br>switch_inline_query [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) Optional. If set, pressing the button will prompt the user to select one of their chats, open that chat and insert the bot‘s username and the specified inline query in the input field. Can be empty, in which case just the bot’s username will be inserted. |
 | [switchInlineQueryCurrentChat](switch-inline-query-current-chat.md) | `var switchInlineQueryCurrentChat: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?`<br>switch_inline_query_current_chat [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) Optional. If set, pressing the button will insert the bot‘s username and the specified inline query in the current chat's input field. Can be empty, in which case only the bot’s username will be inserted. |
-| [text](text.md) | `var text: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?`<br>text String Label text on the button |
+| [text](text.md) | `var text: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>text String Label text on the button |
 | [url](url.md) | `var url: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?`<br>url [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) Optional. HTTP url to be opened when button is pressed |

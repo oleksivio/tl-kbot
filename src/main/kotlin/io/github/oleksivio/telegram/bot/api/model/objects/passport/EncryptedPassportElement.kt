@@ -1,11 +1,6 @@
 package io.github.oleksivio.telegram.bot.api.model.objects.passport
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.NotNullFilter
-import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringFilter
-import io.github.oleksivio.telegram.bot.api.annotations.filter.composite.PassportFileArrayFilter
-import io.github.oleksivio.telegram.bot.api.annotations.filter.composite.PassportFileFilter
-import io.github.oleksivio.telegram.bot.api.model.objects.passport.EncryptedPassportElement.Type
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 import io.github.oleksivio.telegram.bot.core.model.type.TelegramType
 
@@ -84,7 +79,7 @@ data class EncryptedPassportElement(
         @JsonProperty("selfie")
         var selfie: PassportFile? = null
 ) : ITelegram {
-    enum class Type(override val stringName: String) : TelegramType {
+    enum class Type(override val typeName: String) : TelegramType {
         PERSONAL_DETAILS(PassportConstants.PERSONAL_DETAILS),
         PASSPORT(PassportConstants.PASSPORT),
         DRIVER_LICENSE(PassportConstants.DRIVER_LICENSE),
@@ -98,10 +93,17 @@ data class EncryptedPassportElement(
         TEMPORARY_REGISTRATION(PassportConstants.TEMPORARY_REGISTRATION),
         PHONE_NUMBER(PassportConstants.PHONE_NUMBER),
         EMAIL(PassportConstants.EMAIL),
-        ALL("");
+        UNKNOWN("");
 
         override val isChosen: Boolean
-            get() = this != ALL
+            get() = this != UNKNOWN
+
+        companion object {
+
+            fun parse(input: String?): Type {
+                return values().firstOrNull { it.typeName == input } ?: UNKNOWN
+            }
+        }
 
     }
 }

@@ -10,7 +10,7 @@ import io.github.oleksivio.telegram.bot.api.model.objects.std.MessageEntity
 @MustBeDocumented
 annotation class MessageEntityFilter(
         val status: AnnotationState = AnnotationState.ON,
-        val type: MessageEntity.Type = MessageEntity.Type.ALL,
+        val type: MessageEntity.Type = MessageEntity.Type.UNKNOWN,
         val validator: Array<String> = [],
         val length: IntegerFilter = IntegerFilter(status = AnnotationState.OFF),
         val url: StringFilter = StringFilter(status = AnnotationState.OFF),

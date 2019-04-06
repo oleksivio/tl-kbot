@@ -1,11 +1,6 @@
 package io.github.oleksivio.telegram.bot.api.model.objects.std
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.BooleanFilter
-import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.LongFilter
-import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.NotNullFilter
-import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringFilter
-import io.github.oleksivio.telegram.bot.api.annotations.filter.composite.*
 import io.github.oleksivio.telegram.bot.api.model.objects.passport.PassportData
 import io.github.oleksivio.telegram.bot.api.model.objects.payments.Invoice
 import io.github.oleksivio.telegram.bot.api.model.objects.payments.SuccessfulPayment

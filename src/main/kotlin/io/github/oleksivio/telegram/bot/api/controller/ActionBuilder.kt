@@ -49,7 +49,6 @@ interface ActionBuilder {
     fun <RES> action(action: Action<RES>): ActionErrorListener<RES>
 }
 
-
 /**
  * [ActionSend] interface for send telegram api action
  */

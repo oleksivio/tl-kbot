@@ -15,7 +15,7 @@ class AnnotationProcessor(private val statelessInitializer: StatelessInitializer
         val objClz = obj::class
 
         // if we find annotation on Java Lambda classes - kotlin reflection throw Exception
-        if(objClz.java.annotations.isEmpty()){
+        if (objClz.java.annotations.isEmpty()) {
             return
         }
 

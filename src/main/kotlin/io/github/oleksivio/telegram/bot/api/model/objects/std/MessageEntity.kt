@@ -43,23 +43,47 @@ data class MessageEntity(
         @JsonProperty("user")
         var user: User? = null
 ) : ITelegram {
-    enum class Type(override val stringName: String) : TelegramType {
-        MENTION("mention"),
-        HASHTAG("hashtag"),
-        CASHTAG("cashtag"),
-        BOT_COMMAND("bot_command"),
-        URL("url"),
-        EMAIL("email"),
-        PHONE_NUMBER("phone_number"),
-        BOLD_TEXT("bold"),
-        ITALIC_TEXT("italic"),
-        CODE("code"),
-        PRE("pre"),
-        TEXT_LINK("text_link"),
-        TEXT_MENTION("text_mention"),
-        ALL("");
+
+    object Const {
+        const val MENTION = "mention"
+        const val HASHTAG = "hashtag"
+        const val CASHTAG = "cashtag"
+        const val BOT_COMMAND = "bot_command"
+        const val URL = "url"
+        const val EMAIL = "email"
+        const val PHONE_NUMBER = "phone_number"
+        const val BOLD_TEXT = "bold"
+        const val ITALIC_TEXT = "italic"
+        const val CODE = "code"
+        const val PRE = "pre"
+        const val TEXT_LINK = "text_link"
+        const val TEXT_MENTION = "text_mention"
+    }
+
+    enum class Type(override val typeName: String) : TelegramType {
+        MENTION(Const.MENTION),
+        HASHTAG(Const.HASHTAG),
+        CASHTAG(Const.CASHTAG),
+        BOT_COMMAND(Const.BOT_COMMAND),
+        URL(Const.URL),
+        EMAIL(Const.EMAIL),
+        PHONE_NUMBER(Const.PHONE_NUMBER),
+        BOLD_TEXT(Const.BOLD_TEXT),
+        ITALIC_TEXT(Const.ITALIC_TEXT),
+        CODE(Const.CODE),
+        PRE(Const.PRE),
+        TEXT_LINK(Const.TEXT_LINK),
+        TEXT_MENTION(Const.TEXT_MENTION),
+        UNKNOWN("");
 
         override val isChosen: Boolean
-            get() = this != ALL
+            get() = this != UNKNOWN
+
+        companion object {
+            fun parse(input: String?): Type {
+                return values().firstOrNull { it.typeName == input } ?: UNKNOWN
+            }
+        }
+
     }
 } 

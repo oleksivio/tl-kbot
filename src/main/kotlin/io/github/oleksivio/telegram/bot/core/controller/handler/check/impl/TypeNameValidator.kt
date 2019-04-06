@@ -5,7 +5,7 @@ import io.github.oleksivio.telegram.bot.core.model.type.NamedType
 
 class TypeNameValidator(type: NamedType) : Validator<String> {
 
-    private val type: String = type.stringName
+    private val type: String = type.typeName
 
     override fun invoke(checkedValue: String): Boolean {
         return type == checkedValue

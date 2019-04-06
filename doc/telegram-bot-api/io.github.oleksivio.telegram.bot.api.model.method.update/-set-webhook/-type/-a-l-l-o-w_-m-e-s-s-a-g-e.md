@@ -4,8 +4,8 @@
 
 `ALLOW_MESSAGE`
 
-### Inherited Functions
+### Inherited Properties
 
 | Name | Summary |
 |---|---|
-| [stringName](string-name.md) | `fun stringName(): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+| [typeName](type-name.md) | `val typeName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |

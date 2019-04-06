@@ -15,5 +15,4 @@ class UnionExtractValidator<T> : Validator<T> {
         validatorCollection.add(ExtractValidator(unpacker, validator))
     }
 
-
 }

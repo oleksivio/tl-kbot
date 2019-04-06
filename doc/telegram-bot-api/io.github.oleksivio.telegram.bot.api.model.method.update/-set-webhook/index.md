@@ -12,7 +12,7 @@
 
 | Name | Summary |
 |---|---|
-| [Type](-type/index.md) | `enum class Type` |
+| [Type](-type/index.md) | `enum class Type : NamedType` |
 
 ### Constructors
 

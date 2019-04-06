@@ -11,5 +11,4 @@ class LongValidator(private val lessThan: Long, private val lessOrEqual: Long,
                 && checkedValue >= moreOrEqual
     }
 
-
 }

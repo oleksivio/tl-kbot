@@ -21,11 +21,17 @@
 | [PRE](-p-r-e.md) |  |
 | [TEXT_LINK](-t-e-x-t_-l-i-n-k.md) |  |
 | [TEXT_MENTION](-t-e-x-t_-m-e-n-t-i-o-n.md) |  |
-| [ALL](-a-l-l.md) |  |
+| [UNKNOWN](-u-n-k-n-o-w-n.md) |  |
 
 ### Properties
 
 | Name | Summary |
 |---|---|
 | [isChosen](is-chosen.md) | `val isChosen: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
-| [stringName](string-name.md) | `val stringName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+| [typeName](type-name.md) | `val typeName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+
+### Companion Object Functions
+
+| Name | Summary |
+|---|---|
+| [parse](parse.md) | `fun parse(input: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?): `[`MessageEntity.Type`](./index.md) |

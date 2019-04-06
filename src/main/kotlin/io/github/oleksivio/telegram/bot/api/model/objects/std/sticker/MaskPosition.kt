@@ -1,8 +1,6 @@
 package io.github.oleksivio.telegram.bot.api.model.objects.std.sticker
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.FloatFilter
-import io.github.oleksivio.telegram.bot.api.model.objects.std.sticker.MaskPosition.Type
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 import io.github.oleksivio.telegram.bot.core.model.type.TelegramType
 
@@ -44,15 +42,28 @@ data class MaskPosition(
         var scale: Float? = null
 ) : ITelegram {
 
-    enum class Type(override val stringName: String) : TelegramType {
-        FOREHEAD("forehead"),
-        EYES("eyes"),
-        MOUTH("mouth"),
-        CHIN("chin"),
-        ALL("");
+    object Const {
+        const val FOREHEAD = "forehead"
+        const val EYES = "eyes"
+        const val MOUTH = "mouth"
+        const val CHIN = "chin"
+    }
+
+    enum class Type(override val typeName: String) : TelegramType {
+        FOREHEAD(Const.FOREHEAD),
+        EYES(Const.EYES),
+        MOUTH(Const.MOUTH),
+        CHIN(Const.CHIN),
+        UNKNOWN("");
 
         override val isChosen: Boolean
-            get() = this != ALL
+            get() = this != UNKNOWN
 
+        companion object {
+
+            fun parse(input: String?): Type {
+                return values().firstOrNull { it.typeName == input } ?: UNKNOWN
+            }
+        }
     }
 }

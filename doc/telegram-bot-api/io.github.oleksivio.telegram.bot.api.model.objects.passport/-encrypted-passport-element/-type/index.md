@@ -21,11 +21,17 @@
 | [TEMPORARY_REGISTRATION](-t-e-m-p-o-r-a-r-y_-r-e-g-i-s-t-r-a-t-i-o-n.md) |  |
 | [PHONE_NUMBER](-p-h-o-n-e_-n-u-m-b-e-r.md) |  |
 | [EMAIL](-e-m-a-i-l.md) |  |
-| [ALL](-a-l-l.md) |  |
+| [UNKNOWN](-u-n-k-n-o-w-n.md) |  |
 
 ### Properties
 
 | Name | Summary |
 |---|---|
 | [isChosen](is-chosen.md) | `val isChosen: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
-| [stringName](string-name.md) | `val stringName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+| [typeName](type-name.md) | `val typeName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+
+### Companion Object Functions
+
+| Name | Summary |
+|---|---|
+| [parse](parse.md) | `fun parse(input: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?): `[`EncryptedPassportElement.Type`](./index.md) |
