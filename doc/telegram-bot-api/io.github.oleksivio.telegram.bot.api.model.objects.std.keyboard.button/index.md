@@ -6,5 +6,5 @@
 
 | Name | Summary |
 |---|---|
-| [InlineKeyboardButton](-inline-keyboard-button/index.md) | `class InlineKeyboardButton : ITelegram`<br>[InlineKeyboardButton](https://core.telegram.org/bots/api/#inlinekeyboardbutton) |
+| [InlineKeyboardButton](-inline-keyboard-button/index.md) | `data class InlineKeyboardButton : ITelegram`<br>[InlineKeyboardButton](https://core.telegram.org/bots/api/#inlinekeyboardbutton) |
 | [ReplyKeyboardButton](-reply-keyboard-button/index.md) | `data class ReplyKeyboardButton : ITelegram`<br>[KeyboardButton](https://core.telegram.org/bots/api/#keyboardbutton) |

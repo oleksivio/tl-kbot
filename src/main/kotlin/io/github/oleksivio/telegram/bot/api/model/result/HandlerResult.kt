@@ -34,7 +34,7 @@ class HandlerResult private constructor(private val state: ResultState) {
      *
      * @return true if result is success
      */
-    val isSucess =  state === ResultState.SUCCESS
+    val isSucess = state === ResultState.SUCCESS
 
     companion object {
 

@@ -2,7 +2,7 @@
 
 # &lt;init&gt;
 
-`InlineKeyboardMarkup(inlineKeyboard: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`InlineButtonRow`](../../io.github.oleksivio.telegram.bot.api.model.objects.std.keyboard.row/-inline-button-row/index.md)`> = mutableListOf(InlineButtonRow()))`
+`InlineKeyboardMarkup(inlineKeyboard: `[`ArrayList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-array-list/index.html)`<`[`InlineButtonRow`](../../io.github.oleksivio.telegram.bot.api.model.objects.std.keyboard.row/-inline-button-row/index.md)`> = ArrayList())`
 
 [InlineKeyboardMarkup](https://core.telegram.org/bots/api/#inlinekeyboardmarkup)
 

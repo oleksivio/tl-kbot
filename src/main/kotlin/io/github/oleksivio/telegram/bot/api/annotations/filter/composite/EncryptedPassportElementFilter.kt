@@ -10,7 +10,7 @@ import io.github.oleksivio.telegram.bot.api.model.objects.passport.EncryptedPass
 @MustBeDocumented
 annotation class EncryptedPassportElementFilter(
         val status: AnnotationState = AnnotationState.ON,
-        val type: EncryptedPassportElement.Type = EncryptedPassportElement.Type.ALL,
+        val type: EncryptedPassportElement.Type = EncryptedPassportElement.Type.UNKNOWN,
         val validator: Array<String> = [],
         val data: NotNullFilter = NotNullFilter(status = AnnotationState.OFF),
         val phoneNumber: StringFilter = StringFilter(status = AnnotationState.OFF),

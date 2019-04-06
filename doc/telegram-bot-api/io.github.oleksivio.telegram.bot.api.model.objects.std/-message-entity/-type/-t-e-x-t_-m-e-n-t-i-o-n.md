@@ -9,4 +9,4 @@
 | Name | Summary |
 |---|---|
 | [isChosen](is-chosen.md) | `val isChosen: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
-| [stringName](string-name.md) | `val stringName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+| [typeName](type-name.md) | `val typeName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |

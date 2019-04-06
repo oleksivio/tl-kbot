@@ -2,7 +2,7 @@
 
 # Type
 
-`enum class Type`
+`enum class Type : NamedType`
 
 ### Enum Values
 
@@ -18,8 +18,8 @@
 | [ALLOW_SHIPPING_QUERY](-a-l-l-o-w_-s-h-i-p-p-i-n-g_-q-u-e-r-y.md) |  |
 | [ALLOW_PRE_CHECKOUT_QUERY](-a-l-l-o-w_-p-r-e_-c-h-e-c-k-o-u-t_-q-u-e-r-y.md) |  |
 
-### Functions
+### Properties
 
 | Name | Summary |
 |---|---|
-| [stringName](string-name.md) | `fun stringName(): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+| [typeName](type-name.md) | `val typeName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |

@@ -79,7 +79,7 @@ data class SendVideoNoteFile(
         length?.let { putInt(ApiDict.LENGTH_KEY, it) }
         putFile(ApiDict.VIDEO_NOTE_KEY, videoNote)
         duration?.let { putInt(ApiDict.DURATION_KEY, it) }
-        
+
         replyMarkup?.let { putObject(ApiDict.REPLY_MARKUP_KEY, it) }
         disableNotification?.let { putBool(ApiDict.DISABLE_NOTIFICATION_KEY, it) }
         replyToMessageId?.let { putLong(ApiDict.REPLY_TO_MESSAGE_ID_KEY, it) }

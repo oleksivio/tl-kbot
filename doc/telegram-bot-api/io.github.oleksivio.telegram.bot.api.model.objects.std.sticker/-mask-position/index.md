@@ -10,6 +10,7 @@
 
 | Name | Summary |
 |---|---|
+| [Const](-const/index.md) | `object Const` |
 | [Type](-type/index.md) | `enum class Type : TelegramType` |
 
 ### Constructors

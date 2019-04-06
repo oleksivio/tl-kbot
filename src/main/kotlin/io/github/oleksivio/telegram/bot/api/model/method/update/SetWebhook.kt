@@ -6,6 +6,7 @@ import io.github.oleksivio.telegram.bot.core.model.ApiDict
 import io.github.oleksivio.telegram.bot.core.model.BooleanResponse
 import io.github.oleksivio.telegram.bot.core.model.method.ActionMap
 import io.github.oleksivio.telegram.bot.core.model.method.file.UploadFile
+import io.github.oleksivio.telegram.bot.core.model.type.NamedType
 import org.springframework.core.io.FileSystemResource
 
 /**
@@ -51,7 +52,7 @@ data class SetWebhook(
         certificate?.let { putFile(CERTIFICATE_KEY, it) }
         maxConnections?.let { putInt(MAX_CONNECTIONS_KEY, it) }
         allowedUpdates?.let { updates ->
-            putObject(ALLOWED_UPDATES_KEY, updates.map { it.stringName() })
+            putObject(ALLOWED_UPDATES_KEY, updates.map { it.typeName })
         }
     }
 
@@ -61,7 +62,7 @@ data class SetWebhook(
     @JsonIgnore
     override val resultWrapperClass = BooleanResponse::class
 
-    enum class Type(private val typeName: String) {
+    enum class Type(override val typeName: String) : NamedType {
         ALLOW_MESSAGE("message"),
         ALLOW_EDITED_MESSAGE("edited_message"),
         ALLOW_CHANNEL_POST("channel_post"),
@@ -71,10 +72,6 @@ data class SetWebhook(
         ALLOW_CALLBACK_QUERY("callback_query"),
         ALLOW_SHIPPING_QUERY("shipping_query"),
         ALLOW_PRE_CHECKOUT_QUERY("pre_checkout_query");
-
-        fun stringName(): String {
-            return typeName
-        }
     }
 
     companion object {

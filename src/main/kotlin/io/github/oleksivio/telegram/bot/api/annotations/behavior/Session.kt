@@ -35,6 +35,9 @@ import io.github.oleksivio.telegram.bot.api.model.annotation.SessionType
  *  For every [Session.Order] method must be only one method
  *  with [Session.Error] with same order value
  *
+ *  Could be more than one [Session.Order] function with same value,
+ *  but it must have different filter
+ *
  * [Example](https://github.com/oleksivio/example-bot/blob/master/src/main/kotlin/telegram/bot/example/UserSessionExample.kt)
  *
  */

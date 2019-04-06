@@ -1,10 +1,6 @@
 package io.github.oleksivio.telegram.bot.api.model.objects.payments
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.IntegerFilter
-import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.NotNullFilter
-import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringFilter
-import io.github.oleksivio.telegram.bot.api.annotations.filter.composite.OrderInfoFilter
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**

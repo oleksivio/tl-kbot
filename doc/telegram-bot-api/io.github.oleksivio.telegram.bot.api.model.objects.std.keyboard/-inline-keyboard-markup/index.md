@@ -10,13 +10,13 @@
 
 | Name | Summary |
 |---|---|
-| [&lt;init&gt;](-init-.md) | `InlineKeyboardMarkup(inlineKeyboard: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`InlineButtonRow`](../../io.github.oleksivio.telegram.bot.api.model.objects.std.keyboard.row/-inline-button-row/index.md)`> = mutableListOf(InlineButtonRow()))`<br>[InlineKeyboardMarkup](https://core.telegram.org/bots/api/#inlinekeyboardmarkup) |
+| [&lt;init&gt;](-init-.md) | `InlineKeyboardMarkup(inlineKeyboard: `[`ArrayList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-array-list/index.html)`<`[`InlineButtonRow`](../../io.github.oleksivio.telegram.bot.api.model.objects.std.keyboard.row/-inline-button-row/index.md)`> = ArrayList())`<br>[InlineKeyboardMarkup](https://core.telegram.org/bots/api/#inlinekeyboardmarkup) |
 
 ### Properties
 
 | Name | Summary |
 |---|---|
-| [inlineKeyboard](inline-keyboard.md) | `var inlineKeyboard: `[`MutableList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html)`<`[`InlineButtonRow`](../../io.github.oleksivio.telegram.bot.api.model.objects.std.keyboard.row/-inline-button-row/index.md)`>`<br>inline_keyboard Array of Array of InlineKeyboardButton Array of button rows, each represented by an Array of InlineKeyboardButton objects |
+| [inlineKeyboard](inline-keyboard.md) | `var inlineKeyboard: `[`ArrayList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-array-list/index.html)`<`[`InlineButtonRow`](../../io.github.oleksivio.telegram.bot.api.model.objects.std.keyboard.row/-inline-button-row/index.md)`>`<br>inline_keyboard Array of Array of InlineKeyboardButton Array of button rows, each represented by an Array of InlineKeyboardButton objects |
 
 ### Functions
 

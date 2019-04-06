@@ -1,9 +1,6 @@
 package io.github.oleksivio.telegram.bot.api.model.objects.std
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringFilter
-import io.github.oleksivio.telegram.bot.api.annotations.filter.composite.MessageFilter
-import io.github.oleksivio.telegram.bot.api.annotations.filter.composite.UserFilter
 import io.github.oleksivio.telegram.bot.core.model.objects.IUserFrom
 
 /**

@@ -1,10 +1,6 @@
 package io.github.oleksivio.telegram.bot.api.model.objects.std
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.BooleanFilter
-import io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.StringFilter
-import io.github.oleksivio.telegram.bot.api.annotations.filter.composite.ChatFilter
-import io.github.oleksivio.telegram.bot.api.model.objects.std.Chat.Type
 import io.github.oleksivio.telegram.bot.api.model.objects.std.files.ChatPhoto
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 import io.github.oleksivio.telegram.bot.core.model.type.TelegramType
@@ -99,15 +95,30 @@ data class Chat(
         @JsonProperty("can_set_sticker_set")
         var canSetStickerSet: Boolean? = null
 ) : ITelegram {
-    enum class Type(override val stringName: String) : TelegramType {
-        PRIVATE("private"),
-        GROUP("group"),
-        SUPERGROUP("supergroup"),
-        CHANNEL("channel"),
-        ALL("");
+
+    object Const {
+        const val PRIVATE = "private"
+        const val GROUP = "group"
+        const val SUPERGROUP = "supergroup"
+        const val CHANNEL = "channel"
+    }
+
+    enum class Type(override val typeName: String) : TelegramType {
+        PRIVATE(Const.PRIVATE),
+        GROUP(Const.GROUP),
+        SUPERGROUP(Const.SUPERGROUP),
+        CHANNEL(Const.CHANNEL),
+        UNKNOWN("");
 
         override val isChosen: Boolean
-            get() = this != ALL
+            get() = this != UNKNOWN
+
+        companion object {
+
+            fun parse(input: String?): Type {
+                return values().firstOrNull { it.typeName == input } ?: UNKNOWN
+            }
+        }
     }
 
 }

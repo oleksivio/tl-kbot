@@ -12,11 +12,17 @@
 | [GROUP](-g-r-o-u-p.md) |  |
 | [SUPERGROUP](-s-u-p-e-r-g-r-o-u-p.md) |  |
 | [CHANNEL](-c-h-a-n-n-e-l.md) |  |
-| [ALL](-a-l-l.md) |  |
+| [UNKNOWN](-u-n-k-n-o-w-n.md) |  |
 
 ### Properties
 
 | Name | Summary |
 |---|---|
 | [isChosen](is-chosen.md) | `val isChosen: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
-| [stringName](string-name.md) | `val stringName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+| [typeName](type-name.md) | `val typeName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+
+### Companion Object Functions
+
+| Name | Summary |
+|---|---|
+| [parse](parse.md) | `fun parse(input: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?): `[`Chat.Type`](./index.md) |

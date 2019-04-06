@@ -18,15 +18,19 @@ class PassportElementErrorFiles : PassportElementError() {
     var fileHashes: List<String> = ArrayList()
 
     fun setType(type: Type) {
-        this.type = type.stringName
+        this.type = type.typeName
     }
 
-    enum class Type constructor(override val stringName: String) : NamedType {
+    enum class Type constructor(override val typeName: String) : NamedType {
         UTILITY_BILL(PassportConstants.UTILITY_BILL),
         BANK_STATEMENT(PassportConstants.BANK_STATEMENT),
         RENTAL_AGREENENT(PassportConstants.RENTAL_AGREENENT),
         PASSPORT_REGISTRATION(PassportConstants.PASSPORT_REGISTRATION),
         TEMPORARY_REGISTRATION(PassportConstants.TEMPORARY_REGISTRATION);
+
+        override fun toString(): String {
+            return typeName
+        }
 
     }
 

@@ -10,7 +10,7 @@ import io.github.oleksivio.telegram.bot.api.model.objects.std.sticker.MaskPositi
 annotation class MaskPositionFilter(
         val status: AnnotationState = AnnotationState.ON,
         val validator: Array<String> = [],
-        val point: MaskPosition.Type = MaskPosition.Type.ALL,
+        val point: MaskPosition.Type = MaskPosition.Type.UNKNOWN,
         val xShift: FloatFilter = FloatFilter(status = AnnotationState.OFF),
         val yShift: FloatFilter = FloatFilter(status = AnnotationState.OFF),
         val scale: FloatFilter = FloatFilter(status = AnnotationState.OFF)
