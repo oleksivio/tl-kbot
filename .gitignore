@@ -164,3 +164,4 @@ buildNumber.properties
 !/.mvn/wrapper/maven-wrapper.jar
 
 gradle.properties
+.signing/secring.gpg

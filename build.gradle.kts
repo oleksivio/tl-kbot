@@ -6,7 +6,6 @@ val uploadUsernameProp: String? by project
 val uploadPasswordProp: String? by project
 val releaseBuild: String? by project
 
-
 repositories {
     mavenCentral()
     jcenter()
@@ -23,17 +22,16 @@ plugins {
     kotlin("jvm") version (kotlinVersion)
     id("org.jetbrains.kotlin.plugin.spring") version kotlinVersion
     id("org.jetbrains.kotlin.plugin.jpa") version kotlinVersion
-    id ("nebula.project") version "3.2.1"
+    id("nebula.maven-publish") version "10.0.1"
+    id("nebula.javadoc-jar") version "10.0.1"
+    id("nebula.source-jar") version "10.0.1"
+    id("nebula.release") version "10.0.1"
     `java-library`
-    `maven-publish`
     signing
     id("org.jetbrains.dokka") version "0.9.18"
 }
 
-
-
 dependencies {
-
     // jackson kotlin 
     api("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.7")
     implementation(kotlin("stdlib-jdk8"))
@@ -44,23 +42,14 @@ dependencies {
     compileOnly("org.springframework:spring-context:5.1.5.RELEASE")
     compileOnly("org.springframework:spring-beans:5.1.5.RELEASE")
     compileOnly("org.springframework:spring-web:5.1.5.RELEASE")
-    
+
     implementation("org.slf4j:jcl-over-slf4j:1.7.12")
 
 }
 
-tasks.register<Jar>("sourcesJar") {
-    archiveClassifier.set("sources")
-    from(sourceSets.main.get().allSource)
-}
-
 publishing {
     publications {
-        create<MavenPublication>("mavenJava") {
-            from(components["java"])
-            artifact(tasks["sourcesJar"])
-            artifact(tasks["javadocJar"])
-
+        getByName<MavenPublication>("nebula") {
             pom {
                 name.set("Kotlin Telegram Bot Api")
                 description.set("Kotlin spring telegram bot api library")
@@ -81,7 +70,7 @@ publishing {
                     developer {
                         id.set("oleksivio")
                         name.set("Ilia Oleksiv")
-                        email.set("oleksivio@gmail.com")
+                        email.set("ilia.oleksiv@gmail.com")
                     }
                 }
 
@@ -98,7 +87,6 @@ publishing {
                 password ?: println("Upload PASSWORD not set")
             }
 
-
             val releasesRepoUrl = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2")
             val snapshotsRepoUrl = uri("https://oss.sonatype.org/content/repositories/snapshots/")
             url = if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl
@@ -108,14 +96,10 @@ publishing {
 
 val archivesBaseName = "telegram-bot-api"
 group = "io.github.oleksivio"
-version = "1.1.5"
 
 signing {
-    releaseBuild?.toBoolean()?.let {
-        if (it) {
-            sign(publishing.publications["mavenJava"])
-        }
-    }
+    isRequired = releaseBuild?.toBoolean() ?: false
+    sign(publishing.publications["nebula"])
 }
 
 java {
@@ -128,11 +112,11 @@ tasks.withType<JavaCompile> {
 }
 
 
-tasks.withType<DokkaTask>{
+tasks.withType<DokkaTask> {
     outputFormat = "gfm"
     outputDirectory = "$buildDir/../doc"
 
-    includes = listOf("doc/packages.md","doc/home.md")
+    includes = listOf("doc/packages.md", "doc/home.md")
 
     packageOptions {
         prefix = "io.github.oleksivio.telegram.bot.core"
