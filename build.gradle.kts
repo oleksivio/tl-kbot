@@ -23,6 +23,7 @@ plugins {
     kotlin("jvm") version (kotlinVersion)
     id("org.jetbrains.kotlin.plugin.spring") version kotlinVersion
     id("org.jetbrains.kotlin.plugin.jpa") version kotlinVersion
+    id ("nebula.project") version "3.2.1"
     `java-library`
     `maven-publish`
     signing
@@ -48,15 +49,9 @@ dependencies {
 
 }
 
-
 tasks.register<Jar>("sourcesJar") {
     archiveClassifier.set("sources")
     from(sourceSets.main.get().allSource)
-}
-
-tasks.register<Jar>("javadocJar") {
-    archiveClassifier.set("javadoc")
-    from(tasks.javadoc.get().destinationDir)
 }
 
 publishing {
