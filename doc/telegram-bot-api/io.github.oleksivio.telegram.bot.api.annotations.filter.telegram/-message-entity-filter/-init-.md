@@ -1,5 +1,0 @@
-[telegram-bot-api](../../index.md) / [io.github.oleksivio.telegram.bot.api.annotations.filter.composite](../index.md) / [MessageEntityFilter](index.md) / [&lt;init&gt;](./-init-.md)
-
-# &lt;init&gt;
-
-`MessageEntityFilter(status: `[`AnnotationState`](../../io.github.oleksivio.telegram.bot.api.model.annotation/-annotation-state/index.md)` = AnnotationState.ON, type: `[`MessageEntity.Type`](../../io.github.oleksivio.telegram.bot.api.model.objects.std/-message-entity/-type/index.md)` = MessageEntity.Type.ALL, validator: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`> = [], length: <ERROR CLASS> = IntegerFilter(status = AnnotationState.OFF), url: <ERROR CLASS> = StringFilter(status = AnnotationState.OFF), user: `[`UserFilter`](../-user-filter/index.md)` = UserFilter(status = AnnotationState.OFF))`
