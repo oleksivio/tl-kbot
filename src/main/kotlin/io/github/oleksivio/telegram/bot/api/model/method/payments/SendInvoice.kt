@@ -56,74 +56,74 @@ data class SendInvoice(
         @JsonProperty("prices")
         val prices: List<LabeledPrice>,
         /**
-         * provider_data String Optional JSON-encoded data about the invoice, which will be shared with the payment
+         * provider_data [String] Optional JSON-encoded data about the invoice, which will be shared with the payment
          * provider. A detailed description of required fields should be provided by the payment provider.
          */
         @JsonProperty("provider_data")
         val providerData: String? = null,
         /**
-         * photo_url String Optional URL of the product photo for the invoice. Can be a photo of the goods or a marketing
+         * photo_url [String] Optional URL of the product photo for the invoice. Can be a photo of the goods or a marketing
          * image for a service. People like it better when they see what they are paying for.
          */
         @JsonProperty("photo_url")
         val photoUrl: String? = null,
         /**
-         * photo_size Integer Optional Photo size
+         * photo_size [Integer] OptionalPhoto size
          */
         @JsonProperty("photo_size")
         val photoSize: Int? = null,
         /**
-         * photo_width Integer Optional Photo width
+         * photo_width [Integer] OptionalPhoto width
          */
         @JsonProperty("photo_width")
         val photoWidth: Int? = null,
         /**
-         * photo_height Integer Optional Photo height
+         * photo_height [Integer] OptionalPhoto height
          */
         @JsonProperty("photo_height")
         val photoHeight: Int? = null,
         /**
-         * need_name Boolean Optional Pass True, if you require the user's full name to complete the order
+         * need_name [Boolean] OptionalPass True, if you require the user's full name to complete the order
          */
         @JsonProperty("need_name")
         val needName: Boolean? = null,
         /**
-         * need_phone_number Boolean Optional Pass True, if you require the user's phone number to complete the order
+         * need_phone_number [Boolean] OptionalPass True, if you require the user's phone number to complete the order
          */
         @JsonProperty("need_phone_number")
         val needPhoneNumber: Boolean? = null,
         /**
-         * need_email Boolean Optional Pass True, if you require the user's email address to complete the order
+         * need_email [Boolean] OptionalPass True, if you require the user's email address to complete the order
          */
         @JsonProperty("need_email")
         val needEmail: Boolean? = null,
         /**
-         * need_shipping_address Boolean Optional Pass True, if you require the user's shipping address to complete the order
+         * need_shipping_address [Boolean] OptionalPass True, if you require the user's shipping address to complete the order
          */
         @JsonProperty("need_shipping_address")
         val needShippingAddress: Boolean? = null,
         /**
-         * send_phone_number_to_provider Boolean Optional Pass True, if user's phone number should be sent to provider
+         * send_phone_number_to_provider [Boolean] OptionalPass True, if user's phone number should be sent to provider
          */
         @JsonProperty("send_phone_number_to_provider")
         val sendPhoneNumberToProvider: Boolean? = null,
         /**
-         * send_email_to_provider Boolean Optional Pass True, if user's email address should be sent to provider
+         * send_email_to_provider [Boolean] OptionalPass True, if user's email address should be sent to provider
          */
         @JsonProperty("send_email_to_provider")
         val sendEmailToProvider: Boolean? = null,
         /**
-         * is_flexible Boolean Optional Pass True, if the final price depends on the shipping method
+         * is_flexible [Boolean] OptionalPass True, if the final price depends on the shipping method
          */
         @JsonProperty("is_flexible")
         val isFlexible: Boolean? = null,
         /**
-         * disable_notification Boolean Optional Sends the message silently. Users will receive a notification with no sound.
+         * disable_notification [Boolean] OptionalSends the message silently. Users will receive a notification with no sound.
          */
         @JsonProperty("disable_notification")
         val disableNotification: Boolean? = null,
         /**
-         * reply_to_message_id Integer Optional If the message is a reply, ID of the original message
+         * reply_to_message_id [Integer] OptionalIf the message is a reply, ID of the original message
          */
         @JsonProperty("reply_to_message_id")
         val replyToMessageId: Int? = null,

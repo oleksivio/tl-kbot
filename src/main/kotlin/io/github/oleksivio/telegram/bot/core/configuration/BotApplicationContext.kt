@@ -20,19 +20,17 @@ class BotApplicationContext(private val annotationProcessor: AnnotationProcessor
     @Throws(BeansException::class)
     override fun setApplicationContext(applicationContext: ApplicationContext) {
 
-
         val simpleBeans = applicationContext.beanDefinitionNames
                 .filter { !it.startsWith("org.springframework") }
                 .map {
                     val instance = applicationContext.getBean(it)
                     SimpleBean(it, instance)
-                }.toList()
-
+                }
 
         // on first step we add all validators
         simpleBeans.filter { it.isFilterValidator }
                 .forEach {
-                        customValidatorHolder.add(it.name, it.instance as FilterValidator<*>)
+                    customValidatorHolder.add(it.name, it.instance as FilterValidator<*>)
                 }
 
         // on second step we add all instances

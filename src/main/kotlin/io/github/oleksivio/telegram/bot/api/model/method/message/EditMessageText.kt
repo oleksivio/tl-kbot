@@ -13,18 +13,18 @@ import io.github.oleksivio.telegram.bot.core.model.method.common.EditAction
  */
 data class EditMessageText(
         /**
-         * chat_id Integer or String Optional Required if inline_message_id is not specified.
+         * chat_id Integer or [String] Optional Required if inline_message_id is not specified.
          * Unique identifier for the target chat
          */
         @JsonProperty(ApiDict.CHAT_ID_KEY)
         override val chatId: Long? = null,
         /**
-         * message_id Integer Optional Required if inline_message_id is not specified. Identifier of the sent message
+         * message_id [Integer] OptionalRequired if inline_message_id is not specified. Identifier of the sent message
          */
         @JsonProperty(ApiDict.MESSAGE_ID_KEY)
         override val messageId: Long? = null,
         /**
-         * inline_message_id String Optional Required if chat_id and message_id are not specified. Identifier of the inline message
+         * inline_message_id [String] Optional Required if chat_id and message_id are not specified. Identifier of the inline message
          */
         @JsonProperty(ApiDict.INLINE_MESSAGE_ID_KEY)
         override val inlineMessageId: String? = null,
@@ -34,12 +34,12 @@ data class EditMessageText(
         @JsonProperty(ApiDict.TEXT_KEY)
         val text: String,
         /**
-         * parse_mode String Optional Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.
+         * parse_mode [String] Optional Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.
          */
         @JsonProperty(ApiDict.PARSE_MODE_KEY)
         val parseMode: String? = null,
         /**
-         * disable_web_page_preview Boolean Optional Disables link previews for links in this message
+         * disable_web_page_preview [Boolean] OptionalDisables link previews for links in this message
          */
         @JsonProperty("disable_web_page_preview")
         val disableWebPagePreview: Boolean? = null,

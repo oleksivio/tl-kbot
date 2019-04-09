@@ -13,7 +13,7 @@ abstract class SessionManager(private val orderManager: OrderManager,
 
         if (initialHandler.hasSubscription(update)) {
             val handlerResult = initialHandler.run(update)
-            if (handlerResult.hasSuccess()) {
+            if (handlerResult.isSucess) {
                 orderManager.next(answerId)
             }
             return handlerResult
@@ -40,11 +40,11 @@ abstract class SessionManager(private val orderManager: OrderManager,
             if (handler.hasSubscription(update)) {
                 val handlerResult = handler.run(update)
 
-                if (handlerResult.hasSuccess()) {
+                if (handlerResult.isSucess) {
                     orderManager.next(id)
                     return handlerResult
                 }
-                if (handlerResult.hasCancelSession()) {
+                if (handlerResult.isCancelSession) {
                     orderManager.reset(id)
                     return handlerResult
                 }

@@ -15,8 +15,8 @@ class DoubleFilterParser : FilterParser<DoubleFilter, Double> {
     override fun createChecker(annotation: DoubleFilter, finder: Finder): Validator<Double> {
         return DoubleValidator(annotation.lessThan,
                 annotation.lessOrEqual,
-                annotation.moreThan,
-                annotation.moreOrEqual,
+                annotation.greatThan,
+                annotation.greatOrEqual,
                 annotation.equal)
     }
 

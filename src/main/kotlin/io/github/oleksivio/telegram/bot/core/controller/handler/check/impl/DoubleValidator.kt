@@ -16,5 +16,4 @@ class DoubleValidator(private val lessThan: Double,
                 && checkedValue >= moreOrEqual
     }
 
-
 }

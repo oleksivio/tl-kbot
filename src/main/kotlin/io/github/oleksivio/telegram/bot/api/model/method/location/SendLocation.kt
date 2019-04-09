@@ -25,19 +25,19 @@ data class SendLocation(
         @JsonProperty(ApiDict.LONGITUDE_KEY)
         val longitude: Double,
         /**
-         * live_period Integer Optional Period in seconds for which the location will be
+         * live_period [Integer] OptionalPeriod in seconds for which the location will be
          * updated (see Live Locations, should be between 60 and 86400
          */
         @JsonProperty(ApiDict.LIVE_PERIOD_KEY)
         val livePeriod: Int? = null,
         /**
-         * disable_notification Boolean Optional Sends the message silently.
+         * disable_notification [Boolean] OptionalSends the message silently.
          * Users will receive a notification with no sound.
          */
         @JsonProperty(ApiDict.DISABLE_NOTIFICATION_KEY)
         override val disableNotification: Boolean? = null,
         /**
-         * reply_to_message_id Integer Optional If the message is a reply, ID of the original message
+         * reply_to_message_id [Integer] OptionalIf the message is a reply, ID of the original message
          */
         @JsonProperty(ApiDict.REPLY_TO_MESSAGE_ID_KEY)
         override val replyToMessageId: Long? = null,

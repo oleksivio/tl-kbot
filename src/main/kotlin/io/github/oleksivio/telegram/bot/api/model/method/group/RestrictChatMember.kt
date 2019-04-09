@@ -21,31 +21,31 @@ data class RestrictChatMember(
         @JsonProperty(ApiDict.USER_ID_KEY)
         val userId: Long,
         /**
-         * until_date Integer Optional Date when the user will be unbanned, unix time. If user is
+         * until_date [Integer] OptionalDate when the user will be unbanned, unix time. If user is
          * banned for more than 366 days or less than 30 seconds from the current time they are
          * considered to be banned forever
          */
         @JsonProperty(ApiDict.UNTIL_DATE_KEY)
         val untilDate: Long? = null,
         /**
-         * can_send_messages Boolean Optional Pass True, if the user can send text messages, contacts, locations and venues
+         * can_send_messages [Boolean] OptionalPass True, if the user can send text messages, contacts, locations and venues
          */
         @JsonProperty(ApiDict.CAN_SEND_MESSAGES_KEY)
         val canSendMessages: Boolean? = null,
         /**
-         * can_send_media_messages Boolean Optional Pass True, if the user can send audios, documents, photos, videos,
+         * can_send_media_messages [Boolean] OptionalPass True, if the user can send audios, documents, photos, videos,
          * video notes and voice notes, implies can_send_messages
          */
         @JsonProperty(ApiDict.CAN_SEND_MEDIA_MESSAGES_KEY)
         val canSendMediaMessages: Boolean? = null,
         /**
-         * can_send_other_messages Boolean Optional Pass True, if the user can send animations, games, stickers and use
+         * can_send_other_messages [Boolean] OptionalPass True, if the user can send animations, games, stickers and use
          * inline bots, implies can_send_media_messages
          */
         @JsonProperty(ApiDict.CAN_SEND_OTHER_MESSAGES_KEY)
         val canSendOtherMessages: Boolean? = null,
         /**
-         * can_add_web_page_previews Boolean Optional Pass True, if the user may add web page previews to their messages,
+         * can_add_web_page_previews [Boolean] OptionalPass True, if the user may add web page previews to their messages,
          * implies can_send_media_messages
          */
         @JsonProperty(ApiDict.CAN_ADD_WEB_PAGE_PREVIEWS_KEY)

@@ -20,11 +20,11 @@ data class SendStickerFile(
          */
         val sticker: FileSystemResource,
         /**
-         * disable_notification Boolean Optional Sends the message silently. Users will receive a notification with no sound.
+         * disable_notification [Boolean] OptionalSends the message silently. Users will receive a notification with no sound.
          */
         override val disableNotification: Boolean? = null,
         /**
-         * reply_to_message_id Integer Optional If the message is a reply, ID of the original message
+         * reply_to_message_id [Integer] OptionalIf the message is a reply, ID of the original message
          */
         override val replyToMessageId: Long? = null,
         /**

@@ -5,7 +5,7 @@ import io.github.oleksivio.telegram.bot.api.model.objects.passport.PassportConst
 import io.github.oleksivio.telegram.bot.core.model.type.NamedType
 
 /**
- * @see [PassportElementErrorReverseSide](https://core.telegram.org/bots/api/#passportelementerrorreverseside)
+ *  [PassportElementErrorReverseSide](https://core.telegram.org/bots/api/#passportelementerrorreverseside)
  */
 class PassportElementErrorReverseSide : PassportElementError() {
     @JsonProperty("source")
@@ -18,10 +18,10 @@ class PassportElementErrorReverseSide : PassportElementError() {
     var fileHash: String? = null
 
     fun setType(type: Type) {
-        this.type = type.stringName
+        this.type = type.typeName
     }
 
-    enum class Type constructor(override val stringName: String) : NamedType {
+    enum class Type constructor(override val typeName: String) : NamedType {
         DRIVER_LICENSE(PassportConstants.DRIVER_LICENSE),
         IDENTITY_CARD(PassportConstants.IDENTITY_CARD);
     }

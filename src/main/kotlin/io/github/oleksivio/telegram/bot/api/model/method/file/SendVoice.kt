@@ -22,7 +22,7 @@ data class SendVoice(
         @JsonProperty("voice")
         val voice: String,
         /**
-         * duration Integer Optional Duration of the voice message in seconds
+         * duration [Integer] OptionalDuration of the voice message in seconds
          */
         @JsonProperty("duration")
         val duration: Int? = null,

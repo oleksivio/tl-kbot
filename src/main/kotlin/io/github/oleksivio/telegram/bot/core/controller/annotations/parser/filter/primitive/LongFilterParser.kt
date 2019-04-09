@@ -15,8 +15,8 @@ class LongFilterParser : FilterParser<LongFilter, Long> {
     override fun createChecker(annotation: LongFilter, finder: Finder): Validator<Long> {
         return LongValidator(annotation.lessThan,
                 annotation.lessOrEqual,
-                annotation.moreThan,
-                annotation.moreOrEqual)
+                annotation.greatThan,
+                annotation.greatOrEqual)
     }
 
 }

@@ -21,49 +21,49 @@ data class PromoteChatMember(
         @JsonProperty(ApiDict.USER_ID_KEY)
         val userId: Long,
         /**
-         * can_change_info Boolean Optional Pass True, if the administrator can change chat title,
+         * can_change_info [Boolean] OptionalPass True, if the administrator can change chat title,
          * photo and other settings
          */
         @JsonProperty("can_change_info")
         val canChangeInfo: Boolean? = null,
         /**
-         * can_post_messages Boolean Optional Pass True, if the administrator can parse channel posts,
+         * can_post_messages [Boolean] OptionalPass True, if the administrator can parse channel posts,
          * channels only
          */
         @JsonProperty("can_post_messages")
         val canPostMessages: Boolean? = null,
         /**
-         * can_edit_messages Boolean Optional Pass True, if the administrator can message messages of
+         * can_edit_messages [Boolean] OptionalPass True, if the administrator can message messages of
          * other users and can pin messages, channels only
          */
         @JsonProperty("can_edit_messages")
         val canEditMessages: Boolean? = null,
         /**
-         * can_delete_messages Boolean Optional Pass True, if the administrator can delete messages
+         * can_delete_messages [Boolean] OptionalPass True, if the administrator can delete messages
          * of other users
          */
         @JsonProperty("can_delete_messages")
         val canDeleteMessages: Boolean? = null,
         /**
-         * can_invite_users Boolean Optional Pass True, if the administrator can invite new users to
+         * can_invite_users [Boolean] OptionalPass True, if the administrator can invite new users to
          * the chat
          */
         @JsonProperty("can_invite_users")
         val canInviteUsers: Boolean? = null,
         /**
-         * can_restrict_members Boolean Optional Pass True, if the administrator can restrict, ban or
+         * can_restrict_members [Boolean] OptionalPass True, if the administrator can restrict, ban or
          * unban chat members
          */
         @JsonProperty("can_restrict_members")
         val canRestrictMembers: Boolean? = null,
         /**
-         * can_pin_messages Boolean Optional Pass True, if the administrator can pin messages,
+         * can_pin_messages [Boolean] OptionalPass True, if the administrator can pin messages,
          * supergroups only
          */
         @JsonProperty("can_pin_messages")
         val canPinMessages: Boolean? = null,
         /**
-         * can_promote_members Boolean Optional Pass True, if the administrator can add new
+         * can_promote_members [Boolean] OptionalPass True, if the administrator can add new
          * administrators with a subset of his own privileges or demote administrators that he has
          * promoted, directly or indirectly (promoted by administrators that were appointed by him)
          */

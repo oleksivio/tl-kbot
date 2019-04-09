@@ -5,7 +5,7 @@ import io.github.oleksivio.telegram.bot.api.model.objects.std.User
 import io.github.oleksivio.telegram.bot.core.model.ITelegram
 
 /**
- * @see [GameHighScore](https://core.telegram.org/bots/api/#gamehighscore)
+ *  [GameHighScore](https://core.telegram.org/bots/api/#gamehighscore)
  */
 data class GameHighScore(
         /**

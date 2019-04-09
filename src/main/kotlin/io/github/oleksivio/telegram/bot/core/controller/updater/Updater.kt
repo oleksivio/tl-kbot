@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller
 @Controller
 class Updater(private val telegramProcessor: TelegramProcessor,
               private val loader: Loader) : TelegramUpdater {
-    private var updateErrorListener: UpdateErrorListener = { _, _ -> }
+    private var updateErrorListener: UpdateErrorListener = { _, e -> e.printStackTrace() }
 
     override fun longPolling() {
 

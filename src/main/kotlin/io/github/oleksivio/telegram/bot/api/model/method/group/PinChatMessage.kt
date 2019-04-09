@@ -21,7 +21,7 @@ data class PinChatMessage(
         @JsonProperty(ApiDict.MESSAGE_ID_KEY)
         val messageId: Long,
         /**
-         * disable_notification Boolean Optional Pass True, if it is not necessary to send a
+         * disable_notification [Boolean] OptionalPass True, if it is not necessary to send a
          * notification to all chat members about the new pinned message. Notifications are always
          * disabled in channels.
          */

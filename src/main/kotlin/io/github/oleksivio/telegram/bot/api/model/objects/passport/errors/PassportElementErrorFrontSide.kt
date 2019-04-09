@@ -5,7 +5,7 @@ import io.github.oleksivio.telegram.bot.api.model.objects.passport.PassportConst
 import io.github.oleksivio.telegram.bot.core.model.type.NamedType
 
 /**
- * @see [PassportElementErrorFrontSide](https://core.telegram.org/bots/api/#passportelementerrorfrontside)
+ *  [PassportElementErrorFrontSide](https://core.telegram.org/bots/api/#passportelementerrorfrontside)
  */
 data class PassportElementErrorFrontSide(
         @JsonProperty("source")
@@ -24,15 +24,14 @@ data class PassportElementErrorFrontSide(
 ) : PassportElementError() {
 
     fun setType(type: Type) {
-        this.type = type.stringName
+        this.type = type.typeName
     }
 
-    enum class Type constructor(override val stringName: String) : NamedType {
+    enum class Type constructor(override val typeName: String) : NamedType {
         PASSPORT(PassportConstants.PASSPORT),
         DRIVER_LICENSE(PassportConstants.DRIVER_LICENSE),
         IDENTITY_CARD(PassportConstants.IDENTITY_CARD),
         INTERNAL_PASSPORT(PassportConstants.INTERNAL_PASSPORT);
-
     }
 
 }

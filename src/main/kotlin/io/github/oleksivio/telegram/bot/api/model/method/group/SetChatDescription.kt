@@ -16,7 +16,7 @@ data class SetChatDescription(
         @JsonProperty(ApiDict.CHAT_ID_KEY)
         override val chatId: Long,
         /**
-         * description String Optional New chat description, 0-255 characters
+         * description [String] Optional New chat description, 0-255 characters
          */
         @JsonProperty(ApiDict.DESCRIPTION_KEY)
         val description: String? = null

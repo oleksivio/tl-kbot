@@ -6,6 +6,7 @@ import io.github.oleksivio.telegram.bot.core.model.ApiDict
 import io.github.oleksivio.telegram.bot.core.model.BooleanResponse
 import io.github.oleksivio.telegram.bot.core.model.method.ActionMap
 import io.github.oleksivio.telegram.bot.core.model.method.file.UploadFile
+import io.github.oleksivio.telegram.bot.core.model.type.NamedType
 import org.springframework.core.io.FileSystemResource
 
 /**
@@ -25,14 +26,14 @@ data class SetWebhook(
         @JsonProperty(ApiDict.CERTIFICATE_KEY)
         val certificate: FileSystemResource? = null,
         /**
-         * max_connections Integer Optional Maximum allowed number of simultaneous HTTPS connections
+         * max_connections [Integer] Optional Maximum allowed number of simultaneous HTTPS connections
          * to the webhook for update delivery, 1-100. Defaults to 40. Use lower values to limit the load
          * on your bot‘s server, and higher values to increase your bot’s throughput.
          */
         @JsonProperty(ApiDict.MAX_CONNECTIONS_KEY)
         val maxConnections: Int? = null,
         /**
-         * allowed_updates Array of String Optional List the types of updates you want your bot to
+         * allowed_updates Array of [String] Optional List the types of updates you want your bot to
          * receive. For example, specify [“message”, “edited_channel_post”, “callback_query”] to only
          * receive updates of these types. See Update for a complete list of available update types.
          * Specify an empty list to receive all updates regardless of type (default). If not specified,
@@ -51,7 +52,7 @@ data class SetWebhook(
         certificate?.let { putFile(CERTIFICATE_KEY, it) }
         maxConnections?.let { putInt(MAX_CONNECTIONS_KEY, it) }
         allowedUpdates?.let { updates ->
-            putObject(ALLOWED_UPDATES_KEY, updates.map { it.stringName() })
+            putObject(ALLOWED_UPDATES_KEY, updates.map { it.typeName })
         }
     }
 
@@ -61,7 +62,7 @@ data class SetWebhook(
     @JsonIgnore
     override val resultWrapperClass = BooleanResponse::class
 
-    enum class Type(private val typeName: String) {
+    enum class Type(override val typeName: String) : NamedType {
         ALLOW_MESSAGE("message"),
         ALLOW_EDITED_MESSAGE("edited_message"),
         ALLOW_CHANNEL_POST("channel_post"),
@@ -71,10 +72,6 @@ data class SetWebhook(
         ALLOW_CALLBACK_QUERY("callback_query"),
         ALLOW_SHIPPING_QUERY("shipping_query"),
         ALLOW_PRE_CHECKOUT_QUERY("pre_checkout_query");
-
-        fun stringName(): String {
-            return typeName
-        }
     }
 
     companion object {

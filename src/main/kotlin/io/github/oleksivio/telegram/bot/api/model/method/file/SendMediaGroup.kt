@@ -24,13 +24,13 @@ data class SendMediaGroup(
         @JsonProperty("media")
         val media: List<InputMedia>,
         /**
-         * disable_notification Boolean Optional Sends the messages silently. Users will receive a
+         * disable_notification [Boolean] OptionalSends the messages silently. Users will receive a
          * notification with no sound.
          */
         @JsonProperty("disable_notification")
         val disableNotification: Boolean? = null,
         /**
-         * reply_to_message_id Integer Optional If the messages are a reply, ID of the original message
+         * reply_to_message_id [Integer] OptionalIf the messages are a reply, ID of the original message
          */
         @JsonProperty("reply_to_message_id")
         val replyToMessageId: Long? = null

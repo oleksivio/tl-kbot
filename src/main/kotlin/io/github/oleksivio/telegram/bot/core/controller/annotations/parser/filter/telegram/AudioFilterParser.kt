@@ -1,6 +1,6 @@
 package io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.telegram
 
-import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.AudioFilter
+import io.github.oleksivio.telegram.bot.api.annotations.filter.composite.AudioFilter
 import io.github.oleksivio.telegram.bot.api.model.objects.std.files.Audio
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.FilterParser
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder

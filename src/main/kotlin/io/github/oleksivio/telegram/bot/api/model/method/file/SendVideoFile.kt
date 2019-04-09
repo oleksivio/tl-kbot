@@ -27,26 +27,26 @@ data class SendVideoFile(
          */
         val video: FileSystemResource,
         /**
-         * duration Integer Optional Duration of sent video in seconds
+         * duration [Integer] OptionalDuration of sent video in seconds
          */
         val duration: Int? = null,
         /**
-         * width Integer Optional Video width
+         * width [Integer] OptionalVideo width
          */
         @JsonProperty("width")
         val width: Int? = null,
         /**
-         * height Integer Optional Video height
+         * height [Integer] OptionalVideo height
          */
         @JsonProperty("height")
         val height: Int? = null,
         /**
-         * supports_streaming Boolean Optional Pass True, if the uploaded video is suitable for streaming
+         * supports_streaming [Boolean] OptionalPass True, if the uploaded video is suitable for streaming
          */
         @JsonProperty("supports_streaming")
         val supportsStreaming: Boolean? = null,
         /**
-         * thumb  String Optional Thumbnail of the file sent;
+         * thumb  [String] Optional Thumbnail of the file sent;
          * can be ignored if thumbnail generation for the file is supported server-side.
          * The thumbnail should be in JPEG format and less than 200 kB in size.
          * A thumbnail‘s width and height should not exceed 90.
@@ -56,11 +56,11 @@ data class SendVideoFile(
          */
         val thumb: FileSystemResource? = null,
         /**
-         * caption String Optional Animation caption (may also be used when resending animation by file_id), 0-1024 characters
+         * caption [String] Optional Animation caption (may also be used when resending animation by file_id), 0-1024 characters
          */
         override val caption: String? = null,
         /**
-         * parse_mode String Optional Send Markdown or HTML, if you want Telegram apps to show bold, italic,
+         * parse_mode [String] Optional Send Markdown or HTML, if you want Telegram apps to show bold, italic,
          * fixed-width text or inline URLs in the media caption.
          */
         override val parseMode: String? = null,
@@ -71,12 +71,12 @@ data class SendVideoFile(
          */
         override val replyMarkup: IKeyboard? = null,
         /**
-         * disable_notification Boolean Optional Sends the message silently.
+         * disable_notification [Boolean] OptionalSends the message silently.
          * Users will receive a notification with no sound.
          */
         override val disableNotification: Boolean? = null,
         /**
-         * reply_to_message_id Integer Optional If the message is a reply, ID of the original message
+         * reply_to_message_id [Integer] OptionalIf the message is a reply, ID of the original message
          */
         override val replyToMessageId: Long? = null
 ) : UploadMediaFile() {

@@ -5,7 +5,7 @@ import io.github.oleksivio.telegram.bot.api.model.objects.passport.PassportConst
 import io.github.oleksivio.telegram.bot.core.model.type.NamedType
 
 /**
- * @see [PassportElementErrorDataField](https://core.telegram.org/bots/api/#passportelementerrordatafield)
+ *  [PassportElementErrorDataField](https://core.telegram.org/bots/api/#passportelementerrordatafield)
  */
 data class PassportElementErrorDataField(
         @JsonProperty("source")
@@ -22,10 +22,10 @@ data class PassportElementErrorDataField(
         @JsonProperty("data_hash")
         var dataHash: String? = null) : PassportElementError() {
     fun setType(type: Type) {
-        this.type = type.stringName
+        this.type = type.typeName
     }
 
-    enum class Type(override val stringName: String) : NamedType {
+    enum class Type(override val typeName: String) : NamedType {
         PERSONAL_DETAILS(PassportConstants.PERSONAL_DETAILS),
         PASSPORT(PassportConstants.PASSPORT),
         DRIVER_LICENSE(PassportConstants.DRIVER_LICENSE),

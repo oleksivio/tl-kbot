@@ -1,6 +1,6 @@
 package io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.telegram
 
-import io.github.oleksivio.telegram.bot.api.annotations.filter.telegram.ShippingQueryFilter
+import io.github.oleksivio.telegram.bot.api.annotations.filter.composite.ShippingQueryFilter
 import io.github.oleksivio.telegram.bot.api.model.objects.payments.ShippingQuery
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.FilterParser
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder

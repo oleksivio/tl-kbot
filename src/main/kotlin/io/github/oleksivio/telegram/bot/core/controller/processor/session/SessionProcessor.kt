@@ -26,7 +26,7 @@ class SessionProcessor {
         // find in initial method
         for (manager in sessionManagers) {
             val handlerResult = manager.init(update)
-            if (handlerResult.hasSuccess()) {
+            if (handlerResult.isSucess) {
                 return handlerResult
             }
         }
