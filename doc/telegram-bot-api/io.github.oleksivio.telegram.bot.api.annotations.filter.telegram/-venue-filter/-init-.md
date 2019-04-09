@@ -1,5 +1,0 @@
-[telegram-bot-api](../../index.md) / [io.github.oleksivio.telegram.bot.api.annotations.filter.composite](../index.md) / [VenueFilter](index.md) / [&lt;init&gt;](./-init-.md)
-
-# &lt;init&gt;
-
-`VenueFilter(status: `[`AnnotationState`](../../io.github.oleksivio.telegram.bot.api.model.annotation/-annotation-state/index.md)` = AnnotationState.ON, validator: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`> = [], location: `[`LocationFilter`](../-location-filter/index.md)` = LocationFilter(status = AnnotationState.OFF), title: <ERROR CLASS> = StringFilter(status = AnnotationState.OFF), address: <ERROR CLASS> = StringFilter(status = AnnotationState.OFF), foursquareId: <ERROR CLASS> = NotNullFilter(status = AnnotationState.OFF), foursquareType: <ERROR CLASS> = StringFilter(status = AnnotationState.OFF))`

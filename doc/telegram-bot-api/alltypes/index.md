@@ -82,8 +82,9 @@ Spring Kotlin library for easy and fast creating telegram bot's
 | [io.github.oleksivio.telegram.bot.api.annotations.filter.composite.GameFilter](../io.github.oleksivio.telegram.bot.api.annotations.filter.composite/-game-filter/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.model.annotation.validator.impl.GameFilterValidator](../io.github.oleksivio.telegram.bot.api.model.annotation.validator.impl/-game-filter-validator/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.model.objects.std.game.GameHighScore](../io.github.oleksivio.telegram.bot.api.model.objects.std.game/-game-high-score/index.md) | [GameHighScore](https://core.telegram.org/bots/api/#gamehighscore) |
-| [io.github.oleksivio.telegram.bot.api.model.method.group.GetChat](../io.github.oleksivio.telegram.bot.api.model.method.group/-get-chat/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.model.method.group.GetChatAdministrators](../io.github.oleksivio.telegram.bot.api.model.method.group/-get-chat-administrators/index.md) |  |
+| [io.github.oleksivio.telegram.bot.api.model.method.info.GetChatById](../io.github.oleksivio.telegram.bot.api.model.method.info/-get-chat-by-id/index.md) |  |
+| [io.github.oleksivio.telegram.bot.api.model.method.info.GetChatByUsername](../io.github.oleksivio.telegram.bot.api.model.method.info/-get-chat-by-username/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.model.method.group.GetChatMember](../io.github.oleksivio.telegram.bot.api.model.method.group/-get-chat-member/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.model.method.group.GetChatMembersCount](../io.github.oleksivio.telegram.bot.api.model.method.group/-get-chat-members-count/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.model.method.file.GetFile](../io.github.oleksivio.telegram.bot.api.model.method.file/-get-file/index.md) |  |

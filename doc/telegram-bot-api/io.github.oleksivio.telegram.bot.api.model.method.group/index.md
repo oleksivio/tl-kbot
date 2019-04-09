@@ -9,7 +9,6 @@
 | [DeleteChatPhoto](-delete-chat-photo/index.md) | `data class DeleteChatPhoto : ChatAction<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`>` |
 | [DeleteChatStickerSet](-delete-chat-sticker-set/index.md) | `data class DeleteChatStickerSet : ChatAction<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`>` |
 | [ExportChatInviteLink](-export-chat-invite-link/index.md) | `class ExportChatInviteLink : ChatAction<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>` |
-| [GetChat](-get-chat/index.md) | `data class GetChat : ChatAction<`[`Chat`](../io.github.oleksivio.telegram.bot.api.model.objects.std/-chat/index.md)`>` |
 | [GetChatAdministrators](-get-chat-administrators/index.md) | `data class GetChatAdministrators : ChatAction<`[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`ChatMember`](../io.github.oleksivio.telegram.bot.api.model.objects.std/-chat-member/index.md)`>>` |
 | [GetChatMember](-get-chat-member/index.md) | `data class GetChatMember : ChatAction<`[`ChatMember`](../io.github.oleksivio.telegram.bot.api.model.objects.std/-chat-member/index.md)`>` |
 | [GetChatMembersCount](-get-chat-members-count/index.md) | `data class GetChatMembersCount : ChatAction<`[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`>` |
