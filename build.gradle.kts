@@ -51,8 +51,9 @@ publishing {
     publications {
         getByName<MavenPublication>("nebula") {
             pom {
+                setDescription("Kotlin spring telegram bot api library")
+                
                 name.set("Kotlin Telegram Bot Api")
-                description.set("Kotlin spring telegram bot api library")
                 url.set("https://github.com/oleksivio/telegram-bot-api")
 
                 licenses {
