@@ -1,6 +1,10 @@
 # Telegram Bot API
 
-Spring library for easy creating telegram bot's
+Spring library for easy creating telegram bot's 
+
+[master: ![CircleCI](https://circleci.com/gh/oleksivio/telegram-bot-api/tree/master.svg?style=svg)](https://circleci.com/gh/oleksivio/telegram-bot-api/tree/master)
+
+[dev: ![CircleCI](https://circleci.com/gh/oleksivio/telegram-bot-api/tree/dev.svg?style=svg)](https://circleci.com/gh/oleksivio/telegram-bot-api/tree/dev)
 
 ## Getting Started
 
