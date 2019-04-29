@@ -1,3 +1,5 @@
+import io.github.oleksivio.commitlint.CommitlintPluginExtension
+import io.github.oleksivio.commitlint.checker.CommitCheckerType
 import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -29,6 +31,7 @@ plugins {
     `java-library`
     signing
     id("org.jetbrains.dokka") version "0.9.18"
+    id("io.github.oleksivio.commitlint") version "0.2.0"
 }
 
 dependencies {
@@ -52,7 +55,7 @@ publishing {
         getByName<MavenPublication>("nebula") {
             pom {
                 setDescription("Kotlin spring telegram bot api library")
-                
+
                 name.set("Kotlin Telegram Bot Api")
                 url.set("https://github.com/oleksivio/telegram-bot-api")
 
@@ -113,6 +116,7 @@ tasks.withType<JavaCompile> {
 }
 
 
+
 tasks.withType<DokkaTask> {
     outputFormat = "gfm"
     outputDirectory = "$buildDir/../doc"
@@ -135,3 +139,5 @@ val compileTestKotlin: KotlinCompile by tasks
 compileTestKotlin.kotlinOptions {
     jvmTarget = "1.8"
 }
+
+the<CommitlintPluginExtension>().type = CommitCheckerType.ANGULAR

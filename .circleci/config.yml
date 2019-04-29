@@ -1,6 +1,20 @@
 version: 2.0
 
 jobs:
+  commitlint:
+    docker:
+      - image: circleci/openjdk:11.0
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - gradle-{{ checksum "build.gradle.kts" }}
+      - run: gradle commitlintUniqueBranchCommit
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: gradle-{{ checksum "build.gradle.kts" }}
+ 
   build:
     docker:
       - image: circleci/openjdk:11.0
@@ -39,7 +53,15 @@ workflows:
   version: 2
   build_and_upload:
     jobs:
-      - build
+      - commitlint:
+          filters:
+            branches:
+              ignore:
+                - master
+                - dev
+      - build:
+          requires:
+            - commitlint
       - upload:
           filters:
             tags:
