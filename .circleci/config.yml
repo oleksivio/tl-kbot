@@ -53,15 +53,15 @@ workflows:
   version: 2
   build_and_upload:
     jobs:
+      - build
+
       - commitlint:
           filters:
             branches:
               ignore:
                 - master
                 - dev
-      - build:
-          requires:
-            - commitlint
+
       - upload:
           filters:
             tags:
