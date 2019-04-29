@@ -15,7 +15,7 @@ Example:
 class TelegramWebhookReceiver(private val processor: TelegramProcessor) {
 
 @RequestMapping(path = ["/receive"])
-fun receiver(update: Update): String {
+fun receiver(@RequestBody update: Update): String {
     processor.receive(update)
     return "OK"
 }

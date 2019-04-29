@@ -14,7 +14,7 @@ import io.github.oleksivio.telegram.bot.api.model.objects.Update
  * class TelegramWebhookReceiver(private val processor: TelegramProcessor) {
  *
  * @RequestMapping(path = ["/receive"])
- * fun receiver(update: Update): String {
+ * fun receiver(@RequestBody update: Update): String {
  *     processor.receive(update)
  *     return "OK"
  * }
