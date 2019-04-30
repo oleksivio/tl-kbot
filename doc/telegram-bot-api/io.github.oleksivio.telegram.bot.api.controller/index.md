@@ -6,7 +6,7 @@
 
 | Name | Summary |
 |---|---|
-| [ActionBuilder](-action-builder/index.md) | `interface ActionBuilder`<br>[ActionBuilder](-action-builder/index.md) interface for prepare telegram api action |
+| [ActionBuilder](-action-builder/index.md) | `interface ActionBuilder`<br>All bot interactions with telegram server should send using [ActionBuilder](-action-builder/index.md). We name it actions. Action in this library is the object that represent telegram server method. For example [io.github.oleksivio.telegram.bot.api.model.method.message.SendMessage](../io.github.oleksivio.telegram.bot.api.model.method.message/-send-message/index.md) object action are used for call [SendMessage](https://core.telegram.org/bots/api/#sendmessage) method. |
 | [ActionErrorListener](-action-error-listener/index.md) | `interface ActionErrorListener<RES>`<br>[ActionBuilder](-action-builder/index.md) interface for set [ServerErrorListener](../io.github.oleksivio.telegram.bot.api.model/-server-error-listener.md) or send telegram api action |
 | [ActionSend](-action-send/index.md) | `interface ActionSend<RES>`<br>[ActionSend](-action-send/index.md) interface for send telegram api action |
 | [TelegramProcessor](-telegram-processor/index.md) | `interface TelegramProcessor`<br>[TelegramProcessor](-telegram-processor/index.md) interface allowed setup webhook receiver |

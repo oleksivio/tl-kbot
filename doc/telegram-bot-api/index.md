@@ -4,14 +4,19 @@ Spring Kotlin library for easy and fast creating telegram bot's
 
 ## Easy start
 
-* [Receivers](io.github.oleksivio.telegram.bot.api.annotations.receiver/index.md)
-* Filters:
+* [Receivers](io.github.oleksivio.telegram.bot.api.annotations.receiver/index.md) are used for mark method as
+receiver of special update type
+* Filters are used for filter input update from telegram. There are two types:
   * [Primitive](io.github.oleksivio.telegram.bot.api.annotations.filter.primitive/index.md)
   * [Composite](io.github.oleksivio.telegram.bot.api.annotations.filter.composite/index.md)
-* [ActionBuilder](io.github.oleksivio.telegram.bot.api.controller/-action-builder/index.md)
-* [TelegramProcessor](io.github.oleksivio.telegram.bot.api.controller/-telegram-processor/index.md)
-* [TelegramUpdater](io.github.oleksivio.telegram.bot.api.controller/-telegram-updater/index.md)
-* [Session](io.github.oleksivio.telegram.bot.api.annotations.behavior/-session/index.md)
+* [ActionBuilder](io.github.oleksivio.telegram.bot.api.controller/-action-builder/index.md) - used for send any action to telegram 
+server. (SendMessage, GetMe, etc)
+* [TelegramProcessor](io.github.oleksivio.telegram.bot.api.controller/-telegram-processor/index.md) - used for receive update from 
+ telegram when you use webhook
+* [TelegramUpdater](io.github.oleksivio.telegram.bot.api.controller/-telegram-updater/index.md) - used for receive update from 
+telegram when you use long polling
+* [Session](io.github.oleksivio.telegram.bot.api.annotations.behavior/-session/index.md) - used for create simple session 
+controller, which can receive any count of user messages in described order
 
 ### Packages
 

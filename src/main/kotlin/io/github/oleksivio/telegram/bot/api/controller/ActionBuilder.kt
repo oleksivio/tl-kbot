@@ -11,7 +11,14 @@ import io.github.oleksivio.telegram.bot.core.model.method.Action
 typealias ActionCreate<RES> = () -> Action<RES>
 
 /**
- * [ActionBuilder] interface for prepare telegram api action
+ * All bot interactions with telegram server should send using [ActionBuilder]. We name it actions.
+ * Action in this library is the object that represent telegram server method.
+ * For example [io.github.oleksivio.telegram.bot.api.model.method.message.SendMessage] object action
+ * are used for call [SendMessage](https://core.telegram.org/bots/api/#sendmessage) method.
+ *
+ * All actions are located in  [io.github.oleksivio.telegram.bot.api.model.method] package
+ *
+ * [ActionBuilder] interface for create telegram api action.
  *
  * [ActionErrorListener] used for print error description
  *
