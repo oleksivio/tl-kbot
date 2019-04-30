@@ -9,7 +9,7 @@ jobs:
       - restore_cache:
           keys:
             - gradle-{{ checksum "build.gradle.kts" }}
-      - run: gradle commitlintUniqueBranchCommit
+      - run: gradle commitlint -Pscope=branch 
       - save_cache:
           paths:
             - ~/.gradle
