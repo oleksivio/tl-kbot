@@ -1,4 +1,4 @@
-package io.github.oleksivio.telegram.bot.api.model.method.info
+package io.github.oleksivio.telegram.bot.api.model.method.notify
 
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty

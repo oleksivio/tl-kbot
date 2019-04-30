@@ -2,6 +2,8 @@
 
 ## Package io.github.oleksivio.telegram.bot.api.model.method.sticker
 
+Package contain all telegram server sticker actions
+
 ### Types
 
 | Name | Summary |

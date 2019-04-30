@@ -1,4 +1,4 @@
-[telegram-bot-api](../../index.md) / [io.github.oleksivio.telegram.bot.api.model.method.info](../index.md) / [AnswerCallbackQuery](index.md) / [cacheTime](./cache-time.md)
+[telegram-bot-api](../../index.md) / [io.github.oleksivio.telegram.bot.api.model.method.notify](../index.md) / [AnswerCallbackQuery](index.md) / [cacheTime](./cache-time.md)
 
 # cacheTime
 

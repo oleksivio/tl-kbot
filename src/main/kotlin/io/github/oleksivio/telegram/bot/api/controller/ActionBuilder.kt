@@ -11,12 +11,28 @@ import io.github.oleksivio.telegram.bot.core.model.method.Action
 typealias ActionCreate<RES> = () -> Action<RES>
 
 /**
- * All bot interactions with telegram server should send using [ActionBuilder]. We name it actions.
- * Action in this library is the object that represent telegram server method.
- * For example [io.github.oleksivio.telegram.bot.api.model.method.message.SendMessage] object action
+ * All bot interactions with telegram server named actions.
+ * Actions is object which used by [ActionBuilder] for call telegram bot api method.
+ *
+ *
+ * For example:
+ *
+ * [io.github.oleksivio.telegram.bot.api.model.method.message.SendMessage] object action
  * are used for call [SendMessage](https://core.telegram.org/bots/api/#sendmessage) method.
  *
- * All actions are located in  [io.github.oleksivio.telegram.bot.api.model.method] package
+ * All actions are located in next packages:
+ * - [io.github.oleksivio.telegram.bot.api.model.method.notify]
+ * - [io.github.oleksivio.telegram.bot.api.model.method.file]
+ * - [io.github.oleksivio.telegram.bot.api.model.method.game]
+ * - [io.github.oleksivio.telegram.bot.api.model.method.group]
+ * - [io.github.oleksivio.telegram.bot.api.model.method.info]
+ * - [io.github.oleksivio.telegram.bot.api.model.method.inline]
+ * - [io.github.oleksivio.telegram.bot.api.model.method.location]
+ * - [io.github.oleksivio.telegram.bot.api.model.method.message]
+ * - [io.github.oleksivio.telegram.bot.api.model.method.passport]
+ * - [io.github.oleksivio.telegram.bot.api.model.method.payments]
+ * - [io.github.oleksivio.telegram.bot.api.model.method.sticker]
+ * - [io.github.oleksivio.telegram.bot.api.model.method.update]
  *
  * [ActionBuilder] interface for create telegram api action.
  *

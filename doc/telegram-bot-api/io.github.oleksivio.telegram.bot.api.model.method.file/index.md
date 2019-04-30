@@ -2,6 +2,8 @@
 
 ## Package io.github.oleksivio.telegram.bot.api.model.method.file
 
+Package contain all telegram server interactions with files
+
 ### Types
 
 | Name | Summary |

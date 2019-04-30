@@ -31,7 +31,7 @@ plugins {
     `java-library`
     signing
     id("org.jetbrains.dokka") version "0.9.18"
-    id("io.github.oleksivio.commitlint") version "0.8.0"
+    id("io.github.oleksivio.commitlint") version "0.14.0"
 }
 
 dependencies {

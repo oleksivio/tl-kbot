@@ -18,6 +18,7 @@ io.github.oleksivio.telegram.bot.api.model.method.info
 io.github.oleksivio.telegram.bot.api.model.method.inline
 io.github.oleksivio.telegram.bot.api.model.method.location
 io.github.oleksivio.telegram.bot.api.model.method.message
+io.github.oleksivio.telegram.bot.api.model.method.notify
 io.github.oleksivio.telegram.bot.api.model.method.passport
 io.github.oleksivio.telegram.bot.api.model.method.payments
 io.github.oleksivio.telegram.bot.api.model.method.sticker

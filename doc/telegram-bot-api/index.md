@@ -9,13 +9,13 @@ receiver of special update type
 * Filters are used for filter input update from telegram. There are two types:
   * [Primitive](io.github.oleksivio.telegram.bot.api.annotations.filter.primitive/index.md)
   * [Composite](io.github.oleksivio.telegram.bot.api.annotations.filter.composite/index.md)
-* [ActionBuilder](io.github.oleksivio.telegram.bot.api.controller/-action-builder/index.md) - used for send any action to telegram 
+* [ActionBuilder](io.github.oleksivio.telegram.bot.api.controller/-action-builder/index.md) are used for send any action to telegram 
 server. (SendMessage, GetMe, etc)
-* [TelegramProcessor](io.github.oleksivio.telegram.bot.api.controller/-telegram-processor/index.md) - used for receive update from 
+* [TelegramProcessor](io.github.oleksivio.telegram.bot.api.controller/-telegram-processor/index.md) are used for receive update from 
  telegram when you use webhook
-* [TelegramUpdater](io.github.oleksivio.telegram.bot.api.controller/-telegram-updater/index.md) - used for receive update from 
+* [TelegramUpdater](io.github.oleksivio.telegram.bot.api.controller/-telegram-updater/index.md) are used for receive update from 
 telegram when you use long polling
-* [Session](io.github.oleksivio.telegram.bot.api.annotations.behavior/-session/index.md) - used for create simple session 
+* [Session](io.github.oleksivio.telegram.bot.api.annotations.behavior/-session/index.md) are used for create simple session 
 controller, which can receive any count of user messages in described order
 
 ### Packages
@@ -32,17 +32,18 @@ controller, which can receive any count of user messages in described order
 | [io.github.oleksivio.telegram.bot.api.model.annotation](io.github.oleksivio.telegram.bot.api.model.annotation/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.model.annotation.validator](io.github.oleksivio.telegram.bot.api.model.annotation.validator/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.model.annotation.validator.impl](io.github.oleksivio.telegram.bot.api.model.annotation.validator.impl/index.md) |  |
-| [io.github.oleksivio.telegram.bot.api.model.method.file](io.github.oleksivio.telegram.bot.api.model.method.file/index.md) |  |
-| [io.github.oleksivio.telegram.bot.api.model.method.game](io.github.oleksivio.telegram.bot.api.model.method.game/index.md) |  |
-| [io.github.oleksivio.telegram.bot.api.model.method.group](io.github.oleksivio.telegram.bot.api.model.method.group/index.md) |  |
-| [io.github.oleksivio.telegram.bot.api.model.method.info](io.github.oleksivio.telegram.bot.api.model.method.info/index.md) |  |
-| [io.github.oleksivio.telegram.bot.api.model.method.inline](io.github.oleksivio.telegram.bot.api.model.method.inline/index.md) |  |
-| [io.github.oleksivio.telegram.bot.api.model.method.location](io.github.oleksivio.telegram.bot.api.model.method.location/index.md) |  |
-| [io.github.oleksivio.telegram.bot.api.model.method.message](io.github.oleksivio.telegram.bot.api.model.method.message/index.md) |  |
-| [io.github.oleksivio.telegram.bot.api.model.method.passport](io.github.oleksivio.telegram.bot.api.model.method.passport/index.md) |  |
-| [io.github.oleksivio.telegram.bot.api.model.method.payments](io.github.oleksivio.telegram.bot.api.model.method.payments/index.md) |  |
-| [io.github.oleksivio.telegram.bot.api.model.method.sticker](io.github.oleksivio.telegram.bot.api.model.method.sticker/index.md) |  |
-| [io.github.oleksivio.telegram.bot.api.model.method.update](io.github.oleksivio.telegram.bot.api.model.method.update/index.md) |  |
+| [io.github.oleksivio.telegram.bot.api.model.method.file](io.github.oleksivio.telegram.bot.api.model.method.file/index.md) | Package contain all telegram server interactions with files |
+| [io.github.oleksivio.telegram.bot.api.model.method.game](io.github.oleksivio.telegram.bot.api.model.method.game/index.md) | Package contain all telegram server game actions |
+| [io.github.oleksivio.telegram.bot.api.model.method.group](io.github.oleksivio.telegram.bot.api.model.method.group/index.md) | Package contain all telegram server group chat actions |
+| [io.github.oleksivio.telegram.bot.api.model.method.info](io.github.oleksivio.telegram.bot.api.model.method.info/index.md) | Package contain all telegram server actions which could be used for  send or receive special information(chat id, bot info, user profile photos, etc) to telegram server |
+| [io.github.oleksivio.telegram.bot.api.model.method.inline](io.github.oleksivio.telegram.bot.api.model.method.inline/index.md) | Package contain all telegram server inline actions |
+| [io.github.oleksivio.telegram.bot.api.model.method.location](io.github.oleksivio.telegram.bot.api.model.method.location/index.md) | Package contain all telegram server location actions |
+| [io.github.oleksivio.telegram.bot.api.model.method.message](io.github.oleksivio.telegram.bot.api.model.method.message/index.md) | Package contain all telegram server message actions(send, edit, delete) |
+| [io.github.oleksivio.telegram.bot.api.model.method.notify](io.github.oleksivio.telegram.bot.api.model.method.notify/index.md) | Package contain all telegram server notify actions |
+| [io.github.oleksivio.telegram.bot.api.model.method.passport](io.github.oleksivio.telegram.bot.api.model.method.passport/index.md) | Package contain all telegram server passport actions |
+| [io.github.oleksivio.telegram.bot.api.model.method.payments](io.github.oleksivio.telegram.bot.api.model.method.payments/index.md) | Package contain all telegram server payments actions |
+| [io.github.oleksivio.telegram.bot.api.model.method.sticker](io.github.oleksivio.telegram.bot.api.model.method.sticker/index.md) | Package contain all telegram server sticker actions |
+| [io.github.oleksivio.telegram.bot.api.model.method.update](io.github.oleksivio.telegram.bot.api.model.method.update/index.md) | Package contain all telegram server update actions (setWebhook, getUpdates, etc) |
 | [io.github.oleksivio.telegram.bot.api.model.objects](io.github.oleksivio.telegram.bot.api.model.objects/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.model.objects.inline](io.github.oleksivio.telegram.bot.api.model.objects.inline/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.model.objects.inline.messagecontent](io.github.oleksivio.telegram.bot.api.model.objects.inline.messagecontent/index.md) |  |
