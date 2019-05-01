@@ -14,7 +14,7 @@ import kotlin.reflect.KFunction
 @Controller
 class ArgCheckerProducer(private val filterParsers: Collection<FilterParser<*, *>>, private val finder: Finder) {
 
-    fun <A : Annotation, T : ITelegram> create(func: KFunction<*>): Validator<T>? {
+    fun <A : Annotation, T : ITelegram> create(func: KFunction<*>): Validator<T> {
 
         for (filterParser in filterParsers) {
             val annotationAbstract = func.annotations
@@ -27,7 +27,7 @@ class ArgCheckerProducer(private val filterParsers: Collection<FilterParser<*, *
 
         }
 
-        return null
+        return { true }
     }
 
 }
