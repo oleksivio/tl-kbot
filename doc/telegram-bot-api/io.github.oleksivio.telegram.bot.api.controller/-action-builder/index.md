@@ -9,23 +9,23 @@ Actions is object which used by [ActionBuilder](./index.md) for call telegram bo
 
 For example:
 
-[io.github.oleksivio.telegram.bot.api.model.method.message.SendMessage](../../io.github.oleksivio.telegram.bot.api.model.method.message/-send-message/index.md) object action
-are used for call [SendMessage](https://core.telegram.org/bots/api/#sendmessage) method.
+[SendMessage](../../io.github.oleksivio.telegram.bot.api.model.method.message/-send-message/index.md) object action
+are used for call [SendMessage](https://core.telegram.org/bots/api/#sendmessage) telegram method.
 
 All actions are located in next packages:
 
-* [io.github.oleksivio.telegram.bot.api.model.method.notify](../../io.github.oleksivio.telegram.bot.api.model.method.notify/index.md)
-* [io.github.oleksivio.telegram.bot.api.model.method.file](../../io.github.oleksivio.telegram.bot.api.model.method.file/index.md)
-* [io.github.oleksivio.telegram.bot.api.model.method.game](../../io.github.oleksivio.telegram.bot.api.model.method.game/index.md)
-* [io.github.oleksivio.telegram.bot.api.model.method.group](../../io.github.oleksivio.telegram.bot.api.model.method.group/index.md)
-* [io.github.oleksivio.telegram.bot.api.model.method.info](../../io.github.oleksivio.telegram.bot.api.model.method.info/index.md)
-* [io.github.oleksivio.telegram.bot.api.model.method.inline](../../io.github.oleksivio.telegram.bot.api.model.method.inline/index.md)
-* [io.github.oleksivio.telegram.bot.api.model.method.location](../../io.github.oleksivio.telegram.bot.api.model.method.location/index.md)
-* [io.github.oleksivio.telegram.bot.api.model.method.message](../../io.github.oleksivio.telegram.bot.api.model.method.message/index.md)
-* [io.github.oleksivio.telegram.bot.api.model.method.passport](../../io.github.oleksivio.telegram.bot.api.model.method.passport/index.md)
-* [io.github.oleksivio.telegram.bot.api.model.method.payments](../../io.github.oleksivio.telegram.bot.api.model.method.payments/index.md)
-* [io.github.oleksivio.telegram.bot.api.model.method.sticker](../../io.github.oleksivio.telegram.bot.api.model.method.sticker/index.md)
-* [io.github.oleksivio.telegram.bot.api.model.method.update](../../io.github.oleksivio.telegram.bot.api.model.method.update/index.md)
+* [notify](../../io.github.oleksivio.telegram.bot.api.model.method.notify/index.md)
+* [file](../../io.github.oleksivio.telegram.bot.api.model.method.file/index.md)
+* [game](../../io.github.oleksivio.telegram.bot.api.model.method.game/index.md)
+* [group](../../io.github.oleksivio.telegram.bot.api.model.method.group/index.md)
+* [info](../../io.github.oleksivio.telegram.bot.api.model.method.info/index.md)
+* [inline](../../io.github.oleksivio.telegram.bot.api.model.method.inline/index.md)
+* [location](../../io.github.oleksivio.telegram.bot.api.model.method.location/index.md)
+* [message](../../io.github.oleksivio.telegram.bot.api.model.method.message/index.md)
+* [passport](../../io.github.oleksivio.telegram.bot.api.model.method.passport/index.md)
+* [payments](../../io.github.oleksivio.telegram.bot.api.model.method.payments/index.md)
+* [sticker](../../io.github.oleksivio.telegram.bot.api.model.method.sticker/index.md)
+* [update](../../io.github.oleksivio.telegram.bot.api.model.method.update/index.md)
 
 [ActionBuilder](./index.md) interface for create telegram api action.
 

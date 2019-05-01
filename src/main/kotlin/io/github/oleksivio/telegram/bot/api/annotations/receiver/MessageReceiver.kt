@@ -3,12 +3,12 @@ package io.github.oleksivio.telegram.bot.api.annotations.receiver
 /**
  *
  * Annotation to mark function as receiver of
- * [Message][io.github.oleksivio.telegram.bot.api.model.objects.std.Message]
+ * [Message][io.github.oleksivio.telegram.bot.api.model.objects.std.Message] type
  *
  * All functions annotated by [MessageReceiver] must have one input parameter
  * [Message][io.github.oleksivio.telegram.bot.api.model.objects.std.Message] type
  *
- * Example:
+ * Example (receive all messages without filter):
  *
  * ```kotlin
  *  @MessageReceiver

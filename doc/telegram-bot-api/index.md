@@ -9,6 +9,10 @@ receiver of special update type
 * Filters are used for filter input update from telegram. There are two types:
   * [Primitive](io.github.oleksivio.telegram.bot.api.annotations.filter.primitive/index.md)
   * [Composite](io.github.oleksivio.telegram.bot.api.annotations.filter.composite/index.md)
+
+
+If there is two filter with same conditions, both of it will receive same update.
+
 * [ActionBuilder](io.github.oleksivio.telegram.bot.api.controller/-action-builder/index.md) are used for send any action to telegram 
 server. (SendMessage, GetMe, etc)
 * [TelegramProcessor](io.github.oleksivio.telegram.bot.api.controller/-telegram-processor/index.md) are used for receive update from 
