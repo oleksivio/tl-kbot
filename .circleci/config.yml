@@ -5,15 +5,22 @@ jobs:
     docker:
       - image: circleci/openjdk:11.0
     steps:
-      - checkout
+      - run: mkdir ~/.ssh
+      - run: ssh-keyscan github.com >> ~/.ssh/known_hosts
+      - run: git clone $CIRCLE_REPOSITORY_URL ~/project
+      - run: cd ~/project
+      - run: git fetch --all
+      - run: git checkout $CIRCLE_BRANCH
+
       - restore_cache:
           keys:
             - gradle-{{ checksum "build.gradle.kts" }}
-      - run: gradle commitlintUniqueBranchCommit
+      - run: gradle commitlint -Pscope=branch
       - save_cache:
           paths:
             - ~/.gradle
           key: gradle-{{ checksum "build.gradle.kts" }}
+
  
   build:
     docker:

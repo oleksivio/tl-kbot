@@ -2,6 +2,8 @@
 
 ## Package io.github.oleksivio.telegram.bot.api.model.method.update
 
+Package contain all telegram server update actions (setWebhook, getUpdates, etc)
+
 ### Types
 
 | Name | Summary |

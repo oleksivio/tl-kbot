@@ -1,5 +1,5 @@
-import io.github.oleksivio.commitlint.CommitlintPluginExtension
 import io.github.oleksivio.commitlint.checker.CommitCheckerType
+import io.github.oleksivio.commitlint.checker.Commitlint
 import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -31,7 +31,7 @@ plugins {
     `java-library`
     signing
     id("org.jetbrains.dokka") version "0.9.18"
-    id("io.github.oleksivio.commitlint") version "0.2.0"
+    id("io.github.oleksivio.commitlint") version "0.14.0"
 }
 
 dependencies {
@@ -116,6 +116,9 @@ tasks.withType<JavaCompile> {
 }
 
 
+tasks.withType<Commitlint>{
+    checkType = CommitCheckerType.MIXED
+}
 
 tasks.withType<DokkaTask> {
     outputFormat = "gfm"
@@ -140,4 +143,3 @@ compileTestKotlin.kotlinOptions {
     jvmTarget = "1.8"
 }
 
-the<CommitlintPluginExtension>().type = CommitCheckerType.ANGULAR

@@ -1,4 +1,4 @@
-[telegram-bot-api](../../index.md) / [io.github.oleksivio.telegram.bot.api.model.method.info](../index.md) / [SendChatAction](index.md) / [chatId](./chat-id.md)
+[telegram-bot-api](../../index.md) / [io.github.oleksivio.telegram.bot.api.model.method.notify](../index.md) / [SendChatAction](index.md) / [chatId](./chat-id.md)
 
 # chatId
 
