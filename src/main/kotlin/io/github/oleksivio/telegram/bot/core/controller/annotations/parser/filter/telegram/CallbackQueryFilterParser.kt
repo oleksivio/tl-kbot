@@ -22,6 +22,10 @@ class CallbackQueryFilterParser : FilterParser<CallbackQueryFilter, CallbackQuer
                 .map { validatorName -> finder.find(validatorName, CallbackQuery::class) }
                 .forEach { validator -> unionExtractValidator.add({ it }, validator) }
 
+        val from = annotation.from
+        if (from.status.isActive) {
+            unionExtractValidator.add({ it.from }, finder.find(from))
+        }
         val data = annotation.data
         if (data.status.isActive) {
             unionExtractValidator.add({ it.data }, finder.find(data))
