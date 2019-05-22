@@ -2,6 +2,8 @@
 
 ## Package io.github.oleksivio.telegram.bot.api.model.method.game
 
+Package contain all telegram server game actions
+
 ### Types
 
 | Name | Summary |

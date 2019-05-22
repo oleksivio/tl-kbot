@@ -6,7 +6,7 @@ Spring Kotlin library for easy and fast creating telegram bot's
 
 | Name | Summary |
 |---|---|
-| [io.github.oleksivio.telegram.bot.api.controller.ActionBuilder](../io.github.oleksivio.telegram.bot.api.controller/-action-builder/index.md) | [ActionBuilder](../io.github.oleksivio.telegram.bot.api.controller/-action-builder/index.md) interface for prepare telegram api action |
+| [io.github.oleksivio.telegram.bot.api.controller.ActionBuilder](../io.github.oleksivio.telegram.bot.api.controller/-action-builder/index.md) | All bot interactions with telegram server named actions. Actions is object which used by [ActionBuilder](../io.github.oleksivio.telegram.bot.api.controller/-action-builder/index.md) for call telegram bot api method. |
 | [io.github.oleksivio.telegram.bot.api.controller.ActionCreate](../io.github.oleksivio.telegram.bot.api.controller/-action-create.md) | Callback to initialize action |
 | [io.github.oleksivio.telegram.bot.api.controller.ActionErrorListener](../io.github.oleksivio.telegram.bot.api.controller/-action-error-listener/index.md) | [ActionBuilder](../io.github.oleksivio.telegram.bot.api.controller/-action-builder/index.md) interface for set [ServerErrorListener](../io.github.oleksivio.telegram.bot.api.model/-server-error-listener.md) or send telegram api action |
 | [io.github.oleksivio.telegram.bot.api.controller.ActionSend](../io.github.oleksivio.telegram.bot.api.controller/-action-send/index.md) | [ActionSend](../io.github.oleksivio.telegram.bot.api.controller/-action-send/index.md) interface for send telegram api action |
@@ -16,7 +16,7 @@ Spring Kotlin library for easy and fast creating telegram bot's
 | [io.github.oleksivio.telegram.bot.api.annotations.filter.composite.AnimationFilter](../io.github.oleksivio.telegram.bot.api.annotations.filter.composite/-animation-filter/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.model.annotation.validator.impl.AnimationFilterValidator](../io.github.oleksivio.telegram.bot.api.model.annotation.validator.impl/-animation-filter-validator/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.model.annotation.AnnotationState](../io.github.oleksivio.telegram.bot.api.model.annotation/-annotation-state/index.md) |  |
-| [io.github.oleksivio.telegram.bot.api.model.method.info.AnswerCallbackQuery](../io.github.oleksivio.telegram.bot.api.model.method.info/-answer-callback-query/index.md) |  |
+| [io.github.oleksivio.telegram.bot.api.model.method.notify.AnswerCallbackQuery](../io.github.oleksivio.telegram.bot.api.model.method.notify/-answer-callback-query/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.model.method.inline.AnswerInlineQuery](../io.github.oleksivio.telegram.bot.api.model.method.inline/-answer-inline-query/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.model.method.payments.AnswerPreCheckoutQuery](../io.github.oleksivio.telegram.bot.api.model.method.payments/-answer-pre-checkout-query/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.model.method.payments.AnswerShippingQuery](../io.github.oleksivio.telegram.bot.api.model.method.payments/-answer-shipping-query/index.md) |  |
@@ -150,14 +150,14 @@ Spring Kotlin library for easy and fast creating telegram bot's
 | [io.github.oleksivio.telegram.bot.api.model.objects.std.sticker.MaskPosition](../io.github.oleksivio.telegram.bot.api.model.objects.std.sticker/-mask-position/index.md) | [MaskPosition](https://core.telegram.org/bots/api/#maskposition) |
 | [io.github.oleksivio.telegram.bot.api.annotations.filter.composite.MaskPositionFilter](../io.github.oleksivio.telegram.bot.api.annotations.filter.composite/-mask-position-filter/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.model.annotation.validator.impl.MaskPositionFilterValidator](../io.github.oleksivio.telegram.bot.api.model.annotation.validator.impl/-mask-position-filter-validator/index.md) |  |
-| [io.github.oleksivio.telegram.bot.api.model.objects.std.Message](../io.github.oleksivio.telegram.bot.api.model.objects.std/-message/index.md) | [Message](https://core.telegram.org/bots/api/#message) |
+| [io.github.oleksivio.telegram.bot.api.model.objects.std.Message](../io.github.oleksivio.telegram.bot.api.model.objects.std/-message/index.md) | [Message](../io.github.oleksivio.telegram.bot.api.model.objects.std/-message/index.md) is java equivalent of telegram message object |
 | [io.github.oleksivio.telegram.bot.api.model.objects.std.MessageEntity](../io.github.oleksivio.telegram.bot.api.model.objects.std/-message-entity/index.md) | [MessageEntity](https://core.telegram.org/bots/api/#messageentity) |
 | [io.github.oleksivio.telegram.bot.api.annotations.filter.composite.MessageEntityArrayFilter](../io.github.oleksivio.telegram.bot.api.annotations.filter.composite/-message-entity-array-filter/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.annotations.filter.composite.MessageEntityFilter](../io.github.oleksivio.telegram.bot.api.annotations.filter.composite/-message-entity-filter/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.model.annotation.validator.impl.MessageEntityFilterValidator](../io.github.oleksivio.telegram.bot.api.model.annotation.validator.impl/-message-entity-filter-validator/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.annotations.filter.composite.MessageFilter](../io.github.oleksivio.telegram.bot.api.annotations.filter.composite/-message-filter/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.model.annotation.validator.impl.MessageFilterValidator](../io.github.oleksivio.telegram.bot.api.model.annotation.validator.impl/-message-filter-validator/index.md) |  |
-| [io.github.oleksivio.telegram.bot.api.annotations.receiver.MessageReceiver](../io.github.oleksivio.telegram.bot.api.annotations.receiver/-message-receiver/index.md) | Annotation to mark function as receiver of [Message](../io.github.oleksivio.telegram.bot.api.model.objects.std/-message/index.md) |
+| [io.github.oleksivio.telegram.bot.api.annotations.receiver.MessageReceiver](../io.github.oleksivio.telegram.bot.api.annotations.receiver/-message-receiver/index.md) | Annotation to mark function as receiver of [Message](../io.github.oleksivio.telegram.bot.api.model.objects.std/-message/index.md) type |
 | [io.github.oleksivio.telegram.bot.api.annotations.filter.primitive.NotNullFilter](../io.github.oleksivio.telegram.bot.api.annotations.filter.primitive/-not-null-filter/index.md) | [NotNullFilter](../io.github.oleksivio.telegram.bot.api.annotations.filter.primitive/-not-null-filter/index.md) annotation is used to filter incoming value |
 | [io.github.oleksivio.telegram.bot.api.model.objects.payments.OrderInfo](../io.github.oleksivio.telegram.bot.api.model.objects.payments/-order-info/index.md) | [OrderInfo](https://core.telegram.org/bots/api/#orderinfo) |
 | [io.github.oleksivio.telegram.bot.api.annotations.filter.composite.OrderInfoFilter](../io.github.oleksivio.telegram.bot.api.annotations.filter.composite/-order-info-filter/index.md) |  |
@@ -197,7 +197,7 @@ Spring Kotlin library for easy and fast creating telegram bot's
 | [io.github.oleksivio.telegram.bot.api.model.method.file.SendAnimationFile](../io.github.oleksivio.telegram.bot.api.model.method.file/-send-animation-file/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.model.method.file.SendAudio](../io.github.oleksivio.telegram.bot.api.model.method.file/-send-audio/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.model.method.file.SendAudioFile](../io.github.oleksivio.telegram.bot.api.model.method.file/-send-audio-file/index.md) |  |
-| [io.github.oleksivio.telegram.bot.api.model.method.info.SendChatAction](../io.github.oleksivio.telegram.bot.api.model.method.info/-send-chat-action/index.md) |  |
+| [io.github.oleksivio.telegram.bot.api.model.method.notify.SendChatAction](../io.github.oleksivio.telegram.bot.api.model.method.notify/-send-chat-action/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.model.method.message.SendContact](../io.github.oleksivio.telegram.bot.api.model.method.message/-send-contact/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.model.method.file.SendDocument](../io.github.oleksivio.telegram.bot.api.model.method.file/-send-document/index.md) |  |
 | [io.github.oleksivio.telegram.bot.api.model.method.file.SendDocumentFile](../io.github.oleksivio.telegram.bot.api.model.method.file/-send-document-file/index.md) |  |

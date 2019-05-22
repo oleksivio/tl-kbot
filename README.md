@@ -1,6 +1,10 @@
 # Telegram Bot API
 
-Spring library for easy creating telegram bot's
+Spring library for easy creating telegram bot's 
+
+[master: ![CircleCI](https://circleci.com/gh/oleksivio/telegram-bot-api/tree/master.svg?style=svg)](https://circleci.com/gh/oleksivio/telegram-bot-api/tree/master)
+
+[dev: ![CircleCI](https://circleci.com/gh/oleksivio/telegram-bot-api/tree/dev.svg?style=svg)](https://circleci.com/gh/oleksivio/telegram-bot-api/tree/dev)
 
 ## Getting Started
 
@@ -8,14 +12,14 @@ Add to you dependencies:
 
 Gradle:
 ```
-implementation("io.github.oleksivio:telegram-bot-api:1.0.4")
+implementation("io.github.oleksivio:telegram-bot-api:1.4.1")
 ```
 Maven: 
 ```
 <dependency>
   <groupId>io.github.oleksivio</groupId>
   <artifactId>telegram-bot-api</artifactId>
-  <version>1.0.4</version>
+  <version>1.4.1</version>
 </dependency>
 ```
 

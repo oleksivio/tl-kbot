@@ -2,6 +2,8 @@
 
 ## Package io.github.oleksivio.telegram.bot.api.model.method.group
 
+Package contain all telegram server group chat actions
+
 ### Types
 
 | Name | Summary |

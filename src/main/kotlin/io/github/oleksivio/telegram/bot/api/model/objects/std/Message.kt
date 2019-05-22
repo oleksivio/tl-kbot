@@ -12,7 +12,9 @@ import io.github.oleksivio.telegram.bot.core.model.objects.IChat
 import io.github.oleksivio.telegram.bot.core.model.objects.IUserFrom
 
 /**
- *  [Message](https://core.telegram.org/bots/api/#message)
+ * [Message] is java equivalent of telegram message object
+ *
+ * Information about telegram server parameters - [Message](https://core.telegram.org/bots/api/#message)
  */
 data class Message(
         /**

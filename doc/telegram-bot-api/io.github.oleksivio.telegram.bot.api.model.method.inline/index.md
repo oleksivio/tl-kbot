@@ -2,6 +2,8 @@
 
 ## Package io.github.oleksivio.telegram.bot.api.model.method.inline
 
+Package contain all telegram server inline actions
+
 ### Types
 
 | Name | Summary |

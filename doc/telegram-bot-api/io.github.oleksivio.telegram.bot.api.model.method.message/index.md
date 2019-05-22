@@ -2,6 +2,8 @@
 
 ## Package io.github.oleksivio.telegram.bot.api.model.method.message
 
+Package contain all telegram server message actions(send, edit, delete)
+
 ### Types
 
 | Name | Summary |

@@ -2,6 +2,8 @@
 
 ## Package io.github.oleksivio.telegram.bot.api.model.method.payments
 
+Package contain all telegram server payments actions
+
 ### Types
 
 | Name | Summary |
