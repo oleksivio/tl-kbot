@@ -3,7 +3,7 @@ package io.github.oleksivio.telegram.bot.core.controller.annotations.parser.prod
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.FilterParser
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator
-import io.github.oleksivio.telegram.bot.core.model.ITelegram
+import io.github.oleksivio.tl.kbot.server.api.model.ITelegram
 import org.springframework.stereotype.Controller
 import kotlin.reflect.KFunction
 

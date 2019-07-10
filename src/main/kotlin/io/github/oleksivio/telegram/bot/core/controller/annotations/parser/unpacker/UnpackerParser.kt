@@ -2,7 +2,7 @@ package io.github.oleksivio.telegram.bot.core.controller.annotations.parser.unpa
 
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.Parser
 import io.github.oleksivio.telegram.bot.core.controller.handler.unpack.UpdateUnpacker
-import io.github.oleksivio.telegram.bot.core.model.ITelegram
+import io.github.oleksivio.tl.kbot.server.api.model.ITelegram
 import kotlin.reflect.KFunction
 
 abstract class UnpackerParser<A : Annotation, OUT : ITelegram> : Parser<A> {

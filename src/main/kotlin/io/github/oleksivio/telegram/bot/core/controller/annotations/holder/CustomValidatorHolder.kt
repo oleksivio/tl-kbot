@@ -2,7 +2,7 @@ package io.github.oleksivio.telegram.bot.core.controller.annotations.holder
 
 import io.github.oleksivio.telegram.bot.api.model.annotation.validator.FilterValidator
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator
-import io.github.oleksivio.telegram.bot.core.model.ITelegram
+import io.github.oleksivio.tl.kbot.server.api.model.ITelegram
 import org.springframework.stereotype.Component
 import java.util.*
 import kotlin.reflect.KClass

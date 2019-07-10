@@ -1,7 +1,7 @@
 package io.github.oleksivio.telegram.bot.api.controller
 
 import io.github.oleksivio.telegram.bot.api.model.ServerErrorListener
-import io.github.oleksivio.telegram.bot.core.model.method.Action
+import io.github.oleksivio.tl.kbot.server.api.model.method.Action
 
 /**
  * Callback to initialize action

@@ -1,6 +1,6 @@
 package io.github.oleksivio.telegram.bot.api.controller
 
-import io.github.oleksivio.telegram.bot.api.model.objects.Update
+import io.github.oleksivio.tl.kbot.server.api.objects.Update
 
 /**
  * [TelegramProcessor] interface allowed setup webhook receiver

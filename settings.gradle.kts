@@ -1,1 +1,3 @@
-rootProject.name = "telegram-bot-api"
+rootProject.name = "tl-kbot"
+
+include(":server-api")

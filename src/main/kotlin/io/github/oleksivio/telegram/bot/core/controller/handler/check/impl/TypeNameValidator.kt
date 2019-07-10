@@ -1,7 +1,7 @@
 package io.github.oleksivio.telegram.bot.core.controller.handler.check.impl
 
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator
-import io.github.oleksivio.telegram.bot.core.model.type.NamedType
+import io.github.oleksivio.tl.kbot.server.api.model.type.NamedType
 
 class TypeNameValidator(type: NamedType) : Validator<String> {
 

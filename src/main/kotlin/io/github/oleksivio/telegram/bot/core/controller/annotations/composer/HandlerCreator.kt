@@ -4,9 +4,8 @@ import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.produ
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.producer.ArgUnpackerProducer
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.producer.InvokerProducer
 import io.github.oleksivio.telegram.bot.core.controller.handler.Handler
-import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.impl.ExtractValidator
-import io.github.oleksivio.telegram.bot.core.model.ITelegram
+import io.github.oleksivio.tl.kbot.server.api.model.ITelegram
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Controller
 import kotlin.reflect.KFunction
@@ -17,7 +16,7 @@ class HandlerCreator(private val argCheckerProducer: ArgCheckerProducer,
                      private val invokerProducer: InvokerProducer) {
 
     fun <ARG : ITelegram> create(classInstance: Any,
-                                 func: KFunction<*>): Handler<*>? {
+                                                                              func: KFunction<*>): Handler<*>? {
 
         val argUnpacker = argUnpackerProducer.create<ARG>(func)
         val argChecker = argCheckerProducer.create<Annotation, ARG>(func)

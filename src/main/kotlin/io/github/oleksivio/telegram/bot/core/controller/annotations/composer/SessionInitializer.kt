@@ -4,7 +4,7 @@ import io.github.oleksivio.telegram.bot.api.annotations.behavior.Session
 import io.github.oleksivio.telegram.bot.api.model.annotation.SessionType
 import io.github.oleksivio.telegram.bot.core.controller.handler.Handler
 import io.github.oleksivio.telegram.bot.core.controller.processor.session.*
-import io.github.oleksivio.telegram.bot.core.model.ITelegram
+import io.github.oleksivio.tl.kbot.server.api.model.ITelegram
 import org.springframework.stereotype.Controller
 import java.util.*
 import kotlin.reflect.KClass

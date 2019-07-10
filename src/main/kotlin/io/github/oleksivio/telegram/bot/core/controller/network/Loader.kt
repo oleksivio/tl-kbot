@@ -1,8 +1,8 @@
 package io.github.oleksivio.telegram.bot.core.controller.network
 
 import io.github.oleksivio.telegram.bot.api.controller.ActionBuilder
-import io.github.oleksivio.telegram.bot.api.model.method.update.GetUpdates
-import io.github.oleksivio.telegram.bot.api.model.objects.Update
+import io.github.oleksivio.tl.kbot.server.api.method.update.GetUpdates
+import io.github.oleksivio.tl.kbot.server.api.objects.Update
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Controller
 

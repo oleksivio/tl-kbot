@@ -1,7 +1,7 @@
 package io.github.oleksivio.telegram.bot.core.controller.annotations.parser.unpacker
 
 import io.github.oleksivio.telegram.bot.api.annotations.receiver.MessageReceiver
-import io.github.oleksivio.telegram.bot.api.model.objects.std.Message
+import io.github.oleksivio.tl.kbot.server.api.objects.std.Message
 import io.github.oleksivio.telegram.bot.core.controller.handler.unpack.UpdateUnpacker
 import org.springframework.stereotype.Component
 

@@ -1,7 +1,7 @@
 package io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.telegram
 
 import io.github.oleksivio.telegram.bot.api.annotations.filter.composite.InlineQueryFilter
-import io.github.oleksivio.telegram.bot.api.model.objects.inline.InlineQuery
+import io.github.oleksivio.tl.kbot.server.api.objects.inline.InlineQuery
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.filter.FilterParser
 import io.github.oleksivio.telegram.bot.core.controller.annotations.parser.finder.Finder
 import io.github.oleksivio.telegram.bot.core.controller.handler.check.Validator

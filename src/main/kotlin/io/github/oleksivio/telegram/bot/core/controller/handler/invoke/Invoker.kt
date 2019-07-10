@@ -1,7 +1,7 @@
 package io.github.oleksivio.telegram.bot.core.controller.handler.invoke
 
 import io.github.oleksivio.telegram.bot.api.model.result.HandlerResult
-import io.github.oleksivio.telegram.bot.core.model.ITelegram
+import io.github.oleksivio.tl.kbot.server.api.model.ITelegram
 import org.slf4j.LoggerFactory
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.Method
@@ -9,7 +9,7 @@ import kotlin.reflect.KFunction
 import kotlin.reflect.jvm.javaMethod
 
 abstract class Invoker<ARG : ITelegram> internal constructor(private val classInstance: Any,
-                                                             private val func: KFunction<*>) {
+                                                                                                          private val func: KFunction<*>) {
 
     fun run(argument: ARG): HandlerResult {
         val method = func.javaMethod ?: throw IllegalStateException("Java method not found")

@@ -20,7 +20,7 @@ repositories {
 }
 
 plugins {
-    val kotlinVersion = "1.3.21"
+    val kotlinVersion = "1.3.41"
     kotlin("jvm") version (kotlinVersion)
     id("org.jetbrains.kotlin.plugin.spring") version kotlinVersion
     id("org.jetbrains.kotlin.plugin.jpa") version kotlinVersion
@@ -28,7 +28,6 @@ plugins {
     id("nebula.javadoc-jar") version "10.0.1"
     id("nebula.source-jar") version "10.0.1"
     id("nebula.release") version "10.0.1"
-    `java-library`
     signing
     id("org.jetbrains.dokka") version "0.9.18"
     id("io.github.oleksivio.commitlint") version "0.14.0"
@@ -37,6 +36,7 @@ plugins {
 dependencies {
     // jackson kotlin 
     api("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.7")
+
     implementation(kotlin("stdlib-jdk8"))
     implementation(kotlin("reflect"))
     // Spring dependencies
@@ -45,8 +45,9 @@ dependencies {
     compileOnly("org.springframework:spring-context:5.1.5.RELEASE")
     compileOnly("org.springframework:spring-beans:5.1.5.RELEASE")
     compileOnly("org.springframework:spring-web:5.1.5.RELEASE")
+    implementation(project(":server-api"))
 
-    implementation("org.slf4j:jcl-over-slf4j:1.7.12")
+    implementation("org.slf4j:slf4j-api:1.7.26")
 
 }
 
@@ -106,11 +107,6 @@ signing {
     sign(publishing.publications["nebula"])
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = (JavaVersion.VERSION_1_8)
-}
-
 tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
 }
@@ -134,12 +130,11 @@ tasks.withType<DokkaTask> {
 
 val compileKotlin: KotlinCompile by tasks
 compileKotlin.kotlinOptions {
-    jvmTarget = "1.8"
+    jvmTarget = "11"
     freeCompilerArgs = listOf("-Xjsr305=strict")
 }
 
 val compileTestKotlin: KotlinCompile by tasks
 compileTestKotlin.kotlinOptions {
-    jvmTarget = "1.8"
+    jvmTarget = "11"
 }
-

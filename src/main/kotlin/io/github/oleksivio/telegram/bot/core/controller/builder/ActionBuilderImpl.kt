@@ -6,7 +6,7 @@ import io.github.oleksivio.telegram.bot.api.controller.ActionErrorListener
 import io.github.oleksivio.telegram.bot.api.controller.ActionSend
 import io.github.oleksivio.telegram.bot.api.model.ServerErrorListener
 import io.github.oleksivio.telegram.bot.core.controller.network.NetworkRequester
-import io.github.oleksivio.telegram.bot.core.model.method.Action
+import io.github.oleksivio.tl.kbot.server.api.model.method.Action
 import org.springframework.stereotype.Component
 
 data class ActionHolder<RES>(val networkRequester: NetworkRequester, val action: Action<RES>)

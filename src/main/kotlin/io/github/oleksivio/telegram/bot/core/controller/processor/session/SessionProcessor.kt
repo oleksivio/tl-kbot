@@ -1,6 +1,6 @@
 package io.github.oleksivio.telegram.bot.core.controller.processor.session
 
-import io.github.oleksivio.telegram.bot.api.model.objects.Update
+import io.github.oleksivio.tl.kbot.server.api.objects.Update
 import io.github.oleksivio.telegram.bot.api.model.result.HandlerResult
 import org.springframework.stereotype.Controller
 import java.util.*
