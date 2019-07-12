@@ -1,8 +1,8 @@
 package io.github.oleksivio.tl.kbot.spring
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import io.github.oleksivio.tl.kbot.core.core.controller.network.Networker
-import io.github.oleksivio.tl.kbot.core.core.controller.network.ServerErrorListener
+import io.github.oleksivio.tl.kbot.core.controller.network.Networker
+import io.github.oleksivio.tl.kbot.core.controller.network.ServerErrorListener
 import io.github.oleksivio.tl.kbot.core.model.ErrorResponse
 import io.github.oleksivio.tl.kbot.server.api.model.CommonResponse
 import io.github.oleksivio.tl.kbot.server.api.model.method.Action

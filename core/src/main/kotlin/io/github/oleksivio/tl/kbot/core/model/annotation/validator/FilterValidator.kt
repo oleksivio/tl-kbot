@@ -1,6 +1,6 @@
 package io.github.oleksivio.tl.kbot.core.model.annotation.validator
 
-import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
+import io.github.oleksivio.tl.kbot.core.controller.handler.check.Validator
 import io.github.oleksivio.tl.kbot.server.api.model.ITelegram
 import kotlin.reflect.KClass
 

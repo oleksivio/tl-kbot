@@ -1,7 +1,7 @@
 package io.github.oleksivio.tl.kbot.spring
 
-import io.github.oleksivio.tl.kbot.core.core.controller.annotations.AnnotationProcessor
-import io.github.oleksivio.tl.kbot.core.core.controller.annotations.holder.CustomValidatorHolder
+import io.github.oleksivio.tl.kbot.core.controller.annotations.AnnotationProcessor
+import io.github.oleksivio.tl.kbot.core.controller.annotations.holder.CustomValidatorHolder
 import io.github.oleksivio.tl.kbot.core.model.annotation.validator.FilterValidator
 import org.springframework.beans.BeansException
 import org.springframework.context.ApplicationContext

@@ -1,6 +1,6 @@
 package io.github.oleksivio.tl.kbot.core.controller
 
-import io.github.oleksivio.tl.kbot.core.core.controller.network.ServerErrorListener
+import io.github.oleksivio.tl.kbot.core.controller.network.ServerErrorListener
 import io.github.oleksivio.tl.kbot.server.api.model.method.Action
 
 /**
