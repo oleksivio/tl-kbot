@@ -5,4 +5,5 @@ import io.github.oleksivio.tl.kbot.core.model.annotation.validator.FilterValidat
 import io.github.oleksivio.tl.kbot.server.api.objects.std.game.Animation
 
 class AnimationFilterValidator(validator: Validator<Animation>) : FilterValidator<Animation>(
-    Animation::class, validator)
+    Animation::class, validator
+)

@@ -23,6 +23,7 @@ import io.github.oleksivio.tl.kbot.server.api.objects.Update
  * ```
  */
 interface TelegramProcessor {
+
     /**
      * Function to receive telegram update
      *

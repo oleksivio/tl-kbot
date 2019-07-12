@@ -1,26 +1,27 @@
 package io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.telegram
 
 import io.github.oleksivio.tl.kbot.core.annotations.filter.composite.EncryptedCredentialsFilter
-import io.github.oleksivio.tl.kbot.server.api.objects.passport.EncryptedCredentials
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.FilterParser
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.finder.Finder
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl.UnionExtractValidator
- 
+import io.github.oleksivio.tl.kbot.server.api.objects.passport.EncryptedCredentials
 
-  
 class EncryptedCredentialsFilterParser :
     FilterParser<EncryptedCredentialsFilter, EncryptedCredentials> {
 
     override val parserAnnotationClass = EncryptedCredentialsFilter::class
 
-    override fun createChecker(annotation: EncryptedCredentialsFilter, finder: Finder): Validator<EncryptedCredentials> {
+    override fun createChecker(
+        annotation: EncryptedCredentialsFilter,
+        finder: Finder
+    ): Validator<EncryptedCredentials> {
         val unionExtractValidator =
             UnionExtractValidator<EncryptedCredentials>()
 
         annotation.validator
-                .map { validatorName -> finder.find(validatorName, EncryptedCredentials::class) }
-                .forEach { validator -> unionExtractValidator.add({ it }, validator) }
+            .map { validatorName -> finder.find(validatorName, EncryptedCredentials::class) }
+            .forEach { validator -> unionExtractValidator.add({ it }, validator) }
 
         val data = annotation.data
         if (data.status.isActive) {
@@ -37,6 +38,5 @@ class EncryptedCredentialsFilterParser :
 
         return unionExtractValidator
     }
-
 }
 

@@ -12,7 +12,7 @@ class ChatIdJacksonSerializer : JsonSerializer<ChatId>() {
 
     @Throws(IOException::class)
     override fun serialize(value: ChatId, gen: JsonGenerator, serializers: SerializerProvider) {
-        when (value){
+        when (value) {
             is ChatIdLongImpl -> gen.writeNumber(value.id)
             is ChatIdStringImpl -> gen.writeString(value.name)
         }

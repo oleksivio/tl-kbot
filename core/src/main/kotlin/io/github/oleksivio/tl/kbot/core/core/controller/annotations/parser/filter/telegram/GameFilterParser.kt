@@ -1,14 +1,12 @@
 package io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.telegram
 
 import io.github.oleksivio.tl.kbot.core.annotations.filter.composite.GameFilter
-import io.github.oleksivio.tl.kbot.server.api.objects.std.game.Game
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.FilterParser
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.finder.Finder
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl.UnionExtractValidator
- 
+import io.github.oleksivio.tl.kbot.server.api.objects.std.game.Game
 
-  
 class GameFilterParser :
     FilterParser<GameFilter, Game> {
 
@@ -19,8 +17,8 @@ class GameFilterParser :
             UnionExtractValidator<Game>()
 
         annotation.validator
-                .map { validatorName -> finder.find(validatorName, Game::class) }
-                .forEach { validator -> unionExtractValidator.add({ it }, validator) }
+            .map { validatorName -> finder.find(validatorName, Game::class) }
+            .forEach { validator -> unionExtractValidator.add({ it }, validator) }
 
         val title = annotation.title
         if (title.status.isActive) {
@@ -49,6 +47,5 @@ class GameFilterParser :
 
         return unionExtractValidator
     }
-
 }
 

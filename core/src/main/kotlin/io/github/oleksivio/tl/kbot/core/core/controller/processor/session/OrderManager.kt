@@ -1,7 +1,7 @@
 package io.github.oleksivio.tl.kbot.core.core.controller.processor.session
 
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.Handler
-import java.util.*
+import java.util.HashMap
 import java.util.concurrent.ConcurrentHashMap
 
 class OrderManager(handlerMap: Map<Int, List<Handler<*>>>, errorMap: Map<Int, Handler<*>>) {
@@ -53,5 +53,4 @@ class OrderManager(handlerMap: Map<Int, List<Handler<*>>>, errorMap: Map<Int, Ha
     companion object {
         private const val INACTIVE_VALUE = -1
     }
-
 }

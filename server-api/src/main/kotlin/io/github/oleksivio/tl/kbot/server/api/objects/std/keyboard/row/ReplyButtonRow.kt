@@ -1,7 +1,7 @@
 package io.github.oleksivio.tl.kbot.server.api.objects.std.keyboard.row
 
 import io.github.oleksivio.tl.kbot.server.api.objects.std.keyboard.button.ReplyKeyboardButton
-import java.util.*
+import java.util.ArrayList
 
 /**
  * Created by Ilia on 28.03.2018 at 21:09 Project: telegrambotcore
@@ -17,5 +17,4 @@ class ReplyButtonRow : ArrayList<ReplyKeyboardButton>() {
         add(0, button)
         return this
     }
-
 }

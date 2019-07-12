@@ -1,14 +1,12 @@
 package io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.telegram
 
 import io.github.oleksivio.tl.kbot.core.annotations.filter.composite.PhotoFilter
-import io.github.oleksivio.tl.kbot.server.api.objects.std.files.PhotoSize
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.FilterParser
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.finder.Finder
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl.UnionExtractValidator
- 
+import io.github.oleksivio.tl.kbot.server.api.objects.std.files.PhotoSize
 
-  
 class PhotoFilterParser :
     FilterParser<PhotoFilter, PhotoSize> {
 
@@ -19,8 +17,8 @@ class PhotoFilterParser :
             UnionExtractValidator<PhotoSize>()
 
         annotation.validator
-                .map { validatorName -> finder.find(validatorName, PhotoSize::class) }
-                .forEach { validator -> unionExtractValidator.add({ it }, validator) }
+            .map { validatorName -> finder.find(validatorName, PhotoSize::class) }
+            .forEach { validator -> unionExtractValidator.add({ it }, validator) }
 
         val width = annotation.width
         if (width.status.isActive) {
@@ -37,6 +35,5 @@ class PhotoFilterParser :
 
         return unionExtractValidator
     }
-
 }
 

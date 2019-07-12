@@ -1,14 +1,12 @@
 package io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.telegram
 
 import io.github.oleksivio.tl.kbot.core.annotations.filter.composite.VoiceFilter
-import io.github.oleksivio.tl.kbot.server.api.objects.std.files.Voice
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.FilterParser
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.finder.Finder
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl.UnionExtractValidator
- 
+import io.github.oleksivio.tl.kbot.server.api.objects.std.files.Voice
 
-  
 class VoiceFilterParser :
     FilterParser<VoiceFilter, Voice> {
 
@@ -19,8 +17,8 @@ class VoiceFilterParser :
             UnionExtractValidator<Voice>()
 
         annotation.validator
-                .map { validatorName -> finder.find(validatorName, Voice::class) }
-                .forEach { validator -> unionExtractValidator.add({ it }, validator) }
+            .map { validatorName -> finder.find(validatorName, Voice::class) }
+            .forEach { validator -> unionExtractValidator.add({ it }, validator) }
 
         val duration = annotation.duration
         if (duration.status.isActive) {
@@ -37,6 +35,5 @@ class VoiceFilterParser :
 
         return unionExtractValidator
     }
-
 }
 

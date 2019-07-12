@@ -8,5 +8,4 @@ interface Finder {
     fun <SA : Annotation, T> find(annotation: SA): Validator<T>
 
     fun <T : ITelegram> find(validatorName: String, targetClass: KClass<T>): Validator<T>
-
 }

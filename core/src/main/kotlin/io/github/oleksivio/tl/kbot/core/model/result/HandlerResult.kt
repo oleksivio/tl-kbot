@@ -62,7 +62,6 @@ class HandlerResult private constructor(private val state: ResultState) {
          */
         fun error(): HandlerResult {
             return HandlerResult(ResultState.ERROR)
-
         }
 
         /**
@@ -74,5 +73,4 @@ class HandlerResult private constructor(private val state: ResultState) {
             return HandlerResult(ResultState.CANCEL_SESSION)
         }
     }
-
 }

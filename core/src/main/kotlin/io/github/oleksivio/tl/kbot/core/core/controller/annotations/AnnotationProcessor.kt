@@ -5,8 +5,9 @@ import io.github.oleksivio.tl.kbot.core.core.controller.annotations.composer.Ses
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.composer.StatelessInitializer
 import kotlin.reflect.full.findAnnotation
 
-class AnnotationProcessor(private val statelessInitializer: StatelessInitializer,
-                          private val sessionInitializer: SessionInitializer
+class AnnotationProcessor(
+    private val statelessInitializer: StatelessInitializer,
+    private val sessionInitializer: SessionInitializer
 ) {
 
     fun add(obj: Any) {
@@ -24,5 +25,4 @@ class AnnotationProcessor(private val statelessInitializer: StatelessInitializer
             statelessInitializer.init(objClz, obj)
         }
     }
-
 }

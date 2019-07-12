@@ -36,5 +36,4 @@ interface TelegramUpdater {
      * Function to run [long polling](https://core.telegram.org/bots/api#getupdates)
      */
     fun longPolling()
-
 }

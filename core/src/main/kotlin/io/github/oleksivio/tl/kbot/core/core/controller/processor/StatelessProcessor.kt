@@ -2,10 +2,9 @@ package io.github.oleksivio.tl.kbot.core.core.controller.processor
 
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.Handler
 import io.github.oleksivio.tl.kbot.server.api.objects.Update
- 
+
 import java.util.ArrayList
 
-  
 class StatelessProcessor {
 
     private val handlers = ArrayList<Handler<*>>()

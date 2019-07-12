@@ -12,5 +12,4 @@ abstract class Action<RES> {
     abstract val method: String
 
     abstract val resultWrapperClass: KClass<out CommonResponse<RES>>
-
 }

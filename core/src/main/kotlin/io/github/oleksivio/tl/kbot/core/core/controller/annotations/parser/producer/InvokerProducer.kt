@@ -1,21 +1,22 @@
 package io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.producer
 
-import io.github.oleksivio.tl.kbot.core.model.result.HandlerResult
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.invoke.Invoker
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.invoke.ResultInvoker
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.invoke.VoidInvoker
+import io.github.oleksivio.tl.kbot.core.model.result.HandlerResult
 import io.github.oleksivio.tl.kbot.server.api.model.ITelegram
 import org.slf4j.LoggerFactory
-
 import kotlin.reflect.KClass
 import kotlin.reflect.KFunction
 import kotlin.reflect.jvm.javaMethod
 
 class InvokerProducer {
 
-    fun <ARG : ITelegram> create(func: KFunction<*>,
-                                                                              classInstance: Any,
-                                                                              argClass: KClass<ARG>): Invoker<ARG>? {
+    fun <ARG : ITelegram> create(
+        func: KFunction<*>,
+        classInstance: Any,
+        argClass: KClass<ARG>
+    ): Invoker<ARG>? {
 
         val funcArgsTypes = func.javaMethod?.parameterTypes ?: return null
 
@@ -35,11 +36,9 @@ class InvokerProducer {
             ResultInvoker(classInstance, func)
         else
             VoidInvoker(classInstance, func)
-
     }
 
     companion object {
         private val LOG = LoggerFactory.getLogger(InvokerProducer::class.java)
     }
-
 }

@@ -1,34 +1,36 @@
 package io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.telegram
 
 import io.github.oleksivio.tl.kbot.core.annotations.filter.composite.EncryptedPassportElementFilter
-import io.github.oleksivio.tl.kbot.server.api.objects.passport.EncryptedPassportElement
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.FilterParser
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.finder.Finder
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl.TypeNameValidator
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl.UnionExtractValidator
- 
+import io.github.oleksivio.tl.kbot.server.api.objects.passport.EncryptedPassportElement
 
-  
 class EncryptedPassportElementFilterParser :
     FilterParser<EncryptedPassportElementFilter, EncryptedPassportElement> {
 
     override val parserAnnotationClass = EncryptedPassportElementFilter::class
 
-    override fun createChecker(annotation: EncryptedPassportElementFilter, finder: Finder): Validator<EncryptedPassportElement> {
+    override fun createChecker(
+        annotation: EncryptedPassportElementFilter,
+        finder: Finder
+    ): Validator<EncryptedPassportElement> {
         val unionExtractValidator =
             UnionExtractValidator<EncryptedPassportElement>()
 
         val type = annotation.type
         if (type.isChosen) {
-            unionExtractValidator.add({ it.type },
+            unionExtractValidator.add(
+                { it.type },
                 TypeNameValidator(type)
             )
         }
 
         annotation.validator
-                .map { validatorName -> finder.find(validatorName, EncryptedPassportElement::class) }
-                .forEach { validator -> unionExtractValidator.add({ it }, validator) }
+            .map { validatorName -> finder.find(validatorName, EncryptedPassportElement::class) }
+            .forEach { validator -> unionExtractValidator.add({ it }, validator) }
 
         val data = annotation.data
         if (data.status.isActive) {
@@ -61,6 +63,5 @@ class EncryptedPassportElementFilterParser :
 
         return unionExtractValidator
     }
-
 }
 

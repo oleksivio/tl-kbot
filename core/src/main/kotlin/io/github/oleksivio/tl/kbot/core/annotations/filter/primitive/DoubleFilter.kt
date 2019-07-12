@@ -24,4 +24,5 @@ annotation class DoubleFilter(
     val lessOrEqual: Double = java.lang.Double.MAX_VALUE,
     val greatThan: Double = java.lang.Double.MIN_VALUE,
     val greatOrEqual: Double = java.lang.Double.MIN_VALUE,
-    val equal: Double = java.lang.Double.NaN)
+    val equal: Double = java.lang.Double.NaN
+)

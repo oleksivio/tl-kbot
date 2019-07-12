@@ -8,5 +8,4 @@ interface FilterParser<A : Annotation, IN> :
     Parser<A> {
 
     fun createChecker(annotation: A, finder: Finder): Validator<IN>
-
 }

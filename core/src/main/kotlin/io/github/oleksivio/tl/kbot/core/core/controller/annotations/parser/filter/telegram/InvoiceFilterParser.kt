@@ -1,14 +1,12 @@
 package io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.telegram
 
 import io.github.oleksivio.tl.kbot.core.annotations.filter.composite.InvoiceFilter
-import io.github.oleksivio.tl.kbot.server.api.objects.payments.Invoice
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.FilterParser
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.finder.Finder
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl.UnionExtractValidator
- 
+import io.github.oleksivio.tl.kbot.server.api.objects.payments.Invoice
 
-  
 class InvoiceFilterParser :
     FilterParser<InvoiceFilter, Invoice> {
 
@@ -19,8 +17,8 @@ class InvoiceFilterParser :
             UnionExtractValidator<Invoice>()
 
         annotation.validator
-                .map { validatorName -> finder.find(validatorName, Invoice::class) }
-                .forEach { validator -> unionExtractValidator.add({ it }, validator) }
+            .map { validatorName -> finder.find(validatorName, Invoice::class) }
+            .forEach { validator -> unionExtractValidator.add({ it }, validator) }
 
         val title = annotation.title
         if (title.status.isActive) {
@@ -45,6 +43,5 @@ class InvoiceFilterParser :
 
         return unionExtractValidator
     }
-
 }
 

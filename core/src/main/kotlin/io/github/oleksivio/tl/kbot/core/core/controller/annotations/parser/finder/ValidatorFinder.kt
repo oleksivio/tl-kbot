@@ -4,16 +4,17 @@ import io.github.oleksivio.tl.kbot.core.core.controller.annotations.holder.Custo
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.FilterParser
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
 import io.github.oleksivio.tl.kbot.server.api.model.ITelegram
- 
+
 import kotlin.reflect.KClass
 
 /**
  * Created by oleksivio on 15.03.19 at 9:44
  * Project: telegram-bot-api
  */
-  
-class ValidatorFinder(filterParsers: Collection<FilterParser<*, *>>,
-                      private val customValidatorHolder: CustomValidatorHolder
+
+class ValidatorFinder(
+    filterParsers: Collection<FilterParser<*, *>>,
+    private val customValidatorHolder: CustomValidatorHolder
 ) : Finder {
 
     private val annotationParserMap = hashMapOf<KClass<*>, FilterParser<*, *>>()

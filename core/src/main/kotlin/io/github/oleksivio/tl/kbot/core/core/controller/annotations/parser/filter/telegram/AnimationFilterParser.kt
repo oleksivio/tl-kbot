@@ -6,7 +6,6 @@ import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.finde
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl.UnionExtractValidator
 import io.github.oleksivio.tl.kbot.server.api.objects.std.game.Animation
- 
 
 class AnimationFilterParser :
     FilterParser<AnimationFilter, Animation> {
@@ -18,8 +17,8 @@ class AnimationFilterParser :
             UnionExtractValidator<Animation>()
 
         annotation.validator
-                .map { finder.find(it, Animation::class) }
-                .forEach { validator -> unionExtractValidator.add({ it }, validator) }
+            .map { finder.find(it, Animation::class) }
+            .forEach { validator -> unionExtractValidator.add({ it }, validator) }
 
         val thumb = annotation.thumb
         if (thumb.status.isActive) {
@@ -53,6 +52,5 @@ class AnimationFilterParser :
 
         return unionExtractValidator
     }
-
 }
 

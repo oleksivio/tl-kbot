@@ -2,10 +2,9 @@ package io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.prod
 
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.unpacker.UnpackerParser
 import io.github.oleksivio.tl.kbot.server.api.model.ITelegram
- 
+
 import kotlin.reflect.KFunction
 
-  
 class ArgUnpackerProducer(private val unpackerParsers: Collection<UnpackerParser<*, *>>) {
 
     fun <T : ITelegram> create(func: KFunction<*>): UnpackerParser<Annotation, T>? {

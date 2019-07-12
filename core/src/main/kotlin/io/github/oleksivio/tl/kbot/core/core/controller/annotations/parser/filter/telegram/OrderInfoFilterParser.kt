@@ -1,14 +1,12 @@
 package io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.telegram
 
 import io.github.oleksivio.tl.kbot.core.annotations.filter.composite.OrderInfoFilter
-import io.github.oleksivio.tl.kbot.server.api.objects.payments.OrderInfo
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.FilterParser
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.finder.Finder
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl.UnionExtractValidator
- 
+import io.github.oleksivio.tl.kbot.server.api.objects.payments.OrderInfo
 
-  
 class OrderInfoFilterParser :
     FilterParser<OrderInfoFilter, OrderInfo> {
 
@@ -19,8 +17,8 @@ class OrderInfoFilterParser :
             UnionExtractValidator<OrderInfo>()
 
         annotation.validator
-                .map { validatorName -> finder.find(validatorName, OrderInfo::class) }
-                .forEach { validator -> unionExtractValidator.add({ it }, validator) }
+            .map { validatorName -> finder.find(validatorName, OrderInfo::class) }
+            .forEach { validator -> unionExtractValidator.add({ it }, validator) }
 
         val name = annotation.name
         if (name.status.isActive) {
@@ -41,6 +39,5 @@ class OrderInfoFilterParser :
 
         return unionExtractValidator
     }
-
 }
 

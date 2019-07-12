@@ -22,7 +22,13 @@ open class NetworkerImpl(token: String) : Networker(token) {
 
     override fun <RES> send(action: Action<RES>, serverErrorListener: ServerErrorListener): RES? {
         val commonResponse = run {
-            safelyRun(serverErrorListener) { template, url -> template.postForEntity(url, action, action.resultWrapperClass.java).body }
+            safelyRun(serverErrorListener) { template, url ->
+                template.postForEntity(
+                    url,
+                    action,
+                    action.resultWrapperClass.java
+                ).body
+            }
         }
         return commonResponse?.get()
     }

@@ -14,7 +14,6 @@ import kotlin.reflect.KClass
 import kotlin.reflect.full.findAnnotation
 import kotlin.reflect.full.functions
 
-  
 class SessionInitializer(
     private val handlerCreator: HandlerCreator,
     private val sessionProcessor: SessionProcessor
@@ -46,7 +45,6 @@ class SessionInitializer(
                         val handlers = handlerMap.computeIfAbsent(it) { mutableListOf() }
                         handlers.add(handler)
                     }
-
                 }
                 func.findAnnotation<Session.Error>() != null -> {
                     val errorOrder = func.findAnnotation<Session.Error>()?.value
@@ -59,7 +57,6 @@ class SessionInitializer(
                     errorMap[errorOrder] = handler
                 }
             }
-
         }
 
         check(
@@ -90,15 +87,15 @@ class SessionInitializer(
             }
         }
 
-        private fun createSession(type: SessionType,
-                                  orderManager: OrderManager,
-                                  initialHandler: Handler<*>,
-                                  cancelHandler: Handler<*>
+        private fun createSession(
+            type: SessionType,
+            orderManager: OrderManager,
+            initialHandler: Handler<*>,
+            cancelHandler: Handler<*>
         ): SessionManager {
             return when (type) {
                 SessionType.USER -> {
                     UserSession(orderManager, initialHandler, cancelHandler)
-
                 }
                 SessionType.CHAT -> {
                     ChatSession(orderManager, initialHandler, cancelHandler)
@@ -107,34 +104,44 @@ class SessionInitializer(
         }
 
         @Throws(IllegalArgumentException::class)
-        private fun check(objClz: KClass<*>,
-                          initialHandler: Handler<*>?,
-                          cancelHandler: Handler<*>?,
-                          orderMap: Map<Int, List<Handler<*>>>?,
-                          errorMap: Map<Int, Handler<*>>) {
+        private fun check(
+            objClz: KClass<*>,
+            initialHandler: Handler<*>?,
+            cancelHandler: Handler<*>?,
+            orderMap: Map<Int, List<Handler<*>>>?,
+            errorMap: Map<Int, Handler<*>>
+        ) {
             if (orderMap == null || orderMap.isEmpty()) {
-                throw IllegalArgumentException("Invalid session state in ${objClz.simpleName}. " +
-                        "Can't be less than one  Session Order method's")
+                throw IllegalArgumentException(
+                    "Invalid session state in ${objClz.simpleName}. " +
+                            "Can't be less than one  Session Order method's"
+                )
             }
 
             for (index in errorMap.keys) {
                 if (!orderMap.keys.contains(index)) {
-                    throw IllegalArgumentException("Invalid session error state in ${objClz.simpleName}. " +
-                            "Can't be Session Error and Session Order" +
-                            " must have same index")
+                    throw IllegalArgumentException(
+                        "Invalid session error state in ${objClz.simpleName}. " +
+                                "Can't be Session Error and Session Order" +
+                                " must have same index"
+                    )
                 }
             }
 
             if (initialHandler == null) {
-                throw IllegalArgumentException("Invalid session state in ${objClz.simpleName}. " +
-                        "Can't be less than one" +
-                        " Session Initial method's")
+                throw IllegalArgumentException(
+                    "Invalid session state in ${objClz.simpleName}. " +
+                            "Can't be less than one" +
+                            " Session Initial method's"
+                )
             }
 
             if (cancelHandler == null) {
-                throw IllegalArgumentException("Invalid session state in ${objClz.simpleName}. " +
-                        "Can't be less than one" +
-                        " Session Cancel method's")
+                throw IllegalArgumentException(
+                    "Invalid session state in ${objClz.simpleName}. " +
+                            "Can't be less than one" +
+                            " Session Cancel method's"
+                )
             }
         }
     }

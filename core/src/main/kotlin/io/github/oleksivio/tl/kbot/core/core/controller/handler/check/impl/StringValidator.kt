@@ -1,17 +1,19 @@
 package io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl
 
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
-import java.util.*
+import java.util.ArrayList
 import java.util.regex.Pattern
 
-class StringValidator(startWith: Array<String>,
-                      equalsWith: Array<String>,
-                      endWith: Array<String>,
-                      contains: Array<String>,
-                      private val regExp: String,
-                      notStartWith: Array<String>,
-                      notEndWith: Array<String>,
-                      notContains: Array<String>) :
+class StringValidator(
+    startWith: Array<String>,
+    equalsWith: Array<String>,
+    endWith: Array<String>,
+    contains: Array<String>,
+    private val regExp: String,
+    notStartWith: Array<String>,
+    notEndWith: Array<String>,
+    notContains: Array<String>
+) :
     Validator<String> {
 
     private val matchItems = ArrayList<ValidateItem>()
@@ -82,16 +84,15 @@ class StringValidator(startWith: Array<String>,
         }
 
         return regExp.isEmpty() || Pattern.matches(regExp, checkedValue)
-
     }
 
-    private class ValidateItem internal constructor(private val strings: Array<String>,
-                                                    private val checker: (arg: String, condition: String) -> Boolean) {
+    private class ValidateItem internal constructor(
+        private val strings: Array<String>,
+        private val checker: (arg: String, condition: String) -> Boolean
+    ) {
 
         internal fun isMatch(arg: String): Boolean {
             return strings.any { checker(arg, it) }
         }
-
     }
-
 }

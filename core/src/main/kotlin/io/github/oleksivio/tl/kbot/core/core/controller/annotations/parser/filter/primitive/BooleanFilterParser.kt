@@ -5,7 +5,6 @@ import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filte
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.finder.Finder
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl.BooleanValidator
- 
 
 class BooleanFilterParser :
     FilterParser<BooleanFilter, Boolean> {
@@ -15,5 +14,4 @@ class BooleanFilterParser :
     override fun createChecker(annotation: BooleanFilter, finder: Finder): Validator<Boolean> {
         return BooleanValidator(annotation.state)
     }
-
 }

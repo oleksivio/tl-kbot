@@ -4,9 +4,7 @@ import io.github.oleksivio.tl.kbot.core.controller.ActionBuilder
 import io.github.oleksivio.tl.kbot.server.api.method.update.GetUpdates
 import io.github.oleksivio.tl.kbot.server.api.objects.Update
 import org.slf4j.LoggerFactory
- 
 
-  
 class Loader(private val actionBuilder: ActionBuilder) {
 
     fun loadUpdates(): List<Update> {
@@ -15,11 +13,11 @@ class Loader(private val actionBuilder: ActionBuilder) {
         LOG.trace("Process " + updatesArray.size + " updates")
 
         updatesArray.map { it.updateId }
-                .max()
-                ?.let { it.toInt() + 1 }
-                ?.let {
-                    actionBuilder.action { GetUpdates(offset = it) }.send()
-                }
+            .max()
+            ?.let { it.toInt() + 1 }
+            ?.let {
+                actionBuilder.action { GetUpdates(offset = it) }.send()
+            }
 
         return updatesArray
     }
@@ -27,5 +25,4 @@ class Loader(private val actionBuilder: ActionBuilder) {
     companion object {
         private val LOG = LoggerFactory.getLogger(Loader::class.java)
     }
-
 }

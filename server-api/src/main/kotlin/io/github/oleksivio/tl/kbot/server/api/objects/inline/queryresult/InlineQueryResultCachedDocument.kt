@@ -6,19 +6,19 @@ import com.fasterxml.jackson.annotation.JsonProperty
  *  [InlineQueryResultCachedDocument](https://core.telegram.org/bots/api/#inlinequeryresultcacheddocument)
  */
 class InlineQueryResultCachedDocument(
-        /**
-         * document_file_id String A valid file identifier for the file
-         */
-        @JsonProperty("document_file_id")
-        var document_file_id: String? = null,
-        /**
-         * description [String] Optional. Short description of the result
-         */
-        @JsonProperty("description")
-        var description: String? = null,
-        /**
-         * type String Type of the result
-         */
-        @JsonProperty("type")
-        val type: String = "document"
+    /**
+     * document_file_id String A valid file identifier for the file
+     */
+    @JsonProperty("document_file_id")
+    var document_file_id: String? = null,
+    /**
+     * description [String] Optional. Short description of the result
+     */
+    @JsonProperty("description")
+    var description: String? = null,
+    /**
+     * type String Type of the result
+     */
+    @JsonProperty("type")
+    val type: String = "document"
 ) : TitledInlineResult()

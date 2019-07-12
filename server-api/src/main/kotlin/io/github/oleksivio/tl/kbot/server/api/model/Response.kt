@@ -19,6 +19,7 @@ import io.github.oleksivio.tl.kbot.server.api.objects.std.sticker.StickerSet
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 sealed class CommonResponse<T> {
+
     @JsonProperty("ok")
     var isStatus = false
     @JsonProperty("result")
@@ -31,7 +32,6 @@ sealed class CommonResponse<T> {
     fun set(telegramObject: T) {
         this.telegramObject = telegramObject
     }
-
 }
 
 class WebhookInfoResponse : CommonResponse<WebhookInfo>()

@@ -1,7 +1,7 @@
 package io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl
 
-import io.github.oleksivio.tl.kbot.core.model.annotation.BooleanState
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
+import io.github.oleksivio.tl.kbot.core.model.annotation.BooleanState
 
 class BooleanValidator(private val booleanState: BooleanState) :
     Validator<Boolean> {
@@ -22,5 +22,4 @@ class BooleanValidator(private val booleanState: BooleanState) :
 
         throw UnsupportedOperationException("Unexpected boolean state")
     }
-
 }

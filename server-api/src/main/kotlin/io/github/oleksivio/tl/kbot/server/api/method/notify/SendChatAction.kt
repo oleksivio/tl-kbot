@@ -12,26 +12,27 @@ import io.github.oleksivio.tl.kbot.server.api.objects.ChatId
  */
 class SendChatAction(
     /**
-         * chat_id Integer or String Yes Unique identifier for the target chat or username of the target channel
-         */
-        @JsonProperty(ApiDict.CHAT_ID_KEY)
-        override val chatId: ChatId,
+     * chat_id Integer or String Yes Unique identifier for the target chat or username of the target channel
+     */
+    @JsonProperty(ApiDict.CHAT_ID_KEY)
+    override val chatId: ChatId,
     /**
-         * action String Type of action to broadcast.
-         * Choose one, depending on what the user is about to receive:
-         * typing for text messages,
-         * upload_photo for photos,
-         * record_video or upload_video for videos,
-         * record_audio or upload_audio for audio files,
-         * upload_document for general files,
-         * find_location for location data,
-         * record_video_note or
-         * upload_video_note for video notes.
-         */
-        @JsonProperty(ApiDict.ACTION_KEY)
-        val action: String
+     * action String Type of action to broadcast.
+     * Choose one, depending on what the user is about to receive:
+     * typing for text messages,
+     * upload_photo for photos,
+     * record_video or upload_video for videos,
+     * record_audio or upload_audio for audio files,
+     * upload_document for general files,
+     * find_location for location data,
+     * record_video_note or
+     * upload_video_note for video notes.
+     */
+    @JsonProperty(ApiDict.ACTION_KEY)
+    val action: String
 
 ) : ChatAction<Boolean>() {
+
     @JsonIgnore
     override val resultWrapperClass = BooleanResponse::class
 
@@ -48,5 +49,4 @@ class SendChatAction(
 
     @JsonProperty(ApiDict.METHOD_KEY)
     override val method = "sendChatAction"
-
 }

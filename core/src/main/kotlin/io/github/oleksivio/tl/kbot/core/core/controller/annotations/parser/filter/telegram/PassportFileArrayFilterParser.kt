@@ -1,14 +1,12 @@
 package io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.telegram
 
 import io.github.oleksivio.tl.kbot.core.annotations.filter.composite.PassportFileArrayFilter
-import io.github.oleksivio.tl.kbot.server.api.objects.passport.PassportFile
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.FilterParser
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.finder.Finder
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl.UnionExtractValidatorList
- 
+import io.github.oleksivio.tl.kbot.server.api.objects.passport.PassportFile
 
-  
 class PassportFileArrayFilterParser :
     FilterParser<PassportFileArrayFilter, List<PassportFile>> {
 
@@ -19,8 +17,8 @@ class PassportFileArrayFilterParser :
             UnionExtractValidatorList<PassportFile>()
 
         annotation.validator
-                .map { validatorName -> finder.find(validatorName, PassportFile::class) }
-                .forEach { validator -> unionExtractValidatorList.add({ it }, validator) }
+            .map { validatorName -> finder.find(validatorName, PassportFile::class) }
+            .forEach { validator -> unionExtractValidatorList.add({ it }, validator) }
 
         val fileSize = annotation.fileSize
         if (fileSize.status.isActive) {
@@ -33,6 +31,5 @@ class PassportFileArrayFilterParser :
 
         return unionExtractValidatorList
     }
-
 }
 

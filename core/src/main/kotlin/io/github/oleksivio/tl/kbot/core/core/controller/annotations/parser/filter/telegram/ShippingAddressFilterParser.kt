@@ -1,14 +1,12 @@
 package io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.telegram
 
 import io.github.oleksivio.tl.kbot.core.annotations.filter.composite.ShippingAddressFilter
-import io.github.oleksivio.tl.kbot.server.api.objects.payments.ShippingAddress
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.FilterParser
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.finder.Finder
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl.UnionExtractValidator
- 
+import io.github.oleksivio.tl.kbot.server.api.objects.payments.ShippingAddress
 
-  
 class ShippingAddressFilterParser :
     FilterParser<ShippingAddressFilter, ShippingAddress> {
 
@@ -19,8 +17,8 @@ class ShippingAddressFilterParser :
             UnionExtractValidator<ShippingAddress>()
 
         annotation.validator
-                .map { validatorName -> finder.find(validatorName, ShippingAddress::class) }
-                .forEach { validator -> unionExtractValidator.add({ it }, validator) }
+            .map { validatorName -> finder.find(validatorName, ShippingAddress::class) }
+            .forEach { validator -> unionExtractValidator.add({ it }, validator) }
 
         val countryCode = annotation.countryCode
         if (countryCode.status.isActive) {
@@ -49,6 +47,5 @@ class ShippingAddressFilterParser :
 
         return unionExtractValidator
     }
-
 }
 

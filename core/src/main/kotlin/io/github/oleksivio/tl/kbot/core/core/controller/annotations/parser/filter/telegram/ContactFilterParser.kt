@@ -1,14 +1,12 @@
 package io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.telegram
 
 import io.github.oleksivio.tl.kbot.core.annotations.filter.composite.ContactFilter
-import io.github.oleksivio.tl.kbot.server.api.objects.std.Contact
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.FilterParser
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.finder.Finder
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl.UnionExtractValidator
- 
+import io.github.oleksivio.tl.kbot.server.api.objects.std.Contact
 
-  
 class ContactFilterParser :
     FilterParser<ContactFilter, Contact> {
 
@@ -19,8 +17,8 @@ class ContactFilterParser :
             UnionExtractValidator<Contact>()
 
         annotation.validator
-                .map { validatorName -> finder.find(validatorName, Contact::class) }
-                .forEach { validator -> unionExtractValidator.add({ it }, validator) }
+            .map { validatorName -> finder.find(validatorName, Contact::class) }
+            .forEach { validator -> unionExtractValidator.add({ it }, validator) }
 
         val phoneNumber = annotation.phoneNumber
         if (phoneNumber.status.isActive) {
@@ -45,6 +43,5 @@ class ContactFilterParser :
 
         return unionExtractValidator
     }
-
 }
 

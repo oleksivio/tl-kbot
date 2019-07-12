@@ -1,29 +1,28 @@
 package io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.telegram
 
 import io.github.oleksivio.tl.kbot.core.annotations.filter.composite.CallbackQueryFilter
-import io.github.oleksivio.tl.kbot.server.api.objects.std.CallbackQuery
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.FilterParser
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.finder.Finder
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl.UnionExtractValidator
- 
+import io.github.oleksivio.tl.kbot.server.api.objects.std.CallbackQuery
 
-  
 class CallbackQueryFilterParser :
     FilterParser<CallbackQueryFilter, CallbackQuery> {
 
     override val parserAnnotationClass = CallbackQueryFilter::class
 
-    override fun createChecker(annotation: CallbackQueryFilter,
-                               finder: Finder
+    override fun createChecker(
+        annotation: CallbackQueryFilter,
+        finder: Finder
     ): Validator<CallbackQuery> {
 
         val unionExtractValidator =
             UnionExtractValidator<CallbackQuery>()
 
         annotation.validator
-                .map { validatorName -> finder.find(validatorName, CallbackQuery::class) }
-                .forEach { validator -> unionExtractValidator.add({ it }, validator) }
+            .map { validatorName -> finder.find(validatorName, CallbackQuery::class) }
+            .forEach { validator -> unionExtractValidator.add({ it }, validator) }
 
         val from = annotation.from
         if (from.status.isActive) {
@@ -51,7 +50,6 @@ class CallbackQueryFilterParser :
         }
         return unionExtractValidator
     }
-
 }
 
 

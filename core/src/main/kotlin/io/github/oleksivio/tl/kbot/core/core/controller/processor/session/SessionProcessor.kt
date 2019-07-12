@@ -4,7 +4,6 @@ import io.github.oleksivio.tl.kbot.core.model.result.HandlerResult
 import io.github.oleksivio.tl.kbot.server.api.objects.Update
 import java.util.ArrayList
 
-  
 class SessionProcessor {
 
     private val sessionManagers = ArrayList<SessionManager>()

@@ -10,6 +10,7 @@ import io.github.oleksivio.tl.kbot.server.api.model.method.Action
  * @see [deleteWebhook](https://core.telegram.org/bots/api/#deletewebhook)
  */
 class DeleteWebhook : Action<Boolean>() {
+
     @JsonProperty(ApiDict.METHOD_KEY)
     override val method: String = "deleteWebhook"
 

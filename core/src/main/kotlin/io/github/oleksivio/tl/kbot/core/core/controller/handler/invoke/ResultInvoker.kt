@@ -7,13 +7,17 @@ import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.Method
 import kotlin.reflect.KFunction
 
-class ResultInvoker<ARG : ITelegram>(classInstance: Any,
-                                                                                  func: KFunction<*>) : Invoker<ARG>(classInstance, func) {
+class ResultInvoker<ARG : ITelegram>(
+    classInstance: Any,
+    func: KFunction<*>
+) : Invoker<ARG>(classInstance, func) {
 
     @Throws(InvocationTargetException::class, IllegalAccessException::class)
-    override fun invokeFunction(classInstance: Any,
-                                method: Method,
-                                argument: ARG): HandlerResult {
+    override fun invokeFunction(
+        classInstance: Any,
+        method: Method,
+        argument: ARG
+    ): HandlerResult {
         return method.invoke(classInstance, argument) as HandlerResult
     }
 }

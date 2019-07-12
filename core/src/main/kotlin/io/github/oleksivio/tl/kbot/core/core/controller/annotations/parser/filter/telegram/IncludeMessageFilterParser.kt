@@ -1,14 +1,12 @@
 package io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.telegram
 
 import io.github.oleksivio.tl.kbot.core.annotations.filter.composite.IncludeMessageFilter
-import io.github.oleksivio.tl.kbot.server.api.objects.std.Message
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.FilterParser
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.finder.Finder
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl.UnionExtractValidator
- 
+import io.github.oleksivio.tl.kbot.server.api.objects.std.Message
 
-  
 class IncludeMessageFilterParser :
     FilterParser<IncludeMessageFilter, Message> {
 
@@ -19,8 +17,8 @@ class IncludeMessageFilterParser :
             UnionExtractValidator<Message>()
 
         annotation.validator
-                .map { validatorName -> finder.find(validatorName, Message::class) }
-                .forEach { validator -> unionExtractValidator.add({ it }, validator) }
+            .map { validatorName -> finder.find(validatorName, Message::class) }
+            .forEach { validator -> unionExtractValidator.add({ it }, validator) }
 
         val from = annotation.from
         if (from.status.isActive) {
@@ -45,13 +43,17 @@ class IncludeMessageFilterParser :
         }
         val forwardFromMessageId = annotation.forwardFromMessageId
         if (forwardFromMessageId.status.isActive) {
-            unionExtractValidator.add({ it.forwardFromMessageId },
-                    finder.find(forwardFromMessageId))
+            unionExtractValidator.add(
+                { it.forwardFromMessageId },
+                finder.find(forwardFromMessageId)
+            )
         }
         val forwardSignature = annotation.forwardSignature
         if (forwardSignature.status.isActive) {
-            unionExtractValidator.add({ it.forwardSignature },
-                    finder.find(forwardSignature))
+            unionExtractValidator.add(
+                { it.forwardSignature },
+                finder.find(forwardSignature)
+            )
         }
         val forwardDate = annotation.forwardDate
         if (forwardDate.status.isActive) {
@@ -152,8 +154,10 @@ class IncludeMessageFilterParser :
         }
         val groupChatCreated = annotation.groupChatCreated
         if (groupChatCreated.status.isActive) {
-            unionExtractValidator.add({ it.groupChatCreated },
-                    finder.find(groupChatCreated))
+            unionExtractValidator.add(
+                { it.groupChatCreated },
+                finder.find(groupChatCreated)
+            )
         }
         val venue = annotation.venue
         if (venue.status.isActive) {
@@ -161,13 +165,17 @@ class IncludeMessageFilterParser :
         }
         val supergroupChatCreated = annotation.supergroupChatCreated
         if (supergroupChatCreated.status.isActive) {
-            unionExtractValidator.add({ it.supergroupChatCreated },
-                    finder.find(supergroupChatCreated))
+            unionExtractValidator.add(
+                { it.supergroupChatCreated },
+                finder.find(supergroupChatCreated)
+            )
         }
         val channelChatCreated = annotation.channelChatCreated
         if (channelChatCreated.status.isActive) {
-            unionExtractValidator.add({ it.channelChatCreated },
-                    finder.find(channelChatCreated))
+            unionExtractValidator.add(
+                { it.channelChatCreated },
+                finder.find(channelChatCreated)
+            )
         }
         val migrateToChatId = annotation.migrateToChatId
         if (migrateToChatId.status.isActive) {
@@ -175,8 +183,10 @@ class IncludeMessageFilterParser :
         }
         val migrateFromChatId = annotation.migrateFromChatId
         if (migrateFromChatId.status.isActive) {
-            unionExtractValidator.add({ it.migrateFromChatId },
-                    finder.find(migrateFromChatId))
+            unionExtractValidator.add(
+                { it.migrateFromChatId },
+                finder.find(migrateFromChatId)
+            )
         }
 
         val invoice = annotation.invoice
@@ -185,13 +195,17 @@ class IncludeMessageFilterParser :
         }
         val successfulPayment = annotation.successfulPayment
         if (successfulPayment.status.isActive) {
-            unionExtractValidator.add({ it.successfulPayment },
-                    finder.find(successfulPayment))
+            unionExtractValidator.add(
+                { it.successfulPayment },
+                finder.find(successfulPayment)
+            )
         }
         val connectedWebsite = annotation.connectedWebsite
         if (connectedWebsite.status.isActive) {
-            unionExtractValidator.add({ it.connectedWebsite },
-                    finder.find(connectedWebsite))
+            unionExtractValidator.add(
+                { it.connectedWebsite },
+                finder.find(connectedWebsite)
+            )
         }
         val passportData = annotation.passportData
         if (passportData.status.isActive) {
@@ -199,5 +213,4 @@ class IncludeMessageFilterParser :
         }
         return unionExtractValidator
     }
-
 }

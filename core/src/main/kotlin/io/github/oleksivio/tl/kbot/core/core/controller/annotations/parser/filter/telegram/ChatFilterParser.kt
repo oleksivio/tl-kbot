@@ -1,33 +1,33 @@
 package io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.telegram
 
 import io.github.oleksivio.tl.kbot.core.annotations.filter.composite.ChatFilter
-import io.github.oleksivio.tl.kbot.server.api.objects.std.Chat
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.FilterParser
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.finder.Finder
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl.TypeNameValidator
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl.UnionExtractValidator
- 
+import io.github.oleksivio.tl.kbot.server.api.objects.std.Chat
 
-  
 class ChatFilterParser :
     FilterParser<ChatFilter, Chat> {
 
     override val parserAnnotationClass = ChatFilter::class
 
-    override fun createChecker(annotation: ChatFilter,
-                               finder: Finder
+    override fun createChecker(
+        annotation: ChatFilter,
+        finder: Finder
     ): Validator<Chat> {
         val unionExtractValidator =
             UnionExtractValidator<Chat>()
 
         annotation.validator
-                .map { validatorName -> finder.find(validatorName, Chat::class) }
-                .forEach { validator -> unionExtractValidator.add({ it }, validator) }
+            .map { validatorName -> finder.find(validatorName, Chat::class) }
+            .forEach { validator -> unionExtractValidator.add({ it }, validator) }
 
         val type = annotation.type
         if (type.isChosen) {
-            unionExtractValidator.add({ it.type },
+            unionExtractValidator.add(
+                { it.type },
                 TypeNameValidator(type)
             )
         }
@@ -55,6 +55,5 @@ class ChatFilterParser :
 
         return unionExtractValidator
     }
-
 }
 

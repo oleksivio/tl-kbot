@@ -3,7 +3,6 @@ package io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.unpa
 import io.github.oleksivio.tl.kbot.core.annotations.receiver.ChosenInlineResultReceiver
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.unpack.UpdateUnpacker
 import io.github.oleksivio.tl.kbot.server.api.objects.inline.ChosenInlineResult
- 
 
 class ChosenInlineResultUnpackerParser : UnpackerParser<ChosenInlineResultReceiver, ChosenInlineResult>() {
     override val updateUnpacker: UpdateUnpacker<ChosenInlineResult>

@@ -5,7 +5,6 @@ import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filte
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.finder.Finder
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl.LongValidator
- 
 
 class LongFilterParser :
     FilterParser<LongFilter, Long> {
@@ -20,5 +19,4 @@ class LongFilterParser :
             annotation.greatOrEqual
         )
     }
-
 }

@@ -5,7 +5,6 @@ import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filte
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.finder.Finder
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl.FloatValidator
- 
 
 class FloatFilterParser :
     FilterParser<FloatFilter, Float> {
@@ -21,5 +20,4 @@ class FloatFilterParser :
             annotation.equal
         )
     }
-
 }

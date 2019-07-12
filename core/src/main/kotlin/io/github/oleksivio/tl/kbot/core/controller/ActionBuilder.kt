@@ -57,6 +57,7 @@ typealias ActionCreate<RES> = () -> Action<RES>
  * ```
  */
 interface ActionBuilder {
+
     /**
      * @param initBlock - Action initializer which create [ActionCreate]
      *
@@ -76,6 +77,7 @@ interface ActionBuilder {
  * [ActionSend] interface for send telegram api action
  */
 interface ActionSend<RES> {
+
     /**
      * Send action
      *
@@ -89,6 +91,7 @@ interface ActionSend<RES> {
  * or send telegram api action
  */
 interface ActionErrorListener<RES> {
+
     /**
      * @param serverErrorListener - [ServerErrorListener] used for
      *

@@ -58,5 +58,4 @@ annotation class Session(val value: SessionType) {
     @Retention
     @Target(AnnotationTarget.FUNCTION)
     annotation class Error(val value: Int)
-
 }

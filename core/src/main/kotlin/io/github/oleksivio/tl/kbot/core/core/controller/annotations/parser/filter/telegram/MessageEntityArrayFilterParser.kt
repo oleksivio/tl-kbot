@@ -1,15 +1,13 @@
 package io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.telegram
 
 import io.github.oleksivio.tl.kbot.core.annotations.filter.composite.MessageEntityArrayFilter
-import io.github.oleksivio.tl.kbot.server.api.objects.std.MessageEntity
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.FilterParser
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.finder.Finder
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl.TypeNameValidator
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl.UnionExtractValidatorList
- 
+import io.github.oleksivio.tl.kbot.server.api.objects.std.MessageEntity
 
-  
 class MessageEntityArrayFilterParser :
     FilterParser<MessageEntityArrayFilter, List<MessageEntity>> {
 
@@ -20,12 +18,13 @@ class MessageEntityArrayFilterParser :
             UnionExtractValidatorList<MessageEntity>()
 
         annotation.validator
-                .map { validatorName -> finder.find(validatorName, MessageEntity::class) }
-                .forEach { validator -> unionExtractValidatorList.add({ it }, validator) }
+            .map { validatorName -> finder.find(validatorName, MessageEntity::class) }
+            .forEach { validator -> unionExtractValidatorList.add({ it }, validator) }
 
         val type = annotation.type
         if (type.isChosen) {
-            unionExtractValidatorList.add({ it.type },
+            unionExtractValidatorList.add(
+                { it.type },
                 TypeNameValidator(type)
             )
         }

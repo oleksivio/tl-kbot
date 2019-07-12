@@ -1,14 +1,15 @@
 package io.github.oleksivio.tl.kbot.server.api.objects.passport.errors
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.github.oleksivio.tl.kbot.server.api.objects.passport.PassportConstants
 import io.github.oleksivio.tl.kbot.server.api.model.type.NamedType
-import java.util.*
+import io.github.oleksivio.tl.kbot.server.api.objects.passport.PassportConstants
+import java.util.ArrayList
 
 /**
  *  [PassportElementErrorFiles](https://core.telegram.org/bots/api/#passportelementerrorfiles)
  */
 class PassportElementErrorFiles : PassportElementError() {
+
     @JsonProperty("source")
     val source: String = "files"
     /**
@@ -23,6 +24,7 @@ class PassportElementErrorFiles : PassportElementError() {
 
     enum class Type constructor(override val typeName: String) :
         NamedType {
+
         UTILITY_BILL(PassportConstants.UTILITY_BILL),
         BANK_STATEMENT(PassportConstants.BANK_STATEMENT),
         RENTAL_AGREENENT(PassportConstants.RENTAL_AGREENENT),
@@ -32,7 +34,5 @@ class PassportElementErrorFiles : PassportElementError() {
         override fun toString(): String {
             return typeName
         }
-
     }
-
 }

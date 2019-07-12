@@ -11,13 +11,14 @@ import io.github.oleksivio.tl.kbot.server.api.objects.std.files.File
  * @see [getFile](https://core.telegram.org/bots/api/#getfile)
  */
 data class GetFile(
-        /**
-         * file_id String  File identifier to get info about
-         */
-        @JsonProperty("file_id")
-        val fileId: String
+    /**
+     * file_id String  File identifier to get info about
+     */
+    @JsonProperty("file_id")
+    val fileId: String
 
 ) : Action<File>() {
+
     @JsonProperty(ApiDict.METHOD_KEY)
     override val method = "getFile"
     @JsonIgnore

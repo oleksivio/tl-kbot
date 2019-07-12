@@ -10,11 +10,11 @@ import io.github.oleksivio.tl.kbot.server.api.model.method.Action
  * @see [deleteStickerFromSet](https://core.telegram.org/bots/api/#deletestickerfromset)
  */
 class DeleteStickerFromSet(
-        /**
-         * sticker String Yes File identifier of the sticker
-         */
-        @JsonProperty(ApiDict.STICKER_KEY)
-        val sticker: String
+    /**
+     * sticker String Yes File identifier of the sticker
+     */
+    @JsonProperty(ApiDict.STICKER_KEY)
+    val sticker: String
 ) : Action<Boolean>() {
 
     @JsonProperty(ApiDict.METHOD_KEY)

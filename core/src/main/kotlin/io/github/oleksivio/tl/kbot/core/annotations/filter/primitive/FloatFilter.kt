@@ -24,4 +24,5 @@ annotation class FloatFilter(
     val lessOrEqual: Float = java.lang.Float.MAX_VALUE,
     val greatThan: Float = java.lang.Float.MIN_VALUE,
     val greatOrEqual: Float = java.lang.Float.MIN_VALUE,
-    val equal: Float = java.lang.Float.NaN)
+    val equal: Float = java.lang.Float.NaN
+)

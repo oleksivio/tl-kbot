@@ -3,7 +3,6 @@ package io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.unpa
 import io.github.oleksivio.tl.kbot.core.annotations.receiver.ShippingQueryReceiver
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.unpack.UpdateUnpacker
 import io.github.oleksivio.tl.kbot.server.api.objects.payments.ShippingQuery
- 
 
 class ShippingQueryUnpackerParser : UnpackerParser<ShippingQueryReceiver, ShippingQuery>() {
     override val updateUnpacker: UpdateUnpacker<ShippingQuery>

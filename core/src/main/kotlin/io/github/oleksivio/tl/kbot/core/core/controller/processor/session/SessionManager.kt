@@ -1,12 +1,13 @@
 package io.github.oleksivio.tl.kbot.core.core.controller.processor.session
 
-import io.github.oleksivio.tl.kbot.server.api.objects.Update
-import io.github.oleksivio.tl.kbot.core.model.result.HandlerResult
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.Handler
+import io.github.oleksivio.tl.kbot.core.model.result.HandlerResult
+import io.github.oleksivio.tl.kbot.server.api.objects.Update
 
-abstract class SessionManager(private val orderManager: OrderManager,
-                              private val initialHandler: Handler<*>,
-                              private val cancelHandler: Handler<*>
+abstract class SessionManager(
+    private val orderManager: OrderManager,
+    private val initialHandler: Handler<*>,
+    private val cancelHandler: Handler<*>
 ) {
 
     fun init(update: Update): HandlerResult {
@@ -21,7 +22,6 @@ abstract class SessionManager(private val orderManager: OrderManager,
         }
 
         return HandlerResult.pass()
-
     }
 
     protected abstract fun getIdOptional(update: Update): Long?
@@ -62,5 +62,4 @@ abstract class SessionManager(private val orderManager: OrderManager,
         val id = getIdOptional(update) ?: return false
         return orderManager.isActive(id)
     }
-
 }

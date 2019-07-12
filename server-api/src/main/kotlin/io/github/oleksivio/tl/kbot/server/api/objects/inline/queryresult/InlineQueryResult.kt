@@ -1,8 +1,8 @@
 package io.github.oleksivio.tl.kbot.server.api.objects.inline.queryresult
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.github.oleksivio.tl.kbot.server.api.objects.std.keyboard.InlineKeyboardMarkup
 import io.github.oleksivio.tl.kbot.server.api.model.ITelegram
+import io.github.oleksivio.tl.kbot.server.api.objects.std.keyboard.InlineKeyboardMarkup
 
 abstract class InlineQueryResult : ITelegram {
     /**

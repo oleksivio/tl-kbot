@@ -2,8 +2,10 @@ package io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl
 
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
 
-class IntegerValidator(private val lessThan: Int, private val lessOrEqual: Int,
-                       private val moreThan: Int, private val moreOrEqual: Int) :
+class IntegerValidator(
+    private val lessThan: Int, private val lessOrEqual: Int,
+    private val moreThan: Int, private val moreOrEqual: Int
+) :
     Validator<Int> {
 
     override fun invoke(checkedValue: Int): Boolean {
@@ -12,5 +14,4 @@ class IntegerValidator(private val lessThan: Int, private val lessOrEqual: Int,
                 && checkedValue > moreThan
                 && checkedValue >= moreOrEqual
     }
-
 }

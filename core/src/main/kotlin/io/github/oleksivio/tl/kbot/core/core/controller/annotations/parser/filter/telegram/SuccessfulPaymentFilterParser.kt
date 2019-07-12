@@ -1,14 +1,12 @@
 package io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.telegram
 
 import io.github.oleksivio.tl.kbot.core.annotations.filter.composite.SuccessfulPaymentFilter
-import io.github.oleksivio.tl.kbot.server.api.objects.payments.SuccessfulPayment
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.filter.FilterParser
 import io.github.oleksivio.tl.kbot.core.core.controller.annotations.parser.finder.Finder
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl.UnionExtractValidator
- 
+import io.github.oleksivio.tl.kbot.server.api.objects.payments.SuccessfulPayment
 
-  
 class SuccessfulPaymentFilterParser :
     FilterParser<SuccessfulPaymentFilter, SuccessfulPayment> {
 
@@ -19,8 +17,8 @@ class SuccessfulPaymentFilterParser :
             UnionExtractValidator<SuccessfulPayment>()
 
         annotation.validator
-                .map { validatorName -> finder.find(validatorName, SuccessfulPayment::class) }
-                .forEach { validator -> unionExtractValidator.add({ it }, validator) }
+            .map { validatorName -> finder.find(validatorName, SuccessfulPayment::class) }
+            .forEach { validator -> unionExtractValidator.add({ it }, validator) }
 
         val currency = annotation.currency
         if (currency.status.isActive) {
@@ -53,6 +51,5 @@ class SuccessfulPaymentFilterParser :
 
         return unionExtractValidator
     }
-
 }
 

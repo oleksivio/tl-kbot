@@ -2,7 +2,7 @@ package io.github.oleksivio.tl.kbot.core.core.controller.handler.check.impl
 
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.check.Validator
 import io.github.oleksivio.tl.kbot.core.core.controller.handler.unpack.UnpackerFunction
-import java.util.*
+import java.util.ArrayList
 
 class UnionExtractValidator<T> : Validator<T> {
     override fun invoke(checkedValue: T): Boolean {
@@ -19,5 +19,4 @@ class UnionExtractValidator<T> : Validator<T> {
             )
         )
     }
-
 }
