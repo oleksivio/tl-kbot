@@ -1,3 +1,3 @@
 rootProject.name = "tl-kbot"
 
-include(":server-api")
+include("server-api", "core","spring")
