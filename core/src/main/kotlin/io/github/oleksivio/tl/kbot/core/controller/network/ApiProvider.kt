@@ -6,7 +6,7 @@ import io.github.oleksivio.tl.kbot.server.api.model.method.Action
 private const val TELEGRAM_SERVER_URL = "https://api.telegram.org/bot"
 private const val URL_SEPARATOR = '/'
 
-abstract class Networker(token: String) {
+abstract class ApiProvider(token: String) {
 
     val url: String = TELEGRAM_SERVER_URL + token + URL_SEPARATOR
 

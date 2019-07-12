@@ -4,16 +4,16 @@ import io.github.oleksivio.tl.kbot.core.controller.ActionBuilder
 import io.github.oleksivio.tl.kbot.core.controller.ActionCreate
 import io.github.oleksivio.tl.kbot.core.controller.ActionErrorListener
 import io.github.oleksivio.tl.kbot.core.controller.ActionSend
-import io.github.oleksivio.tl.kbot.core.controller.network.Networker
+import io.github.oleksivio.tl.kbot.core.controller.network.ApiProvider
 import io.github.oleksivio.tl.kbot.core.controller.network.ServerErrorListener
 import io.github.oleksivio.tl.kbot.server.api.model.method.Action
 
-data class ActionHolder<RES>(val networker: Networker, val action: Action<RES>) :
+data class ActionHolder<RES>(val apiProvider: ApiProvider, val action: Action<RES>) :
     ActionErrorListener<RES>,
     ActionSend<RES> {
 
     override fun send(): RES? {
-        return networker.send(action, serverErrorListenerListener)
+        return apiProvider.send(action, serverErrorListenerListener)
     }
 
     override fun errorListener(serverErrorListener: ServerErrorListener): ActionSend<RES> {
@@ -24,7 +24,7 @@ data class ActionHolder<RES>(val networker: Networker, val action: Action<RES>) 
     var serverErrorListenerListener: ServerErrorListener = {}
 }
 
-class ActionBuilderImpl(private val networkRequester: Networker) :
+class ActionBuilderImpl(private val networkRequester: ApiProvider) :
     ActionBuilder {
 
     override fun <RES> action(action: Action<RES>): ActionErrorListener<RES> {

@@ -1,7 +1,7 @@
 package io.github.oleksivio.tl.kbot.spring
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import io.github.oleksivio.tl.kbot.core.controller.network.Networker
+import io.github.oleksivio.tl.kbot.core.controller.network.ApiProvider
 import io.github.oleksivio.tl.kbot.core.controller.network.ServerErrorListener
 import io.github.oleksivio.tl.kbot.core.model.ErrorResponse
 import io.github.oleksivio.tl.kbot.server.api.model.CommonResponse
@@ -18,7 +18,7 @@ import java.io.IOException
  * Project: telegram-bot-api
  */
 
-open class NetworkerImpl(token: String) : Networker(token) {
+open class ApiProviderImpl(token: String) : ApiProvider(token) {
 
     override fun <RES> send(action: Action<RES>, serverErrorListener: ServerErrorListener): RES? {
         val commonResponse = run {
@@ -33,7 +33,7 @@ open class NetworkerImpl(token: String) : Networker(token) {
         return commonResponse?.get()
     }
 
-    private val LOG = LoggerFactory.getLogger(NetworkerImpl::class.java)
+    private val LOG = LoggerFactory.getLogger(ApiProviderImpl::class.java)
 
     private val template = RestTemplate()
 

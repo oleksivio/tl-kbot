@@ -11,7 +11,6 @@ class AnnotationProcessor(
 ) {
 
     fun add(obj: Any) {
-
         val objClz = obj::class
 
         // if we find annotation on Java Lambda classes - kotlin reflection throw Exception
