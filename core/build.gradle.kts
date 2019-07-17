@@ -1,24 +1,16 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     kotlin("jvm")
+    id("nebula.javadoc-jar")
+    id("nebula.source-jar")
 }
 
-
-repositories {
-    mavenCentral()
-}
+val versionInfo: VersionInfo by rootProject.loadVersionInfo()
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
-    implementation(kotlin(module="reflect", version="1.3.41"))
+    implementation(kotlin("reflect"))
 
     implementation(project(":server-api"))
 
-    implementation("org.slf4j:slf4j-api:1.7.26")
+    implementation("org.slf4j:slf4j-api:${versionInfo.sl4jVersion}")
 }
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "11"
-}
-
