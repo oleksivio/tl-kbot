@@ -1,9 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-repositories {
-    mavenCentral()
-}
-
 plugins {
     val kotlinVersion = "1.3.41"
     kotlin("jvm") version (kotlinVersion)
@@ -32,14 +28,7 @@ tasks {
     }
 }
 
-/**
- * Configuration for publish library
- */
-val publishConfiguration: (Project).() -> Unit = {
-
-    apply(plugin = "nebula.maven-publish")
-    apply(plugin = "signing")
-
+allprojects {
     repositories {
         mavenCentral()
     }
@@ -47,6 +36,15 @@ val publishConfiguration: (Project).() -> Unit = {
     tasks.withType<KotlinCompile> {
         kotlinOptions.jvmTarget = "11"
     }
+}
+
+/**
+ * Configuration for publish library
+ */
+val publishConfiguration: (Project).() -> Unit = {
+
+    apply(plugin = "nebula.maven-publish")
+    apply(plugin = "signing")
 
     val uploadUsernameProp: String? by project
     val uploadPasswordProp: String? by project

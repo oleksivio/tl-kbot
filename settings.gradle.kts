@@ -1,1 +1,1 @@
-include("server-api", "core", "spring")
+include("server-api", "core", "spring", "samples:spring-bot")

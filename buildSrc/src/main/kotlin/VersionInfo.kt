@@ -15,6 +15,3 @@ fun Project.loadVersionInfo(): Lazy<VersionInfo> {
         extensions.extraProperties["versionInfo"] as VersionInfo
     }
 }
-
-
-

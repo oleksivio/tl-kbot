@@ -8,7 +8,7 @@ private const val URL_SEPARATOR = '/'
 
 abstract class ApiProvider(token: String) {
 
-    val url: String = TELEGRAM_SERVER_URL + token + URL_SEPARATOR
+    val url = TELEGRAM_SERVER_URL + token + URL_SEPARATOR
 
     abstract fun <RES> send(action: Action<RES>, serverErrorListener: ServerErrorListener): RES?
 }

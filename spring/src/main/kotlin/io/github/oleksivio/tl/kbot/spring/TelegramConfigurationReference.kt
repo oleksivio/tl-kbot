@@ -20,7 +20,7 @@ import org.springframework.context.annotation.Configuration
  */
 @Configuration
 @ComponentScan(
-    "io.github.oleksivio.tl.kbot.spring.boot"
+    "io.github.oleksivio.tl.kbot.spring"
 )
 class TelegramConfigurationReference
 

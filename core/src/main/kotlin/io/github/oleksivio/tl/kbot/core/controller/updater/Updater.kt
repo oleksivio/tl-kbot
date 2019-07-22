@@ -25,7 +25,7 @@ class Updater(
         }
     }
 
-    fun setErrorListener(listener: UpdateErrorListener) {
+    override fun setErrorListener(listener: UpdateErrorListener) {
         this.updateErrorListener = listener
     }
 }
