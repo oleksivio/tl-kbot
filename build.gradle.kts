@@ -20,6 +20,9 @@ group = "io.github.oleksivio.tl.kbot"
 
 initVersionInfo { sl4jVersion = "1.7.26" }
 
+/**
+ * disable publish task in root project
+ */
 tasks {
     withType<PublishToMavenLocal> {
         enabled = false
@@ -29,7 +32,10 @@ tasks {
     }
 }
 
-subprojects {
+/**
+ * Configuration for publish library
+ */
+val publishConfiguration: (Project).() -> Unit = {
 
     apply(plugin = "nebula.maven-publish")
     apply(plugin = "signing")
@@ -100,3 +106,7 @@ subprojects {
         }
     }
 }
+
+project(":server-api", publishConfiguration)
+project(":core", publishConfiguration)
+project(":spring", publishConfiguration)

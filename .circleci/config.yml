@@ -21,7 +21,7 @@ jobs:
             - ~/.gradle
           key: gradle-{{ checksum "build.gradle.kts" }}
 
- 
+
   build:
     docker:
       - image: circleci/openjdk:11.0
