@@ -3,10 +3,9 @@ plugins {
     id("nebula.javadoc-jar")
     id("nebula.source-jar")
 
-    val kotlinVersion = "1.3.41"
     id("org.springframework.boot") version "2.1.6.RELEASE"
-    id("org.jetbrains.kotlin.plugin.spring") version kotlinVersion
-    id("org.jetbrains.kotlin.plugin.jpa") version kotlinVersion
+    id("org.jetbrains.kotlin.plugin.spring") 
+    id("org.jetbrains.kotlin.plugin.jpa")
     id("io.spring.dependency-management") version "1.0.8.RELEASE"
 
     application

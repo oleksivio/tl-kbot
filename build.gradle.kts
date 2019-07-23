@@ -1,8 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    val kotlinVersion = "1.3.41"
-    kotlin("jvm") version (kotlinVersion)
+    kotlin("jvm")
     id("org.jlleitschuh.gradle.ktlint") version "8.1.0"
 
     id("nebula.release") version "10.1.2"
@@ -108,3 +107,4 @@ val publishConfiguration: (Project).() -> Unit = {
 project(":server-api", publishConfiguration)
 project(":core", publishConfiguration)
 project(":spring", publishConfiguration)
+project(":micronaut", publishConfiguration)

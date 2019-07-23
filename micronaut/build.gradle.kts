@@ -5,22 +5,23 @@ plugins {
 
     base
     
-    id("org.jetbrains.kotlin.plugin.spring")
+    id("org.jetbrains.kotlin.kapt") 
+    id("org.jetbrains.kotlin.plugin.allopen")
 }
 
 val versionInfo: VersionInfo by rootProject.loadVersionInfo()
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
+    implementation(kotlin("reflect"))
     // library dependencies
     api(project(":core"))
     api(project(":server-api"))
     // logger api
     implementation("org.slf4j:slf4j-api:${versionInfo.sl4jVersion}")
-    // Spring dependencies
-    val springVersion = "5.1.5.RELEASE"
-    compileOnly("org.springframework:spring-core:$springVersion")
-    compileOnly("org.springframework:spring-context:$springVersion")
-    compileOnly("org.springframework:spring-beans:$springVersion")
-    compileOnly("org.springframework:spring-web:$springVersion")
+    // Micronaut dependencies
+    compile("io.micronaut:micronaut-inject:1.1.4")
+    compile("io.micronaut:micronaut-http-client:1.1.4")
+    compileOnly("io.micronaut:micronaut-inject-java:1.1.4")
+    kapt("io.micronaut:micronaut-inject-java:1.1.4")
 }

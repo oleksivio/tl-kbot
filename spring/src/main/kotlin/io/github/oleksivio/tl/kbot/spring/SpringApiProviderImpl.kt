@@ -6,14 +6,17 @@ import io.github.oleksivio.tl.kbot.core.controller.network.ServerErrorListener
 import io.github.oleksivio.tl.kbot.core.model.ErrorResponse
 import io.github.oleksivio.tl.kbot.server.api.model.method.Action
 import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Value
+import org.springframework.stereotype.Component
 import org.springframework.web.client.HttpClientErrorException
 import org.springframework.web.client.RestClientException
 import org.springframework.web.client.RestTemplate
 import java.io.IOException
 
-open class ApiProviderImpl(token: String) : ApiProvider(token) {
+@Component
+class SpringApiProviderImpl(@Value("\${telegram.bot.token}") token: String) : ApiProvider(token) {
 
-    private val LOG = LoggerFactory.getLogger(ApiProviderImpl::class.java)
+    private val LOG = LoggerFactory.getLogger(SpringApiProviderImpl::class.java)
 
     private val template = RestTemplate()
 

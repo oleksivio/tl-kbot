@@ -4,28 +4,21 @@ import io.github.oleksivio.tl.kbot.core.controller.BotBeanController
 import io.github.oleksivio.tl.kbot.core.controller.BotContextController
 import io.github.oleksivio.tl.kbot.core.controller.TelegramUpdater
 import io.github.oleksivio.tl.kbot.core.controller.UpdateErrorListener
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-class CoreConfiguration {
-
-
+class SpringCoreConfiguration {
+    
     @Bean
     fun botBeanController(botContextController: BotContextController): BotBeanController {
         return BotBeanController(botContextController)
     }
-
+    
     @Bean
-    fun apiProviderProvider(@Value("\${telegram.bot.token}") token: String): ApiProviderImpl {
-        return ApiProviderImpl(token = token)
-    }
-
-    @Bean
-    fun botContextController(apiImpl: ApiProviderImpl): BotContextController {
-        return BotContextController(apiImpl)
+    fun botContextController(springApiImpl: SpringApiProviderImpl): BotContextController {
+        return BotContextController(springApiImpl)
     }
 
     @Bean
