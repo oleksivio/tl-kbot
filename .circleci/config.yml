@@ -45,8 +45,8 @@ jobs:
           keys:
             - gradle-{{ checksum "build.gradle.kts" }}
       - run: mkdir .signing
-      - run: echo $SIGN_KEYSTORE | base64 -d > .signing/secring.gpg
-      - run: gradle final publishNebulaPublicationToMavenRepository  -Prelease.useLastTag=true -PreleaseBuild=$RELEASE_BUILD -Psigning.secretKeyRingFile=.signing/secring.gpg -Psigning.keyId=$SIGN_KEY_ID -Psigning.password=$SIGN_PASSWORD -PuploadUsernameProp=$UPLOAD_USER -PuploadPasswordProp=$UPLOAD_PASSWORD
+      - run: echo $SIGN_KEYSTORE | base64 -d > /home/circleci/project/.signing/secring.gpg
+      - run: gradle final publishNebulaPublicationToMavenRepository  -Prelease.useLastTag=true -PreleaseBuild=$RELEASE_BUILD -Psigning.secretKeyRingFile=/home/circleci/project/.signing/secring.gpg -Psigning.keyId=$SIGN_KEY_ID -Psigning.password=$SIGN_PASSWORD -PuploadUsernameProp=$UPLOAD_USER -PuploadPasswordProp=$UPLOAD_PASSWORD
       - save_cache:
           paths:
             - ~/.gradle
