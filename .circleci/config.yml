@@ -68,6 +68,7 @@ workflows:
               ignore:
                 - master
                 - dev
+                - /.*/
 
       - upload:
           filters:
