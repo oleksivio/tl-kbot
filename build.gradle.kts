@@ -40,7 +40,10 @@ allprojects {
 /**
  * Configuration for publish library
  */
-val publishConfiguration: (Project).() -> Unit = {
+val publishConfiguration: (Project).(
+    artifactName: String,
+    artifactDescription: String
+) -> Unit = { artifactName, artifactDescription ->
 
     apply(plugin = "nebula.maven-publish")
     apply(plugin = "signing")
@@ -59,10 +62,10 @@ val publishConfiguration: (Project).() -> Unit = {
             getByName<MavenPublication>("nebula") {
                 pom {
 
-                    setDescription("Kotlin spring telegram library")
+                    setDescription(artifactDescription)
 
                     groupId = "io.github.oleksivio.tl.kbot"
-                    name.set("Kotlin spring telegram lib")
+                    name.set(artifactName)
                     url.set("https://github.com/oleksivio/telegram-bot-api")
 
                     licenses {
@@ -104,7 +107,19 @@ val publishConfiguration: (Project).() -> Unit = {
     }
 }
 
-project(":server-api", publishConfiguration)
-project(":core", publishConfiguration)
-project(":spring", publishConfiguration)
-project(":micronaut", publishConfiguration)
+project(":server-api").publishConfiguration(
+    "Telegram Kbot Server Api Module",
+    "Telegram Kbot server api module. Contains telegram objects"
+)
+project(":core").publishConfiguration(
+    "Telegram Kbot Core Module",
+    "Telegram Kbot core module. Contains annotation processing"
+)
+project(":spring").publishConfiguration(
+    "Telegram Kbot Spring Module",
+    "Telegram Kbot spring module. Used to create bot with spring boot"
+)
+project(":micronaut").publishConfiguration(
+    "Telegram Kbot Micronaut Module",
+    "Telegram Kbot micronaut module. Used to create bot with micronaut"
+)
