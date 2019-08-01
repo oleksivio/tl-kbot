@@ -1,40 +1,12 @@
 # Telegram Bot API
 
-Spring library for easy creating telegram bot's 
+Kotlin library for easy creating telegram bot's 
 
-[master: ![CircleCI](https://circleci.com/gh/oleksivio/telegram-bot-api/tree/master.svg?style=svg)](https://circleci.com/gh/oleksivio/telegram-bot-api/tree/master)
+Support spring and micronaut frameworks. Could be used without any framework
 
-[dev: ![CircleCI](https://circleci.com/gh/oleksivio/telegram-bot-api/tree/dev.svg?style=svg)](https://circleci.com/gh/oleksivio/telegram-bot-api/tree/dev)
+[master: ![CircleCI](https://circleci.com/gh/oleksivio/tl-kbot/tree/master.svg?style=svg)](https://circleci.com/gh/oleksivio/tl-kbot/tree/master)
 
-## Getting Started
-
-Add to you dependencies: 
-
-Gradle:
-```
-implementation("io.github.oleksivio:telegram-bot-api:1.4.1")
-```
-Maven: 
-```
-<dependency>
-  <groupId>io.github.oleksivio</groupId>
-  <artifactId>telegram-bot-api</artifactId>
-  <version>1.4.1</version>
-</dependency>
-```
-
-Add to spring `application.properties`
-```
-telegram.bot.token=<TELEGRAM_BOT_TOKEN>
-```
-
-Added to Spring `@SpringBootApplication` class:
-
-```kotlin
-@Import(TelegramConfigurationReference::class)
-```
-
-[Documentation](doc/telegram-bot-api/index.md)
+[dev: ![CircleCI](https://circleci.com/gh/oleksivio/tl-kbot/tree/dev.svg?style=svg)](https://circleci.com/gh/oleksivio/tl-kbot/tree/dev)
 
 ## Versioning
 
