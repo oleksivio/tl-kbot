@@ -9,8 +9,8 @@ import io.github.oleksivio.tl.kbot.core.model.annotation.SessionType
  * Annotation to mark class as session.
  *
  * When bot receive update which passed all
- *  [primitive][io.github.oleksivio.telegram.bot.api.annotations.filter.primitive] and
- *  [composite][io.github.oleksivio.telegram.bot.api.annotations.filter.composite] filters
+ *  [primitive][io.github.oleksivio.tl.kbot.core.annotations.filter.primitive] and
+ *  [composite][io.github.oleksivio.tl.kbot.core.annotations.filter.composite] filters
  *  to method annotated by [Session.Initial] session class marked as active and
  *  all next updates will be received only by this session class.
  *
@@ -21,8 +21,8 @@ import io.github.oleksivio.tl.kbot.core.model.annotation.SessionType
  *  - else session will be wait valid message with no response.
  *
  *  When bot receive update which passed all
- *  [primitive][io.github.oleksivio.telegram.bot.api.annotations.filter.primitive] and
- *  [composite][io.github.oleksivio.telegram.bot.api.annotations.filter.composite] filters
+ *  [primitive][io.github.oleksivio.tl.kbot.core.annotations.filter.primitive] and
+ *  [composite][io.github.oleksivio.tl.kbot.core.annotations.filter.composite] filters
  *   to method annotated by [Session.Cancel] session class market as inactive and
  *   bot return to normal mode
  *

@@ -14,3 +14,5 @@ dependencies {
     // logger api
     implementation("org.slf4j:slf4j-api:${versionInfo.sl4jVersion}")
 }
+
+dokkaDependency(project(":server-api"))

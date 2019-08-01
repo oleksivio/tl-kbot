@@ -26,7 +26,7 @@ data class Update(
     @JsonProperty("update_id")
     var updateId: Long = 0,
     /**
-     *  [io.github.oleksivio.telegram.bot.api.annotations.receiver.MessageReceiver] for create receiver
+     *  [io.github.oleksivio.tl.kbot.core.annotations.receiver.MessageReceiver] for create receiver
      *
      *  Use [MessageFilter] for setup filter message
      *
@@ -37,7 +37,7 @@ data class Update(
     @JsonProperty("message")
     var message: Message? = null,
     /**
-     *  [io.github.oleksivio.telegram.bot.api.annotations.receiver.EditedMessageReceiver] for create receiver
+     *  [io.github.oleksivio.tl.kbot.core.annotations.receiver.EditedMessageReceiver] for create receiver
      *
      *  [MessageFilter] for setup filter edited_message
      *
@@ -48,7 +48,7 @@ data class Update(
     @JsonProperty("edited_message")
     var editedMessage: Message? = null,
     /**
-     *  [io.github.oleksivio.telegram.bot.api.annotations.receiver.ChannelPostReceiver] for create receiver
+     *  [io.github.oleksivio.tl.kbot.core.annotations.receiver.ChannelPostReceiver] for create receiver
      *
      * Use [MessageFilter] for setup filter channel_post
      *
@@ -59,7 +59,7 @@ data class Update(
     @JsonProperty("channel_post")
     var channelPost: Message? = null,
     /**
-     *  [io.github.oleksivio.telegram.bot.api.annotations.receiver.EditedChannelPostReceiver] for create receiver
+     *  [io.github.oleksivio.tl.kbot.core.annotations.receiver.EditedChannelPostReceiver] for create receiver
      *
      *  Use [MessageFilter] for setup filter edited_channel_post
      *
@@ -70,9 +70,9 @@ data class Update(
     @JsonProperty("edited_channel_post")
     var editedChannelPost: Message? = null,
     /**
-     *  [io.github.oleksivio.telegram.bot.api.annotations.receiver.InlineQueryReceiver] for create receiver
+     *  [io.github.oleksivio.tl.kbot.core.annotations.receiver.InlineQueryReceiver] for create receiver
      *
-     * [io.github.oleksivio.telegram.bot.api.annotations.filter.composite.InlineQueryFilter] for setup filter inline_query
+     * [io.github.oleksivio.tl.kbot.core.annotations.filter.composite.InlineQueryFilter] for setup filter inline_query
      *
      * InlineQueryText
      *
@@ -81,9 +81,9 @@ data class Update(
     @JsonProperty("inline_query")
     var inlineQuery: InlineQuery? = null,
     /**
-     *  [io.github.oleksivio.telegram.bot.api.annotations.receiver.ChosenInlineResultReceiver] for create receiver
+     *  [io.github.oleksivio.tl.kbot.core.annotations.receiver.ChosenInlineResultReceiver] for create receiver
      *
-     *  [io.github.oleksivio.telegram.bot.api.annotations.filter.composite.ChosenInlineResultFilter] for setup filter chosen_inline_result
+     *  [io.github.oleksivio.tl.kbot.core.annotations.filter.composite.ChosenInlineResultFilter] for setup filter chosen_inline_result
      *
      * [ChosenInlineResult]
      *
@@ -92,9 +92,9 @@ data class Update(
     @JsonProperty("chosen_inline_result")
     var chosenInlineResult: ChosenInlineResult? = null,
     /**
-     *  [io.github.oleksivio.telegram.bot.api.annotations.receiver.ShippingQueryReceiver] for create receiver
+     *  [io.github.oleksivio.tl.kbot.core.annotations.receiver.ShippingQueryReceiver] for create receiver
      *
-     *  [io.github.oleksivio.telegram.bot.api.annotations.filter.composite.ShippingQueryFilter] for setup filter callback_query
+     *  [io.github.oleksivio.tl.kbot.core.annotations.filter.composite.ShippingQueryFilter] for setup filter callback_query
      *
      * CallbackQuery
      *
@@ -103,10 +103,10 @@ data class Update(
     @JsonProperty("callback_query")
     var callbackQuery: CallbackQuery? = null,
     /**
-     *  [io.github.oleksivio.telegram.bot.api.annotations.receiver.ShippingQueryReceiver]
+     *  [io.github.oleksivio.tl.kbot.core.annotations.receiver.ShippingQueryReceiver]
      *  for create receiver
      *
-     *  [io.github.oleksivio.telegram.bot.api.annotations.filter.composite.ShippingQueryFilter]
+     *  [io.github.oleksivio.tl.kbot.core.annotations.filter.composite.ShippingQueryFilter]
      *  for setup filter shipping_query
      *
      * ShippingQuery
@@ -117,9 +117,9 @@ data class Update(
     @JsonProperty("shipping_query")
     var shippingQuery: ShippingQuery? = null,
     /**
-     *  [io.github.oleksivio.telegram.bot.api.annotations.receiver.PreCheckoutQueryReceiver] for create receiver
+     *  [io.github.oleksivio.tl.kbot.core.annotations.receiver.PreCheckoutQueryReceiver] for create receiver
      *
-     *  [io.github.oleksivio.telegram.bot.api.annotations.filter.composite.PreCheckoutQueryFilter]
+     *  [io.github.oleksivio.tl.kbot.core.annotations.filter.composite.PreCheckoutQueryFilter]
      *  for setup filter pre_checkout_query
      *
      *

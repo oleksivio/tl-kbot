@@ -2,7 +2,7 @@ package io.github.oleksivio.tl.kbot.core.model.result
 
 /**
  * Used to return result from receiver functions.
- * For example when in [Session][io.github.oleksivio.telegram.bot.api.annotations.behavior.Session] annotated class
+ * For example when in [Session][io.github.oleksivio.tl.kbot.core.annotations.behavior.Session] annotated class
  * rises error with [HandlerResult.error] you can invoke error handler
  */
 class HandlerResult private constructor(private val state: ResultState) {
@@ -56,8 +56,8 @@ class HandlerResult private constructor(private val state: ResultState) {
 
         /**
          * Receiver function result to invoke
-         * [Session.Error][io.github.oleksivio.telegram.bot.api.annotations.behavior.Session.Error]
-         * in [Session][io.github.oleksivio.telegram.bot.api.annotations.behavior.Session]
+         * [Session.Error][io.github.oleksivio.tl.kbot.core.annotations.behavior.Session.Error]
+         * in [Session][io.github.oleksivio.tl.kbot.core.annotations.behavior.Session]
          * annotated class
          */
         fun error(): HandlerResult {
@@ -66,7 +66,7 @@ class HandlerResult private constructor(private val state: ResultState) {
 
         /**
          * Receiver function result to deactivate
-         * [Session][io.github.oleksivio.telegram.bot.api.annotations.behavior.Session]
+         * [Session][io.github.oleksivio.tl.kbot.core.annotations.behavior.Session]
          * annotated class
          */
         fun cancelSession(): HandlerResult {

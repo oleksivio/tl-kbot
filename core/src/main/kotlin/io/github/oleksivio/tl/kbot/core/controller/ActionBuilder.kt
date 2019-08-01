@@ -17,22 +17,22 @@ typealias ActionCreate<RES> = () -> Action<RES>
  *
  * For example:
  *
- * [SendMessage][io.github.oleksivio.telegram.bot.api.model.method.message.SendMessage] object action
+ * [SendMessage][io.github.oleksivio.tl.kbot.server.api.method.message.SendMessage] object action
  * are used for call [SendMessage](https://core.telegram.org/bots/api/#sendmessage) telegram method.
  *
  * All actions are located in next packages:
- * - [notify][io.github.oleksivio.telegram.bot.api.model.method.notify]
- * - [file][io.github.oleksivio.telegram.bot.api.model.method.file]
- * - [game][io.github.oleksivio.telegram.bot.api.model.method.game]
- * - [group][io.github.oleksivio.telegram.bot.api.model.method.group]
- * - [info][io.github.oleksivio.telegram.bot.api.model.method.info]
- * - [inline][io.github.oleksivio.telegram.bot.api.model.method.inline]
- * - [location][io.github.oleksivio.telegram.bot.api.model.method.location]
- * - [message][io.github.oleksivio.telegram.bot.api.model.method.message]
- * - [passport][io.github.oleksivio.telegram.bot.api.model.method.passport]
- * - [payments][io.github.oleksivio.telegram.bot.api.model.method.payments]
- * - [sticker][io.github.oleksivio.telegram.bot.api.model.method.sticker]
- * - [update][io.github.oleksivio.telegram.bot.api.model.method.update]
+ * - [notify][io.github.oleksivio.tl.kbot.server.api.method.notify]
+ * - [file][io.github.oleksivio.tl.kbot.server.api.method.file]
+ * - [game][io.github.oleksivio.tl.kbot.server.api.method.game]
+ * - [group][io.github.oleksivio.tl.kbot.server.api.method.group]
+ * - [info][io.github.oleksivio.tl.kbot.server.api.method.info]
+ * - [inline][io.github.oleksivio.tl.kbot.server.api.method.inline]
+ * - [location][io.github.oleksivio.tl.kbot.server.api.method.location]
+ * - [message][io.github.oleksivio.tl.kbot.server.api.method.message]
+ * - [passport][io.github.oleksivio.tl.kbot.server.api.method.passport]
+ * - [payments][io.github.oleksivio.tl.kbot.server.api.method.payments]
+ * - [sticker][io.github.oleksivio.tl.kbot.server.api.method.sticker]
+ * - [update][io.github.oleksivio.tl.kbot.server.api.method.update]
  *
  * [ActionBuilder] interface for create telegram api action.
  *

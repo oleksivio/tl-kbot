@@ -1,11 +1,16 @@
+
+import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm")
     id("org.jlleitschuh.gradle.ktlint") version "8.1.0"
 
-    id("nebula.release") version "10.1.2"
-    id("nebula.maven-publish") version ("10.0.1")
+    // documentation generator
+    id("org.jetbrains.dokka")
+
+    id("nebula.release") version "11.1.0"
+    id("nebula.maven-publish")
     signing
 
     base
@@ -28,8 +33,12 @@ tasks {
 }
 
 allprojects {
+
+    apply(plugin = "org.jetbrains.dokka")
+
     repositories {
         mavenCentral()
+        jcenter()
     }
 
     tasks.withType<KotlinCompile> {
@@ -37,89 +46,35 @@ allprojects {
     }
 }
 
-/**
- * Configuration for publish library
- */
-val publishConfiguration: (Project).(
-    artifactName: String,
-    artifactDescription: String
-) -> Unit = { artifactName, artifactDescription ->
+tasks.withType<DokkaTask> {
+    outputFormat = "gfm"
+    outputDirectory = "$buildDir/doc"
 
-    apply(plugin = "nebula.maven-publish")
-    apply(plugin = "signing")
-
-    val uploadUsernameProp: String? by project
-    val uploadPasswordProp: String? by project
-    val releaseBuild: String? by project
-
-    signing {
-        isRequired = releaseBuild?.toBoolean() ?: false
-        sign(publishing.publications["nebula"])
+    packageOptions {
+        prefix = "io.github.oleksivio.tl.kbot"
+        suppress = true
     }
 
-    publishing {
-        publications {
-            getByName<MavenPublication>("nebula") {
-                pom {
-
-                    setDescription(artifactDescription)
-
-                    groupId = "io.github.oleksivio.tl.kbot"
-                    name.set(artifactName)
-                    url.set("https://github.com/oleksivio/telegram-bot-api")
-
-                    licenses {
-                        license {
-                            name.set("The Apache License, Version 2.0")
-                            url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
-                        }
-                    }
-                    scm {
-                        connection.set("scm:git:git://github.com/oleksivio/telegram-bot-api.git")
-                        developerConnection.set("scm:git:ssh://github.com/oleksivio/telegram-bot-api.git")
-                        url.set("http://github.com/oleksivio/telegram-bot-api/")
-                    }
-                    developers {
-                        developer {
-                            id.set("oleksivio")
-                            name.set("Ilia Oleksiv")
-                            email.set("ilia.oleksiv@gmail.com")
-                        }
-                    }
-                }
-            }
-        }
-        repositories {
-            maven {
-                credentials {
-                    username = uploadUsernameProp
-                    password = uploadPasswordProp
-
-                    username ?: println("Upload USERNAME not set")
-                    password ?: println("Upload PASSWORD not set")
-                }
-
-                val releasesRepoUrl = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2")
-                val snapshotsRepoUrl = uri("https://oss.sonatype.org/content/repositories/snapshots/")
-                url = if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl
-            }
-        }
+    kotlinTasks {
+        defaultKotlinTasks() + listOf(":server-api", ":core", ":spring", ":micronaut")
+            .map { "$it:compileKotlin" }
     }
 }
 
-project(":server-api").publishConfiguration(
-    "Telegram Kbot Server Api Module",
-    "Telegram Kbot server api module. Contains telegram objects"
-)
-project(":core").publishConfiguration(
-    "Telegram Kbot Core Module",
-    "Telegram Kbot core module. Contains annotation processing"
-)
-project(":spring").publishConfiguration(
-    "Telegram Kbot Spring Module",
-    "Telegram Kbot spring module. Used to create bot with spring boot"
-)
-project(":micronaut").publishConfiguration(
-    "Telegram Kbot Micronaut Module",
-    "Telegram Kbot micronaut module. Used to create bot with micronaut"
-)
+project(":server-api").publishingKbot {
+    name = "Telegram Kbot Server Api Module"
+    description = "Telegram Kbot server api module. Contains telegram objects"
+}
+
+project(":core").publishingKbot {
+    name = "Telegram Kbot Core Module"
+    description = "Telegram Kbot core module. Contains annotation processing"
+}
+project(":spring").publishingKbot {
+    name = "Telegram Kbot Spring Module"
+    description = "Telegram Kbot spring module. Used to create bot with spring boot"
+}
+project(":micronaut").publishingKbot {
+    name = "Telegram Kbot Micronaut Module"
+    description = "Telegram Kbot micronaut module. Used to create bot with micronaut"
+}
