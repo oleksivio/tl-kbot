@@ -1,4 +1,4 @@
-# Telegram Bot API
+# Tl Kbot
 
 Kotlin library for easy creating telegram bot's 
 
